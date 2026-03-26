@@ -1,0 +1,24 @@
+{
+  "name": "stop-spare-a-dime",
+  "version": "1.0.0",
+  "description": "Spring 2026 Comp360 Project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/database/index.js",
+    "test": "node dist/database/test_query.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/pg": "^8.20.0",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "pg": "^8.20.0"
+  }
+}

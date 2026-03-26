@@ -1,0 +1,1 @@
+export const hey = "omg hi!!!";
