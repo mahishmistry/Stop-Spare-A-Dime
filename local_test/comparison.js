@@ -6,8 +6,6 @@ const dataPath = path.join(__dirname, 'strawberries-google-shopping.json');
 const rawData = fs.readFileSync(dataPath, 'utf-8');
 const jsonData = JSON.parse(rawData);
 
-// Retrieve the first 20 items for testing
-const first20Items = jsonData.shopping_results.slice(0, 20);
 
 /*
  * Compare function for shopping items based on specific criteria
@@ -15,13 +13,14 @@ const first20Items = jsonData.shopping_results.slice(0, 20);
  * @param {string} criteria - 'price', 'rating', or 'bang for buck'
  * @returns {Array} - A new array of sorted items, from best to worst
  */
-function compareItems(items, criteria) {
+function compareItems(k, criteria) {
+    const firstKItems = jsonData.shopping_results.slice(0,k)
     if (!['price', 'rating', 'bang for buck'].includes(criteria)) {
         throw new Error("Invalid criteria. Choose 'price', 'rating', or 'bang for buck'.");
     }
 
     // Create a copy to avoid mutating the original array
-    return [...items].sort((a, b) => {
+    return [...firstKItems].sort((a, b) => {
         // Fallback to reasonable defaults if data is missing
         const priceA = a.extracted_price || Infinity;
         const priceB = b.extracted_price || Infinity;
@@ -48,9 +47,9 @@ function compareItems(items, criteria) {
 }
 
 // Example usage to show it works
-// const bestItems = compareItems(first20Items, 'price');
-// const bestItems = compareItems(first20Items, 'rating');
-const bestItems = compareItems(first20Items, 'bang for buck');
+// const bestItems = compareItems(20, 'price');
+// const bestItems = compareItems(20, 'rating');
+const bestItems = compareItems(20, 'bang for buck');
 
 
 console.log("Top 10 best items for your criteria:");
@@ -59,6 +58,5 @@ bestItems.slice(0, 10).forEach(item => {
 });
 
 module.exports = {
-    compareItems,
-    first20Items
+    compareItems
 };
