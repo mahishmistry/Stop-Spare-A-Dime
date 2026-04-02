@@ -55,6 +55,28 @@ const getBestItems = (req, res) => {
     return res.json(bestItems);
 };
 
+/*
+ * Express endpoint to get a specific item by its product_id
+ * Route params:
+ * - item_id: The product_id to search for
+ */
+const getItemById = (req, res) => {
+    const { item_id } = req.params;
+
+    if (!item_id) {
+        return res.status(400).json({ error: "Item ID is required." });
+    }
+
+    const item = jsonData.shopping_results.find(i => i.product_id === item_id);
+
+    if (!item) {
+        return res.status(404).json({ error: "Item not found." });
+    }
+
+    return res.json(item);
+};
+
 module.exports = {
-    getBestItems
+    getBestItems,
+    getItemById
 };
