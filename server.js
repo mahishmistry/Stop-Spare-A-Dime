@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const { getJson } = require('serpapi');
+const { getBestItems } = require('./comparison_logic_test/comparison');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,7 +28,7 @@ app.get('/api/prices', async (req, res) => {
         // Fetch data from SerpApi's Google Shopping engine
         const response = await getJson({
             engine: "google_shopping",
-            q: product,
+            q: `Grocery ${product}`,
             location: zipCode || "United States", 
             hl: "en",
             gl: "us",
@@ -73,6 +74,11 @@ app.get('/api/block', (req, res) => {
     res.json({ blockedStores });
   });
 
+// Endpoint for comparison logic test
+app.get('/api/compare', getBestItems);
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+//Get the comparison logic endpoint
