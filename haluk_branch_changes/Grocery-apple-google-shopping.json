@@ -1,0 +1,1358 @@
+{
+  "search_metadata": {
+    "id": "69c584cca7d7841215c49d9f",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/fJs2W9LH2EWPKTqtZXCJpw/69c584cca7d7841215c49d9f.json",
+    "created_at": "2026-03-26 19:11:08 UTC",
+    "processed_at": "2026-03-26 19:11:08 UTC",
+    "google_shopping_url": "https://www.google.com/search?udm=28&q=Grocery+apple&uule=w+CAIQICIhMDEwMDMsTWFzc2FjaHVzZXR0cyxVbml0ZWQgU3RhdGVz&hl=en&gl=us",
+    "raw_html_file": "https://serpapi.com/searches/fJs2W9LH2EWPKTqtZXCJpw/69c584cca7d7841215c49d9f.html",
+    "total_time_taken": 1.62
+  },
+  "search_parameters": {
+    "engine": "google_shopping",
+    "q": "Grocery apple",
+    "location_requested": "01003",
+    "location_used": "01003,Massachusetts,United States",
+    "google_domain": "google.com",
+    "hl": "en",
+    "gl": "us",
+    "device": "desktop"
+  },
+  "search_information": {
+    "query_displayed": "Grocery apple",
+    "shopping_results_state": "Results for exact spelling"
+  },
+  "shopping_results": [
+    {
+      "position": 1,
+      "title": "Fresh Honeycrisp Apple",
+      "product_id": "3169369917096767498",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:3169369917096767498,headlineOfferDocid:8812722365440622496,imageDocid:15286864744991880759,rds:PC_17870065898956397790|PROD_PC_17870065898956397790,gpcid:17870065898956397790,mid:576462839977746922,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIzMTY5MzY5OTE3MDk2NzY3NDk4IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiODgxMjcyMjM2NTQ0MDYyMjQ5NiIsImltYWdlRG9jaWQiOiIxNTI4Njg2NDc0NDk5MTg4MDc1OSIsInJkcyI6IlBDXzE3ODcwMDY1ODk4OTU2Mzk3NzkwfFBST0RfUENfMTc4NzAwNjU4OTg5NTYzOTc3OTAiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjE3ODcwMDY1ODk4OTU2Mzk3NzkwIiwibWlkIjoiNTc2NDYyODM5OTc3NzQ2OTIyIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIzMTY5MzY5OTE3MDk2NzY3NDk4IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiODgxMjcyMjM2NTQ0MDYyMjQ5NiIsImltYWdlRG9jaWQiOiIxNTI4Njg2NDc0NDk5MTg4MDc1OSIsInJkcyI6IlBDXzE3ODcwMDY1ODk4OTU2Mzk3NzkwfFBST0RfUENfMTc4NzAwNjU4OTg5NTYzOTc3OTAiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjE3ODcwMDY1ODk4OTU2Mzk3NzkwIiwibWlkIjoiNTc2NDYyODM5OTc3NzQ2OTIyIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Walmart",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w-CJTv_DqrL5pbjxUA6fbh8.png",
+      "price": "$1.61",
+      "extracted_price": 1.61,
+      "rating": 2.3,
+      "reviews": 3700,
+      "extensions": [
+        "Nearby, 18 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQhmcvj80r9OOz1FCQ3mWavUt9kJQqr6Gengk3DP3PDo03iQu0tjRHW56rlqoA_E1ooucdfsppLmXxRZ5UvBA7ftai5U1EmUo0nfEEr7CgWMtLewyCQQdFL",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/C3aZg3icDclbCoJAFADQFeWDQcsgwkyNsGwCMfoJG8dRax6OV3ssqv20mzq_5_upAVQ_N00qiH4poOUErgIZrIcCGmIQyc2-lko1gi27xf_m_r70YoJrTsZ2ZmkvTd92FGDE82LMwLttcafdmAp2Q-sDOqylhRo8WNAeN7nj6nsn_UtoSzmQsuqVSvjpeTw72bjypxUUjZPZIc-kJaow1NOA5TtI6OMVYFxGyQ88Yz56"
+    },
+    {
+      "position": 2,
+      "title": "Fresh Gala Apple",
+      "product_id": "6131772150539435161",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:6131772150539435161,headlineOfferDocid:1200825530958552686,imageDocid:12173894561157631077,rds:PC_8838426654526370403|PROD_PC_8838426654526370403,gpcid:8838426654526370403,mid:576462842794617348,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI2MTMxNzcyMTUwNTM5NDM1MTYxIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTIwMDgyNTUzMDk1ODU1MjY4NiIsImltYWdlRG9jaWQiOiIxMjE3Mzg5NDU2MTE1NzYzMTA3NyIsInJkcyI6IlBDXzg4Mzg0MjY2NTQ1MjYzNzA0MDN8UFJPRF9QQ184ODM4NDI2NjU0NTI2MzcwNDAzIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiI4ODM4NDI2NjU0NTI2MzcwNDAzIiwibWlkIjoiNTc2NDYyODQyNzk0NjE3MzQ4IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI2MTMxNzcyMTUwNTM5NDM1MTYxIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTIwMDgyNTUzMDk1ODU1MjY4NiIsImltYWdlRG9jaWQiOiIxMjE3Mzg5NDU2MTE1NzYzMTA3NyIsInJkcyI6IlBDXzg4Mzg0MjY2NTQ1MjYzNzA0MDN8UFJPRF9QQ184ODM4NDI2NjU0NTI2MzcwNDAzIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiI4ODM4NDI2NjU0NTI2MzcwNDAzIiwibWlkIjoiNTc2NDYyODQyNzk0NjE3MzQ4IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Walmart",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w7yT7U2gImd-JvNmfA4UVy0.png",
+      "price": "$0.82",
+      "extracted_price": 0.82,
+      "rating": 2.3,
+      "reviews": 1500,
+      "extensions": [
+        "Nearby, 18 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQDCJzdA90T8DsoJF8wQ8xyIPXAnzCzl50TATwmeXcKq1CEYHwbLtIeVOfq1cHYk9kum7RuHXjDYhuy4UWR9BWJL2YXc2xA",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/6HZmM3icDclJDoIwAADAF8kWjZTEmAoqIFEhKO1RSgVESrElLA_xb_4G5zq_byElF5aqUkY-I5c0W8iU6Uou5EOWRCFNrYqi4bxk-bbd_M-C5wwcSejY_pRBoMWmIxr_YPahOYzeFUE22dN7pcUw7muKyKnV7T12-zSQHr1fnq1OXFyBqqvXUeeil4OLblzekgjsEj8wMCLGAGeSDjV8"
+    },
+    {
+      "position": 3,
+      "title": "Pink Lady Apple",
+      "product_id": "17187806668963740567",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:17187806668963740567,headlineOfferDocid:5427399192167697890,imageDocid:10175561728791721975,rds:PC_13624837900432723804|PROD_PC_13624837900432723804,gpcid:13624837900432723804,mid:576462842506509427,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNzE4NzgwNjY2ODk2Mzc0MDU2NyIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjU0MjczOTkxOTIxNjc2OTc4OTAiLCJpbWFnZURvY2lkIjoiMTAxNzU1NjE3Mjg3OTE3MjE5NzUiLCJyZHMiOiJQQ18xMzYyNDgzNzkwMDQzMjcyMzgwNHxQUk9EX1BDXzEzNjI0ODM3OTAwNDMyNzIzODA0IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIxMzYyNDgzNzkwMDQzMjcyMzgwNCIsIm1pZCI6IjU3NjQ2Mjg0MjUwNjUwOTQyNyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNzE4NzgwNjY2ODk2Mzc0MDU2NyIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjU0MjczOTkxOTIxNjc2OTc4OTAiLCJpbWFnZURvY2lkIjoiMTAxNzU1NjE3Mjg3OTE3MjE5NzUiLCJyZHMiOiJQQ18xMzYyNDgzNzkwMDQzMjcyMzgwNHxQUk9EX1BDXzEzNjI0ODM3OTAwNDMyNzIzODA0IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIxMzYyNDgzNzkwMDQzMjcyMzgwNCIsIm1pZCI6IjU3NjQ2Mjg0MjUwNjUwOTQyNyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Walmart",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w_T2z6uwfAjop-_XfkZt4PE.png",
+      "price": "$0.62",
+      "extracted_price": 0.62,
+      "rating": 1.8,
+      "reviews": 176,
+      "extensions": [
+        "Nearby, 18 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTOQq0g7s34LhqlRCB-WCj13c8U4syWr2q6IEuCJ1QA979iHQ5_AiKws-_GsVcknphP5DWPTcLUEOtnVTgKoSezPo8Ruhts4kD_gKBOQXy2CqocTrqgvp5Z1w",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/j4NJQnicDclXDoIwAADQEyGyZCTGABpUiAwZxh-ilbSIdtAiwVN5HW-j7_d9P0gIyh1ZbjDoJyqamySuWJtBLi6iBTNAnjJHhNIWwxVb_s9xDzc7AHmcsjk0uaZHiD0y35Mq_65owCp0PlW9yha7zeDvldS1TbvdpkbttuHIpTrgJegwRYmxrpIcRMUmFrjMYUiOzTshVjYgwfVuXcPQi9PTpPqMgLxn8EWNszL-AEFcPmg"
+    },
+    {
+      "position": 4,
+      "title": "Gala Apples 3 lb Bag",
+      "product_id": "7085686146036005915",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:7085686146036005915,headlineOfferDocid:14319661486725483073,imageDocid:11604677853609294052,rds:PC_6998043696347559833|PROD_PC_6998043696347559833,gpcid:6998043696347559833,mid:576462711700943990,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI3MDg1Njg2MTQ2MDM2MDA1OTE1IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTQzMTk2NjE0ODY3MjU0ODMwNzMiLCJpbWFnZURvY2lkIjoiMTE2MDQ2Nzc4NTM2MDkyOTQwNTIiLCJyZHMiOiJQQ182OTk4MDQzNjk2MzQ3NTU5ODMzfFBST0RfUENfNjk5ODA0MzY5NjM0NzU1OTgzMyIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiNjk5ODA0MzY5NjM0NzU1OTgzMyIsIm1pZCI6IjU3NjQ2MjcxMTcwMDk0Mzk5MCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI3MDg1Njg2MTQ2MDM2MDA1OTE1IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTQzMTk2NjE0ODY3MjU0ODMwNzMiLCJpbWFnZURvY2lkIjoiMTE2MDQ2Nzc4NTM2MDkyOTQwNTIiLCJyZHMiOiJQQ182OTk4MDQzNjk2MzQ3NTU5ODMzfFBST0RfUENfNjk5ODA0MzY5NjM0NzU1OTgzMyIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiNjk5ODA0MzY5NjM0NzU1OTgzMyIsIm1pZCI6IjU3NjQ2MjcxMTcwMDk0Mzk5MCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Walmart",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9wx4NkmttyMAwETLXistnw3M.png",
+      "price": "$2.58",
+      "extracted_price": 2.58,
+      "rating": 3.2,
+      "reviews": 4100,
+      "extensions": [
+        "Nearby, 18 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRifMOHGuQx9fdL3nKMPJq1-w000JOcLSgf6PfFsD6F71dfiBO51sxakgN5Y6WThlexY8pK_dOYqZqN3shEBgCKAYviIGjxuV24JUONn8qogYRNPUoL-pXL4Q",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/IB8KmXicDclZEoIgAADQE5laZtZM07RaamB79NMUCNKCEFh2q67Tber9vu8nN0bqjm1nAj_e0mTEMmfh1Jg2J8NxDRd3W-eFlFywnur-r9MHpB3iJadzOA3LRdWmJGmIeJ5GyrVejuNEECcrRv2UTvTIn7RcQvkANl1dna4MNJG_W-e3rEKBjI8EInVQoKHz8YAN4z568ll4qcpt3Ys2EIhAFQwtQbopEkvuE2_xA1gZPcI"
+    },
+    {
+      "position": 5,
+      "title": "Red Delicious Apples 5 Lb Bag",
+      "product_id": "5223379760137079634",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:5223379760137079634,headlineOfferDocid:13983168314650084341,imageDocid:17509231192856049276,rds:PC_13705617876540157073|PROD_PC_13705617876540157073,gpcid:13705617876540157073,mid:576462881341788795,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI1MjIzMzc5NzYwMTM3MDc5NjM0IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTM5ODMxNjgzMTQ2NTAwODQzNDEiLCJpbWFnZURvY2lkIjoiMTc1MDkyMzExOTI4NTYwNDkyNzYiLCJyZHMiOiJQQ18xMzcwNTYxNzg3NjU0MDE1NzA3M3xQUk9EX1BDXzEzNzA1NjE3ODc2NTQwMTU3MDczIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIxMzcwNTYxNzg3NjU0MDE1NzA3MyIsIm1pZCI6IjU3NjQ2Mjg4MTM0MTc4ODc5NSIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI1MjIzMzc5NzYwMTM3MDc5NjM0IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTM5ODMxNjgzMTQ2NTAwODQzNDEiLCJpbWFnZURvY2lkIjoiMTc1MDkyMzExOTI4NTYwNDkyNzYiLCJyZHMiOiJQQ18xMzcwNTYxNzg3NjU0MDE1NzA3M3xQUk9EX1BDXzEzNzA1NjE3ODc2NTQwMTU3MDczIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIxMzcwNTYxNzg3NjU0MDE1NzA3MyIsIm1pZCI6IjU3NjQ2Mjg4MTM0MTc4ODc5NSIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Cooklist",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w5plNafU34r4E_n5nSzSNaA.png",
+      "price": "$6.84",
+      "extracted_price": 6.84,
+      "rating": 2.9,
+      "reviews": 496,
+      "extensions": [
+        "Also nearby"
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSsW6o7KGw6-AsGYXF5o8lBTnvGyNt15moIUaef_CgzgxABjDMnt5kYiseFd--fGayp2DCuUNcvb6DjGSIhPqm2M0FtEorgLQCjhYQNmvOwYTr1PPXO__54TA",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/bSqet3icDcnxDkJAHADgJ0JaVLbWRG5WidHiL-NwKHfH_VJ6ql6nt6nv3-_7qQG4MBSlpHiYOJSFBDmdyURABg2WMesUUTPOG0q2_eZ_hukVa4RDcdXZ8oCeumQKlMSOxlb3XURHNHmgah1zL1lZpRZ5k5e5a-0TBe2WNKJ0CkmqUDbxuW09Lh4ec91uUejWft_NTzMH9mwgx8Bq6yTwuvH8TKJB9f34nKbaIjJ_q-o-yQ"
+    },
+    {
+      "position": 6,
+      "title": "Evans Fruit Apples",
+      "product_id": "8565401732052307753",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:8565401732052307753,headlineOfferDocid:16998053726063634696,imageDocid:4906589259173010999,rds:PC_1701494565406852481|PROD_PC_1701494565406852481,gpcid:1701494565406852481,mid:576462623825879994,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI4NTY1NDAxNzMyMDUyMzA3NzUzIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTY5OTgwNTM3MjYwNjM2MzQ2OTYiLCJpbWFnZURvY2lkIjoiNDkwNjU4OTI1OTE3MzAxMDk5OSIsInJkcyI6IlBDXzE3MDE0OTQ1NjU0MDY4NTI0ODF8UFJPRF9QQ18xNzAxNDk0NTY1NDA2ODUyNDgxIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIxNzAxNDk0NTY1NDA2ODUyNDgxIiwibWlkIjoiNTc2NDYyNjIzODI1ODc5OTk0IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI4NTY1NDAxNzMyMDUyMzA3NzUzIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTY5OTgwNTM3MjYwNjM2MzQ2OTYiLCJpbWFnZURvY2lkIjoiNDkwNjU4OTI1OTE3MzAxMDk5OSIsInJkcyI6IlBDXzE3MDE0OTQ1NjU0MDY4NTI0ODF8UFJPRF9QQ18xNzAxNDk0NTY1NDA2ODUyNDgxIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIxNzAxNDk0NTY1NDA2ODUyNDgxIiwibWlkIjoiNTc2NDYyNjIzODI1ODc5OTk0IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "brookshires.com",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w0kPoeSwjhQJH7B0c5uETX0.png",
+      "multiple_sources": true,
+      "price": "$2.49",
+      "extracted_price": 2.49,
+      "old_price": "Usually $4",
+      "extracted_old_price": 4,
+      "rating": 3.3,
+      "reviews": 342,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT8fuCTqJYP5wQlb0TJ-DXZ955KNxXsAdMKelsZ7vTjA0Rs9NnFbiRpwWXeUIMsL5ln7OY-IgdMvlswAgJ28C2NicVO3itBfQ",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/GIp6JnicDclLDoIwFADAE_EJhPBJjEGMBhAQUhXYSVugBkvxVdCbeDVvo7Od76eXUoCnaZTjx1tIShTZcFPtQF4lwyoe7xr0oxCMd-tp9T_PT4m7x8hpnwGaoupoLfnQ6ChStmXtWlacvkrwSRLTAWp7RjdfL8BN-a5hhVguJT2FCRysgdtZpYQdSeYBFr-LDCcwUobPmcnkps1_92g2CA",
+      "tag": "LOW PRICE",
+      "extensions": [
+        "LOW PRICE"
+      ]
+    },
+    {
+      "position": 7,
+      "title": "365 Organic Gala Apples",
+      "product_id": "4900750183955638839",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:4900750183955638839,headlineOfferDocid:7048388972675176352,imageDocid:13785842243092809844,rds:PC_44397039612784148|PROD_PC_44397039612784148,gpcid:44397039612784148,mid:576462810924258200,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI0OTAwNzUwMTgzOTU1NjM4ODM5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNzA0ODM4ODk3MjY3NTE3NjM1MiIsImltYWdlRG9jaWQiOiIxMzc4NTg0MjI0MzA5MjgwOTg0NCIsInJkcyI6IlBDXzQ0Mzk3MDM5NjEyNzg0MTQ4fFBST0RfUENfNDQzOTcwMzk2MTI3ODQxNDgiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjQ0Mzk3MDM5NjEyNzg0MTQ4IiwibWlkIjoiNTc2NDYyODEwOTI0MjU4MjAwIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI0OTAwNzUwMTgzOTU1NjM4ODM5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNzA0ODM4ODk3MjY3NTE3NjM1MiIsImltYWdlRG9jaWQiOiIxMzc4NTg0MjI0MzA5MjgwOTg0NCIsInJkcyI6IlBDXzQ0Mzk3MDM5NjEyNzg0MTQ4fFBST0RfUENfNDQzOTcwMzk2MTI3ODQxNDgiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjQ0Mzk3MDM5NjEyNzg0MTQ4IiwibWlkIjoiNTc2NDYyODEwOTI0MjU4MjAwIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Walmart",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9wx9oxR_aWqqIBme6V28mDac.png",
+      "multiple_sources": true,
+      "price": "$5.24",
+      "extracted_price": 5.24,
+      "rating": 2.4,
+      "reviews": 572,
+      "extensions": [
+        "Nearby, 18 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTXcopKeXxp-1YoEd85xizqFGgfLK3ptuwKOz9T7y3FmUTo4KVjinpW1F6XZnNpFkTwGIwhDRwW-93qVO4yseK8A1DF4BfC",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/28pIXXicDclhCoIwGADQE6mJVipEWDaJhUKstP7VnLrC7bMtph6ku3Wben_f99NqDSpyHCboawTNKkvfxcxulL5pTm0qO0e1EoCLZt2v_hfFWRWmlJRUAmblAJZ7kbsqmA986lHa1AfsgX4bnE8hWY4e6k5E-vj84AIKFy3Kq8gAPYlJ96ZNjqawQq8_5_6oGA5iN0H-pt7-ANKSNb4"
+    },
+    {
+      "position": 8,
+      "title": "Honeycrisp Apples 4 lb",
+      "product_id": "10600842997674552159",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:10600842997674552159,headlineOfferDocid:3914129659190004040,imageDocid:14163990218434913890,rds:PC_2427138421057749773|PROD_PC_2427138421057749773,gpcid:2427138421057749773,mid:576462544268058446,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMDYwMDg0Mjk5NzY3NDU1MjE1OSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjM5MTQxMjk2NTkxOTAwMDQwNDAiLCJpbWFnZURvY2lkIjoiMTQxNjM5OTAyMTg0MzQ5MTM4OTAiLCJyZHMiOiJQQ18yNDI3MTM4NDIxMDU3NzQ5NzczfFBST0RfUENfMjQyNzEzODQyMTA1Nzc0OTc3MyIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMjQyNzEzODQyMTA1Nzc0OTc3MyIsIm1pZCI6IjU3NjQ2MjU0NDI2ODA1ODQ0NiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMDYwMDg0Mjk5NzY3NDU1MjE1OSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjM5MTQxMjk2NTkxOTAwMDQwNDAiLCJpbWFnZURvY2lkIjoiMTQxNjM5OTAyMTg0MzQ5MTM4OTAiLCJyZHMiOiJQQ18yNDI3MTM4NDIxMDU3NzQ5NzczfFBST0RfUENfMjQyNzEzODQyMTA1Nzc0OTc3MyIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMjQyNzEzODQyMTA1Nzc0OTc3MyIsIm1pZCI6IjU3NjQ2MjU0NDI2ODA1ODQ0NiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Instacart",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w-zXtYkgkMfAhNQYtTXJehs.png",
+      "price": "$2.49",
+      "extracted_price": 2.49,
+      "rating": 4,
+      "reviews": 1600,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRJ7CahCuiEln4VkIkPdK-0-Cdy09wlnu94Sc3accojRwFzgIW2A64gVmfrXt-_UC-rsRQtocSiDj5VTezC--mcQzHZhMpajg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/sIcXr3icDcndCoIwGADQJ5qKWaEQEevPokgti25ifbNt_mxLJ6JP0qv1NnVuz_fDjdFNYNuZhLrXJqPIPKVrscYQI8ACVdkNV1oLyebv2f-CxZH6G4h3U0w4bsWqlF5ahMWJ7pGDMO0dvytl63sJjAiAyuNuPbDw6i4mHkurV30z6HHBqG7iyChIxDIfp-dswAhVEA3bOz9okrMfBL02uQ"
+    },
+    {
+      "position": 9,
+      "title": "Red Delicious Apple",
+      "product_id": "15816416705326155482",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:15816416705326155482,headlineOfferDocid:15894913186479193659,imageDocid:14363430192345511119,gpcid:8824996456353897900,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNTgxNjQxNjcwNTMyNjE1NTQ4MiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE1ODk0OTEzMTg2NDc5MTkzNjU5IiwiaW1hZ2VEb2NpZCI6IjE0MzYzNDMwMTkyMzQ1NTExMTE5IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiI4ODI0OTk2NDU2MzUzODk3OTAwIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNTgxNjQxNjcwNTMyNjE1NTQ4MiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE1ODk0OTEzMTg2NDc5MTkzNjU5IiwiaW1hZ2VEb2NpZCI6IjE0MzYzNDMwMTkyMzQ1NTExMTE5IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiI4ODI0OTk2NDU2MzUzODk3OTAwIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Fresh Central Grocery",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w4_W8zy5YYVc-8lRHBQ_6QA.png",
+      "multiple_sources": true,
+      "price": "$2.29",
+      "extracted_price": 2.29,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQobLYgELuzJiNbCPCDGfoGO7rTWjJ5ZK_w1BlFhPyPBw8yEH2GJtqXy44AcFZpBLYmKcDq1DRzIGFmk2yRb-PagT6kQDz_Bg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/f9CKQHicDcnbDkMwAADQL0KY3STLoi7dEEMkGy-iZWVGa7pIfcl-bX-zndfz_TScs8lQlHrAL8F4XUkcDSuZTLzkLZYx7ZWpoYy1AzmOh_8ZZljtIY4pCjLiBO_Fa0NkRZYN7xRetq_0-vDWuV_MKni6TSQiMO-Ec9Kgx8eb0HUTuzkDQdb72B5VO1nO0O07TSRIikqSbrrYXgpAfg1hNi4"
+    },
+    {
+      "position": 10,
+      "title": "Granny Smith Apples",
+      "product_id": "10936139190290637350",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:10936139190290637350,headlineOfferDocid:15760972364255058361,imageDocid:1378754733653580320,rds:PC_8411029402965582805|PROD_PC_8411029402965582805,gpcid:8411029402965582805,mid:576462840537285129,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMDkzNjEzOTE5MDI5MDYzNzM1MCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE1NzYwOTcyMzY0MjU1MDU4MzYxIiwiaW1hZ2VEb2NpZCI6IjEzNzg3NTQ3MzM2NTM1ODAzMjAiLCJyZHMiOiJQQ184NDExMDI5NDAyOTY1NTgyODA1fFBST0RfUENfODQxMTAyOTQwMjk2NTU4MjgwNSIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiODQxMTAyOTQwMjk2NTU4MjgwNSIsIm1pZCI6IjU3NjQ2Mjg0MDUzNzI4NTEyOSIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMDkzNjEzOTE5MDI5MDYzNzM1MCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE1NzYwOTcyMzY0MjU1MDU4MzYxIiwiaW1hZ2VEb2NpZCI6IjEzNzg3NTQ3MzM2NTM1ODAzMjAiLCJyZHMiOiJQQ184NDExMDI5NDAyOTY1NTgyODA1fFBST0RfUENfODQxMTAyOTQwMjk2NTU4MjgwNSIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiODQxMTAyOTQwMjk2NTU4MjgwNSIsIm1pZCI6IjU3NjQ2Mjg0MDUzNzI4NTEyOSIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Cooklist",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w5nxlF4LOdyXLVBh4HHZhFA.png",
+      "multiple_sources": true,
+      "price": "$3.19",
+      "extracted_price": 3.19,
+      "old_price": "Usually $4",
+      "extracted_old_price": 4,
+      "rating": 2.6,
+      "reviews": 850,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR2ZtHMViZcMpFgPj_wsxkvVvQkJM77rkIQcIpq3pwArjwMkgZ44hENdvG4xBcOWVutZ23d5Mf3Sr0_ZO6JDBSwlQj2oMPecA",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/MpKHhnicDcndCoIwGADQJ0pFLUmIUCpTmD8FBruR2mzqSuf25exNerXeps7t-X4aAKF806x7It8CarqAW28ZTMEVWmKQ4WmqZhCi7dl23PzPD1K6jsjJxnBEZYsJEgeWd5VWM5_KqeAJ8jzJ44LEYnSEDmSnEWfYdZt9SqfInUOSXcoXYNuhS3R3ztKqcLZKduFZP4rOHlBek-AHWgU3Ig",
+      "tag": "LOW PRICE",
+      "extensions": [
+        "LOW PRICE"
+      ]
+    },
+    {
+      "position": 11,
+      "title": "Winn-Dixie SugarBee Apples",
+      "product_id": "4605815704421288749",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:4605815704421288749,headlineOfferDocid:2675982087857548953,imageDocid:8317285837720170199,rds:PC_13849032356568911396|PROD_PC_13849032356568911396,gpcid:13849032356568911396,mid:576462549087905219,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI0NjA1ODE1NzA0NDIxMjg4NzQ5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMjY3NTk4MjA4Nzg1NzU0ODk1MyIsImltYWdlRG9jaWQiOiI4MzE3Mjg1ODM3NzIwMTcwMTk5IiwicmRzIjoiUENfMTM4NDkwMzIzNTY1Njg5MTEzOTZ8UFJPRF9QQ18xMzg0OTAzMjM1NjU2ODkxMTM5NiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTM4NDkwMzIzNTY1Njg5MTEzOTYiLCJtaWQiOiI1NzY0NjI1NDkwODc5MDUyMTkiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI0NjA1ODE1NzA0NDIxMjg4NzQ5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMjY3NTk4MjA4Nzg1NzU0ODk1MyIsImltYWdlRG9jaWQiOiI4MzE3Mjg1ODM3NzIwMTcwMTk5IiwicmRzIjoiUENfMTM4NDkwMzIzNTY1Njg5MTEzOTZ8UFJPRF9QQ18xMzg0OTAzMjM1NjU2ODkxMTM5NiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTM4NDkwMzIzNTY1Njg5MTEzOTYiLCJtaWQiOiI1NzY0NjI1NDkwODc5MDUyMTkiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "brookshires.com",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9wwA6jdijRBKm4ySQ7flxfGE.png",
+      "multiple_sources": true,
+      "price": "$5.99",
+      "extracted_price": 5.99,
+      "rating": 2,
+      "reviews": 1,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQuyBoMl75-11NHvvz_9D--q2PELJTfwGvPoG4VU91SUUDsmwRAnijI-kaTyHqFjsGu4SAf_buDAY7v1Xudgez4h1yY-tzhjg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/4ThJ0XicDclRCoIwAADQE01ZGaIQYVizKLHMyC_RqZuWbrY5mSfpat2m3u_7fqiUXLimWfX4rbmsSiCLfmkQIXPZYAOzzhSUcd70ZDOs_-d6YekgfBn1lp1f9gpAGAZKzZnjAzAsot3peKsnpCKGrHviwDhJfNFNV69v2gN45jcdDPtWoNGKvTorRt9LbQUfY0mq2aJQp0DOtCU_6iU2jw"
+    },
+    {
+      "position": 12,
+      "title": "Apple, Honeycrisp",
+      "product_id": "15972015023954938982",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:15972015023954938982,headlineOfferDocid:15972015023954938982,imageDocid:1018868773593497797,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNTk3MjAxNTAyMzk1NDkzODk4MiIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE1OTcyMDE1MDIzOTU0OTM4OTgyIiwiaW1hZ2VEb2NpZCI6IjEwMTg4Njg3NzM1OTM0OTc3OTciLCJyZHMiOiIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IiIsIm1pZCI6IiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNTk3MjAxNTAyMzk1NDkzODk4MiIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE1OTcyMDE1MDIzOTU0OTM4OTgyIiwiaW1hZ2VEb2NpZCI6IjEwMTg4Njg3NzM1OTM0OTc3OTciLCJyZHMiOiIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IiIsIm1pZCI6IiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Food Depot",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w8g16Ym8X5plnfM5uJ2vpMw.png",
+      "price": "$1.69",
+      "extracted_price": 1.69,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRrjaOxmSNQTXaCZaY_Qqp2szfJPSrcXH3AjGeUB5xu5mYJryfLUDiQO63BJNDaR4Jiy5iLa3ORDOE5x6ZZRG3qsJUdLF_Fig",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/RU3fInicDcnbCoIwAADQL0qpNSEhwksaQ1zOBPVF1rxNUOe2QPuSfq2_qfN6vp9ea6Fs02wmJjehm3qnn9Pe6JSmmjODzaOp-lkIPnWX5fw_24nrU8iIHChexzROHjn1SlpUySIO6t2ieypZfgPOEDaZC9cXHAsktzbKfJ5gC7go9ik5Ir5BHlGAiY-vcLXKkoRgUSiro6AKePcDMu82SQ"
+    },
+    {
+      "position": 13,
+      "title": "Dillons Food Stores Honeycrisp Apples",
+      "product_id": "3907002791523223720",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:3907002791523223720,headlineOfferDocid:6539292245450739082,imageDocid:12371075715015368763,rds:PC_3871031923781581732|PROD_PC_3871031923781581732,gpcid:3871031923781581732,mid:576462875156980855,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIzOTA3MDAyNzkxNTIzMjIzNzIwIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNjUzOTI5MjI0NTQ1MDczOTA4MiIsImltYWdlRG9jaWQiOiIxMjM3MTA3NTcxNTAxNTM2ODc2MyIsInJkcyI6IlBDXzM4NzEwMzE5MjM3ODE1ODE3MzJ8UFJPRF9QQ18zODcxMDMxOTIzNzgxNTgxNzMyIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIzODcxMDMxOTIzNzgxNTgxNzMyIiwibWlkIjoiNTc2NDYyODc1MTU2OTgwODU1IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIzOTA3MDAyNzkxNTIzMjIzNzIwIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNjUzOTI5MjI0NTQ1MDczOTA4MiIsImltYWdlRG9jaWQiOiIxMjM3MTA3NTcxNTAxNTM2ODc2MyIsInJkcyI6IlBDXzM4NzEwMzE5MjM3ODE1ODE3MzJ8UFJPRF9QQ18zODcxMDMxOTIzNzgxNTgxNzMyIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIzODcxMDMxOTIzNzgxNTgxNzMyIiwibWlkIjoiNTc2NDYyODc1MTU2OTgwODU1IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Instacart",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w9eIlKBNktkACjasH2PGrr8.png",
+      "multiple_sources": true,
+      "price": "$1.19",
+      "extracted_price": 1.19,
+      "rating": 2.2,
+      "reviews": 62,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSg9FGNqvsd5Z1OWAwdizu3JQtLljyJa96uKU1evadBaoPeuJ-SnZX9YljQbU7StuLNnWGe_m1-nM0udxTlAWOeG0nmIxrrKXnTVkiWuo8_-CnJdNuQH93a",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/9pZGPnicDcndEkJAGADQJ0LG9LNmmkbNpFRkkHJjlt3xE5_Fruihep_eps7t-X5yzlmvKwqFtJsYp0TiCWhy1nPMi1ROm1rp84axArJNu_6fbtgEmamXob1pt0NP5pHqhMaLFG-hWS4_V-VkYbQQp0ClAyZb3FypsCQPojt6VKWbBEuPi7MNoUnjWpXgMhNk9CsjdKg5g_o4dt3pDv7tWYSiWcXSDixiC_eANPwDaps-_Q"
+    },
+    {
+      "position": 14,
+      "title": "Apple Red Delicious",
+      "product_id": "17115878565864255695",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:17115878565864255695,headlineOfferDocid:6942992312974133080,imageDocid:4020080507917651749,gpcid:13759360329219272901,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNzExNTg3ODU2NTg2NDI1NTY5NSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjY5NDI5OTIzMTI5NzQxMzMwODAiLCJpbWFnZURvY2lkIjoiNDAyMDA4MDUwNzkxNzY1MTc0OSIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTM3NTkzNjAzMjkyMTkyNzI5MDEiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNzExNTg3ODU2NTg2NDI1NTY5NSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjY5NDI5OTIzMTI5NzQxMzMwODAiLCJpbWFnZURvY2lkIjoiNDAyMDA4MDUwNzkxNzY1MTc0OSIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTM3NTkzNjAzMjkyMTkyNzI5MDEiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Cox Farms Market",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9wzWecH9DKP8mnHNJUV1PWrg.png",
+      "multiple_sources": true,
+      "price": "$1.34",
+      "extracted_price": 1.34,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpT4f20aMNUsL7EPZlx0QtXr1h_jG5I-OhZXU28sXZ1mn3Rj-xDysJtS67UbSgqsRcPJDOwB_tHpSVLbwC8egah07kAD94dg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/3tPOQXicDcntDkJQGADgK_KZ8rG1pjRlQk6a-WMcOofCyXk33Em31t3U8_f5figA45Yk1T0eFwZ1JUDZKyLhUECDRTx0EqcDY01Pdu_t_yw7qEwXI3bTHqpcXIKE-_oxyl6zfIV0VGjeuuuzENIsTVSDp5nS9au4FWZn4R6gjZ6UiLx5jCPPCad9DieG7n45HYyaFFTWn7ZjahX5AercNdI"
+    },
+    {
+      "position": 15,
+      "title": "Organic Granny Smith Apples",
+      "product_id": "11366819026555327038",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:11366819026555327038,headlineOfferDocid:9618749324413933767,imageDocid:3658725439990956064,rds:PC_1007485284016469299|PROD_PC_1007485284016469299,gpcid:1007485284016469299,mid:576462814791308210,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMTM2NjgxOTAyNjU1NTMyNzAzOCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6Ijk2MTg3NDkzMjQ0MTM5MzM3NjciLCJpbWFnZURvY2lkIjoiMzY1ODcyNTQzOTk5MDk1NjA2NCIsInJkcyI6IlBDXzEwMDc0ODUyODQwMTY0NjkyOTl8UFJPRF9QQ18xMDA3NDg1Mjg0MDE2NDY5Mjk5IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIxMDA3NDg1Mjg0MDE2NDY5Mjk5IiwibWlkIjoiNTc2NDYyODE0NzkxMzA4MjEwIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMTM2NjgxOTAyNjU1NTMyNzAzOCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6Ijk2MTg3NDkzMjQ0MTM5MzM3NjciLCJpbWFnZURvY2lkIjoiMzY1ODcyNTQzOTk5MDk1NjA2NCIsInJkcyI6IlBDXzEwMDc0ODUyODQwMTY0NjkyOTl8UFJPRF9QQ18xMDA3NDg1Mjg0MDE2NDY5Mjk5IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIxMDA3NDg1Mjg0MDE2NDY5Mjk5IiwibWlkIjoiNTc2NDYyODE0NzkxMzA4MjEwIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Al Haramain International Food",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w38EWlGI7Dxa1KwLH55fwKs.jpeg",
+      "price": "$2.99",
+      "extracted_price": 2.99,
+      "rating": 4.7,
+      "reviews": 7,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTFqITQwVTD9TJYlKvliIKNxIHTAyRNkbl-jsJfU5wBpUrZ0GELv2_f5ED2yMfbiPMomybRK4OpnOWfnBw6DttgbB01fhbu9g",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/KX3JUXicDcltCoIwAADQE_mRZKAQoWimppbMov5Em05XOqdb2m7S1bpNvb_v-2mEYNzWtIqiUTJRlYqAVFdrLu6CIBX1ncabnjFC682w_p_tpKUVILAdQnCcT8CzQHRp46klYZy-wx1wZJ4-Yas8eIQLc3ZZMV71wN9Pxg2bvmfIBENySPpOwjxeZoxmZ0zdeeUJUUNXX-AGvqz6ByM7NvI",
+      "delivery": "Free delivery on $300+"
+    },
+    {
+      "position": 16,
+      "title": "Granny Apple 1 lb",
+      "product_id": "735183996332347574",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:735183996332347574,headlineOfferDocid:7361838950200408934,imageDocid:17702462399444894397,gpcid:3798595775305988871,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI3MzUxODM5OTYzMzIzNDc1NzQiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI3MzYxODM4OTUwMjAwNDA4OTM0IiwiaW1hZ2VEb2NpZCI6IjE3NzAyNDYyMzk5NDQ0ODk0Mzk3IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIzNzk4NTk1Nzc1MzA1OTg4ODcxIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI3MzUxODM5OTYzMzIzNDc1NzQiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI3MzYxODM4OTUwMjAwNDA4OTM0IiwiaW1hZ2VEb2NpZCI6IjE3NzAyNDYyMzk5NDQ0ODk0Mzk3IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIzNzk4NTk1Nzc1MzA1OTg4ODcxIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Fresh Central Grocery",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w0hs69U7Wu-PcyShBkd0Hv0.png",
+      "multiple_sources": true,
+      "price": "$1.99",
+      "extracted_price": 1.99,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTUbBjqtZr_pTEJ2HEUcPVnZc4voitrSoVeDd8-wrDcl-9hghd5aPJFdISZTIB4E2E9Y8O8BCkL07ZGMySdVVqFEF45WcgA",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/KrXj83icDcndCoIwGADQJ1JLlFSI0Jym9COoi3YTuslmP3POj8IX6d16mzq35_sRAGoKLKuTVM8KOmZAK5cmn6CBnpp0eFqTGJTqJd-M6_8F4ZH5Ka3qNrqNQPRVVSi3d6imBZaEOq-hB10OuIuZZ7x1TB-GL7hgblPkCctKUmWRg2zkX7yTF23v-8WKpIe5ZBiPCUoc90x5-AOv0jTI"
+    },
+    {
+      "position": 17,
+      "title": "Apple Country Gala Apples",
+      "product_id": "1694666133209130822",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:1694666133209130822,headlineOfferDocid:5540536801320512835,imageDocid:4028590388113668909,gpcid:2458669006501233135,mid:576462828409351238,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNjk0NjY2MTMzMjA5MTMwODIyIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNTU0MDUzNjgwMTMyMDUxMjgzNSIsImltYWdlRG9jaWQiOiI0MDI4NTkwMzg4MTEzNjY4OTA5IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIyNDU4NjY5MDA2NTAxMjMzMTM1IiwibWlkIjoiNTc2NDYyODI4NDA5MzUxMjM4IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNjk0NjY2MTMzMjA5MTMwODIyIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNTU0MDUzNjgwMTMyMDUxMjgzNSIsImltYWdlRG9jaWQiOiI0MDI4NTkwMzg4MTEzNjY4OTA5IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIyNDU4NjY5MDA2NTAxMjMzMTM1IiwibWlkIjoiNTc2NDYyODI4NDA5MzUxMjM4IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Douglas Food Valu",
+      "source_icon": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn%3AANd9GcRLqXE0EgKgSe5iqi9w0NTomUWAtRXIUIas74s-Miyat-10VBIWbHYNfsuZTRARSKISxeCRO3MgD3MEPxkZeICQN-EB4HF26KJnA-AB",
+      "price": "$7.79",
+      "extracted_price": 7.79,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWjxmTY0mg7r7GnPgdlM6_mJHSszaj38QbfPfjelk9yaKkDZD5PnKe4WZRoZ49hqAlDaJiEsVSwV2fAw1XuHuupfgsJYDQZWJUmrDwsyBCuguEK3hNlW1aQQ",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/LPX_bnicDclJDoIwAADAFyniDokxaI0GImFR0F5MLVC2lkLbIL7K7_gbnet8P7mUXJialjLcDVymyUg-mT4mQiJZ4DFuqCbyhvOCkW27-Z9puYlxxEFcvujlPqFk1a2OzCNJfV4-qH0KxRuVs7X_zLysTOvKGJBTAQgWHnPSeQyDBs6NvLVqgOziIKKwj6aZ1es3dVKKZ0TYd-DD2L7SDvRi2O0VUQdnlrt1rCPf_wH3fEAD"
+    },
+    {
+      "position": 18,
+      "title": "Red Delicious Apples Bulk",
+      "product_id": "12717236711392143718",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:12717236711392143718,headlineOfferDocid:1300948739412259284,imageDocid:1989420612660017209,rds:PC_3104778680891291118|PROD_PC_3104778680891291118,gpcid:3104778680891291118,mid:576462794665406105,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMjcxNzIzNjcxMTM5MjE0MzcxOCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjEzMDA5NDg3Mzk0MTIyNTkyODQiLCJpbWFnZURvY2lkIjoiMTk4OTQyMDYxMjY2MDAxNzIwOSIsInJkcyI6IlBDXzMxMDQ3Nzg2ODA4OTEyOTExMTh8UFJPRF9QQ18zMTA0Nzc4NjgwODkxMjkxMTE4IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIzMTA0Nzc4NjgwODkxMjkxMTE4IiwibWlkIjoiNTc2NDYyNzk0NjY1NDA2MTA1IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMjcxNzIzNjcxMTM5MjE0MzcxOCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjEzMDA5NDg3Mzk0MTIyNTkyODQiLCJpbWFnZURvY2lkIjoiMTk4OTQyMDYxMjY2MDAxNzIwOSIsInJkcyI6IlBDXzMxMDQ3Nzg2ODA4OTEyOTExMTh8UFJPRF9QQ18zMTA0Nzc4NjgwODkxMjkxMTE4IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIzMTA0Nzc4NjgwODkxMjkxMTE4IiwibWlkIjoiNTc2NDYyNzk0NjY1NDA2MTA1IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Busch's Fresh Food Market",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w-wxRmLZo5d_UfK2Bd4bsBI.png",
+      "price": "$1.99",
+      "extracted_price": 1.99,
+      "rating": 4.8,
+      "reviews": 28,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTRoKAfO-G9kgBDilCElbapalztweGDM9rtnu2cQF-CbHMXEhsVQO5eq4OenAi57lcBj2LL5z6hDVOtG1DCRYTkILxLT9N0",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/6LXs-HicDcndCoIwGADQJ1JTspgQ4V8rUociUpc6l1vanO2Lygfp3XqbOrfn--EASnuWxSS9vxWw1oBG2manoQZBTTreLM1HpYTsttPmf56ftQjTshiP_oUYGPVdEIkhjIemVvUww5PhKEV3kA-H5jsjbPbpKea6yonLpiVh0hfueqDB1UkSd17xqCKA7SgszmV_SF5JibLFD6SGNQk"
+    },
+    {
+      "position": 19,
+      "title": "Granny Smit Organic Golden Delicious Apples",
+      "product_id": "15414725568518737137",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:15414725568518737137,headlineOfferDocid:15298007071020486315,imageDocid:1898106943889224989,gpcid:17913185985030936417,mid:576462814891809075,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNTQxNDcyNTU2ODUxODczNzEzNyIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE1Mjk4MDA3MDcxMDIwNDg2MzE1IiwiaW1hZ2VEb2NpZCI6IjE4OTgxMDY5NDM4ODkyMjQ5ODkiLCJyZHMiOiIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjE3OTEzMTg1OTg1MDMwOTM2NDE3IiwibWlkIjoiNTc2NDYyODE0ODkxODA5MDc1IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNTQxNDcyNTU2ODUxODczNzEzNyIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE1Mjk4MDA3MDcxMDIwNDg2MzE1IiwiaW1hZ2VEb2NpZCI6IjE4OTgxMDY5NDM4ODkyMjQ5ODkiLCJyZHMiOiIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjE3OTEzMTg1OTg1MDMwOTM2NDE3IiwibWlkIjoiNTc2NDYyODE0ODkxODA5MDc1IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Instacart",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w0iMTb6vWWHcR08oVV_uqng.png",
+      "multiple_sources": true,
+      "price": "$4.39",
+      "extracted_price": 4.39,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3P4d81l6BT3NMGL-dv86JzB-CV55TafNxtqg8yRR4Zaay1-rFzEF73R7I52ZubAzh8BndFS9iiwOHdvKwVGmBj4SHzCzrRQ",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/u0EZdnicDclJDoIwAADAFwFBtkJiDCUCbiiFcOBWWgSMlK2C9CV-zd_oXOf7qTnvJ0dRSkbGtecllXjBVLmaOOYNkUnXKlPd9X3Dqt2w_Z_jRtQOSKzddArUpwlTLboEZ4nOwDwKKHmZYaT4Hr35UIEVIT3HeFWl0Rd739KQdTA2-atwRQ0go35iN81yDel8WrKghQ89CYUnRhT_AI1nNPA"
+    },
+    {
+      "position": 20,
+      "title": "Kroger Gala Apples Pouch Bag",
+      "product_id": "14002667990212644329",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:14002667990212644329,headlineOfferDocid:6974289584187697520,imageDocid:1321674523111907343,gpcid:758957303873722676,mid:576462433877690179,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNDAwMjY2Nzk5MDIxMjY0NDMyOSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjY5NzQyODk1ODQxODc2OTc1MjAiLCJpbWFnZURvY2lkIjoiMTMyMTY3NDUyMzExMTkwNzM0MyIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiNzU4OTU3MzAzODczNzIyNjc2IiwibWlkIjoiNTc2NDYyNDMzODc3NjkwMTc5IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNDAwMjY2Nzk5MDIxMjY0NDMyOSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjY5NzQyODk1ODQxODc2OTc1MjAiLCJpbWFnZURvY2lkIjoiMTMyMTY3NDUyMzExMTkwNzM0MyIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiNzU4OTU3MzAzODczNzIyNjc2IiwibWlkIjoiNTc2NDYyNDMzODc3NjkwMTc5IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Cooklist",
+      "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/jvM-dBKtGSfnzjAPZHq9w77F7ENk39xwQD7hyH1JpQo.png",
+      "price": "$3.99",
+      "extracted_price": 3.99,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSzQ2LwRtdfNwynTXNLTQTuZkwFGeVpFmVIKPpOh9VCXSImsgLISNj2BtbQvB5cGVMI6AzOsI-rJCEidznshXAEzWaHkrvu",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/4LJvLHicDclhCoIwGADQE6lgFChEqKitbGaKSf90M2fiXO5TcQfpbt2m3t_3_TAAIW3DqDkZVwE11aDiG72RUEJLdDL0hmSDEC1vDu_9_2wHUyskqUrMaLkBfeJl5VmBoyzJpke3BGGdi6DP0fkqYmblXpGiXjYRSvHLdKFKZndLwvyCdo6KJdLGk-e3VHHJCsdX9_LYjfP0A-EHNwI"
+    },
+    {
+      "position": 21,
+      "title": "Apple Red Delicious Each, by Harris Farm Markets",
+      "product_id": "3923773798536540408",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:3923773798536540408,headlineOfferDocid:1419610471642083886,imageDocid:4020080507917651749,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIzOTIzNzczNzk4NTM2NTQwNDA4IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTQxOTYxMDQ3MTY0MjA4Mzg4NiIsImltYWdlRG9jaWQiOiI0MDIwMDgwNTA3OTE3NjUxNzQ5IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIzOTIzNzczNzk4NTM2NTQwNDA4IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTQxOTYxMDQ3MTY0MjA4Mzg4NiIsImltYWdlRG9jaWQiOiI0MDIwMDgwNTA3OTE3NjUxNzQ5IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Food Depot",
+      "source_icon": "https://encrypted-tbn0.gstatic.com/favicon-tbn?q=tbn%3AANd9GcRD85ccW7vFwPGl7QSGyTzVIKuLIqLi64lZrRJBXqhwX6Z1-0-vNGcINWwxbSByFJSsUxbef6pHFo5TmAbt0nnB1X8B2tei",
+      "multiple_sources": true,
+      "price": "$0.99",
+      "extracted_price": 0.99,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpT4f20aMNUsL7EPZlx0QtXr1h_jG5I-OhZXU28sXZ1mn3Rj-xDysJtS67UbSgqsRcPJDOwB_tHpSVLbwC8egah07kAD94dg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/3tPOQXicDcntDkJQGADgK_KZ8rG1pjRlQk6a-WMcOofCyXk33Em31t3U8_f5figA45Yk1T0eFwZ1JUDZKyLhUECDRTx0EqcDY01Pdu_t_yw7qEwXI3bTHqpcXIKE-_oxyl6zfIV0VGjeuuuzENIsTVSDp5nS9au4FWZn4R6gjZ6UiLx5jCPPCad9DieG7n45HYyaFFTWn7ZjahX5AercNdI"
+    },
+    {
+      "position": 22,
+      "title": "Mercato Fresh Apples Granny Smith 48 Ounces",
+      "product_id": "4847051812237101483",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:4847051812237101483,headlineOfferDocid:10167202006382042410,imageDocid:16391702934012977276,rds:PC_1824052897365259842|PROD_PC_1824052897365259842,gpcid:1824052897365259842,mid:576462809783195977,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI0ODQ3MDUxODEyMjM3MTAxNDgzIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTAxNjcyMDIwMDYzODIwNDI0MTAiLCJpbWFnZURvY2lkIjoiMTYzOTE3MDI5MzQwMTI5NzcyNzYiLCJyZHMiOiJQQ18xODI0MDUyODk3MzY1MjU5ODQyfFBST0RfUENfMTgyNDA1Mjg5NzM2NTI1OTg0MiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTgyNDA1Mjg5NzM2NTI1OTg0MiIsIm1pZCI6IjU3NjQ2MjgwOTc4MzE5NTk3NyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI0ODQ3MDUxODEyMjM3MTAxNDgzIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTAxNjcyMDIwMDYzODIwNDI0MTAiLCJpbWFnZURvY2lkIjoiMTYzOTE3MDI5MzQwMTI5NzcyNzYiLCJyZHMiOiJQQ18xODI0MDUyODk3MzY1MjU5ODQyfFBST0RfUENfMTgyNDA1Mjg5NzM2NTI1OTg0MiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTgyNDA1Mjg5NzM2NTI1OTg0MiIsIm1pZCI6IjU3NjQ2MjgwOTc4MzE5NTk3NyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Exito Fresh Market",
+      "source_icon": "https://encrypted-tbn0.gstatic.com/favicon-tbn?q=tbn%3AANd9GcSHSaXY6eCRTbI-oK2DtBTL0-BDewHcRTbuU6YYQV5c21wZyue0Zo1ixbRConkgKF5Bw8YxGXPK3BTbuSYSRv4SrIZo4ybYLqw1gS3zYQ",
+      "multiple_sources": true,
+      "price": "$4.99",
+      "extracted_price": 4.99,
+      "rating": 2.9,
+      "reviews": 1300,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQnqlmSSAFspgDT-9Fl6uu4_3Cyj5sVqICVxwT9p-qJcl6L_tAi71ue4TticzQqEeRl699izANlgrBiJ4-K5gfQsTOi-zJo",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/Mgk3dXicDcxRCoIwAADQE02LdDEhYllGFoY5_JWaay7m3Nyk9CDdrdvk94P3-zbOaRv5PlO0H7VjNXAPtfC4dXcnqEe71rdNp7VQfGs2s0U4q9GR5srItihwYjXfE4ASCYchqFbx-AptaU5x-XkTpIFJqYSXymGxXg4sIHM65ebAbhIiJCacSd7vRBqAc8ifuSVXAaa0-wO9mTYb"
+    },
+    {
+      "position": 23,
+      "title": "Gala Apples",
+      "product_id": "301806090502836352",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:301806090502836352,headlineOfferDocid:8658272214197133953,imageDocid:1063268796944278531,rds:PC_9446514668576353530|PROD_PC_9446514668576353530,gpcid:9446514668576353530,mid:576462810925314234,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIzMDE4MDYwOTA1MDI4MzYzNTIiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI4NjU4MjcyMjE0MTk3MTMzOTUzIiwiaW1hZ2VEb2NpZCI6IjEwNjMyNjg3OTY5NDQyNzg1MzEiLCJyZHMiOiJQQ185NDQ2NTE0NjY4NTc2MzUzNTMwfFBST0RfUENfOTQ0NjUxNDY2ODU3NjM1MzUzMCIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiOTQ0NjUxNDY2ODU3NjM1MzUzMCIsIm1pZCI6IjU3NjQ2MjgxMDkyNTMxNDIzNCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIzMDE4MDYwOTA1MDI4MzYzNTIiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI4NjU4MjcyMjE0MTk3MTMzOTUzIiwiaW1hZ2VEb2NpZCI6IjEwNjMyNjg3OTY5NDQyNzg1MzEiLCJyZHMiOiJQQ185NDQ2NTE0NjY4NTc2MzUzNTMwfFBST0RfUENfOTQ0NjUxNDY2ODU3NjM1MzUzMCIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiOTQ0NjUxNDY2ODU3NjM1MzUzMCIsIm1pZCI6IjU3NjQ2MjgxMDkyNTMxNDIzNCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "goodvibezonlygvollc.com",
+      "source_icon": "https://encrypted-tbn0.gstatic.com/favicon-tbn?q=tbn%3AANd9GcTT0atYuVVvWOWtyZjdeayk8e3rTcUMBJw7CKlWhmJQEchs1lmYiyrMm_iLrF0jDfuqaf13p1rMIWyWmjdhSo8lcqdc2XtSqF058yqGd9AxIQ",
+      "multiple_sources": true,
+      "price": "$8.00",
+      "extracted_price": 8,
+      "rating": 4.1,
+      "reviews": 1200,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRA4Igr760a7OvxGUPGxJ7QPTp6Go7aL2307R6bdSYWlknmyXedqExjW8rtYh5KzWCQYBsWD0Khle2ZnAePRYExLWxcPCNKSA",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/O_JSq3icDclRCoIwAADQE6Wi5UqIMBMpxaYWa_3pNpylc-qI2Um6Wrep9_u-H66UnDzTZIKMs1SMLlQlHKOeVKkaYpC-MyfeS9mIejds_-f5Kd1EJPeXx3oErlWC80tHVxjpE8jgRbpRD8rEdiyQuxUtMGqfoptvjA6hfqD1qDBfxW8UZHg_oYMV85bZd-EzmONQJ0gTGKRx4f8A2z413A"
+    },
+    {
+      "position": 24,
+      "title": "Harris Farm Apple Granny Smith Premium Small Each",
+      "product_id": "17853127450060833284",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:17853127450060833284,headlineOfferDocid:4476436993507525866,imageDocid:5972531015450613604,rds:PC_3004855345694876602|PROD_PC_3004855345694876602,gpcid:3004855345694876602,mid:576462537537386612,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNzg1MzEyNzQ1MDA2MDgzMzI4NCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjQ0NzY0MzY5OTM1MDc1MjU4NjYiLCJpbWFnZURvY2lkIjoiNTk3MjUzMTAxNTQ1MDYxMzYwNCIsInJkcyI6IlBDXzMwMDQ4NTUzNDU2OTQ4NzY2MDJ8UFJPRF9QQ18zMDA0ODU1MzQ1Njk0ODc2NjAyIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIzMDA0ODU1MzQ1Njk0ODc2NjAyIiwibWlkIjoiNTc2NDYyNTM3NTM3Mzg2NjEyIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNzg1MzEyNzQ1MDA2MDgzMzI4NCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjQ0NzY0MzY5OTM1MDc1MjU4NjYiLCJpbWFnZURvY2lkIjoiNTk3MjUzMTAxNTQ1MDYxMzYwNCIsInJkcyI6IlBDXzMwMDQ4NTUzNDU2OTQ4NzY2MDJ8UFJPRF9QQ18zMDA0ODU1MzQ1Njk0ODc2NjAyIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIzMDA0ODU1MzQ1Njk0ODc2NjAyIiwibWlkIjoiNTc2NDYyNTM3NTM3Mzg2NjEyIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Grocery Outlet",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcSS9nZvw4LN3TniYfZbzVxSYj6zZFMkr2VtfB6eNtLSYHmH9otpkl152fBUGGJxG2q5H_gzfqLjKnSLPsiQezzfGoS5Drhsh4ox_w",
+      "multiple_sources": true,
+      "price": "$0.66",
+      "extracted_price": 0.66,
+      "rating": 5,
+      "reviews": 1,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ8-XzjKQm5oliNOuTmH3oHKMz6cn4Wy3As-Jx1svW6pE5-8hazmprB0rpAin1TAuSybUc8VKAyU_sFjADZ6tB1Gm6JXW-x",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/hRslCXicDcnbCoIwAADQL5oXzGFCxKRSlAxJU3oJnaKTdsnNcH5I_9bf1Hk938-glJC-aXYMT1qorgWqYZbRS1Urgg3MqSkHLgRh_f61-5-P0nYb4swD1TomGXX5k6SXOaeRw6PkvELMNqV2kATxYst3CcXRBd5Qr1RMgTUJRJido_mqmwJ7twTp4iFPIzrcoQrskMK4KsHyA6KINXs"
+    },
+    {
+      "position": 25,
+      "title": "Hannaford Apples Granny Smith 3 lb",
+      "product_id": "294834218513427268",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:294834218513427268,headlineOfferDocid:9859411430634046105,imageDocid:15646990420924142811,gpcid:2164482268745390880,mid:576462436568765198,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIyOTQ4MzQyMTg1MTM0MjcyNjgiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI5ODU5NDExNDMwNjM0MDQ2MTA1IiwiaW1hZ2VEb2NpZCI6IjE1NjQ2OTkwNDIwOTI0MTQyODExIiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIyMTY0NDgyMjY4NzQ1MzkwODgwIiwibWlkIjoiNTc2NDYyNDM2NTY4NzY1MTk4IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIyOTQ4MzQyMTg1MTM0MjcyNjgiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI5ODU5NDExNDMwNjM0MDQ2MTA1IiwiaW1hZ2VEb2NpZCI6IjE1NjQ2OTkwNDIwOTI0MTQyODExIiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIyMTY0NDgyMjY4NzQ1MzkwODgwIiwibWlkIjoiNTc2NDYyNDM2NTY4NzY1MTk4IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "hannaford.com",
+      "source_icon": "https://encrypted-tbn1.gstatic.com/favicon-tbn?q=tbn%3AANd9GcTQCgK1aOyh0DTSnRLc6F5mMLxMN6LcnniEXvVGMwMKecmF-2uIEz6UH09Juj8PKZgYfXRbv12UFEj3GDTm1-qMPl8_bRoa",
+      "price": "$4.99",
+      "extracted_price": 4.99,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRowWomUvdFimc8cvpg_-pXbcUqcHm7KiC7ssOZypwT_wbZRhTmSeE42djkmfDtSN9MVC1TCbseFjlhxQ_yvEQYGzMiVTvv",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/w7AeoHicDcnbCoIwAADQL1LpAqYQEaYGoaFOK1-kXXKz5mYbM_uQ_q2_qfN6vh-qtVS-45AePSepCbY07Bd2q_RVM2QjwR1FhZSsbzfD-n_-NsVejHIxngQvDY4YRytkZNtY8gxROaA9dw8scJU61pMcQTPCOqeAFyRcznF357edLlIvqYIZCKAiUfegr6yZTJhd4nfCKmDMDyijODw"
+    },
+    {
+      "position": 26,
+      "title": "Organic Apple",
+      "product_id": "12279763787889008367",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:12279763787889008367,headlineOfferDocid:12279763787889008367,imageDocid:8010829191241623586,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxMjI3OTc2Mzc4Nzg4OTAwODM2NyIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjEyMjc5NzYzNzg3ODg5MDA4MzY3IiwiaW1hZ2VEb2NpZCI6IjgwMTA4MjkxOTEyNDE2MjM1ODYiLCJyZHMiOiIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IiIsIm1pZCI6IiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxMjI3OTc2Mzc4Nzg4OTAwODM2NyIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjEyMjc5NzYzNzg3ODg5MDA4MzY3IiwiaW1hZ2VEb2NpZCI6IjgwMTA4MjkxOTEyNDE2MjM1ODYiLCJyZHMiOiIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IiIsIm1pZCI6IiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Instacart",
+      "source_icon": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn%3AANd9GcRJxMLkqpswdBVpos0q7JpYmBvkdLMF-gZnoY2RlesBFU8S5xDzFx6G2b0brXESxCgxakBF_ek5L-Mst4dGJwLdPlRUG07T",
+      "price": "$5.99",
+      "extracted_price": 5.99,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRSu8tR9oX1OMLDKnnOGOBQWqZnj5VHZTouZKsAY5aSu3dzBW0SGH-dt0rHdiHI2dROPrqzCUEnIaTl8A4SZLCc7O_Q4g85",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/miuMk3icDcldDoIgAADgE_mT6VK31tSaOC1SLIuXZuDUVoCCD3mQ7tZt6nv9vp9OKSF9w2gYGd9CNVRTd2bprVS16olO-MuQHReiZ-1mWP_PDw7Ui0mBJlcVHr8s4D7bpozBGIZ5NWD2cM4Al3zCqQyuTo2mJZ3DykQx0KgyR0B7kFi0gMdxmKPTjiV1-XQDG-EsIit4y-3WdX6M8DS9"
+    },
+    {
+      "position": 27,
+      "title": "Azure Market Organic Cosmic Crisp Apples",
+      "product_id": "11405543102072815319",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:11405543102072815319,headlineOfferDocid:8118873128816833538,imageDocid:16631535262790688253,rds:PROD_VAR_2806896801518436266|VAR_2806896801518436266,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMTQwNTU0MzEwMjA3MjgxNTMxOSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjgxMTg4NzMxMjg4MTY4MzM1MzgiLCJpbWFnZURvY2lkIjoiMTY2MzE1MzUyNjI3OTA2ODgyNTMiLCJyZHMiOiJQUk9EX1ZBUl8yODA2ODk2ODAxNTE4NDM2MjY2fFZBUl8yODA2ODk2ODAxNTE4NDM2MjY2IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMTQwNTU0MzEwMjA3MjgxNTMxOSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjgxMTg4NzMxMjg4MTY4MzM1MzgiLCJpbWFnZURvY2lkIjoiMTY2MzE1MzUyNjI3OTA2ODgyNTMiLCJyZHMiOiJQUk9EX1ZBUl8yODA2ODk2ODAxNTE4NDM2MjY2fFZBUl8yODA2ODk2ODAxNTE4NDM2MjY2IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Azure Standard",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcSEtSeGa4TGch-dmj1i9UfAlrIkUtC9l8HTZCr-JSW34_YXAP2aCU2AZC7vKLT54sGLS4V0w8IUPZOHhOh6NVx8NMlRJvv7WJzsNrSQA44",
+      "price": "$59.50",
+      "extracted_price": 59.5,
+      "rating": 4.8,
+      "reviews": 160,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTpiKunbBicaPfQLg8r-dmDnwoHK0bNUqRytrOhYOA_15iJUGX8tcW9yPzGhUusYSA8mgul2Xz3CaF2wlZh6THUjwNguiQRfznYKbTUCyZ0qNCPtHo6W0fZ8Q",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/um1U2HicDclhCoIwGADQE5VaFCZEmJGSYVoO0z-hU7eFbtN9InqqrtNt6v193w8FkMrStIrjfpJQlQsouLEkCnJgeIlFqykqpGScHLr9_yw7KHcujiXzB14cGc7DOroSs1-U7YmPwvP1IkDdfYL-RtOb_TI27ILcpwk42U3h7FI0qPRhmy0ZmtVzXjv5eTU2Gd3GHnqPARlYdK9nnvpFjJwp07vACcET20SvMzP6AQ7XP-c"
+    },
+    {
+      "position": 28,
+      "title": "Fowler Farms Apples, McIntosh",
+      "product_id": "2011667263291602614",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:2011667263291602614,headlineOfferDocid:6314129713827692650,imageDocid:4884428165776877943,rds:PC_2535195906305420041|PROD_PC_2535195906305420041,gpcid:2535195906305420041,mid:576462666205352704,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIyMDExNjY3MjYzMjkxNjAyNjE0IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNjMxNDEyOTcxMzgyNzY5MjY1MCIsImltYWdlRG9jaWQiOiI0ODg0NDI4MTY1Nzc2ODc3OTQzIiwicmRzIjoiUENfMjUzNTE5NTkwNjMwNTQyMDA0MXxQUk9EX1BDXzI1MzUxOTU5MDYzMDU0MjAwNDEiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjI1MzUxOTU5MDYzMDU0MjAwNDEiLCJtaWQiOiI1NzY0NjI2NjYyMDUzNTI3MDQiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIyMDExNjY3MjYzMjkxNjAyNjE0IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNjMxNDEyOTcxMzgyNzY5MjY1MCIsImltYWdlRG9jaWQiOiI0ODg0NDI4MTY1Nzc2ODc3OTQzIiwicmRzIjoiUENfMjUzNTE5NTkwNjMwNTQyMDA0MXxQUk9EX1BDXzI1MzUxOTU5MDYzMDU0MjAwNDEiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjI1MzUxOTU5MDYzMDU0MjAwNDEiLCJtaWQiOiI1NzY0NjI2NjYyMDUzNTI3MDQiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Cooklist",
+      "source_icon": "https://encrypted-tbn1.gstatic.com/favicon-tbn?q=tbn%3AANd9GcR3LHSMwLNpVJVORBjUw4bVZTv6-cK-e6cpakLZd9G5lnsrOvii4IK6-bZCmJ6F4qY7RHvJ2JfM0pz5vNT-wVLu5bmUkqw",
+      "multiple_sources": true,
+      "price": "$3.78",
+      "extracted_price": 3.78,
+      "old_price": "Usually $5",
+      "extracted_old_price": 5,
+      "rating": 2.7,
+      "reviews": 35,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQKOrW-RsdNsu5kC7-rsJuC2AhG5tGZ6GvNTuDV2EyfGduSqxtiJlchq7VKenEQVCxDjUW_9bl5SFsFlh1M4WsDZwkNfqWZJrfyZnXldFxzcTXhngaO1F_Q",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/Rfe32XicDcnbDkMwAADQL0LYTEiWZXFpQkaMqXgRWtRYXVob-6j9z_5mO6_n-yGcj8yQpIqieRt5hQVe0p3YMF7wFoloeEiMDOPY0uY0Hf9nnH2sAxR6wQyFK8M-W9TO1ISZuYupnAlQOcgO4OnHi5Uo9lYDvETTylu3R2TSEq-idpiYq3W_wVwvezVymNMT-bKHzMpenV9PMHPnesto2mNnfaM4JbQpAtnJwx9JJT9L",
+      "tag": "LOW PRICE",
+      "extensions": [
+        "LOW PRICE"
+      ]
+    },
+    {
+      "position": 29,
+      "title": "CMI Apples Golden Delicious 3 Pounds",
+      "product_id": "243123606331294901",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:243123606331294901,headlineOfferDocid:17830322809069508374,imageDocid:6175755049001391326,rds:PC_15839555477588984067|PROD_PC_15839555477588984067,gpcid:15839555477588984067,mid:576462304408048637,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIyNDMxMjM2MDYzMzEyOTQ5MDEiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNzgzMDMyMjgwOTA2OTUwODM3NCIsImltYWdlRG9jaWQiOiI2MTc1NzU1MDQ5MDAxMzkxMzI2IiwicmRzIjoiUENfMTU4Mzk1NTU0Nzc1ODg5ODQwNjd8UFJPRF9QQ18xNTgzOTU1NTQ3NzU4ODk4NDA2NyIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTU4Mzk1NTU0Nzc1ODg5ODQwNjciLCJtaWQiOiI1NzY0NjIzMDQ0MDgwNDg2MzciLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIyNDMxMjM2MDYzMzEyOTQ5MDEiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNzgzMDMyMjgwOTA2OTUwODM3NCIsImltYWdlRG9jaWQiOiI2MTc1NzU1MDQ5MDAxMzkxMzI2IiwicmRzIjoiUENfMTU4Mzk1NTU0Nzc1ODg5ODQwNjd8UFJPRF9QQ18xNTgzOTU1NTQ3NzU4ODk4NDA2NyIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTU4Mzk1NTU0Nzc1ODg5ODQwNjciLCJtaWQiOiI1NzY0NjIzMDQ0MDgwNDg2MzciLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Douglas Food Valu",
+      "source_icon": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn%3AANd9GcRLqXE0EgKgSe5iqi9w0NTomUWAtRXIUIas74s-Miyat-10VBIWbHYNfsuZTRARSKISxeCRO3MgD3MEPxkZeICQN-EB4HF26KJnA-AB",
+      "multiple_sources": true,
+      "price": "$2.59",
+      "extracted_price": 2.59,
+      "rating": 4.5,
+      "reviews": 2,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQvwCgsvow1wNEXrFASnmvkbwoGyehvl90sZQCxVvpabxNqpeGmE27FHBRxmT_ObBKOplGRe-1pqZi_h9lDvMWQAopCkBcWKiu6Cb1htw1e44bIdnz1I9EI",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/G6Nu2nicDclhCoIwGADQE6UtojCIUFOTyLAiwz_i5nCibp9ubdahuk-3qff3fT9MKZAb26acjC9QtJopzBdWLVWpGmIR0duSCYCG17th-7-Nm1RORFJt_FpqYZBJgscYulfe6xYbEb0o050zl3nqT3cNJZ6SAWjUB4t1ePAuU38rztg7nqGLLnSGYMibgjndXp-y1BXgtx7Jjs1z5WPElEF0ucRxxd8odoL4B97xP6Q"
+    },
+    {
+      "position": 30,
+      "title": "Apple Red Delicious Large Each, by Harris Farm Markets",
+      "product_id": "16572174879287163481",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:16572174879287163481,headlineOfferDocid:730155557291502335,imageDocid:1601657053693449455,gpcid:5708414812088134823,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNjU3MjE3NDg3OTI4NzE2MzQ4MSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjczMDE1NTU1NzI5MTUwMjMzNSIsImltYWdlRG9jaWQiOiIxNjAxNjU3MDUzNjkzNDQ5NDU1IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiI1NzA4NDE0ODEyMDg4MTM0ODIzIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxNjU3MjE3NDg3OTI4NzE2MzQ4MSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjczMDE1NTU1NzI5MTUwMjMzNSIsImltYWdlRG9jaWQiOiIxNjAxNjU3MDUzNjkzNDQ5NDU1IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiI1NzA4NDE0ODEyMDg4MTM0ODIzIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Food Depot",
+      "source_icon": "https://encrypted-tbn0.gstatic.com/favicon-tbn?q=tbn%3AANd9GcRD85ccW7vFwPGl7QSGyTzVIKuLIqLi64lZrRJBXqhwX6Z1-0-vNGcINWwxbSByFJSsUxbef6pHFo5TmAbt0nnB1X8B2tei",
+      "multiple_sources": true,
+      "price": "$0.99",
+      "extracted_price": 0.99,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSoQYvVlOj6SG0GeUt1Cvgd56KU69Z5-PJmrn_qMjq-OCOSIapxVK0_-lHyiOdgiEhNmWF1hiHcyj6brHfWWcb8J4JNoFS6LQ",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/nrMXNnicDcltCoIwAADQE80PypFCREhqWi6RlPojutk20W3qkLxJV-s29f6-74dprWbPNFuBp1XplgDdiI1BZ11rjg0sB3NmUiku6GHc_887psQNcS6zx1L0qIN5aIXtXdv-QokDkzt0nw64xcMkqvHajQD5KD_X6l0kVgX6aOWIUH5i6VAGNuMRXjvYTNGrLHGzi7dxKoMcXrIf_mc1_w"
+    },
+    {
+      "position": 31,
+      "title": "Granny Smith Apples, Large",
+      "product_id": "7742610180998546556",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:7742610180998546556,headlineOfferDocid:7742610180998546556,imageDocid:17878322729886174047,rds:PC_8411029402965582805|PROD_PC_8411029402965582805,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiI3NzQyNjEwMTgwOTk4NTQ2NTU2IiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNzc0MjYxMDE4MDk5ODU0NjU1NiIsImltYWdlRG9jaWQiOiIxNzg3ODMyMjcyOTg4NjE3NDA0NyIsInJkcyI6IlBDXzg0MTEwMjk0MDI5NjU1ODI4MDV8UFJPRF9QQ184NDExMDI5NDAyOTY1NTgyODA1IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiI3NzQyNjEwMTgwOTk4NTQ2NTU2IiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNzc0MjYxMDE4MDk5ODU0NjU1NiIsImltYWdlRG9jaWQiOiIxNzg3ODMyMjcyOTg4NjE3NDA0NyIsInJkcyI6IlBDXzg0MTEwMjk0MDI5NjU1ODI4MDV8UFJPRF9QQ184NDExMDI5NDAyOTY1NTgyODA1IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Busch's Fresh Food Market",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcSm_hAXu8FCEjibzhcIjEkCleeLUih-h-Lw2xzY6f_kgDB7DPSu4ZkhV0AzdO2X72LwylA11ETJvWw9g8Zahvgxq2LuUlcQgg",
+      "price": "$2.99",
+      "extracted_price": 2.99,
+      "rating": 2.6,
+      "reviews": 850,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSJSXGG2Dx4aIqQqF7wm927_ovZnED5eaTD33Q9rOpbb-kizxuvw1q3amDoR3A1zaf9HEXLs1Eg_Ke_4wgdOWLVwMsdQCEJ",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/b51yD3icDclRCoIwAADQE6noCpkQIW1ZZokZJf3IdEsldJtbah6ku3Wber_v-6m1FsqzLNaV_VtoRg1ddMCslCa6Kc2St5aquRBNV63l6n-ef6IwKNMwzYLAQdOC7GUit-7YQsfN-XDvMFoyckEAJLCPRVEYz2aeXsNoS0BaxM_At2fygDucRcrGVX5g-WKsaHyLruNR0WSDwx-HBjV7"
+    },
+    {
+      "position": 32,
+      "title": "Good & Gather Organic Gala Apples",
+      "product_id": "132524761184368704",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:132524761184368704,headlineOfferDocid:13603328774574416335,imageDocid:56260940620237640,rds:PC_15058793820153691310|PROD_PC_15058793820153691310,gpcid:15058793820153691310,mid:576462849729008380,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMzI1MjQ3NjExODQzNjg3MDQiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMzYwMzMyODc3NDU3NDQxNjMzNSIsImltYWdlRG9jaWQiOiI1NjI2MDk0MDYyMDIzNzY0MCIsInJkcyI6IlBDXzE1MDU4NzkzODIwMTUzNjkxMzEwfFBST0RfUENfMTUwNTg3OTM4MjAxNTM2OTEzMTAiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjE1MDU4NzkzODIwMTUzNjkxMzEwIiwibWlkIjoiNTc2NDYyODQ5NzI5MDA4MzgwIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiIxMzI1MjQ3NjExODQzNjg3MDQiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMzYwMzMyODc3NDU3NDQxNjMzNSIsImltYWdlRG9jaWQiOiI1NjI2MDk0MDYyMDIzNzY0MCIsInJkcyI6IlBDXzE1MDU4NzkzODIwMTUzNjkxMzEwfFBST0RfUENfMTUwNTg3OTM4MjAxNTM2OTEzMTAiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjE1MDU4NzkzODIwMTUzNjkxMzEwIiwibWlkIjoiNTc2NDYyODQ5NzI5MDA4MzgwIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Instacart",
+      "source_icon": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn%3AANd9GcRJxMLkqpswdBVpos0q7JpYmBvkdLMF-gZnoY2RlesBFU8S5xDzFx6G2b0brXESxCgxakBF_ek5L-Mst4dGJwLdPlRUG07T",
+      "price": "$3.50",
+      "extracted_price": 3.5,
+      "rating": 2.7,
+      "reviews": 204,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSLgv7z2cnFT25jTt1J1H5WGCuAyqYGDE1sSk2fJ1OkBxCmy5X4uRwDdMGibM5YQd35vFpyPTsiCg0Oua-rpJvGUSWKYDMA",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/at7ABnicDcltDoIgAADQE_mBxVpurZkmzTIrbeZPBVNyIgpadJDu1m3q_X3fTy0lF7ZhlAwPisuSaLJgpl4JmUuKddy1hqg7zimr1v3qf7ZzJEuE40M1Ld4WZn5iwUciQQB2MEXu6Kg-Q94WiLix7gGIms3LbRW8zcfL0yMhokUIszOZwcnn6pQI6lZmNObawIMJXeN0n3mh8wNzvjUB"
+    },
+    {
+      "position": 33,
+      "title": "Honeycrisp Apples",
+      "product_id": "2691469536692506635",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:2691469536692506635,headlineOfferDocid:2691469536692506635,imageDocid:3631729177224337162,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIyNjkxNDY5NTM2NjkyNTA2NjM1IiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMjY5MTQ2OTUzNjY5MjUwNjYzNSIsImltYWdlRG9jaWQiOiIzNjMxNzI5MTc3MjI0MzM3MTYyIiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIyNjkxNDY5NTM2NjkyNTA2NjM1IiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMjY5MTQ2OTUzNjY5MjUwNjYzNSIsImltYWdlRG9jaWQiOiIzNjMxNzI5MTc3MjI0MzM3MTYyIiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "lundsandbyerlys.com",
+      "source_icon": "https://encrypted-tbn1.gstatic.com/favicon-tbn?q=tbn%3AANd9GcToTrs2Pbpg1qJo7brAgUZEA5ltbqvD0mTCkYb9UfAn3n8bOlTgQuRis5dyEE1KfaAuf1vv26JdN34zHQ_Cj7PpwUShXmat_3LgJ4pG",
+      "price": "$2.99",
+      "extracted_price": 2.99,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRJEdNkbPdcWxdLGf3KIi6WmL8UPZt5JNRNyK4R45jiKPuA8ZU4KPlTT9RvB62eMXp2KxGebFx4vjdyj1CCE3X0fe_2kIgeHA",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/axVUYXicDcltCoIwAADQE6U1P1AhwsRMZzJGovgncps6TV25RG_S1bpNvb_v-2mkFJOjqmwgr1VIRjeyHIBST_IuOVHI2KtTMwrBh_rw3P_PcRNqBwRHPk26ElGSLTQOKg2G3Mz62EpRIY0owckKdawbLYfo7VpFqkP0uF5tPB9NwC65AHAJWHla9Lmla7vzPF_LtxW7gS6s2dn9Ad_FNT8"
+    },
+    {
+      "position": 34,
+      "title": "Apple, Honeycrisp, Small",
+      "product_id": "9298335540681234742",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:9298335540681234742,headlineOfferDocid:9298335540681234742,imageDocid:11429249049651915983,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiI5Mjk4MzM1NTQwNjgxMjM0NzQyIiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiOTI5ODMzNTU0MDY4MTIzNDc0MiIsImltYWdlRG9jaWQiOiIxMTQyOTI0OTA0OTY1MTkxNTk4MyIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiI5Mjk4MzM1NTQwNjgxMjM0NzQyIiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiOTI5ODMzNTU0MDY4MTIzNDc0MiIsImltYWdlRG9jaWQiOiIxMTQyOTI0OTA0OTY1MTkxNTk4MyIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "lambsfreshmarket.com",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcQP1Y92tUIrbHYBD-l937r40gRBOuVSyU3QU8FIC9MP439lH48xyLU8aV5aK7Neov0BSWzcuZ8u2ZH-6kFubboBZG4a2OEPOCvhTq20DA",
+      "price": "$2.29",
+      "extracted_price": 2.29,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRIRcnaiNiW1tAthDcISxsGZtlXi6VEFrBVeKM14co2dAlED8DctOSEQpQziJMvPVpJvBAtlkoGC3cLfIOlI9QIb7tV_2k3",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/VpYpfHicDcnRCoIwFADQL0pRo1KImGkyS02FFb2EXk2HNpe7SPUh_Vt_U-f1fD8tolSOrtcCxpfEupphKSytUVggBw2Gu67aQUoums1j_T-HxJUdQEYzEAWP-clAgq0HNH-q4IL9mS-YvxtdVu8jYw6DWZHe91YeYJL7qUzfPIymI5Ph5BLsuyHYWnC40aSndkrLJbKr2Vk_vSc1yw"
+    },
+    {
+      "position": 35,
+      "title": "Silver Creek-Seaman Orchards Apples, Red Delicious, 40 oz (3 lbs) 1.36 kg",
+      "product_id": "4876318862881632287",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:4876318862881632287,headlineOfferDocid:4876318862881632287,imageDocid:9492657104315252141,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiI0ODc2MzE4ODYyODgxNjMyMjg3IiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNDg3NjMxODg2Mjg4MTYzMjI4NyIsImltYWdlRG9jaWQiOiI5NDkyNjU3MTA0MzE1MjUyMTQxIiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiI0ODc2MzE4ODYyODgxNjMyMjg3IiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNDg3NjMxODg2Mjg4MTYzMjI4NyIsImltYWdlRG9jaWQiOiI5NDkyNjU3MTA0MzE1MjUyMTQxIiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Pic N Sav",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcRLj1Xs3oDm_Cp7zCTJTbqhqNbKCg-5HDmvkwg6DkLOgMknGVrF4z4dDMP9TD3akhQorV0Yh29tuQUBOZ2WPE-salG2oQ",
+      "price": "$3.60",
+      "extracted_price": 3.6,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcROOSvUokokYg-HPB3Fvct_hH4ji5uVikdXBkSI1hWS-rkrtjhH4zen2c_emyDezRJaBdQXZy_IIgFjLYiWFvo7A_ApWh1K",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/BPfpwHicDcndCoIwGADQJ1KxHyIhQhHTiiyl1G6GbWObw23pl6AP0rv1Nnluz-_LAUzvOQ5VuBsNUGLBS7k266EGgW2sW6fn2hih2P69m8_zL2R7wFma5sNdSy0rZsXXYBkNGBCPV41Yfx5CkjKQeeLyIrc62UEzz0TVAiPajiGdsmMdkFv5HFGSsKg5V6KIBr3xkW8K7p7-5Tw29Q"
+    },
+    {
+      "position": 36,
+      "title": "Apple, Granny Smith, Small",
+      "product_id": "339108087410633365",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:339108087410633365,headlineOfferDocid:339108087410633365,imageDocid:1354071204082007310,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIzMzkxMDgwODc0MTA2MzMzNjUiLCJjYXRhbG9naWQiOiIiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIzMzkxMDgwODc0MTA2MzMzNjUiLCJpbWFnZURvY2lkIjoiMTM1NDA3MTIwNDA4MjAwNzMxMCIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIzMzkxMDgwODc0MTA2MzMzNjUiLCJjYXRhbG9naWQiOiIiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIzMzkxMDgwODc0MTA2MzMzNjUiLCJpbWFnZURvY2lkIjoiMTM1NDA3MTIwNDA4MjAwNzMxMCIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Food Depot",
+      "source_icon": "https://encrypted-tbn0.gstatic.com/favicon-tbn?q=tbn%3AANd9GcRD85ccW7vFwPGl7QSGyTzVIKuLIqLi64lZrRJBXqhwX6Z1-0-vNGcINWwxbSByFJSsUxbef6pHFo5TmAbt0nnB1X8B2tei",
+      "price": "$0.59",
+      "extracted_price": 0.59,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRPgxnTGqbX-bnLRPjJSWSXFa3BvJ_sNsCmSLM4KOwXOD_6q3PL785wJ6KBUc7ryWbE5TX5vWPfAHFAbt6ACb4alODg1HnW",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/ODeFoHicDcltDkMwAADQEyGbr02yLMUQjGYs_BMtK8tUacNcZHfbbbb3930_nRCMW4rSUjxvTLSNJBDdy4SLWvRYxuOg8G5krKfkPJ3-Z4GkOfr4Bsmb5v6ESgnR-AafYVZkpVer9hJWPOHOkMVXLUrXMnUrY1JhbB70NTQi-47NeSvQRc9LfSngAwQeQMIADtLqV-qSXUCLH4vjNJs"
+    },
+    {
+      "position": 37,
+      "title": "Ahold Apples Red Delicious 48 oz",
+      "product_id": "7764593420486149592",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:7764593420486149592,headlineOfferDocid:3779746360699441168,imageDocid:5007596274269563666,gpcid:213138239549351888,mid:576462606679710789,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI3NzY0NTkzNDIwNDg2MTQ5NTkyIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMzc3OTc0NjM2MDY5OTQ0MTE2OCIsImltYWdlRG9jaWQiOiI1MDA3NTk2Mjc0MjY5NTYzNjY2IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIyMTMxMzgyMzk1NDkzNTE4ODgiLCJtaWQiOiI1NzY0NjI2MDY2Nzk3MTA3ODkiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI3NzY0NTkzNDIwNDg2MTQ5NTkyIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMzc3OTc0NjM2MDY5OTQ0MTE2OCIsImltYWdlRG9jaWQiOiI1MDA3NTk2Mjc0MjY5NTYzNjY2IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIyMTMxMzgyMzk1NDkzNTE4ODgiLCJtaWQiOiI1NzY0NjI2MDY2Nzk3MTA3ODkiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Instacart",
+      "source_icon": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn%3AANd9GcRJxMLkqpswdBVpos0q7JpYmBvkdLMF-gZnoY2RlesBFU8S5xDzFx6G2b0brXESxCgxakBF_ek5L-Mst4dGJwLdPlRUG07T",
+      "price": "$5.09",
+      "extracted_price": 5.09,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRa-f7ECW-zMtn2gb2xpZ7icviCKJ-BmVUWlmEELOvVdoGxORGgKuT6f_lbVPcwCSrF7iWev-Mr-L_0EaRtXOnqVnt3e_uNig",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/q1swnnicDcndCoIwGADQJ5qGQZIQUbKE_AurKd3InHMOdE79NOtJerXeps7t-X5qAD06pskVG14aeImgUJYhRqAgmcG61hzrTmupxL7f_c85ROXWYwlFlY3dFL1DUJYorEU_bMlm6fpndGzJPW1ajIN4JmXnLXHiCX-6baq8KciFPd3rcLJlymcUDijIV5gmkMWqJwrWPJ8iKX4WQDcZ"
+    },
+    {
+      "position": 38,
+      "title": "Red Delicious Apples",
+      "product_id": "1526696971000468388",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:1526696971000468388,headlineOfferDocid:1526696971000468388,imageDocid:8450077292096167696,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNTI2Njk2OTcxMDAwNDY4Mzg4IiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTUyNjY5Njk3MTAwMDQ2ODM4OCIsImltYWdlRG9jaWQiOiI4NDUwMDc3MjkyMDk2MTY3Njk2IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNTI2Njk2OTcxMDAwNDY4Mzg4IiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTUyNjY5Njk3MTAwMDQ2ODM4OCIsImltYWdlRG9jaWQiOiI4NDUwMDc3MjkyMDk2MTY3Njk2IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Giant Food",
+      "source_icon": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn%3AANd9GcSgXtkxXVWHN8-c_VelcVtxHFVLIqHkpormcs9h0vxdUry6i_eWbdxtl7JtrLUQBrgB91mX-8LtlAI1zkHHifC5su5_KSpV",
+      "price": "$1.02",
+      "extracted_price": 1.02,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQnuO5VIY1mOC_wFu1CiWpITTT2Wn2bygdEpyEGVD3QNTd0b0qzjUZWtiLVsMgJ58F5P0XNopnvz5_YeQGdRGjlrYz2rVer",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/Gmh1aXicDclRCoIwAADQE6XTGJQQEabDKM1YM_uR3MZUck43Cz1Id-s29X7f91MZo7Rn21zSYVKGs4UpJbCENg9TU4t2ra2rTqlaim2_-Z-3i9ka0VSOCSRR7rSJX7zD0fHrTEUYYzeTbjkJFqgpQGS_TGPMQAn6ubneM1MfiT6JA1yF8Axucafka4ZFzlPELqh5DvnsDoQPP6F5Nj4",
+      "delivery": "Free delivery by Tue"
+    },
+    {
+      "position": 39,
+      "title": "Lucky California Gala Apples",
+      "product_id": "9716585962943774199",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:9716585962943774199,headlineOfferDocid:8329073801728033235,imageDocid:5492537950969359876,rds:CID_9716585962943774199|PROD_CID_9716585962943774199,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI5NzE2NTg1OTYyOTQzNzc0MTk5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiODMyOTA3MzgwMTcyODAzMzIzNSIsImltYWdlRG9jaWQiOiI1NDkyNTM3OTUwOTY5MzU5ODc2IiwicmRzIjoiQ0lEXzk3MTY1ODU5NjI5NDM3NzQxOTl8UFJPRF9DSURfOTcxNjU4NTk2Mjk0Mzc3NDE5OSIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIiLCJjYXRhbG9naWQiOiI5NzE2NTg1OTYyOTQzNzc0MTk5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiODMyOTA3MzgwMTcyODAzMzIzNSIsImltYWdlRG9jaWQiOiI1NDkyNTM3OTUwOTY5MzU5ODc2IiwicmRzIjoiQ0lEXzk3MTY1ODU5NjI5NDM3NzQxOTl8UFJPRF9DSURfOTcxNjU4NTk2Mjk0Mzc3NDE5OSIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Cooklist",
+      "source_icon": "https://encrypted-tbn1.gstatic.com/favicon-tbn?q=tbn%3AANd9GcR3LHSMwLNpVJVORBjUw4bVZTv6-cK-e6cpakLZd9G5lnsrOvii4IK6-bZCmJ6F4qY7RHvJ2JfM0pz5vNT-wVLu5bmUkqw",
+      "price": "$1.59",
+      "extracted_price": 1.59,
+      "rating": 2,
+      "reviews": 5,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQqAsTbdxiQBg5blseuFjg1LX3a4Ry7_sZOrf2Sd9dphl7ih2tu-PB3At0YEQ5indg0LvwWggu1GoKW2gJMnpRR3PabaSgu",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/8zOekXicDclZCoJAGADgE7knohChUEJZuQQtLzGL_TNh4-jMVF6ku3Wb-l6_74dpLVXiOK0g4yR1Sy2NhWuD0khzYpP-4SjWS8kFLIb5_5J0R-OcVEOqDpi-eZVBiDvVmtUdvOIUoFk9RVd12Y83v6ExlayLOPO1scosSLV7XlYhFxTc4vk6Ahgv7zdHH9ZbIes6KBFGDZgfzqU2bg"
+    },
+    {
+      "position": 40,
+      "title": "Melissa's Produce - XL Honey Crisp Apples - 8 lbs.",
+      "product_id": "14825794279020123701",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:14825794279020123701,headlineOfferDocid:14825794279020123701,imageDocid:7999815640971565033,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNDgyNTc5NDI3OTAyMDEyMzcwMSIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE0ODI1Nzk0Mjc5MDIwMTIzNzAxIiwiaW1hZ2VEb2NpZCI6Ijc5OTk4MTU2NDA5NzE1NjUwMzMiLCJyZHMiOiIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IiIsIm1pZCI6IiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNDgyNTc5NDI3OTAyMDEyMzcwMSIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE0ODI1Nzk0Mjc5MDIwMTIzNzAxIiwiaW1hZ2VEb2NpZCI6Ijc5OTk4MTU2NDA5NzE1NjUwMzMiLCJyZHMiOiIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IiIsIm1pZCI6IiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Goldbelly",
+      "source_icon": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn%3AANd9GcTfIcnErkNgJkivzcy4PAj64pkAQPQbNOg1yBb6IBZm9gW5GvlHFcMgMud-N0AFaqVfFQL_3VmqVWsMkqcAY33r96xxl6JjS6yCCg",
+      "price": "$75.95",
+      "extracted_price": 75.95,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSd89MDHkIGGmnv_PHyih6RJNOec6snFzI0kz0CbiOgmRsKxQkl0U4NEEA17BUIGbQHiz9sDfH3h3kAm5_qyi1rO8NYn66yNsCEdGhMOUYC",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/nzYlPnicDcldDoIgAADgE-XPLFK31kwNrQlp88Enl2jCCNRgLT1Ot-o29b1-3w_VelS-aXaSPOdRd-1KN9I2eqVvmhGDDMJUdBhHJvv9tPufH6DWg-Taul4WJTyFUMhXfUlmRkFxQrgjQMnjklp8scKG4V4U6vzO-cMq1yiOA3t7KFPY5AlbPBXdE4c6PBCbepqZ_cQuqiQAM1Jh3EKa4bIKfzEXOSM",
+      "delivery": "Free delivery"
+    }
+  ],
+  "categorized_shopping_results": [
+    {
+      "title": "In stores nearby",
+      "shopping_results": [
+        {
+          "position": 1,
+          "title": "Fresh Honeycrisp Apple",
+          "product_id": "3169369917096767498",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:3169369917096767498,headlineOfferDocid:8812722365440622496,imageDocid:15286864744991880759,rds:PC_17870065898956397790|PROD_PC_17870065898956397790,gpcid:17870065898956397790,mid:576462839977746922,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjMxNjkzNjk5MTcwOTY3Njc0OTgiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI4ODEyNzIyMzY1NDQwNjIyNDk2IiwiaW1hZ2VEb2NpZCI6IjE1Mjg2ODY0NzQ0OTkxODgwNzU5IiwicmRzIjoiUENfMTc4NzAwNjU4OTg5NTYzOTc3OTB8UFJPRF9QQ18xNzg3MDA2NTg5ODk1NjM5Nzc5MCIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTc4NzAwNjU4OTg5NTYzOTc3OTAiLCJtaWQiOiI1NzY0NjI4Mzk5Nzc3NDY5MjIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjMxNjkzNjk5MTcwOTY3Njc0OTgiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI4ODEyNzIyMzY1NDQwNjIyNDk2IiwiaW1hZ2VEb2NpZCI6IjE1Mjg2ODY0NzQ0OTkxODgwNzU5IiwicmRzIjoiUENfMTc4NzAwNjU4OTg5NTYzOTc3OTB8UFJPRF9QQ18xNzg3MDA2NTg5ODk1NjM5Nzc5MCIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTc4NzAwNjU4OTg5NTYzOTc3OTAiLCJtaWQiOiI1NzY0NjI4Mzk5Nzc3NDY5MjIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "Walmart",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4okSTMg0V7M2loi3elm9UMU9A.png",
+          "price": "$1.61",
+          "extracted_price": 1.61,
+          "rating": 2.3,
+          "reviews": 3700,
+          "extensions": [
+            "Nearby, 18 mi"
+          ],
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4okhIofytjGpMAPGH1dgZVg9A.webp"
+        },
+        {
+          "position": 2,
+          "title": "Envy Apples Bag",
+          "product_id": "92707641165968426",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:92707641165968426,headlineOfferDocid:10662451197339612690,imageDocid:3182671350194536717,rds:PC_15693014185654964250|PROD_PC_15693014185654964250,gpcid:15693014185654964250,mid:576462529889283041,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjkyNzA3NjQxMTY1OTY4NDI2IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTA2NjI0NTExOTczMzk2MTI2OTAiLCJpbWFnZURvY2lkIjoiMzE4MjY3MTM1MDE5NDUzNjcxNyIsInJkcyI6IlBDXzE1NjkzMDE0MTg1NjU0OTY0MjUwfFBST0RfUENfMTU2OTMwMTQxODU2NTQ5NjQyNTAiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjE1NjkzMDE0MTg1NjU0OTY0MjUwIiwibWlkIjoiNTc2NDYyNTI5ODg5MjgzMDQxIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjkyNzA3NjQxMTY1OTY4NDI2IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTA2NjI0NTExOTczMzk2MTI2OTAiLCJpbWFnZURvY2lkIjoiMzE4MjY3MTM1MDE5NDUzNjcxNyIsInJkcyI6IlBDXzE1NjkzMDE0MTg1NjU0OTY0MjUwfFBST0RfUENfMTU2OTMwMTQxODU2NTQ5NjQyNTAiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjE1NjkzMDE0MTg1NjU0OTY0MjUwIiwibWlkIjoiNTc2NDYyNTI5ODg5MjgzMDQxIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+          "source": "Target",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4oko-BFpvUPItCQUAQw1N4Rsw.png",
+          "price": "$3.99",
+          "extracted_price": 3.99,
+          "rating": 2.4,
+          "reviews": 707,
+          "extensions": [
+            "Nearby, 3 mi"
+          ],
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4ok6_Jh6Cnw0Kt_i58tAYjuJQ.webp"
+        },
+        {
+          "position": 3,
+          "title": "Fresh Gala Apple",
+          "product_id": "6131772150539435161",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:6131772150539435161,headlineOfferDocid:1200825530958552686,imageDocid:12173894561157631077,rds:PC_8838426654526370403|PROD_PC_8838426654526370403,gpcid:8838426654526370403,mid:576462842794617348,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjYxMzE3NzIxNTA1Mzk0MzUxNjEiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMjAwODI1NTMwOTU4NTUyNjg2IiwiaW1hZ2VEb2NpZCI6IjEyMTczODk0NTYxMTU3NjMxMDc3IiwicmRzIjoiUENfODgzODQyNjY1NDUyNjM3MDQwM3xQUk9EX1BDXzg4Mzg0MjY2NTQ1MjYzNzA0MDMiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6Ijg4Mzg0MjY2NTQ1MjYzNzA0MDMiLCJtaWQiOiI1NzY0NjI4NDI3OTQ2MTczNDgiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjYxMzE3NzIxNTA1Mzk0MzUxNjEiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMjAwODI1NTMwOTU4NTUyNjg2IiwiaW1hZ2VEb2NpZCI6IjEyMTczODk0NTYxMTU3NjMxMDc3IiwicmRzIjoiUENfODgzODQyNjY1NDUyNjM3MDQwM3xQUk9EX1BDXzg4Mzg0MjY2NTQ1MjYzNzA0MDMiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6Ijg4Mzg0MjY2NTQ1MjYzNzA0MDMiLCJtaWQiOiI1NzY0NjI4NDI3OTQ2MTczNDgiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "Walmart",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4okDLi381Kv2BXm8ywxurT4Gg.png",
+          "price": "$0.82",
+          "extracted_price": 0.82,
+          "rating": 2.3,
+          "reviews": 1500,
+          "extensions": [
+            "Nearby, 18 mi"
+          ],
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4okHGPKaak1eGquJGu2MscULA.webp"
+        },
+        {
+          "position": 4,
+          "title": "Pink Lady Apple",
+          "product_id": "17187806668963740567",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:17187806668963740567,headlineOfferDocid:5427399192167697890,imageDocid:10175561728791721975,rds:PC_13624837900432723804|PROD_PC_13624837900432723804,gpcid:13624837900432723804,mid:576462842506509427,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjE3MTg3ODA2NjY4OTYzNzQwNTY3IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNTQyNzM5OTE5MjE2NzY5Nzg5MCIsImltYWdlRG9jaWQiOiIxMDE3NTU2MTcyODc5MTcyMTk3NSIsInJkcyI6IlBDXzEzNjI0ODM3OTAwNDMyNzIzODA0fFBST0RfUENfMTM2MjQ4Mzc5MDA0MzI3MjM4MDQiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjEzNjI0ODM3OTAwNDMyNzIzODA0IiwibWlkIjoiNTc2NDYyODQyNTA2NTA5NDI3IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjE3MTg3ODA2NjY4OTYzNzQwNTY3IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNTQyNzM5OTE5MjE2NzY5Nzg5MCIsImltYWdlRG9jaWQiOiIxMDE3NTU2MTcyODc5MTcyMTk3NSIsInJkcyI6IlBDXzEzNjI0ODM3OTAwNDMyNzIzODA0fFBST0RfUENfMTM2MjQ4Mzc5MDA0MzI3MjM4MDQiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjEzNjI0ODM3OTAwNDMyNzIzODA0IiwibWlkIjoiNTc2NDYyODQyNTA2NTA5NDI3IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+          "source": "Walmart",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4ok8l_opAa7qqTdlMp5ajLbtg.png",
+          "price": "$0.62",
+          "extracted_price": 0.62,
+          "rating": 1.8,
+          "reviews": 176,
+          "extensions": [
+            "Nearby, 18 mi"
+          ],
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4oks_xqO-4xuVdYcLWIknrvZA.webp"
+        },
+        {
+          "position": 5,
+          "title": "Gala Apples 3 lb Bag",
+          "product_id": "7085686146036005915",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:7085686146036005915,headlineOfferDocid:14319661486725483073,imageDocid:11604677853609294052,rds:PC_6998043696347559833|PROD_PC_6998043696347559833,gpcid:6998043696347559833,mid:576462711700943990,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjcwODU2ODYxNDYwMzYwMDU5MTUiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNDMxOTY2MTQ4NjcyNTQ4MzA3MyIsImltYWdlRG9jaWQiOiIxMTYwNDY3Nzg1MzYwOTI5NDA1MiIsInJkcyI6IlBDXzY5OTgwNDM2OTYzNDc1NTk4MzN8UFJPRF9QQ182OTk4MDQzNjk2MzQ3NTU5ODMzIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiI2OTk4MDQzNjk2MzQ3NTU5ODMzIiwibWlkIjoiNTc2NDYyNzExNzAwOTQzOTkwIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjcwODU2ODYxNDYwMzYwMDU5MTUiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNDMxOTY2MTQ4NjcyNTQ4MzA3MyIsImltYWdlRG9jaWQiOiIxMTYwNDY3Nzg1MzYwOTI5NDA1MiIsInJkcyI6IlBDXzY5OTgwNDM2OTYzNDc1NTk4MzN8UFJPRF9QQ182OTk4MDQzNjk2MzQ3NTU5ODMzIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiI2OTk4MDQzNjk2MzQ3NTU5ODMzIiwibWlkIjoiNTc2NDYyNzExNzAwOTQzOTkwIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+          "source": "Walmart",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4okvGqXiJ3BTMscCE1LrzBZvA.png",
+          "price": "$2.58",
+          "extracted_price": 2.58,
+          "rating": 3.2,
+          "reviews": 4100,
+          "extensions": [
+            "Nearby, 18 mi"
+          ],
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4okfAUYKIH_QQYd1PiUuvXgEg.webp"
+        },
+        {
+          "position": 6,
+          "title": "Red Delicious Apples 5 Lb Bag",
+          "product_id": "5223379760137079634",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:5223379760137079634,headlineOfferDocid:10631318301324701711,imageDocid:15605984910470695483,rds:PC_13705617876540157073|PROD_PC_13705617876540157073,gpcid:13705617876540157073,mid:576462881341788795,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjUyMjMzNzk3NjAxMzcwNzk2MzQiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMDYzMTMxODMwMTMyNDcwMTcxMSIsImltYWdlRG9jaWQiOiIxNTYwNTk4NDkxMDQ3MDY5NTQ4MyIsInJkcyI6IlBDXzEzNzA1NjE3ODc2NTQwMTU3MDczfFBST0RfUENfMTM3MDU2MTc4NzY1NDAxNTcwNzMiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjEzNzA1NjE3ODc2NTQwMTU3MDczIiwibWlkIjoiNTc2NDYyODgxMzQxNzg4Nzk1IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjUyMjMzNzk3NjAxMzcwNzk2MzQiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMDYzMTMxODMwMTMyNDcwMTcxMSIsImltYWdlRG9jaWQiOiIxNTYwNTk4NDkxMDQ3MDY5NTQ4MyIsInJkcyI6IlBDXzEzNzA1NjE3ODc2NTQwMTU3MDczfFBST0RfUENfMTM3MDU2MTc4NzY1NDAxNTcwNzMiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjEzNzA1NjE3ODc2NTQwMTU3MDczIiwibWlkIjoiNTc2NDYyODgxMzQxNzg4Nzk1IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+          "source": "Walmart",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4okrD2K90Lvs7ixwz22RgAB7g.png",
+          "price": "$6.38",
+          "extracted_price": 6.38,
+          "rating": 2.9,
+          "reviews": 496,
+          "extensions": [
+            "Nearby, 18 mi"
+          ],
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtcYDFvi0j713IwqSRBgvQkjKqjexMU64w683euVJN4okCsHcgh4rc93OWFfQuZMidQ.webp"
+        },
+        {
+          "position": 7,
+          "title": "365 Organic Gala Apples",
+          "product_id": "4900750183955638839",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:4900750183955638839,headlineOfferDocid:7048388972675176352,imageDocid:13785842243092809844,rds:PC_44397039612784148|PROD_PC_44397039612784148,gpcid:44397039612784148,mid:576462810924258200,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjQ5MDA3NTAxODM5NTU2Mzg4MzkiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI3MDQ4Mzg4OTcyNjc1MTc2MzUyIiwiaW1hZ2VEb2NpZCI6IjEzNzg1ODQyMjQzMDkyODA5ODQ0IiwicmRzIjoiUENfNDQzOTcwMzk2MTI3ODQxNDh8UFJPRF9QQ180NDM5NzAzOTYxMjc4NDE0OCIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiNDQzOTcwMzk2MTI3ODQxNDgiLCJtaWQiOiI1NzY0NjI4MTA5MjQyNTgyMDAiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjQ5MDA3NTAxODM5NTU2Mzg4MzkiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI3MDQ4Mzg4OTcyNjc1MTc2MzUyIiwiaW1hZ2VEb2NpZCI6IjEzNzg1ODQyMjQzMDkyODA5ODQ0IiwicmRzIjoiUENfNDQzOTcwMzk2MTI3ODQxNDh8UFJPRF9QQ180NDM5NzAzOTYxMjc4NDE0OCIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiNDQzOTcwMzk2MTI3ODQxNDgiLCJtaWQiOiI1NzY0NjI4MTA5MjQyNTgyMDAiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "Walmart",
+          "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcTnP5ISNmbEt5sfd-d6O77v8eZaWxR-UtwYkk865osEjKrS0r8udsVsfLPjH1VQBQizWhrYkhO2STFk8WaMhokVgFUhjn2NoxU",
+          "multiple_sources": true,
+          "price": "$5.24",
+          "extracted_price": 5.24,
+          "rating": 2.4,
+          "reviews": 572,
+          "extensions": [
+            "Nearby, 18 mi"
+          ],
+          "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQat2uJrw2NlQlf96bVqUUewfscUkFcl3OAolPQdCVoGa5dEl-y5eIEaBv3Wd2vc1GYD5aIx2sAZChl5AcDAwhMgEj7tCoG6BqTOHCYgdfn8z8uqKYRfssq",
+          "serpapi_thumbnail": "https://serpapi.com/images/url/UtQAjnicDcnbDsEwGADgJ2JsmVMi0s3UIcbEyNxV222oHvSfmYfyPt6G7_b7fkoAbUeOwyV9NBo4a8FZdtqFBQIX2qbq7thSaX2RxcSM_zdCMRtimhBwq-WjdmORiHzYOx9MmvI6tzS9zajwNkiJbcLCg8LEZ5FoNT5fRCR4ekfmPmkXZ1OfLF6uRaewFD6iU1SX6yK69iFUuBeY_WYeZgXL5eA9qMwq2-XWmh9EaT54"
+        },
+        {
+          "position": 8
+        }
+      ]
+    },
+    {
+      "title": "Honeycrisp Grocery",
+      "shopping_results": [
+        {
+          "position": 1,
+          "title": "Fresh Honeycrisp Apple",
+          "product_id": "3169369917096767498",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:3169369917096767498,headlineOfferDocid:8812722365440622496,imageDocid:15286864744991880759,rds:PC_17870065898956397790|PROD_PC_17870065898956397790,gpcid:17870065898956397790,mid:576462839977746922,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjMxNjkzNjk5MTcwOTY3Njc0OTgiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI4ODEyNzIyMzY1NDQwNjIyNDk2IiwiaW1hZ2VEb2NpZCI6IjE1Mjg2ODY0NzQ0OTkxODgwNzU5IiwicmRzIjoiUENfMTc4NzAwNjU4OTg5NTYzOTc3OTB8UFJPRF9QQ18xNzg3MDA2NTg5ODk1NjM5Nzc5MCIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTc4NzAwNjU4OTg5NTYzOTc3OTAiLCJtaWQiOiI1NzY0NjI4Mzk5Nzc3NDY5MjIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjMxNjkzNjk5MTcwOTY3Njc0OTgiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI4ODEyNzIyMzY1NDQwNjIyNDk2IiwiaW1hZ2VEb2NpZCI6IjE1Mjg2ODY0NzQ0OTkxODgwNzU5IiwicmRzIjoiUENfMTc4NzAwNjU4OTg5NTYzOTc3OTB8UFJPRF9QQ18xNzg3MDA2NTg5ODk1NjM5Nzc5MCIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTc4NzAwNjU4OTg5NTYzOTc3OTAiLCJtaWQiOiI1NzY0NjI4Mzk5Nzc3NDY5MjIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "Walmart",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtYCKTkj75FvJSqM_0NuEJpGpd1tElq90mppO9Co5usL0rhQdJF9o-U4DTG6TQ4kJIQ.png",
+          "price": "$1.61",
+          "extracted_price": 1.61,
+          "rating": 2.3,
+          "reviews": 3700,
+          "extensions": [
+            "Nearby, 18 mi"
+          ],
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtYCKTkj75FvJSqM_0NuEJpGpd1tElq90mppO9Co5usL0JKVbpgiiDyerx28mOqrGYQ.webp"
+        },
+        {
+          "position": 2,
+          "title": "Apple, Honeycrisp",
+          "product_id": "15972015023954938982",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:15972015023954938982,headlineOfferDocid:15972015023954938982,imageDocid:1018868773593497797,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNTk3MjAxNTAyMzk1NDkzODk4MiIsImNhdGFsb2dpZCI6bnVsbCwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTU5NzIwMTUwMjM5NTQ5Mzg5ODIiLCJpbWFnZURvY2lkIjoiMTAxODg2ODc3MzU5MzQ5Nzc5NyIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjpudWxsLCJtaWQiOm51bGwsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNTk3MjAxNTAyMzk1NDkzODk4MiIsImNhdGFsb2dpZCI6bnVsbCwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTU5NzIwMTUwMjM5NTQ5Mzg5ODIiLCJpbWFnZURvY2lkIjoiMTAxODg2ODc3MzU5MzQ5Nzc5NyIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjpudWxsLCJtaWQiOm51bGwsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+          "source": "Food Depot",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtYCKTkj75FvJSqM_0NuEJpGpd1tElq90mppO9Co5usL0oWFpQZrIyzLmmY76cOtpTg.png",
+          "price": "$1.69",
+          "extracted_price": 1.69,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtYCKTkj75FvJSqM_0NuEJpGpd1tElq90mppO9Co5usL0aRQ7ZtfyC5Kj3JAtlB4hSw.webp"
+        },
+        {
+          "position": 3,
+          "title": "Dillons Food Stores Honeycrisp Apples",
+          "product_id": "3907002791523223720",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:3907002791523223720,headlineOfferDocid:6539292245450739082,imageDocid:12371075715015368763,rds:PC_3871031923781581732|PROD_PC_3871031923781581732,gpcid:3871031923781581732,mid:576462875156980855,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjM5MDcwMDI3OTE1MjMyMjM3MjAiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI2NTM5MjkyMjQ1NDUwNzM5MDgyIiwiaW1hZ2VEb2NpZCI6IjEyMzcxMDc1NzE1MDE1MzY4NzYzIiwicmRzIjoiUENfMzg3MTAzMTkyMzc4MTU4MTczMnxQUk9EX1BDXzM4NzEwMzE5MjM3ODE1ODE3MzIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjM4NzEwMzE5MjM3ODE1ODE3MzIiLCJtaWQiOiI1NzY0NjI4NzUxNTY5ODA4NTUiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjM5MDcwMDI3OTE1MjMyMjM3MjAiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI2NTM5MjkyMjQ1NDUwNzM5MDgyIiwiaW1hZ2VEb2NpZCI6IjEyMzcxMDc1NzE1MDE1MzY4NzYzIiwicmRzIjoiUENfMzg3MTAzMTkyMzc4MTU4MTczMnxQUk9EX1BDXzM4NzEwMzE5MjM3ODE1ODE3MzIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjM4NzEwMzE5MjM3ODE1ODE3MzIiLCJtaWQiOiI1NzY0NjI4NzUxNTY5ODA4NTUiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "Instacart",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtYCKTkj75FvJSqM_0NuEJpGpd1tElq90mppO9Co5usL0m0FKWI7LN1fJj8CG57vmAA.png",
+          "multiple_sources": true,
+          "price": "$1.19",
+          "extracted_price": 1.19,
+          "rating": 2.2,
+          "reviews": 62,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtYCKTkj75FvJSqM_0NuEJpGpd1tElq90mppO9Co5usL0XxcOOHalS4MLB-y8X9-W1Q.webp"
+        },
+        {
+          "position": 4,
+          "title": "Melissa's Produce - XL Honey Crisp Apples - 8 lbs.",
+          "product_id": "14825794279020123701",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:14825794279020123701,headlineOfferDocid:14825794279020123701,imageDocid:7999815640971565033,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNDgyNTc5NDI3OTAyMDEyMzcwMSIsImNhdGFsb2dpZCI6bnVsbCwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTQ4MjU3OTQyNzkwMjAxMjM3MDEiLCJpbWFnZURvY2lkIjoiNzk5OTgxNTY0MDk3MTU2NTAzMyIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjpudWxsLCJtaWQiOm51bGwsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNDgyNTc5NDI3OTAyMDEyMzcwMSIsImNhdGFsb2dpZCI6bnVsbCwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTQ4MjU3OTQyNzkwMjAxMjM3MDEiLCJpbWFnZURvY2lkIjoiNzk5OTgxNTY0MDk3MTU2NTAzMyIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjpudWxsLCJtaWQiOm51bGwsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+          "source": "Goldbelly",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtYCKTkj75FvJSqM_0NuEJpGpd1tElq90mppO9Co5usL08mWFHOaxXQMc_vKjFWH-Yw.png",
+          "price": "$75.95",
+          "extracted_price": 75.95,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtYCKTkj75FvJSqM_0NuEJpGpd1tElq90mppO9Co5usL0jZQjyDsaont4fzn5Z9nSyw.webp",
+          "delivery": "Free delivery"
+        },
+        {
+          "position": 5,
+          "title": "Kroger Honeycrisp Apples 3 Pound Bag",
+          "product_id": "9374122392816418803",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:9374122392816418803,headlineOfferDocid:9303926537487172766,imageDocid:250922073254497221,gpcid:12822639854255732993,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjkzNzQxMjIzOTI4MTY0MTg4MDMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI5MzAzOTI2NTM3NDg3MTcyNzY2IiwiaW1hZ2VEb2NpZCI6IjI1MDkyMjA3MzI1NDQ5NzIyMSIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTI4MjI2Mzk4NTQyNTU3MzI5OTMiLCJtaWQiOm51bGwsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjkzNzQxMjIzOTI4MTY0MTg4MDMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI5MzAzOTI2NTM3NDg3MTcyNzY2IiwiaW1hZ2VEb2NpZCI6IjI1MDkyMjA3MzI1NDQ5NzIyMSIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiMTI4MjI2Mzk4NTQyNTU3MzI5OTMiLCJtaWQiOm51bGwsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+          "source": "Cooklist",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtYCKTkj75FvJSqM_0NuEJpGpd1tElq90mppO9Co5usL0IyXB9sQcWdDNlK6wqsD7kw.png",
+          "price": "$5.99",
+          "extracted_price": 5.99,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtYCKTkj75FvJSqM_0NuEJpGpd1tElq90mppO9Co5usL0miZDoDascFhrlBnBOX9WQQ.webp"
+        }
+      ]
+    },
+    {
+      "title": "Organic Grocery",
+      "shopping_results": [
+        {
+          "position": 1,
+          "title": "365 Organic Gala Apples",
+          "product_id": "4900750183955638839",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:4900750183955638839,headlineOfferDocid:7048388972675176352,imageDocid:13785842243092809844,rds:PC_44397039612784148|PROD_PC_44397039612784148,gpcid:44397039612784148,mid:576462810924258200,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjQ5MDA3NTAxODM5NTU2Mzg4MzkiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI3MDQ4Mzg4OTcyNjc1MTc2MzUyIiwiaW1hZ2VEb2NpZCI6IjEzNzg1ODQyMjQzMDkyODA5ODQ0IiwicmRzIjoiUENfNDQzOTcwMzk2MTI3ODQxNDh8UFJPRF9QQ180NDM5NzAzOTYxMjc4NDE0OCIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiNDQzOTcwMzk2MTI3ODQxNDgiLCJtaWQiOiI1NzY0NjI4MTA5MjQyNTgyMDAiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjQ5MDA3NTAxODM5NTU2Mzg4MzkiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI3MDQ4Mzg4OTcyNjc1MTc2MzUyIiwiaW1hZ2VEb2NpZCI6IjEzNzg1ODQyMjQzMDkyODA5ODQ0IiwicmRzIjoiUENfNDQzOTcwMzk2MTI3ODQxNDh8UFJPRF9QQ180NDM5NzAzOTYxMjc4NDE0OCIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjoiNDQzOTcwMzk2MTI3ODQxNDgiLCJtaWQiOiI1NzY0NjI4MTA5MjQyNTgyMDAiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "Walmart",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtU6FmWIj5ivQrokf9tocknMwK2XUkpQcL234SNAxxIqc50-dVNr9IjuzjCXEICUa2g.png",
+          "multiple_sources": true,
+          "price": "$5.24",
+          "extracted_price": 5.24,
+          "rating": 2.4,
+          "reviews": 572,
+          "extensions": [
+            "Nearby, 18 mi"
+          ],
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtU6FmWIj5ivQrokf9tocknMwK2XUkpQcL234SNAxxIqcsz8mfduOZuGv2Z7-nz-XQg.webp"
+        },
+        {
+          "position": 2,
+          "title": "Organic Granny Smith Apples",
+          "product_id": "11366819026555327038",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:11366819026555327038,headlineOfferDocid:9618749324413933767,imageDocid:3658725439990956064,rds:PC_1007485284016469299|PROD_PC_1007485284016469299,gpcid:1007485284016469299,mid:576462814791308210,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjExMzY2ODE5MDI2NTU1MzI3MDM4IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiOTYxODc0OTMyNDQxMzkzMzc2NyIsImltYWdlRG9jaWQiOiIzNjU4NzI1NDM5OTkwOTU2MDY0IiwicmRzIjoiUENfMTAwNzQ4NTI4NDAxNjQ2OTI5OXxQUk9EX1BDXzEwMDc0ODUyODQwMTY0NjkyOTkiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjEwMDc0ODUyODQwMTY0NjkyOTkiLCJtaWQiOiI1NzY0NjI4MTQ3OTEzMDgyMTAiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjExMzY2ODE5MDI2NTU1MzI3MDM4IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiOTYxODc0OTMyNDQxMzkzMzc2NyIsImltYWdlRG9jaWQiOiIzNjU4NzI1NDM5OTkwOTU2MDY0IiwicmRzIjoiUENfMTAwNzQ4NTI4NDAxNjQ2OTI5OXxQUk9EX1BDXzEwMDc0ODUyODQwMTY0NjkyOTkiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjEwMDc0ODUyODQwMTY0NjkyOTkiLCJtaWQiOiI1NzY0NjI4MTQ3OTEzMDgyMTAiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "Al Haramain International Food",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtU6FmWIj5ivQrokf9tocknMwK2XUkpQcL234SNAxxIqcZ9bjI3u3K4-6muAJOdeymw.jpeg",
+          "price": "$2.99",
+          "extracted_price": 2.99,
+          "rating": 4.7,
+          "reviews": 7,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtU6FmWIj5ivQrokf9tocknMwK2XUkpQcL234SNAxxIqcBbMjpiIYTt2afavhQ1J-HA.webp",
+          "delivery": "Free delivery on $300+"
+        },
+        {
+          "position": 3,
+          "title": "Apple, Granny Smith, Organic",
+          "product_id": "14481912277106952746",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:14481912277106952746,headlineOfferDocid:14481912277106952746,imageDocid:3448368287492486077,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNDQ4MTkxMjI3NzEwNjk1Mjc0NiIsImNhdGFsb2dpZCI6bnVsbCwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTQ0ODE5MTIyNzcxMDY5NTI3NDYiLCJpbWFnZURvY2lkIjoiMzQ0ODM2ODI4NzQ5MjQ4NjA3NyIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjpudWxsLCJtaWQiOm51bGwsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxNDQ4MTkxMjI3NzEwNjk1Mjc0NiIsImNhdGFsb2dpZCI6bnVsbCwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTQ0ODE5MTIyNzcxMDY5NTI3NDYiLCJpbWFnZURvY2lkIjoiMzQ0ODM2ODI4NzQ5MjQ4NjA3NyIsInJkcyI6IiIsInF1ZXJ5IjoiR3JvY2VyeSthcHBsZSIsImdwY2lkIjpudWxsLCJtaWQiOm51bGwsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+          "source": "villagefresh.com",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtU6FmWIj5ivQrokf9tocknMwK2XUkpQcL234SNAxxIqcIXzgasS6si_4xAUaYY62-Q.png",
+          "price": "$1.08",
+          "extracted_price": 1.08,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtU6FmWIj5ivQrokf9tocknMwK2XUkpQcL234SNAxxIqcBkK0TvejVGlqHkryV6Czww.webp"
+        },
+        {
+          "position": 4,
+          "title": "Azure Market Organic Cosmic Crisp Apples",
+          "product_id": "11405543102072815319",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:11405543102072815319,headlineOfferDocid:8118873128816833538,imageDocid:16631535262790688253,rds:PROD_VAR_2806896801518436266|VAR_2806896801518436266,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjExNDA1NTQzMTAyMDcyODE1MzE5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiODExODg3MzEyODgxNjgzMzUzOCIsImltYWdlRG9jaWQiOiIxNjYzMTUzNTI2Mjc5MDY4ODI1MyIsInJkcyI6IlBST0RfVkFSXzI4MDY4OTY4MDE1MTg0MzYyNjZ8VkFSXzI4MDY4OTY4MDE1MTg0MzYyNjYiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6bnVsbCwibWlkIjpudWxsLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjExNDA1NTQzMTAyMDcyODE1MzE5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiODExODg3MzEyODgxNjgzMzUzOCIsImltYWdlRG9jaWQiOiIxNjYzMTUzNTI2Mjc5MDY4ODI1MyIsInJkcyI6IlBST0RfVkFSXzI4MDY4OTY4MDE1MTg0MzYyNjZ8VkFSXzI4MDY4OTY4MDE1MTg0MzYyNjYiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6bnVsbCwibWlkIjpudWxsLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "Azure Standard",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtU6FmWIj5ivQrokf9tocknMwK2XUkpQcL234SNAxxIqcA6Jm43ZTktn__VDae5WGuw.png",
+          "price": "$59.50",
+          "extracted_price": 59.5,
+          "rating": 4.8,
+          "reviews": 160,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtU6FmWIj5ivQrokf9tocknMwK2XUkpQcL234SNAxxIqcfXhiayXBaj1N7sujzm5duw.webp"
+        },
+        {
+          "position": 5,
+          "title": "H-E-B Organics Fresh Opal Apples",
+          "product_id": "8358348579797254149",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:8358348579797254149,headlineOfferDocid:3787375416756835586,imageDocid:11191752218187695950,gpcid:15119902099614244080,mid:576462439717674927,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjgzNTgzNDg1Nzk3OTcyNTQxNDkiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIzNzg3Mzc1NDE2NzU2ODM1NTg2IiwiaW1hZ2VEb2NpZCI6IjExMTkxNzUyMjE4MTg3Njk1OTUwIiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIxNTExOTkwMjA5OTYxNDI0NDA4MCIsIm1pZCI6IjU3NjQ2MjQzOTcxNzY3NDkyNyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjgzNTgzNDg1Nzk3OTcyNTQxNDkiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIzNzg3Mzc1NDE2NzU2ODM1NTg2IiwiaW1hZ2VEb2NpZCI6IjExMTkxNzUyMjE4MTg3Njk1OTUwIiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiIxNTExOTkwMjA5OTYxNDI0NDA4MCIsIm1pZCI6IjU3NjQ2MjQzOTcxNzY3NDkyNyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+          "source": "Cooklist",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtU6FmWIj5ivQrokf9tocknMwK2XUkpQcL234SNAxxIqcKRKsDatO-kp_0X4WEWfApA.png",
+          "price": "$4.48",
+          "extracted_price": 4.48,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtU6FmWIj5ivQrokf9tocknMwK2XUkpQcL234SNAxxIqcw4effjBZN-MgvSS0_rhq-g.webp"
+        }
+      ]
+    },
+    {
+      "title": "Deals on Grocery",
+      "shopping_results": [
+        {
+          "position": 1,
+          "title": "Golden Delicious Apple Box",
+          "product_id": "1933146219269859985",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:1933146219269859985,headlineOfferDocid:1933146219269859985,imageDocid:10765376549680796903,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxOTMzMTQ2MjE5MjY5ODU5OTg1IiwiY2F0YWxvZ2lkIjpudWxsLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxOTMzMTQ2MjE5MjY5ODU5OTg1IiwiaW1hZ2VEb2NpZCI6IjEwNzY1Mzc2NTQ5NjgwNzk2OTAzIiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOm51bGwsIm1pZCI6bnVsbCwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiIxOTMzMTQ2MjE5MjY5ODU5OTg1IiwiY2F0YWxvZ2lkIjpudWxsLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxOTMzMTQ2MjE5MjY5ODU5OTg1IiwiaW1hZ2VEb2NpZCI6IjEwNzY1Mzc2NTQ5NjgwNzk2OTAzIiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOm51bGwsIm1pZCI6bnVsbCwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+          "source": "Instacart",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIqCQpjEWVQ4oLHZL1BIrppIQ.png",
+          "price": "$2.29",
+          "extracted_price": 2.29,
+          "old_price": "Was $15",
+          "extracted_old_price": 15,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIq3N64ctaL-4LOf5Kpp8x6ag.webp",
+          "tag": "84% OFF",
+          "extensions": [
+            "84% OFF"
+          ]
+        },
+        {
+          "position": 2,
+          "title": "Evans Fruit Apples",
+          "product_id": "8565401732052307753",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:8565401732052307753,headlineOfferDocid:16998053726063634696,imageDocid:4906589259173010999,rds:PC_1701494565406852481|PROD_PC_1701494565406852481,gpcid:1701494565406852481,mid:576462623825879994,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6Ijg1NjU0MDE3MzIwNTIzMDc3NTMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNjk5ODA1MzcyNjA2MzYzNDY5NiIsImltYWdlRG9jaWQiOiI0OTA2NTg5MjU5MTczMDEwOTk5IiwicmRzIjoiUENfMTcwMTQ5NDU2NTQwNjg1MjQ4MXxQUk9EX1BDXzE3MDE0OTQ1NjU0MDY4NTI0ODEiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjE3MDE0OTQ1NjU0MDY4NTI0ODEiLCJtaWQiOiI1NzY0NjI2MjM4MjU4Nzk5OTQiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6Ijg1NjU0MDE3MzIwNTIzMDc3NTMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNjk5ODA1MzcyNjA2MzYzNDY5NiIsImltYWdlRG9jaWQiOiI0OTA2NTg5MjU5MTczMDEwOTk5IiwicmRzIjoiUENfMTcwMTQ5NDU2NTQwNjg1MjQ4MXxQUk9EX1BDXzE3MDE0OTQ1NjU0MDY4NTI0ODEiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjE3MDE0OTQ1NjU0MDY4NTI0ODEiLCJtaWQiOiI1NzY0NjI2MjM4MjU4Nzk5OTQiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "brookshires.com",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIqtCCy6lZ3w4Mym_7vhY97zw.png",
+          "multiple_sources": true,
+          "price": "$2.49",
+          "extracted_price": 2.49,
+          "old_price": "Usually $4",
+          "extracted_old_price": 4,
+          "rating": 3.3,
+          "reviews": 342,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIqrvnVpYwzaiAmB1E04ZLjDw.webp",
+          "tag": "LOW PRICE",
+          "extensions": [
+            "LOW PRICE"
+          ]
+        },
+        {
+          "position": 3,
+          "title": "Lucky Leaf Sliced Apples",
+          "product_id": "7341738717973971051",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:7341738717973971051,headlineOfferDocid:1054074786332994593,imageDocid:17885978297597861693,rds:PC_4911703627156289778|PROD_PC_4911703627156289778,gpcid:4911703627156289778,mid:576462349074095314,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjczNDE3Mzg3MTc5NzM5NzEwNTEiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMDU0MDc0Nzg2MzMyOTk0NTkzIiwiaW1hZ2VEb2NpZCI6IjE3ODg1OTc4Mjk3NTk3ODYxNjkzIiwicmRzIjoiUENfNDkxMTcwMzYyNzE1NjI4OTc3OHxQUk9EX1BDXzQ5MTE3MDM2MjcxNTYyODk3NzgiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjQ5MTE3MDM2MjcxNTYyODk3NzgiLCJtaWQiOiI1NzY0NjIzNDkwNzQwOTUzMTQiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjczNDE3Mzg3MTc5NzM5NzEwNTEiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMDU0MDc0Nzg2MzMyOTk0NTkzIiwiaW1hZ2VEb2NpZCI6IjE3ODg1OTc4Mjk3NTk3ODYxNjkzIiwicmRzIjoiUENfNDkxMTcwMzYyNzE1NjI4OTc3OHxQUk9EX1BDXzQ5MTE3MDM2MjcxNTYyODk3NzgiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6IjQ5MTE3MDM2MjcxNTYyODk3NzgiLCJtaWQiOiI1NzY0NjIzNDkwNzQwOTUzMTQiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "Central Market",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIq9KEveXnJ5BhDwzidA0O5XA.png",
+          "multiple_sources": true,
+          "price": "$3.18",
+          "extracted_price": 3.18,
+          "old_price": "Usually $4",
+          "extracted_old_price": 4,
+          "rating": 4.2,
+          "reviews": 64,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIqpaEv3Di9CpxutFM_XciWUA.webp",
+          "tag": "LOW PRICE",
+          "extensions": [
+            "LOW PRICE"
+          ]
+        },
+        {
+          "position": 4,
+          "title": "Nature's Promise Gala Apples",
+          "product_id": "12644983835534723832",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=catalogid:12644983835534723832,headlineOfferDocid:8950965751834006098,imageDocid:8826068860363661544,rds:PC_909352760635045605|PROD_PC_909352760635045605,gpcid:909352760635045605,mid:576462433908746103,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjEyNjQ0OTgzODM1NTM0NzIzODMyIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiODk1MDk2NTc1MTgzNDAwNjA5OCIsImltYWdlRG9jaWQiOiI4ODI2MDY4ODYwMzYzNjYxNTQ0IiwicmRzIjoiUENfOTA5MzUyNzYwNjM1MDQ1NjA1fFBST0RfUENfOTA5MzUyNzYwNjM1MDQ1NjA1IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiI5MDkzNTI3NjA2MzUwNDU2MDUiLCJtaWQiOiI1NzY0NjI0MzM5MDg3NDYxMDMiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOm51bGwsImNhdGFsb2dpZCI6IjEyNjQ0OTgzODM1NTM0NzIzODMyIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiODk1MDk2NTc1MTgzNDAwNjA5OCIsImltYWdlRG9jaWQiOiI4ODI2MDY4ODYwMzYzNjYxNTQ0IiwicmRzIjoiUENfOTA5MzUyNzYwNjM1MDQ1NjA1fFBST0RfUENfOTA5MzUyNzYwNjM1MDQ1NjA1IiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOiI5MDkzNTI3NjA2MzUwNDU2MDUiLCJtaWQiOiI1NzY0NjI0MzM5MDg3NDYxMDMiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "hannaford.com",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIq7zU2PXPxt0MpVQiCagabKA.png",
+          "price": "$3.99",
+          "extracted_price": 3.99,
+          "old_price": "Usually $5",
+          "extracted_old_price": 5,
+          "rating": 5,
+          "reviews": 2,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIqmrw1TyFp5tQn-CUYsaeYdA.webp",
+          "tag": "LOW PRICE",
+          "extensions": [
+            "LOW PRICE"
+          ]
+        },
+        {
+          "position": 5,
+          "title": "Apples Premium Red Delicious - Avg 0.60 Lb",
+          "product_id": "7739406094296173970",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:7739406094296173970,headlineOfferDocid:7739406094296173970,imageDocid:16930033095169433859,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiI3NzM5NDA2MDk0Mjk2MTczOTcwIiwiY2F0YWxvZ2lkIjpudWxsLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI3NzM5NDA2MDk0Mjk2MTczOTcwIiwiaW1hZ2VEb2NpZCI6IjE2OTMwMDMzMDk1MTY5NDMzODU5IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOm51bGwsIm1pZCI6bnVsbCwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiI3NzM5NDA2MDk0Mjk2MTczOTcwIiwiY2F0YWxvZ2lkIjpudWxsLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI3NzM5NDA2MDk0Mjk2MTczOTcwIiwiaW1hZ2VEb2NpZCI6IjE2OTMwMDMzMDk1MTY5NDMzODU5IiwicmRzIjoiIiwicXVlcnkiOiJHcm9jZXJ5K2FwcGxlIiwiZ3BjaWQiOm51bGwsIm1pZCI6bnVsbCwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+          "source": "super1foods.com",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIqT7Ra9YO2oyqBQdYB0qYtqA.png",
+          "price": "$0.76",
+          "extracted_price": 0.76,
+          "old_price": "$0.89",
+          "extracted_old_price": 0.89,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIqoXoYiBKNZxS1S9gb4Cnqgw.webp",
+          "tag": "14% OFF",
+          "extensions": [
+            "14% OFF"
+          ]
+        },
+        {
+          "position": 6,
+          "title": "Red Delicious 1.9-2.1 lbs",
+          "product_id": "4672220989643525689",
+          "product_link": "https://www.google.com/search?ibp=oshop&q=Grocery apple&prds=productid:4672220989643525689,headlineOfferDocid:4672220989643525689,imageDocid:3781948125814341319,pvt:hg&hl=en&gl=us&udm=28",
+          "immersive_product_page_token": "eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiI0NjcyMjIwOTg5NjQzNTI1Njg5IiwiY2F0YWxvZ2lkIjpudWxsLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI0NjcyMjIwOTg5NjQzNTI1Njg5IiwiaW1hZ2VEb2NpZCI6IjM3ODE5NDgxMjU4MTQzNDEzMTkiLCJyZHMiOiIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6bnVsbCwibWlkIjpudWxsLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6InpJVEZhWVBpSnZHeXB0UVBydXZCTUEiLCJwcm9kdWN0aWQiOiI0NjcyMjIwOTg5NjQzNTI1Njg5IiwiY2F0YWxvZ2lkIjpudWxsLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI0NjcyMjIwOTg5NjQzNTI1Njg5IiwiaW1hZ2VEb2NpZCI6IjM3ODE5NDgxMjU4MTQzNDEzMTkiLCJyZHMiOiIiLCJxdWVyeSI6Ikdyb2NlcnkrYXBwbGUiLCJncGNpZCI6bnVsbCwibWlkIjpudWxsLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+          "source": "FreshGoGo",
+          "source_icon": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIqkIggVmEcWMHtbkoHR_x0Hw.png",
+          "price": "$2.99",
+          "extracted_price": 2.99,
+          "old_price": "$3.99",
+          "extracted_old_price": 3.99,
+          "thumbnail": "https://serpapi.com/searches/69c584cca7d7841215c49d9f/images/ptT7ye9bqE-PPpvMdbfqtUTwJURTW3J7EJs8ij_UF2GeG8MqfKzO09KEXUolwPIqvasfULosYD42vN2iz0YkzQ.webp",
+          "tag": "25% OFF",
+          "extensions": [
+            "25% OFF"
+          ],
+          "delivery": "Free delivery by Tue"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "input_type": "link",
+      "options": [
+        {
+          "text": "On sale",
+          "shoprs": "CAESBEoCGAEYBioNZ3JvY2VyeSBhcHBsZTITCAYSB09uIHNhbGUYAiIESgIYAVjZ2x9gAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple+sale&shoprs=CAESBEoCGAEYBioNZ3JvY2VyeSBhcHBsZTITCAYSB09uIHNhbGUYAiIESgIYAVjZ2x9gAg"
+        },
+        {
+          "text": "Nearby",
+          "shoprs": "CAEYAyoNZ3JvY2VyeSBhcHBsZTIMCAMSBk5lYXJieRgCWNnbH2AC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple+nearby&shoprs=CAEYAyoNZ3JvY2VyeSBhcHBsZTIMCAMSBk5lYXJieRgCWNnbH2AC"
+        },
+        {
+          "text": "Small business",
+          "shoprs": "CAESAmoAGBYqDWdyb2NlcnkgYXBwbGUyHAgWEg5TbWFsbCBidXNpbmVzcyICagAqBBABGAFgAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=grocery+apple&shoprs=CAESAmoAGBYqDWdyb2NlcnkgYXBwbGUyHAgWEg5TbWFsbCBidXNpbmVzcyICagAqBBABGAFgAg"
+        }
+      ]
+    },
+    {
+      "type": "Product Rating",
+      "input_type": "link",
+      "options": [
+        {
+          "text": "4 and up",
+          "shoprs": "CAESBWIDCJADGB4qDWdyb2NlcnkgYXBwbGUyFQgeEgg0IGFuZCB1cCIFYgMIkANABGAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple&shoprs=CAESBWIDCJADGB4qDWdyb2NlcnkgYXBwbGUyFQgeEgg0IGFuZCB1cCIFYgMIkANABGAC"
+        }
+      ]
+    },
+    {
+      "type": "Stores",
+      "input_type": "link",
+      "options": [
+        {
+          "text": "Walmart",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTILCAISB1dhbG1hcnRY2dsfYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=walmart+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTILCAISB1dhbG1hcnRY2dsfYAI"
+        },
+        {
+          "text": "Target",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTIKCAISBlRhcmdldFjZ2x9gAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=target+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTIKCAISBlRhcmdldFjZ2x9gAg"
+        },
+        {
+          "text": "Staples",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTILCAISB1N0YXBsZXNY2dsfYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=staples+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTILCAISB1N0YXBsZXNY2dsfYAI"
+        },
+        {
+          "text": "Instacart",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTINCAISCUluc3RhY2FydFjZ2x9gAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=instacart+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTINCAISCUluc3RhY2FydFjZ2x9gAg"
+        }
+      ]
+    },
+    {
+      "type": "Price",
+      "input_type": "price_range",
+      "options": [
+        {
+          "text": "Under $2",
+          "shoprs": "CAESDRILEQAAAACAhD5BGAEYBSoNZ3JvY2VyeSBhcHBsZTIhCAUSCFVuZGVyICQyGAIiDRILEQAAAACAhD5BGAEqAhgBWNnbH2AC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple+under+%242&shoprs=CAESDRILEQAAAACAhD5BGAEYBSoNZ3JvY2VyeSBhcHBsZTIhCAUSCFVuZGVyICQyGAIiDRILEQAAAACAhD5BGAEqAhgBWNnbH2AC"
+        },
+        {
+          "text": "$2 - $5",
+          "shoprs": "CAESFhIUCQAAAACAhD5BEQAAAACIKlFBGAEYBSoNZ3JvY2VyeSBhcHBsZTIpCAUSByQyIC0gJDUYAiIWEhQJAAAAAICEPkERAAAAAIgqUUEYASoCGAFY2dsfYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple+between+%242+and+%245&shoprs=CAESFhIUCQAAAACAhD5BEQAAAACIKlFBGAEYBSoNZ3JvY2VyeSBhcHBsZTIpCAUSByQyIC0gJDUYAiIWEhQJAAAAAICEPkERAAAAAIgqUUEYASoCGAFY2dsfYAI"
+        },
+        {
+          "text": "Over $5",
+          "shoprs": "CAESDRILCQAAAACIKlFBGAEYBSoNZ3JvY2VyeSBhcHBsZTIgCAUSB092ZXIgJDUYAiINEgsJAAAAAIgqUUEYASoCGAFY2dsfYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple+over+%245&shoprs=CAESDRILCQAAAACIKlFBGAEYBSoNZ3JvY2VyeSBhcHBsZTIgCAUSB092ZXIgJDUYAiINEgsJAAAAAIgqUUEYASoCGAFY2dsfYAI"
+        }
+      ]
+    },
+    {
+      "type": "Variety",
+      "input_type": "checkbox",
+      "options": [
+        {
+          "text": "Golden Delicious",
+          "shoprs": "CAEYASoNZ3JvY2VyeSBhcHBsZTIgCAESEEdvbGRlbiBEZWxpY2lvdXM6Cgii9TgQp_U4MABY2dsfYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=golden+delicious+grocery+apple&shoprs=CAEYASoNZ3JvY2VyeSBhcHBsZTIgCAESEEdvbGRlbiBEZWxpY2lvdXM6Cgii9TgQp_U4MABY2dsfYAI"
+        },
+        {
+          "text": "Red Delicious",
+          "shoprs": "CAEYASoNZ3JvY2VyeSBhcHBsZTIdCAESDVJlZCBEZWxpY2lvdXM6Cgii9TgQqPU4MABY2dsfYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=red+delicious+grocery+apple&shoprs=CAEYASoNZ3JvY2VyeSBhcHBsZTIdCAESDVJlZCBEZWxpY2lvdXM6Cgii9TgQqPU4MABY2dsfYAI"
+        },
+        {
+          "text": "Pink Lady",
+          "shoprs": "CAEYASoNZ3JvY2VyeSBhcHBsZTIZCAESCVBpbmsgTGFkeToKCKL1OBCm9TgwAFjZ2x9gAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=pink+lady+grocery+apple&shoprs=CAEYASoNZ3JvY2VyeSBhcHBsZTIZCAESCVBpbmsgTGFkeToKCKL1OBCm9TgwAFjZ2x9gAg"
+        },
+        {
+          "text": "Fuji",
+          "shoprs": "CAEYASoNZ3JvY2VyeSBhcHBsZTIUCAESBEZ1amk6Cgii9TgQpfU4MABY2dsfYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=fuji+grocery+apple&shoprs=CAEYASoNZ3JvY2VyeSBhcHBsZTIUCAESBEZ1amk6Cgii9TgQpfU4MABY2dsfYAI"
+        }
+      ]
+    },
+    {
+      "type": "Free shipping",
+      "input_type": "link",
+      "options": [
+        {
+          "text": "Free shipping",
+          "shoprs": "CAESBFICEAEYGSoNZ3JvY2VyeSBhcHBsZTIXCBkSDUZyZWUgc2hpcHBpbmciBFICEAFgAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple+free+shipping&shoprs=CAESBFICEAEYGSoNZ3JvY2VyeSBhcHBsZTIXCBkSDUZyZWUgc2hpcHBpbmciBFICEAFgAg"
+        }
+      ]
+    },
+    {
+      "type": "Carousel Filters",
+      "options": [
+        {
+          "text": "On sale",
+          "shoprs": "CAESBEoCGAEYBioNZ3JvY2VyeSBhcHBsZTITCAYSB09uIHNhbGUYAiIESgIYAVjZ2x9gAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple+sale&shoprs=CAESBEoCGAEYBioNZ3JvY2VyeSBhcHBsZTITCAYSB09uIHNhbGUYAiIESgIYAVjZ2x9gAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Nearby",
+          "shoprs": "CAEYAyoNZ3JvY2VyeSBhcHBsZTIMCAMSBk5lYXJieRgCWNnbH2AB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple+nearby&shoprs=CAEYAyoNZ3JvY2VyeSBhcHBsZTIMCAMSBk5lYXJieRgCWNnbH2AB",
+          "input_type": "link"
+        },
+        {
+          "text": "Walmart",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTILCAISB1dhbG1hcnRY2dsfYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=walmart+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTILCAISB1dhbG1hcnRY2dsfYAE",
+          "input_type": "link"
+        },
+        {
+          "text": "Target",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTIKCAISBlRhcmdldFjZ2x9gAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=target+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTIKCAISBlRhcmdldFjZ2x9gAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Under $2",
+          "shoprs": "CAESDRILEQAAAACAhD5BGAEYBSoNZ3JvY2VyeSBhcHBsZTIhCAUSCFVuZGVyICQyGAIiDRILEQAAAACAhD5BGAEqAhgBWNnbH2AB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple+under+%242&shoprs=CAESDRILEQAAAACAhD5BGAEYBSoNZ3JvY2VyeSBhcHBsZTIhCAUSCFVuZGVyICQyGAIiDRILEQAAAACAhD5BGAEqAhgBWNnbH2AB",
+          "input_type": "price_range"
+        },
+        {
+          "text": "Trees",
+          "shoprs": "CAEYCSoNZ3JvY2VyeSBhcHBsZTIJCAkSBVRyZWVzYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=trees+grocery+apple&shoprs=CAEYCSoNZ3JvY2VyeSBhcHBsZTIJCAkSBVRyZWVzYAE",
+          "input_type": "link"
+        },
+        {
+          "text": "Golden Delicious",
+          "shoprs": "CAEYASoNZ3JvY2VyeSBhcHBsZTIgCAESEEdvbGRlbiBEZWxpY2lvdXM6Cgii9TgQp_U4MABY2dsfYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=golden+delicious+grocery+apple&shoprs=CAEYASoNZ3JvY2VyeSBhcHBsZTIgCAESEEdvbGRlbiBEZWxpY2lvdXM6Cgii9TgQp_U4MABY2dsfYAE",
+          "input_type": "checkbox"
+        },
+        {
+          "text": "Red Delicious",
+          "shoprs": "CAEYASoNZ3JvY2VyeSBhcHBsZTIdCAESDVJlZCBEZWxpY2lvdXM6Cgii9TgQqPU4MABY2dsfYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=red+delicious+grocery+apple&shoprs=CAEYASoNZ3JvY2VyeSBhcHBsZTIdCAESDVJlZCBEZWxpY2lvdXM6Cgii9TgQqPU4MABY2dsfYAE",
+          "input_type": "checkbox"
+        },
+        {
+          "text": "Free shipping",
+          "shoprs": "CAESBFICEAEYGSoNZ3JvY2VyeSBhcHBsZTIXCBkSDUZyZWUgc2hpcHBpbmciBFICEAFgAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple+free+shipping&shoprs=CAESBFICEAEYGSoNZ3JvY2VyeSBhcHBsZTIXCBkSDUZyZWUgc2hpcHBpbmciBFICEAFgAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Pink Lady",
+          "shoprs": "CAEYASoNZ3JvY2VyeSBhcHBsZTIZCAESCVBpbmsgTGFkeToKCKL1OBCm9TgwAFjZ2x9gAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=pink+lady+grocery+apple&shoprs=CAEYASoNZ3JvY2VyeSBhcHBsZTIZCAESCVBpbmsgTGFkeToKCKL1OBCm9TgwAFjZ2x9gAQ",
+          "input_type": "checkbox"
+        },
+        {
+          "text": "Fuji",
+          "shoprs": "CAEYASoNZ3JvY2VyeSBhcHBsZTIUCAESBEZ1amk6Cgii9TgQpfU4MABY2dsfYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=fuji+grocery+apple&shoprs=CAEYASoNZ3JvY2VyeSBhcHBsZTIUCAESBEZ1amk6Cgii9TgQpfU4MABY2dsfYAE",
+          "input_type": "checkbox"
+        },
+        {
+          "text": "Jonagold",
+          "shoprs": "CAEYASoNZ3JvY2VyeSBhcHBsZTIYCAESCEpvbmFnb2xkOgoIovU4ELL1ODAAWNnbH2AB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=jonagold+grocery+apple&shoprs=CAEYASoNZ3JvY2VyeSBhcHBsZTIYCAESCEpvbmFnb2xkOgoIovU4ELL1ODAAWNnbH2AB",
+          "input_type": "link"
+        },
+        {
+          "text": "Staples",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTILCAISB1N0YXBsZXNY2dsfYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=staples+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTILCAISB1N0YXBsZXNY2dsfYAE",
+          "input_type": "link"
+        },
+        {
+          "text": "Instacart",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTINCAISCUluc3RhY2FydFjZ2x9gAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=instacart+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTINCAISCUluc3RhY2FydFjZ2x9gAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Small business",
+          "shoprs": "CAESAmoAGBYqDWdyb2NlcnkgYXBwbGUyHAgWEg5TbWFsbCBidXNpbmVzcyICagAqBBABGAFgAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=grocery+apple&shoprs=CAESAmoAGBYqDWdyb2NlcnkgYXBwbGUyHAgWEg5TbWFsbCBidXNpbmVzcyICagAqBBABGAFgAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "eBay",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTIICAISBGVCYXlY2dsfYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=ebay+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTIICAISBGVCYXlY2dsfYAE",
+          "input_type": "link"
+        },
+        {
+          "text": "marketbasketfoods.com",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTIZCAISFW1hcmtldGJhc2tldGZvb2RzLmNvbVjZ2x9gAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=marketbasketfoods.com+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTIZCAISFW1hcmtldGJhc2tldGZvb2RzLmNvbVjZ2x9gAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Hometown Grocery - Athens",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTIdCAISGUhvbWV0b3duIEdyb2NlcnkgLSBBdGhlbnNY2dsfYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=hometown+grocery+-+athens+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTIdCAISGUhvbWV0b3duIEdyb2NlcnkgLSBBdGhlbnNY2dsfYAE",
+          "input_type": "link"
+        },
+        {
+          "text": "metcalfesmarket",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTITCAISD21ldGNhbGZlc21hcmtldFjZ2x9gAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=metcalfesmarket+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTITCAISD21ldGNhbGZlc21hcmtldFjZ2x9gAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Ring Bros. Marketplace",
+          "shoprs": "CAEYAioNZ3JvY2VyeSBhcHBsZTIaCAISFlJpbmcgQnJvcy4gTWFya2V0cGxhY2VY2dsfYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=ring+bros.+marketplace+grocery+apple&shoprs=CAEYAioNZ3JvY2VyeSBhcHBsZTIaCAISFlJpbmcgQnJvcy4gTWFya2V0cGxhY2VY2dsfYAE",
+          "input_type": "link"
+        }
+      ]
+    }
+  ],
+  "serpapi_pagination": {
+    "next": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=Grocery+apple&start=10"
+  }
+}
