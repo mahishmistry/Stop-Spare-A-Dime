@@ -7,14 +7,20 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/database/index.js",
-    "test": "node dist/database/test_query.js"
+    "test": "jest --config jest.config.cjs --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-typescript": "^7.28.5",
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.5.0",
     "@types/pg": "^8.20.0",
+    "eslint": "^10.1.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.9",
+    "tsx": "^4.21.0",
     "typescript": "^6.0.2"
   },
   "dependencies": {
