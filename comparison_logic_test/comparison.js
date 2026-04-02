@@ -8,19 +8,24 @@ const jsonData = JSON.parse(rawData);
 
 
 /*
- * Compare function for shopping items based on specific criteria
- * @param {Array} items - Array of item objects
- * @param {string} criteria - 'price', 'rating', or 'bang for buck'
- * @returns {Array} - A new array of sorted items, from best to worst
+ * Express endpoint to get the best items based on specific criteria
+ * Query params: 
+ * - k: Optional limit number (defaults to no limit)
+ * - criteria: 'price', 'rating', or 'bang for buck' (defaults to 'price')
  */
-function compareItems(k, criteria) {
-    const firstKItems = jsonData.shopping_results.slice(0,k)
+const getBestItems = (req, res) => {
+    // If k is provided, parse it. Otherwise, use the total length (no limit by default)
+    const k = req.query.k ? parseInt(req.query.k, 10) : jsonData.shopping_results.length;
+    
+    // Get criteria from query, default to 'price'
+    const criteria = req.query.criteria || 'price';
+
     if (!['price', 'rating', 'bang for buck'].includes(criteria)) {
-        throw new Error("Invalid criteria. Choose 'price', 'rating', or 'bang for buck'.");
+        return res.status(400).json({ error: "Invalid criteria. Choose 'price', 'rating', or 'bang for buck'." });
     }
 
     // Create a copy to avoid mutating the original array
-    return [...firstKItems].sort((a, b) => {
+    let sortedItems = [...jsonData.shopping_results].sort((a, b) => {
         // Fallback to reasonable defaults if data is missing
         const priceA = a.extracted_price || Infinity;
         const priceB = b.extracted_price || Infinity;
@@ -44,19 +49,12 @@ function compareItems(k, criteria) {
             return scoreB - scoreA;
         }
     });
-}
 
-// Example usage to show it works
-// const bestItems = compareItems(20, 'price');
-// const bestItems = compareItems(20, 'rating');
-const bestItems = compareItems(20, 'bang for buck');
-
-
-console.log("Top 10 best items for your criteria:");
-bestItems.slice(0, 10).forEach(item => {
-    console.log(`- ${item.title} ($${item.extracted_price})  (${item.rating})`);
-});
+    const bestItems = sortedItems.slice(0, k);
+    
+    return res.json(bestItems);
+};
 
 module.exports = {
-    compareItems
+    getBestItems
 };
