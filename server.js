@@ -74,11 +74,12 @@ app.get('/api/block', (req, res) => {
     res.json({ blockedStores });
   });
 
-// Endpoint for comparison logic test
-app.get('/api/compare', getBestItems);
+// Endpoint for comparison logic
+app.get('/api/compare', (req, res) => {
+    getBestItems(req, res);
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-//Get the comparison logic endpoint
