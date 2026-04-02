@@ -1,0 +1,1062 @@
+{
+  "search_metadata": {
+    "id": "69b316863882c5447eda2cd8",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/vNiU_RMHSWjYFYgiLslJUg/69b316863882c5447eda2cd8.json",
+    "created_at": "2026-03-12 19:39:50 UTC",
+    "processed_at": "2026-03-12 19:39:50 UTC",
+    "google_shopping_url": "https://www.google.com/search?udm=28&q=strawberries&uule=w+CAIQICIhMDEwMDMsTWFzc2FjaHVzZXR0cyxVbml0ZWQgU3RhdGVz&hl=en&gl=us",
+    "raw_html_file": "https://serpapi.com/searches/vNiU_RMHSWjYFYgiLslJUg/69b316863882c5447eda2cd8.html",
+    "total_time_taken": 10.95
+  },
+  "search_parameters": {
+    "engine": "google_shopping",
+    "q": "strawberries",
+    "location_requested": "01003",
+    "location_used": "01003,Massachusetts,United States",
+    "google_domain": "google.com",
+    "hl": "en",
+    "gl": "us",
+    "device": "desktop"
+  },
+  "search_information": {
+    "query_displayed": "strawberries",
+    "shopping_results_state": "Results for exact spelling"
+  },
+  "shopping_results": [
+    {
+      "position": 1,
+      "title": "Driscoll's Organic Strawberries",
+      "product_id": "11526836531613329570",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:11526836531613329570,headlineOfferDocid:12820018042381854039,imageDocid:8547959072514013313,rds:PC_16596003720988948478|PROD_PC_16596003720988948478,gpcid:16596003720988948478,mid:576462866597287162,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTE1MjY4MzY1MzE2MTMzMjk1NzAiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMjgyMDAxODA0MjM4MTg1NDAzOSIsImltYWdlRG9jaWQiOiI4NTQ3OTU5MDcyNTE0MDEzMzEzIiwicmRzIjoiUENfMTY1OTYwMDM3MjA5ODg5NDg0Nzh8UFJPRF9QQ18xNjU5NjAwMzcyMDk4ODk0ODQ3OCIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxNjU5NjAwMzcyMDk4ODk0ODQ3OCIsIm1pZCI6IjU3NjQ2Mjg2NjU5NzI4NzE2MiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTE1MjY4MzY1MzE2MTMzMjk1NzAiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMjgyMDAxODA0MjM4MTg1NDAzOSIsImltYWdlRG9jaWQiOiI4NTQ3OTU5MDcyNTE0MDEzMzEzIiwicmRzIjoiUENfMTY1OTYwMDM3MjA5ODg5NDg0Nzh8UFJPRF9QQ18xNjU5NjAwMzcyMDk4ODk0ODQ3OCIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxNjU5NjAwMzcyMDk4ODk0ODQ3OCIsIm1pZCI6IjU3NjQ2Mjg2NjU5NzI4NzE2MiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "ShopRite",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgGYPZByul_jWwECpeRlToyM.png",
+      "multiple_sources": true,
+      "price": "$6.99",
+      "extracted_price": 6.99,
+      "rating": 3.5,
+      "reviews": 790,
+      "extensions": [
+        "Nearby, 28 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSKaAKfhdBiEbEVh6o90m41PrSwBs_7O3jrj7LWRTgtignpfvUcUZTISUSiLcKA7JvJ1ZdXuk67_KnMBdDzNlgpIUdvHagE7Q",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/jr0QRHicDcltDoIgAADQE6W5mky31nS5Usw-kGr-cQqKWCIJ2eokXa3b1Pv7vp9Ga6lc06wEGV5SV3SiS2EZTOlCc2KQvjNV00vJBVveF_9zvYQ6a4Jg4cG6oT4PyuDU2L0z7ebWfkBPX-VgN2uHFsTnY8o0Z0LWIyY4S0OEEY8J9EA0RlZGL4-rDXIotj5dvZMbkyGm46ZgATj8ABKMNqw"
+    },
+    {
+      "position": 2,
+      "title": "Driscoll's Sweetest Batch Strawberries",
+      "product_id": "16796550545985537403",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:16796550545985537403,headlineOfferDocid:9104638179625406284,imageDocid:14675556469473949168,rds:PC_14822447700938627208|PROD_PC_14822447700938627208,gpcid:14822447700938627208,mid:576462859145542666,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTY3OTY1NTA1NDU5ODU1Mzc0MDMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI5MTA0NjM4MTc5NjI1NDA2Mjg0IiwiaW1hZ2VEb2NpZCI6IjE0Njc1NTU2NDY5NDczOTQ5MTY4IiwicmRzIjoiUENfMTQ4MjI0NDc3MDA5Mzg2MjcyMDh8UFJPRF9QQ18xNDgyMjQ0NzcwMDkzODYyNzIwOCIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxNDgyMjQ0NzcwMDkzODYyNzIwOCIsIm1pZCI6IjU3NjQ2Mjg1OTE0NTU0MjY2NiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTY3OTY1NTA1NDU5ODU1Mzc0MDMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI5MTA0NjM4MTc5NjI1NDA2Mjg0IiwiaW1hZ2VEb2NpZCI6IjE0Njc1NTU2NDY5NDczOTQ5MTY4IiwicmRzIjoiUENfMTQ4MjI0NDc3MDA5Mzg2MjcyMDh8UFJPRF9QQ18xNDgyMjQ0NzcwMDkzODYyNzIwOCIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxNDgyMjQ0NzcwMDkzODYyNzIwOCIsIm1pZCI6IjU3NjQ2Mjg1OTE0NTU0MjY2NiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Shaw's",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgHjDfoT9fV6KHNmSJhsWmY0.png",
+      "price": "$8.99",
+      "extracted_price": 8.99,
+      "rating": 3.3,
+      "reviews": 34,
+      "extensions": [
+        "Nearby, 31 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQCSRM0_9HOZQnhF2Xt79p_q5kSBF5CkupyAt6u-zgWhL5jvzGQ3htxXwENrqosxf8RyVotmbwvYuX_LoG_085BOZAWYKVE",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/IyNnYHicDclZCoJAGADgE7lQTKkQoaIGmaKC24vkkmPizKi_60G6W7ep7_X7fjAAGxVBqEgxbAyqkoOciHw9whOagi9oJ4yYMtaQ-tpf_qeoTilbhacH_kPM5JubegSbhxjOMst61AaaifR2YpsKp4nb6wjb6D3vlnfEsMaL4Qw9HdeX5G8hhS5f5mSKM5tamSghzU3VKLmHxg-y5zaL"
+    },
+    {
+      "position": 3,
+      "title": "Driscoll's Strawberries",
+      "product_id": "2756770021560092612",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:2756770021560092612,headlineOfferDocid:14112785646786467445,imageDocid:8472925520363245472,rds:PC_11323294287475718836|PROD_PC_11323294287475718836,gpcid:11323294287475718836,mid:576462790813281639,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMjc1Njc3MDAyMTU2MDA5MjYxMiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE0MTEyNzg1NjQ2Nzg2NDY3NDQ1IiwiaW1hZ2VEb2NpZCI6Ijg0NzI5MjU1MjAzNjMyNDU0NzIiLCJyZHMiOiJQQ18xMTMyMzI5NDI4NzQ3NTcxODgzNnxQUk9EX1BDXzExMzIzMjk0Mjg3NDc1NzE4ODM2IiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjExMzIzMjk0Mjg3NDc1NzE4ODM2IiwibWlkIjoiNTc2NDYyNzkwODEzMjgxNjM5IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMjc1Njc3MDAyMTU2MDA5MjYxMiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE0MTEyNzg1NjQ2Nzg2NDY3NDQ1IiwiaW1hZ2VEb2NpZCI6Ijg0NzI5MjU1MjAzNjMyNDU0NzIiLCJyZHMiOiJQQ18xMTMyMzI5NDI4NzQ3NTcxODgzNnxQUk9EX1BDXzExMzIzMjk0Mjg3NDc1NzE4ODM2IiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjExMzIzMjk0Mjg3NDc1NzE4ODM2IiwibWlkIjoiNTc2NDYyNzkwODEzMjgxNjM5IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Shaw's",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgJfdfuV3cyT4Z4yFgyeo2ko.png",
+      "multiple_sources": true,
+      "price": "$4.99",
+      "extracted_price": 4.99,
+      "rating": 4.7,
+      "reviews": 847,
+      "extensions": [
+        "Nearby, 31 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR0b3KmPeLSirdRJFjmFCkvW0AnZbgJjHo3mRxisnfACNEQGQEdxKSNVJb2pEQZhg0sATMKssEMro0BpyoU1tlo0lNF24AU",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/wa6dP3icDcldDoIgAADgE6WkveTWGjm0abLUrM23AENMfhLW9CLdrdvU9_p9P71zxka-3yk6LcZ1bOWIAh637u4E9aiWvu21MULx_Wv3vwhitk1pBUiYy3N3qsXEqiwZZBI_3zcAVUt4Nhx1KKtZWPWAMUZlWiI25zW-ZiQwqGx7Diy8FLm1qJg0OJhFN2s3ajDiJNjA5geybDXT"
+    },
+    {
+      "position": 4,
+      "title": "Nature's Choice Organic Strawberries",
+      "product_id": "7082850664180993123",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:7082850664180993123,headlineOfferDocid:9456717320362278224,imageDocid:14244907950211102096,gpcid:10648177558364044215,mid:576462685499280321,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNzA4Mjg1MDY2NDE4MDk5MzEyMyIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6Ijk0NTY3MTczMjAzNjIyNzgyMjQiLCJpbWFnZURvY2lkIjoiMTQyNDQ5MDc5NTAyMTExMDIwOTYiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiMTA2NDgxNzc1NTgzNjQwNDQyMTUiLCJtaWQiOiI1NzY0NjI2ODU0OTkyODAzMjEiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNzA4Mjg1MDY2NDE4MDk5MzEyMyIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6Ijk0NTY3MTczMjAzNjIyNzgyMjQiLCJpbWFnZURvY2lkIjoiMTQyNDQ5MDc5NTAyMTExMDIwOTYiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiMTA2NDgxNzc1NTgzNjQwNDQyMTUiLCJtaWQiOiI1NzY0NjI2ODU0OTkyODAzMjEiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Stop & Shop",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgFcqcngtpyTySfh_P00yVTk.png",
+      "multiple_sources": true,
+      "price": "$6.99",
+      "extracted_price": 6.99,
+      "extensions": [
+        "Nearby, 15 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTt3LgE4bEiM_RKAYdL246xhhZqD-EDISF5p9RtLfezZwDHTpsALOtUE1VtTlpqjxcn1YJNWYLgOjL6jUvZzuEdPYOCALKSrFO28KnMdWnrTKsNfvS5R49ntg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/G5zltHicDclJDoIwFADQEykOSMTEGCJ1olDDIIGNkRYLREuhX0RP5XW8jb7t-34KAKkWmpYL2r4k5GwAmRgNuYILlHRI67umilrKUvBVs_zfwvKYuaUhTDFHeoZK9-w7VsLwRDf6okgbe4DsfbCZSdMHfM3f6dPehVJZmECExicIb7KpeirGycGLE8xJhY0q6tL3A7FjQtYWdoJ2QyZzR7gsFm3oKO_aBTNfNwXwH4ObPqg"
+    },
+    {
+      "position": 5,
+      "title": "Driscolls Strawberries Heart Shaped 0.5 Pounds",
+      "product_id": "875742296340330718",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:875742296340330718,headlineOfferDocid:18284739897381118362,imageDocid:4265274493436391288,rds:PC_6241559054721730111|PROD_PC_6241559054721730111,gpcid:6241559054721730111,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiODc1NzQyMjk2MzQwMzMwNzE4IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTgyODQ3Mzk4OTczODExMTgzNjIiLCJpbWFnZURvY2lkIjoiNDI2NTI3NDQ5MzQzNjM5MTI4OCIsInJkcyI6IlBDXzYyNDE1NTkwNTQ3MjE3MzAxMTF8UFJPRF9QQ182MjQxNTU5MDU0NzIxNzMwMTExIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjYyNDE1NTkwNTQ3MjE3MzAxMTEiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiODc1NzQyMjk2MzQwMzMwNzE4IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTgyODQ3Mzk4OTczODExMTgzNjIiLCJpbWFnZURvY2lkIjoiNDI2NTI3NDQ5MzQzNjM5MTI4OCIsInJkcyI6IlBDXzYyNDE1NTkwNTQ3MjE3MzAxMTF8UFJPRF9QQ182MjQxNTU5MDU0NzIxNzMwMTExIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjYyNDE1NTkwNTQ3MjE3MzAxMTEiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Shaw's",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgNdr-0pZoOrBda0q59046Pw.png",
+      "multiple_sources": true,
+      "price": "$7.99",
+      "extracted_price": 7.99,
+      "old_price": "$8.99",
+      "extracted_old_price": 8.99,
+      "rating": 3,
+      "reviews": 2,
+      "extensions": [
+        "Nearby, 31 mi",
+        "11% OFF"
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTe-1gBw9Zmy5QRQ-UW6FMt90hY5q8woykb5_A_Eqs07dQsEsioIBLZI2H26ywGK-q6LBXFPPtea9Tf36nSWY9Ad8JyUQI2qQ",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/EoAoeHicDclhCoIwGADQE03NcDkhQkHNsnClmP4RnaYS6tY-kN2kq3Wben_f9zMAcOnoejezt-LQtQia2dB6CTWMTGPLpMth4Xyc-4PY_89xry0JWdqhTe-tpJyURW8UZTkOLkCMobCEvS7q1ViVW_lCGruWSl-OS-TFZWQeTazW8IwEjr1HkCTQ1SR9bvF8zwvitvZJZTQyBf0Bzr007g",
+      "tag": "11% OFF"
+    },
+    {
+      "position": 6,
+      "title": "Columbia Fruit Whole Strawberries 40 oz",
+      "product_id": "3172925570751530676",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:3172925570751530676,headlineOfferDocid:2764706552901418631,imageDocid:16508189398757815500,gpcid:2217940870079302364,mid:576462829564956311,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMzE3MjkyNTU3MDc1MTUzMDY3NiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjI3NjQ3MDY1NTI5MDE0MTg2MzEiLCJpbWFnZURvY2lkIjoiMTY1MDgxODkzOTg3NTc4MTU1MDAiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiMjIxNzk0MDg3MDA3OTMwMjM2NCIsIm1pZCI6IjU3NjQ2MjgyOTU2NDk1NjMxMSIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMzE3MjkyNTU3MDc1MTUzMDY3NiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjI3NjQ3MDY1NTI5MDE0MTg2MzEiLCJpbWFnZURvY2lkIjoiMTY1MDgxODkzOTg3NTc4MTU1MDAiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiMjIxNzk0MDg3MDA3OTMwMjM2NCIsIm1pZCI6IjU3NjQ2MjgyOTU2NDk1NjMxMSIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "ShopRite",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgIiBZ6uNM3kolVEllnlvOJ0.png",
+      "price": "$11.99",
+      "extracted_price": 11.99,
+      "old_price": "Usually $20",
+      "extracted_old_price": 20,
+      "extensions": [
+        "Nearby, 28 mi",
+        "LOW PRICE"
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTxvm_T11ex31-HQhREitEPcBRbyB8tTzX8Kj5lKGdEGev2wKkh1uB9mRrbgjCh-0uEshH0RBey1unWCi2NGfEN5eptZq74LQ",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/OtxhXHicDcndCoIwGADQJ_JnlqRCRMpQMCSHUHQTOZeb5Zzu07Qn6dV6mzq35_vhAEoHlsUkHRYFrDKglLZZa7iBoCbtWkvzTikh612__V-wzyo_psU8tdcCITavkJHknGAB-EhDUi6hB8X77KWN-0zjCsdscl7pg6Mx9FsylHUTccMeseaJTUK2oFGeIuFk8R1nLlNw6TfrQ_4DB-o2Fg",
+      "tag": "LOW PRICE"
+    },
+    {
+      "position": 7,
+      "title": "California Giant Berry Farms Strawberries",
+      "product_id": "8749156104928611531",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:8749156104928611531,headlineOfferDocid:96951845104155684,imageDocid:13505901725830722173,rds:PC_4591602541726381461|PROD_PC_4591602541726381461,gpcid:4591602541726381461,mid:576462537562050970,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiODc0OTE1NjEwNDkyODYxMTUzMSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6Ijk2OTUxODQ1MTA0MTU1Njg0IiwiaW1hZ2VEb2NpZCI6IjEzNTA1OTAxNzI1ODMwNzIyMTczIiwicmRzIjoiUENfNDU5MTYwMjU0MTcyNjM4MTQ2MXxQUk9EX1BDXzQ1OTE2MDI1NDE3MjYzODE0NjEiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiNDU5MTYwMjU0MTcyNjM4MTQ2MSIsIm1pZCI6IjU3NjQ2MjUzNzU2MjA1MDk3MCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiODc0OTE1NjEwNDkyODYxMTUzMSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6Ijk2OTUxODQ1MTA0MTU1Njg0IiwiaW1hZ2VEb2NpZCI6IjEzNTA1OTAxNzI1ODMwNzIyMTczIiwicmRzIjoiUENfNDU5MTYwMjU0MTcyNjM4MTQ2MXxQUk9EX1BDXzQ1OTE2MDI1NDE3MjYzODE0NjEiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiNDU5MTYwMjU0MTcyNjM4MTQ2MSIsIm1pZCI6IjU3NjQ2MjUzNzU2MjA1MDk3MCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Food Depot",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgAI9M1loxLgwjyHI-MCgbYo.png",
+      "multiple_sources": true,
+      "price": "$0.99",
+      "extracted_price": 0.99,
+      "rating": 4.6,
+      "reviews": 33,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSY0DCbH9xao3nXG06UjBtHRcDoHsS_pY_VfA7141uuIDKQVwHwKNjbWLo3qpSZf9jmNyD2_Ka9WnwUbdtn5FVVz17hSj04Zg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/NqBbt3icDcltCoIwAADQE6WuLJkQYY1cGEINZ_pHdH4O3GZOzE7S1bpNvb_v-2m1VqNrmpVgz0XpqlzpQgCjGXWuO2Yw2ZtjK5XqRHMY9v9zvbCEPiOJhU4Fhq9cbsTDt3YRP2p8Z0jikWQqyWjtOcAG03RBwY3OeA5CXsRXuRkUSWvI-3BB6yzIYSzmqCi12J4pfQOnJdyy0-YH8h42IQ"
+    },
+    {
+      "position": 8,
+      "title": "Strawberries Long Stem Prepacked - 1 Lb",
+      "product_id": "253198402921356754",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=productid:253198402921356754,headlineOfferDocid:253198402921356754,imageDocid:10881384447459661315,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiMjUzMTk4NDAyOTIxMzU2NzU0IiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMjUzMTk4NDAyOTIxMzU2NzU0IiwiaW1hZ2VEb2NpZCI6IjEwODgxMzg0NDQ3NDU5NjYxMzE1IiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IiIsIm1pZCI6IiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiMjUzMTk4NDAyOTIxMzU2NzU0IiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMjUzMTk4NDAyOTIxMzU2NzU0IiwiaW1hZ2VEb2NpZCI6IjEwODgxMzg0NDQ3NDU5NjYxMzE1IiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IiIsIm1pZCI6IiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Shaw's",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgBaV0aUATsnNzHgisLburtQ.png",
+      "price": "$9.99",
+      "extracted_price": 9.99,
+      "extensions": [
+        "Nearby, 31 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSGsvrV_NcSHSz65Sk20AjidEaLfE6rshu6Y4OJ2iG46ZqbwrxEhe6AObUqZwmm6V2kAJhk5wYQXokpg5Of-b1ciImxEpmm0Q",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/bktll3icDcnbCoIwAADQL_KS6SAhYg_DklBkJOlLuHnZGtO5rbS-pF_rb-q8nu-HWatM7HndSPVL2a51LBm37mBsYzl16SQ9wyal-Dgc5v3_Ypi1u4TixDx1ecsoPuI3iLAIfHjnLWrOPQLasAeowjwNeBKCeiaLXhHrAMzJZa4XKUEZCJgyES1VcZ2EGqK8d8iG8pNckZLSL34dsjbn"
+    },
+    {
+      "position": 9,
+      "title": "Gourmet Drizzled Strawberries | Full Dozen | Perfect for Any Occasion | Shari's Berries",
+      "product_id": "1253179001859652579",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=productid:1253179001859652579,headlineOfferDocid:1253179001859652579,imageDocid:7504879012293421717,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiMTI1MzE3OTAwMTg1OTY1MjU3OSIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjEyNTMxNzkwMDE4NTk2NTI1NzkiLCJpbWFnZURvY2lkIjoiNzUwNDg3OTAxMjI5MzQyMTcxNyIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiMTI1MzE3OTAwMTg1OTY1MjU3OSIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjEyNTMxNzkwMDE4NTk2NTI1NzkiLCJpbWFnZURvY2lkIjoiNzUwNDg3OTAxMjI5MzQyMTcxNyIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Shari's Berries",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgDCyaWEwYEdiFb53_tYUZKw.png",
+      "price": "$46.99",
+      "extracted_price": 46.99,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRSAkEMUbe2MG-C5gjnMdVFN5BxcgP4sQCDPlP_fBjLVjsS30rvVnioW6t4tJknf09fXMyGNLgjYz1r6SD1wl_ayzMa6qGZx7bnaoSYJ5AAcMLoj4aQ6l7t",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/kwkQ7nicDcndCoIwGADQJzKz_CEhwqwEcaJJ9nMjc-py2abuo9SH6n16mzq35_u5A7TSVtWSk35soSwUyLk2oxIw1GRGxFOVd9G2Naebbv0_2wmLlUeOifPYo1NeLpCnuAZlHBXpITS2A6GRLmN3FzVRVm1ZkDKZLOf9K-W1OJugg__g1XxVXdDohQFl10nrzWSnvZsMjxPCZufdBivnWCRX33AcggLBdBybjQU_DPk9_A",
+      "delivery": "Next-day delivery $15"
+    },
+    {
+      "position": 10,
+      "title": "Dole Strawberries",
+      "product_id": "16913314477187554474",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:16913314477187554474,headlineOfferDocid:1325833628913604425,imageDocid:11606363547676951721,rds:PC_6840621854503691525|PROD_PC_6840621854503691525,gpcid:6840621854503691525,mid:576462841857754058,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTY5MTMzMTQ0NzcxODc1NTQ0NzQiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMzI1ODMzNjI4OTEzNjA0NDI1IiwiaW1hZ2VEb2NpZCI6IjExNjA2MzYzNTQ3Njc2OTUxNzIxIiwicmRzIjoiUENfNjg0MDYyMTg1NDUwMzY5MTUyNXxQUk9EX1BDXzY4NDA2MjE4NTQ1MDM2OTE1MjUiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiNjg0MDYyMTg1NDUwMzY5MTUyNSIsIm1pZCI6IjU3NjQ2Mjg0MTg1Nzc1NDA1OCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTY5MTMzMTQ0NzcxODc1NTQ0NzQiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMzI1ODMzNjI4OTEzNjA0NDI1IiwiaW1hZ2VEb2NpZCI6IjExNjA2MzYzNTQ3Njc2OTUxNzIxIiwicmRzIjoiUENfNjg0MDYyMTg1NDUwMzY5MTUyNXxQUk9EX1BDXzY4NDA2MjE4NTQ1MDM2OTE1MjUiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiNjg0MDYyMTg1NDUwMzY5MTUyNSIsIm1pZCI6IjU3NjQ2Mjg0MTg1Nzc1NDA1OCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Cooklist",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgKUXpY1mr_EE4yJtN2Lcp18.png",
+      "price": "$2.99",
+      "extracted_price": 2.99,
+      "rating": 2.2,
+      "reviews": 28000,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQNWzxSFtn9ityTWJpUHS3gBDVJMP4ZnoCBB-UersNh6J7nYeke-deEvMDqaPMZoWqCSIZz3iZNwIljNGuosbL77NQ14aqn",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/Cqk7pHicDclbCoJAFADQFamIkihEZJYpOShm0vzpOOj0mIdze-hC2lu7qfN7vp8BQOrAsign4ySBdga03DZ7DQ0wYhJxt_QgpGS8X6nl_4I16vyYFKie3-UOuM9gOtaprPal04fRKc1yF3OxCUOjoqNGwyL1-JleqdHR7TOLVJNnWNRqUyZ4dhhGr-R2QfFD6Pbgeaiw3UbxH79eNjM"
+    },
+    {
+      "position": 11,
+      "title": "Strawberries Prepacked - 2 Lb",
+      "product_id": "8682476252980492917",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=productid:8682476252980492917,headlineOfferDocid:8682476252980492917,imageDocid:5201078769769920979,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiODY4MjQ3NjI1Mjk4MDQ5MjkxNyIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6Ijg2ODI0NzYyNTI5ODA0OTI5MTciLCJpbWFnZURvY2lkIjoiNTIwMTA3ODc2OTc2OTkyMDk3OSIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiODY4MjQ3NjI1Mjk4MDQ5MjkxNyIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6Ijg2ODI0NzYyNTI5ODA0OTI5MTciLCJpbWFnZURvY2lkIjoiNTIwMTA3ODc2OTc2OTkyMDk3OSIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Shaw's",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgGl6lvUSHwn8_o8iQCarb4o.png",
+      "price": "$6.99",
+      "extracted_price": 6.99,
+      "old_price": "$7.99",
+      "extracted_old_price": 7.99,
+      "extensions": [
+        "Nearby, 31 mi",
+        "12% OFF"
+      ],
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSaq9dPJ1YlsJ6TNxfKWhDxEUw4qUQsaRMcoO6FNV2LL9oyuCeaw-sK8mHr3i1K3v3S908qba9MdHg2nYxFg-z_Upp3Yjyi",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/oSxayHicDcnbDoIgAADQL1JTmhO31lplzltXaz41BENaAgql9iH9W39T5_V8P7XWUvmWVXHcjVJXxNAlByZVGmmGTSwaS9VCSsbpvJ39z19kBG7wEbWQ7CK7eKjIPWXDLb7Uq2Gd99M23yt0SLHYukF2dpIEivG5rFBvqNhrwg4wOwYvcIQTry0RTElIHV4MATXe11xKUNxH9gOewTW6",
+      "tag": "12% OFF"
+    },
+    {
+      "position": 12,
+      "title": "Bonnie Plants Strawberry Live Plant 2-Pack",
+      "product_id": "14424105604489866597",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:14424105604489866597,headlineOfferDocid:5236906737593023130,imageDocid:1110626897386714929,rds:PC_1674469363416773564|PROD_PC_1674469363416773564,gpcid:1674469363416773564,mid:576462744684091568,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTQ0MjQxMDU2MDQ0ODk4NjY1OTciLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI1MjM2OTA2NzM3NTkzMDIzMTMwIiwiaW1hZ2VEb2NpZCI6IjExMTA2MjY4OTczODY3MTQ5MjkiLCJyZHMiOiJQQ18xNjc0NDY5MzYzNDE2NzczNTY0fFBST0RfUENfMTY3NDQ2OTM2MzQxNjc3MzU2NCIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxNjc0NDY5MzYzNDE2NzczNTY0IiwibWlkIjoiNTc2NDYyNzQ0Njg0MDkxNTY4IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTQ0MjQxMDU2MDQ0ODk4NjY1OTciLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI1MjM2OTA2NzM3NTkzMDIzMTMwIiwiaW1hZ2VEb2NpZCI6IjExMTA2MjY4OTczODY3MTQ5MjkiLCJyZHMiOiJQQ18xNjc0NDY5MzYzNDE2NzczNTY0fFBST0RfUENfMTY3NDQ2OTM2MzQxNjc3MzU2NCIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxNjc0NDY5MzYzNDE2NzczNTY0IiwibWlkIjoiNTc2NDYyNzQ0Njg0MDkxNTY4IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Home Depot",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgCrCIlNSHBjYaR-iGxaEO8k.png",
+      "multiple_sources": true,
+      "price": "$10.59",
+      "extracted_price": 10.59,
+      "rating": 3.7,
+      "reviews": 343,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTLZ3H9HCv7zjfhaIOGOBQ08oP2c5F1f2OukOudLhMXfwTzhqvBtrfrKocXJC2qTfedeiDg0mvLP6Il3ufQBX2_f0C4DktjtbIj6W6tHZU6lW0Xhi5o5olV",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/z1SYZXicDcntDkJQGADgK8pnFFtrYaGUbIr50zgcx-fx8dJyUd1Pd1PP3-f7IQDdqLJs1qLh3UGWriBpeSYfIYYCMYg27Eho1xVtvu93_1MP11Qxke9EoqVY-rxZSkxi2zVdzeO29CYg6chjwZ0qd0odcgnxy19IP2sw4OFMUXjShd7HWZoVRs41s3OT7VqcsKeFwhNz-tqooITELuVABiu6y3XAhaSQqETrxw8WCD37",
+      "delivery": "Free delivery"
+    },
+    {
+      "position": 13,
+      "title": "O Organics Whole Strawberries",
+      "product_id": "14671513328053279372",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:14671513328053279372,headlineOfferDocid:6784961446309214222,imageDocid:10621113917244225280,gpcid:6285833355764823818,mid:576462751584289597,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTQ2NzE1MTMzMjgwNTMyNzkzNzIiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI2Nzg0OTYxNDQ2MzA5MjE0MjIyIiwiaW1hZ2VEb2NpZCI6IjEwNjIxMTEzOTE3MjQ0MjI1MjgwIiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjYyODU4MzMzNTU3NjQ4MjM4MTgiLCJtaWQiOiI1NzY0NjI3NTE1ODQyODk1OTciLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTQ2NzE1MTMzMjgwNTMyNzkzNzIiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI2Nzg0OTYxNDQ2MzA5MjE0MjIyIiwiaW1hZ2VEb2NpZCI6IjEwNjIxMTEzOTE3MjQ0MjI1MjgwIiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjYyODU4MzMzNTU3NjQ4MjM4MTgiLCJtaWQiOiI1NzY0NjI3NTE1ODQyODk1OTciLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Shaw's",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgGYphBjvtjXlu8hK6qHOXLU.png",
+      "price": "$9.99",
+      "extracted_price": 9.99,
+      "extensions": [
+        "Nearby, 31 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTaiJtO2j66046_PPa1gS32Oi37UkDf6G_RqzQalnNek9o4-J853bLzaqDPSOlXhTRYoNcKkc0Zi_cqVT3QN082sj2D_aFtQA",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/JKEQznicDcldDoIgAADgE6WERurWmpvLzRr-1qoXhmiKGkjwkifpat2mvtfv--mNmXVg261gr_ds2mZlagGsThtqOLOYfNq6l_PMRbdXu_8FIW78mFWUJyaFA0LARSTL6LorHZhyZ3seoweKSaGWnE4Ct6Mv3VXibZz6tFAVZWU6XfuquEnMjiMDd06YulROjoEH9QAjQg8mD3-4HDT8"
+    },
+    {
+      "position": 14,
+      "title": "Berryvita Strawberry",
+      "product_id": "587291450630220239",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:587291450630220239,headlineOfferDocid:1674272042483488789,imageDocid:1073893182704227014,rds:PC_284044232573768808|PROD_PC_284044232573768808,gpcid:284044232573768808,mid:576462843229438547,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNTg3MjkxNDUwNjMwMjIwMjM5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTY3NDI3MjA0MjQ4MzQ4ODc4OSIsImltYWdlRG9jaWQiOiIxMDczODkzMTgyNzA0MjI3MDE0IiwicmRzIjoiUENfMjg0MDQ0MjMyNTczNzY4ODA4fFBST0RfUENfMjg0MDQ0MjMyNTczNzY4ODA4IiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjI4NDA0NDIzMjU3Mzc2ODgwOCIsIm1pZCI6IjU3NjQ2Mjg0MzIyOTQzODU0NyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNTg3MjkxNDUwNjMwMjIwMjM5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiMTY3NDI3MjA0MjQ4MzQ4ODc4OSIsImltYWdlRG9jaWQiOiIxMDczODkzMTgyNzA0MjI3MDE0IiwicmRzIjoiUENfMjg0MDQ0MjMyNTczNzY4ODA4fFBST0RfUENfMjg0MDQ0MjMyNTczNzY4ODA4IiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjI4NDA0NDIzMjU3Mzc2ODgwOCIsIm1pZCI6IjU3NjQ2Mjg0MzIyOTQzODU0NyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "County Market",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgJuKgk4o8IH_9GofR-xmYp0.png",
+      "multiple_sources": true,
+      "price": "$3.49",
+      "extracted_price": 3.49,
+      "rating": 4,
+      "reviews": 3,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQxSW-QXh4oZ185YA5eK73qgkoER6i_y69kO7pew0TZ3l9UTGpSe_6CAR0aMd4_TqQUWdga7nKzyBdsyVv_iiy9rTnnMjxN6g",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/i4UEfXicDcldDoIgAADgE_lTKaZba9aaD06bilm-OAOGZAEqK-kkXa3b1Pf6fT-dUnIKLItwNGqpCDbUlS9NOqlWMWQi8bCmTkjJON0Om_8FYYr9CGVzURnZuXNEvVi7l9AlsbcaaC8OOWCNBn5_9CR52bBe3f0SRrIgDdiHud0m2GngkJUVpq3H47fe4Umfng1j2h8h58ltTgH9AdprNo0"
+    },
+    {
+      "position": 15,
+      "title": "bulk produce Fresh Strawberries 1lb",
+      "product_id": "12094678841801460449",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:12094678841801460449,headlineOfferDocid:2232013896864797064,imageDocid:13986349566895301111,rds:PC_16916823513363843280|PROD_PC_16916823513363843280,gpcid:16916823513363843280,mid:576462810925587583,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTIwOTQ2Nzg4NDE4MDE0NjA0NDkiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIyMjMyMDEzODk2ODY0Nzk3MDY0IiwiaW1hZ2VEb2NpZCI6IjEzOTg2MzQ5NTY2ODk1MzAxMTExIiwicmRzIjoiUENfMTY5MTY4MjM1MTMzNjM4NDMyODB8UFJPRF9QQ18xNjkxNjgyMzUxMzM2Mzg0MzI4MCIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxNjkxNjgyMzUxMzM2Mzg0MzI4MCIsIm1pZCI6IjU3NjQ2MjgxMDkyNTU4NzU4MyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTIwOTQ2Nzg4NDE4MDE0NjA0NDkiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIyMjMyMDEzODk2ODY0Nzk3MDY0IiwiaW1hZ2VEb2NpZCI6IjEzOTg2MzQ5NTY2ODk1MzAxMTExIiwicmRzIjoiUENfMTY5MTY4MjM1MTMzNjM4NDMyODB8UFJPRF9QQ18xNjkxNjgyMzUxMzM2Mzg0MzI4MCIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxNjkxNjgyMzUxMzM2Mzg0MzI4MCIsIm1pZCI6IjU3NjQ2MjgxMDkyNTU4NzU4MyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Food Rite",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgAiw1Ib4X_iobjQ5XVkPA3E.png",
+      "multiple_sources": true,
+      "price": "$3.88",
+      "extracted_price": 3.88,
+      "rating": 2,
+      "reviews": 1600,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRtsBx34adEVTHG40jw104R38CAyp9Tov6H1eyVN2lqZ85SwldXaYrVh81Or7klzO1WUH5zM2_QIETBlRJ8QHB-g8BjDwZS",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/oCW4D3icDclJDoIwAADAF7GURQuJMVQJ1UQIiKhcDLaERYRCGxEe4t_8jc51vp9SCMZtRclbMkxM5FQS91aXCy4yURGZdE-Flx1jVVus-9X_bMenlkciwdFbNzLqJjH2DLUegWpEOtw4E7Pi7rXAIJ8SX2v6FJrHsaGX7DokJQTBsHw0cwDOJ2zOB-0W7twYNdEehhhJBUT1dkyPP1u1NCg"
+    },
+    {
+      "position": 16,
+      "title": "Strawberries",
+      "product_id": "2376527397512487712",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=productid:2376527397512487712,headlineOfferDocid:2376527397512487712,imageDocid:15074487340613183361,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiMjM3NjUyNzM5NzUxMjQ4NzcxMiIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjIzNzY1MjczOTc1MTI0ODc3MTIiLCJpbWFnZURvY2lkIjoiMTUwNzQ0ODczNDA2MTMxODMzNjEiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiMjM3NjUyNzM5NzUxMjQ4NzcxMiIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjIzNzY1MjczOTc1MTI0ODc3MTIiLCJpbWFnZURvY2lkIjoiMTUwNzQ0ODczNDA2MTMxODMzNjEiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Chino Valley Produce Company",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgCYnH3lH0XtdKwjTu6rcFo8.jpeg",
+      "price": "$15.00",
+      "extracted_price": 15,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS_ZAbtsBgu6MShAcCNkf6VpQKZFS5dJAnsVq5ICGtAr4TpsVS0H3cGjrLLEwA88O4ARVSt3E3xs70dNEwQr-NUfz8nig88MN8TrG6_cWtWpPcWfppWAfHB",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/15ZFgXicDclbDsFAFADQFWkrfRgSkdFUixpqaJP-NEz1QYzbmSsei7Ifu-H8nu-nQQQ9Ms2TFOoFeCp7eJR9o9Z4wFYY4nY1dXMDaGU96cb_G1FWDkPBi5weUU_ru7fiDRU-u1ReCskyn3G3XFCp086d-yFS5exAp9yKbBGeVRwHD0rI2qHblKMd2E89sEoWPBLVY_vqTWRbE7JiZKdCrxAZZrARWQWQ0Sqa_gD0SD0m"
+    },
+    {
+      "position": 17,
+      "title": "Berry Boss Strawberries",
+      "product_id": "96899554278908626",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:96899554278908626,headlineOfferDocid:11856181989528448847,imageDocid:8119881123736994462,gpcid:5943810409046205640,mid:576462847615382019,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiOTY4OTk1NTQyNzg5MDg2MjYiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMTg1NjE4MTk4OTUyODQ0ODg0NyIsImltYWdlRG9jaWQiOiI4MTE5ODgxMTIzNzM2OTk0NDYyIiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjU5NDM4MTA0MDkwNDYyMDU2NDAiLCJtaWQiOiI1NzY0NjI4NDc2MTUzODIwMTkiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiOTY4OTk1NTQyNzg5MDg2MjYiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMTg1NjE4MTk4OTUyODQ0ODg0NyIsImltYWdlRG9jaWQiOiI4MTE5ODgxMTIzNzM2OTk0NDYyIiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjU5NDM4MTA0MDkwNDYyMDU2NDAiLCJtaWQiOiI1NzY0NjI4NDc2MTUzODIwMTkiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "hmart.com",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgG6POY_11a9TGYo9Hwpjrdg.png",
+      "multiple_sources": true,
+      "price": "$9.99",
+      "extracted_price": 9.99,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTfhkOR5n5ZN3_WvGE7D2KA2XV5TawWvtCTOAdOVvbPZJ-OCZYBpeaSkiYYADjwFJVc1x8llozNItFhYSRUy1iRejNtymxvanBzRBPl_gDWqyBeufLxuOa2",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/gtL843icDclJDoIwFADQEwEBQxwSYxiEOIQaRBA2pJQyKJQqH6Qeyvt4G33b9_1UALxfKQpl5Ck40FyCjGly2QOGmsika5W-6jivWbl5rP-3Mrx86ZKgqO7I15meeLM0Gt3t3NYOhnYN9QC_ohGsABk5CsfslOwlZCWxySk-3-s4Nuzby9mHRJ0WTdO9vR04VXz2L0KtfXrzQLTTiJn59s1Tk5Z29BAmHYrjNCCs_QAYtT8j"
+    },
+    {
+      "position": 18,
+      "title": "Astin Farms Strawberries",
+      "product_id": "7657758602981921447",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:7657758602981921447,headlineOfferDocid:9261931009291875559,imageDocid:10966724109747624044,rds:PC_103741880839075516|PROD_PC_103741880839075516,gpcid:103741880839075516,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNzY1Nzc1ODYwMjk4MTkyMTQ0NyIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjkyNjE5MzEwMDkyOTE4NzU1NTkiLCJpbWFnZURvY2lkIjoiMTA5NjY3MjQxMDk3NDc2MjQwNDQiLCJyZHMiOiJQQ18xMDM3NDE4ODA4MzkwNzU1MTZ8UFJPRF9QQ18xMDM3NDE4ODA4MzkwNzU1MTYiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiMTAzNzQxODgwODM5MDc1NTE2IiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNzY1Nzc1ODYwMjk4MTkyMTQ0NyIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjkyNjE5MzEwMDkyOTE4NzU1NTkiLCJpbWFnZURvY2lkIjoiMTA5NjY3MjQxMDk3NDc2MjQwNDQiLCJyZHMiOiJQQ18xMDM3NDE4ODA4MzkwNzU1MTZ8UFJPRF9QQ18xMDM3NDE4ODA4MzkwNzU1MTYiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiMTAzNzQxODgwODM5MDc1NTE2IiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Central Market",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgP3V3YcMKE2Fs_NT6awvpUg.png",
+      "multiple_sources": true,
+      "price": "$3.99",
+      "extracted_price": 3.99,
+      "rating": 4.3,
+      "reviews": 9,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRg1vTLL1bAbxt3Gl2fgUHNdfnEAnPJdsv0sVbiEBQJJPJfPuAY71DZKQ6uhPQ5U7m2BH1f-q4X6kfYlBuPP4PSibgY1tEdJg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/cdvuNnicDcltDoIgAADQE_mBmS631nA5HTmHlS37FyDIUtRAVzfpat2m3t_3_bTGjDpynEbR53s0DbMMUa4ttLkbSW069I5uh3GUSuym7f8iWLBNSo8CLOc8BwSSl1mlncdFlRWMqwQqjJheXH0hMolLhDDieIZ1CPa3QxnMLS7XVdh7cQa4NfnX4MHrLp4x9vFJElEDkzAkfuyKNXM"
+    },
+    {
+      "position": 19,
+      "title": "Foxy Strawberries",
+      "product_id": "6824496098929612054",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:6824496098929612054,headlineOfferDocid:15758193976466775518,imageDocid:14963877042915200364,rds:PC_3080248044942470888|PROD_PC_3080248044942470888,gpcid:3080248044942470888,mid:576462775981184136,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNjgyNDQ5NjA5ODkyOTYxMjA1NCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE1NzU4MTkzOTc2NDY2Nzc1NTE4IiwiaW1hZ2VEb2NpZCI6IjE0OTYzODc3MDQyOTE1MjAwMzY0IiwicmRzIjoiUENfMzA4MDI0ODA0NDk0MjQ3MDg4OHxQUk9EX1BDXzMwODAyNDgwNDQ5NDI0NzA4ODgiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiMzA4MDI0ODA0NDk0MjQ3MDg4OCIsIm1pZCI6IjU3NjQ2Mjc3NTk4MTE4NDEzNiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNjgyNDQ5NjA5ODkyOTYxMjA1NCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE1NzU4MTkzOTc2NDY2Nzc1NTE4IiwiaW1hZ2VEb2NpZCI6IjE0OTYzODc3MDQyOTE1MjAwMzY0IiwicmRzIjoiUENfMzA4MDI0ODA0NDk0MjQ3MDg4OHxQUk9EX1BDXzMwODAyNDgwNDQ5NDI0NzA4ODgiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiMzA4MDI0ODA0NDk0MjQ3MDg4OCIsIm1pZCI6IjU3NjQ2Mjc3NTk4MTE4NDEzNiIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Cooklist",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgGEor1O_Vy6aRwnJPQx_hl4.png",
+      "multiple_sources": true,
+      "price": "$0.99",
+      "extracted_price": 0.99,
+      "old_price": "Usually $4",
+      "extracted_old_price": 4,
+      "rating": 4.5,
+      "reviews": 334,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT6fUkqiHslDluASVx7UW4PKi3kw9818hkw7ZXLenMn6ailfbaB6J67LBvnyCCfwUWZYMdLPjYEglyTD44qznQqNxkjiDUyiA",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/P0BkVXicDclJDoIwAADAFwkaSVkSY1iMRoFgBBFuULbSWlpbBXyJX_M3Otf5fjopmbBUtabwMTNZVwtZ0qXSCllIBBU43FXRDYwh2m755n-WHVbmHsagSTBHB0E88rQv10lPUi06oTUeTWNldHjU85tf04CCApGmLBxwBLrvvOjsus2YpHkWVH7UZ7uWzLGnafxNzzyccI-8ZEb2DyZgN0o",
+      "tag": "LOW PRICE",
+      "extensions": [
+        "LOW PRICE"
+      ]
+    },
+    {
+      "position": 20,
+      "title": "Pineberry Strawberry White - 10 OZ",
+      "product_id": "459607324057560343",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=productid:459607324057560343,headlineOfferDocid:459607324057560343,imageDocid:2031944426752606932,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiNDU5NjA3MzI0MDU3NTYwMzQzIiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNDU5NjA3MzI0MDU3NTYwMzQzIiwiaW1hZ2VEb2NpZCI6IjIwMzE5NDQ0MjY3NTI2MDY5MzIiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiNDU5NjA3MzI0MDU3NTYwMzQzIiwiY2F0YWxvZ2lkIjoiIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNDU5NjA3MzI0MDU3NTYwMzQzIiwiaW1hZ2VEb2NpZCI6IjIwMzE5NDQ0MjY3NTI2MDY5MzIiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Shaw's",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgDfHrGmJmHpx5bvjy6QeG70.png",
+      "price": "$4.99",
+      "extracted_price": 4.99,
+      "extensions": [
+        "Nearby, 31 mi"
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS1WuZjtvdE1_IWKEIsXr46iHvs0vNCJEzh_yw_F8P3FGCP1NTTC5Mqk6jbA1W2JJFcy2al71dq7OlQnuAsF2kcrYgXlQTT",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/nciPNHicDcltCoIwAADQE6XOSkuIEHGmkSkNZv0R3cTP5nTTsIN0t25T7-_7fiopubBUtWBkXLgs6ErmTFNKITNZE4X0T1VUPec1K4_D4X-WHdK9R24AT49GztQFqY_Pri-ScWPUp1loc-gE7rtKl1cKd9Eaek4EQoSc7WVojSa3AdaDAJJFzzoT0MG8djGbbAH1loz3MulihH6J7DU6"
+    },
+    {
+      "position": 21,
+      "title": "Member's Mark Strawberry Ozark Beauty 40pk",
+      "product_id": "11714688905587273044",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:11714688905587273044,headlineOfferDocid:11113564634406780349,imageDocid:7570466475291887658,gpcid:17459057513497041362,mid:576462542882681855,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTE3MTQ2ODg5MDU1ODcyNzMwNDQiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMTExMzU2NDYzNDQwNjc4MDM0OSIsImltYWdlRG9jaWQiOiI3NTcwNDY2NDc1MjkxODg3NjU4IiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjE3NDU5MDU3NTEzNDk3MDQxMzYyIiwibWlkIjoiNTc2NDYyNTQyODgyNjgxODU1IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTE3MTQ2ODg5MDU1ODcyNzMwNDQiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMTExMzU2NDYzNDQwNjc4MDM0OSIsImltYWdlRG9jaWQiOiI3NTcwNDY2NDc1MjkxODg3NjU4IiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjE3NDU5MDU3NTEzNDk3MDQxMzYyIiwibWlkIjoiNTc2NDYyNTQyODgyNjgxODU1IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Sam's Club",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgEwhQBfQ5DQO5QLeMKdzqHU.png",
+      "price": "$18.13",
+      "extracted_price": 18.13,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR_L5MpuTw8EnH-q9ZzC_r_klUSucCYjef-cILy1gIFrqAojocn7dsxPteY-VNhwe86y4BediXsnrK7LJ8Ds0VCVJLHZnl8K_C9I723SAfrN2Oq3EKFYwSArg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/l7FpX3icDclHDoJAAADAFwGKhZIYgwjSRCNKhAvRZWniso0gvsrv-Bud63w_FeeY6ZIEEaAj5jAX-B3JYsn4jddABN1TYlWHcY3KNVn9TzfCXNuBUxYs9rg_D6qFHIFo6dvMaPZoL1EPzKSBhQDcYJyWrk2J0TUdQErOXkcOEyEOqwGqy3G-gXl9ZYj6SuCpWzaJzdgLnBS1qp-ZmqvIs8goaCgfyMzy7WSIDFr-ANxdPpY"
+    },
+    {
+      "position": 22,
+      "title": "California Giant Berry Farms Organic Strawberries",
+      "product_id": "12001940711217319628",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:12001940711217319628,headlineOfferDocid:15889361662527061509,imageDocid:4980667096453795563,rds:PC_12645121752362040711|PROD_PC_12645121752362040711,gpcid:12645121752362040711,mid:576462835155501814,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTIwMDE5NDA3MTEyMTczMTk2MjgiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNTg4OTM2MTY2MjUyNzA2MTUwOSIsImltYWdlRG9jaWQiOiI0OTgwNjY3MDk2NDUzNzk1NTYzIiwicmRzIjoiUENfMTI2NDUxMjE3NTIzNjIwNDA3MTF8UFJPRF9QQ18xMjY0NTEyMTc1MjM2MjA0MDcxMSIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxMjY0NTEyMTc1MjM2MjA0MDcxMSIsIm1pZCI6IjU3NjQ2MjgzNTE1NTUwMTgxNCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTIwMDE5NDA3MTEyMTczMTk2MjgiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNTg4OTM2MTY2MjUyNzA2MTUwOSIsImltYWdlRG9jaWQiOiI0OTgwNjY3MDk2NDUzNzk1NTYzIiwicmRzIjoiUENfMTI2NDUxMjE3NTIzNjIwNDA3MTF8UFJPRF9QQ18xMjY0NTEyMTc1MjM2MjA0MDcxMSIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxMjY0NTEyMTc1MjM2MjA0MDcxMSIsIm1pZCI6IjU3NjQ2MjgzNTE1NTUwMTgxNCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Hometown Grocery - Athens",
+      "source_icon": "https://encrypted-tbn0.gstatic.com/favicon-tbn?q=tbn%3AANd9GcTbaDdcGrcKe4tKJGLBRzywKHgWlmWv8o6bMuK9CUjH6Ix6Jr4u8_7_611isodXH1SoFaW_Hh1eQ5qTBbk4uFwxvzWdt5h_q0zAzx9FoZYrCIrJ",
+      "multiple_sources": true,
+      "price": "$1.99",
+      "extracted_price": 1.99,
+      "rating": 4.5,
+      "reviews": 2,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRm3DFDweAn8DT0gkNW9OBjZ8C-7XktMQsdoKI4LqU4hiyaDvwkpx1knob_Pg10V0AIhyDjgtHRBNgOB8B_mQ463kz8CgElxw",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/eQQTOHicDcnbCoIwAADQL_KGUipEONdFKk3pRi-iUzZdbrON1L6kX-tv6rye74coJaRvGDVDz0moutJUyWwdS1WoBumId4YkXIiG4WW_-J8fxJW3QVlnwzUc6oC58GRiGl-9BLR3N9TmN6oOqaz4LnL2_dkhzVTA10DFaFHGy_yILfNiBhGZYIvVNgMxToAL8i51ZjZ9uyFePcbhB_KwNiE"
+    },
+    {
+      "position": 23,
+      "title": "Footprintz Strawberries",
+      "product_id": "18170533680583203493",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:18170533680583203493,headlineOfferDocid:14135872605379373065,imageDocid:722941313780199094,gpcid:8688168658518828327,mid:576462700162690225,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTgxNzA1MzM2ODA1ODMyMDM0OTMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNDEzNTg3MjYwNTM3OTM3MzA2NSIsImltYWdlRG9jaWQiOiI3MjI5NDEzMTM3ODAxOTkwOTQiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiODY4ODE2ODY1ODUxODgyODMyNyIsIm1pZCI6IjU3NjQ2MjcwMDE2MjY5MDIyNSIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTgxNzA1MzM2ODA1ODMyMDM0OTMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNDEzNTg3MjYwNTM3OTM3MzA2NSIsImltYWdlRG9jaWQiOiI3MjI5NDEzMTM3ODAxOTkwOTQiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiODY4ODE2ODY1ODUxODgyODMyNyIsIm1pZCI6IjU3NjQ2MjcwMDE2MjY5MDIyNSIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Food Depot",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgM5Fvkn12JDkn30rm8pGPW8.png",
+      "multiple_sources": true,
+      "price": "$1.29",
+      "extracted_price": 1.29,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQuoqSi8HHrbm9od89Z9Ko3-xFzeT7JMQjlIQn48DEyyIM1_IsL63c51v-vnRdAbek9HA3qast_T3aIVh7uAxTsgTb0dZ8a",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/gUFQrnicDcnbCoIwAADQL1KzVTohYtDFVQbW6MEX2Q21clM3RfuQ_q2_qfN6vp_S2sZEnicV76bGSuFYpuZuYSy1FXe5rj1T6qapVLFp1_-L0EXAA0973d6qMI47VkMtQpjBkwbOuH9LEhyT9PHCqVqE29004cTPsTmvAF_6gzOoq0BMPmGMQEuNzQmg-F4GPRqJKQibiSykP48kNVQ"
+    },
+    {
+      "position": 24,
+      "title": "Shop Burpee Strawberry Cabot 25 Bare Roots",
+      "product_id": "6585541990574674125",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:6585541990574674125,headlineOfferDocid:9041872976800997211,imageDocid:16938758083305661091,rds:PC_12289446113369046574|PROD_PC_12289446113369046574,gpcid:12289446113369046574,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNjU4NTU0MTk5MDU3NDY3NDEyNSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjkwNDE4NzI5NzY4MDA5OTcyMTEiLCJpbWFnZURvY2lkIjoiMTY5Mzg3NTgwODMzMDU2NjEwOTEiLCJyZHMiOiJQQ18xMjI4OTQ0NjExMzM2OTA0NjU3NHxQUk9EX1BDXzEyMjg5NDQ2MTEzMzY5MDQ2NTc0IiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjEyMjg5NDQ2MTEzMzY5MDQ2NTc0IiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNjU4NTU0MTk5MDU3NDY3NDEyNSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjkwNDE4NzI5NzY4MDA5OTcyMTEiLCJpbWFnZURvY2lkIjoiMTY5Mzg3NTgwODMzMDU2NjEwOTEiLCJyZHMiOiJQQ18xMjI4OTQ0NjExMzM2OTA0NjU3NHxQUk9EX1BDXzEyMjg5NDQ2MTEzMzY5MDQ2NTc0IiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjEyMjg5NDQ2MTEzMzY5MDQ2NTc0IiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Burpee Gardening",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgK8JcpxktIRoUcNKMdcaTc0.png",
+      "price": "$22.95",
+      "extracted_price": 22.95,
+      "rating": 1,
+      "reviews": 2,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRHJYOp1JxJfsBpDpGw62JVy9bSM1vlonYb78Kk8xaLOedd9w0YNHiS6e8HDr4WlJp32bvjsMXEIlAIafRBQ7rxWPB-iX7oHJWi6nLp5aRkN7pI4FUi_J2owg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/720kw3icDcndEoFAGADQJ1IK_c0Yo4lqVchQXZn-W2X30-6o3srreBvO7fl-Gs6BGaJYkryfgJfFjGdkIdSMpxznQk6fImsoACb15rX-n7ENCt3OQwclR5DQiCpmggX2oMjoNunZxZfeHSVJpmqHVhtT71gWhT7Mk8DBF6XUHKtfRh2ChZy9H8yPd263ddMqNM9qP0Ync4ZjlToowgrxYJWGbaCCu9xf8R3JdKh_gpY-AQ"
+    },
+    {
+      "position": 25,
+      "title": "STAHLBUSH ISLAND FARMS Whole Strawberries 10 oz",
+      "product_id": "9077804147420047711",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:9077804147420047711,headlineOfferDocid:6827508782725173601,imageDocid:3440209245588294369,rds:PC_839908993310121911|PROD_PC_839908993310121911,gpcid:839908993310121911,mid:576462672148030702,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiOTA3NzgwNDE0NzQyMDA0NzcxMSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjY4Mjc1MDg3ODI3MjUxNzM2MDEiLCJpbWFnZURvY2lkIjoiMzQ0MDIwOTI0NTU4ODI5NDM2OSIsInJkcyI6IlBDXzgzOTkwODk5MzMxMDEyMTkxMXxQUk9EX1BDXzgzOTkwODk5MzMxMDEyMTkxMSIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiI4Mzk5MDg5OTMzMTAxMjE5MTEiLCJtaWQiOiI1NzY0NjI2NzIxNDgwMzA3MDIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiOTA3NzgwNDE0NzQyMDA0NzcxMSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjY4Mjc1MDg3ODI3MjUxNzM2MDEiLCJpbWFnZURvY2lkIjoiMzQ0MDIwOTI0NTU4ODI5NDM2OSIsInJkcyI6IlBDXzgzOTkwODk5MzMxMDEyMTkxMXxQUk9EX1BDXzgzOTkwODk5MzMxMDEyMTkxMSIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiI4Mzk5MDg5OTMzMTAxMjE5MTEiLCJtaWQiOiI1NzY0NjI2NzIxNDgwMzA3MDIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "townandcountrymarkets.com",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgJp-cICanV2MaJk0Ur_7GHo.png",
+      "multiple_sources": true,
+      "price": "$6.29",
+      "extracted_price": 6.29,
+      "rating": 4.7,
+      "reviews": 28,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSIsWd3SPkiLc30J3IxlLYsesNvQpEaAaJA0FwG_jVfEsQ1NgA4P3r9hqrNwjbF38WcWp4BeFtoyZ3sWe6sClJMM_2TQADJ",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/2RA3inicDcndCoIwGADQJ8qfJpFCxCoVhw7FaNSN6Fz-ZDr9RuaL9G69TZ3b8_3USklwdF30fFqkEuVKFb2pVaBy1XCND08d6kHKpq_24-5_Dqal7fM0AFaiNH40IUcGQcG7C68ggL4S6eY4J9jwZj9rL3cXEpNW2IrRZNfjROe28NCWcSatg_DUsNwQMLGBY0eiKFufE3wiP5uiNVg"
+    },
+    {
+      "position": 26,
+      "title": "Strawberries - 1 Quart",
+      "product_id": "11289464159288575425",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=productid:11289464159288575425,headlineOfferDocid:11289464159288575425,imageDocid:12519857793511848467,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiMTEyODk0NjQxNTkyODg1NzU0MjUiLCJjYXRhbG9naWQiOiIiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMTI4OTQ2NDE1OTI4ODU3NTQyNSIsImltYWdlRG9jaWQiOiIxMjUxOTg1Nzc5MzUxMTg0ODQ2NyIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiMTEyODk0NjQxNTkyODg1NzU0MjUiLCJjYXRhbG9naWQiOiIiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMTI4OTQ2NDE1OTI4ODU3NTQyNSIsImltYWdlRG9jaWQiOiIxMjUxOTg1Nzc5MzUxMTg0ODQ2NyIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Walnut Creek Farm",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgMjm3dIc5asVnp7vyNhLt8s.png",
+      "price": "$6.00",
+      "extracted_price": 6,
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRmx-kTqKw2PgB6rRnkQH-Lf9WmRZnpx1Vq_LqjaYlSnoCqJv01d5T94RaitrSJgp2dXU00eb25l1nmNX5W5X3rieiNkEcE",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/pAN8nHicDcltDoIgAADQE_kdbbq1Vs3VzLlCS-tPUyAkBQFZ2UW6W7ep9_d9P60xcowchwik39IQbJlGBDYdTW0YstHAnbEdpGSCLtXif9Eqw-EWQT5ZXaH2L_9A13MNRXfcWek9LDm8Cjl5Z3VL1aO-9LkYNip5uh4GRTiDNTM6T6j0cXVyXdL4oPcEzypQgirQjLCsi1H8A8DtNd0"
+    },
+    {
+      "position": 27,
+      "title": "H-E-B Frozen Whole Strawberries",
+      "product_id": "14747432094720305096",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:14747432094720305096,headlineOfferDocid:9106320512076936297,imageDocid:12639709180471247641,gpcid:1000776685887869870,mid:576462461256459847,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTQ3NDc0MzIwOTQ3MjAzMDUwOTYiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI5MTA2MzIwNTEyMDc2OTM2Mjk3IiwiaW1hZ2VEb2NpZCI6IjEyNjM5NzA5MTgwNDcxMjQ3NjQxIiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjEwMDA3NzY2ODU4ODc4Njk4NzAiLCJtaWQiOiI1NzY0NjI0NjEyNTY0NTk4NDciLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTQ3NDc0MzIwOTQ3MjAzMDUwOTYiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI5MTA2MzIwNTEyMDc2OTM2Mjk3IiwiaW1hZ2VEb2NpZCI6IjEyNjM5NzA5MTgwNDcxMjQ3NjQxIiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjEwMDA3NzY2ODU4ODc4Njk4NzAiLCJtaWQiOiI1NzY0NjI0NjEyNTY0NTk4NDciLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Central Market",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgKrxThQikiO_2SoMTKvgwrY.png",
+      "price": "$2.86",
+      "extracted_price": 2.86,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR0XlSF6sKvkoqdlxt27gl0UIZg-yi__HUXm3Lxza4zB5ayQwgRTH7xooGl8sqqpu6R7Cz-wLHYkVO-CqyfEKnSY_MpOsKr_Q",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/ka8Z8XicDclJDoIwAADAF7G4gZIYo0TBgBJADHhpsGAhFNrSqpSX-DV_o3Od76cSgnJL08oO9pKKslDEvZuoiItc1FCFpNV4RSitO7Rh6_9Z23OxcmCkpzg-GNx7NYQVeBBTE2E9Od6QImsA3CRtZ_4w5vNxt8hl-EbRxTUHQhy85IzRpxGZ9qi8fTdrroFiM_nYe12cgRMNuNeD8AdSJTfL"
+    },
+    {
+      "position": 28,
+      "title": "Harry & David Organic Strawberries",
+      "product_id": "7485268915488003928",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:7485268915488003928,headlineOfferDocid:4229592715706301644,imageDocid:11785105648200067754,rds:PC_16850851423293925438|PROD_PC_16850851423293925438,gpcid:16850851423293925438,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNzQ4NTI2ODkxNTQ4ODAwMzkyOCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjQyMjk1OTI3MTU3MDYzMDE2NDQiLCJpbWFnZURvY2lkIjoiMTE3ODUxMDU2NDgyMDAwNjc3NTQiLCJyZHMiOiJQQ18xNjg1MDg1MTQyMzI5MzkyNTQzOHxQUk9EX1BDXzE2ODUwODUxNDIzMjkzOTI1NDM4IiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjE2ODUwODUxNDIzMjkzOTI1NDM4IiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNzQ4NTI2ODkxNTQ4ODAwMzkyOCIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjQyMjk1OTI3MTU3MDYzMDE2NDQiLCJpbWFnZURvY2lkIjoiMTE3ODUxMDU2NDgyMDAwNjc3NTQiLCJyZHMiOiJQQ18xNjg1MDg1MTQyMzI5MzkyNTQzOHxQUk9EX1BDXzE2ODUwODUxNDIzMjkzOTI1NDM4IiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjE2ODUwODUxNDIzMjkzOTI1NDM4IiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Harry & David",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgDs88iaPwVZWcXUmuoAzBz8.png",
+      "price": "$54.99",
+      "extracted_price": 54.99,
+      "rating": 5,
+      "reviews": 1,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTLhL6eBEcMNZ2-G4FjGuZiZfT8CzUzQEhQjYE642PQHmXc9Nb0DUJubRpXvxMdKs7NwQtpRPvQfCz7rlplsKfPj6O75MSxJLHihzSJ9b17TFdyoXPytDXq",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/l3j9inicDclJDoIwAADAFylKkIqJMcoaBGwVEuRmW6AQlmqrAo_yP_5G5zrfD5OSi42i5B15jFzmdCZxp85LIW-yInPSt4pgPedVV-7u2_9t9hE1XBIHLNDzg03CKFNnrubU7jOrsiJem1MyIZuh-mrrmgqR16bEiPDCSvwnPvP0NYT0KED0RpKf4QsV5gQeDW_EsYC1fgKr8DL4gVex6eIbeAlih459Ckdppfcf8uU-CQ"
+    },
+    {
+      "position": 29,
+      "title": "The Orchard Strawberry Cut Round",
+      "product_id": "717353172031708773",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:717353172031708773,headlineOfferDocid:7337012513441296054,imageDocid:16158275938642156424,gpcid:6744429933740741069,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNzE3MzUzMTcyMDMxNzA4NzczIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNzMzNzAxMjUxMzQ0MTI5NjA1NCIsImltYWdlRG9jaWQiOiIxNjE1ODI3NTkzODY0MjE1NjQyNCIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiI2NzQ0NDI5OTMzNzQwNzQxMDY5IiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNzE3MzUzMTcyMDMxNzA4NzczIiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiNzMzNzAxMjUxMzQ0MTI5NjA1NCIsImltYWdlRG9jaWQiOiIxNjE1ODI3NTkzODY0MjE1NjQyNCIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiI2NzQ0NDI5OTMzNzQwNzQxMDY5IiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "The Orchard",
+      "source_icon": "https://serpapi.com/searches/69b316863882c5447eda2cd8/images/sYDdxjCxm-LUGv7u0GysgGCMTP72GNOe4SxfyBYxb3E.png",
+      "multiple_sources": true,
+      "price": "$34.98",
+      "extracted_price": 34.98,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTj2wxYyYTcOdfY-cn6I8MnWdQKiuVvpQOiK3CdFHKZnmufTYzpaHXNHD6YBr9_RAlWHVW6U85vkBY4P3tUJgU1Z7dwGsIC2y6tUpWjOKb2p5wcbRJzunwAhg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/kFO6CHicDcnbDsEwAADQL5qxUZtEZIhdGhuyqnoRa2cXVGmn5qv8jr_hvJ7vp1RKyJFp5pw-WqFyZqiMdzuFVEdV0Q69XU1Z3oSoeDG5j_838mLm-jStLf0iLUlpwk7EoByEzpJjtoZVs32KdVJBe8YWAdzza3NKyVscg10czAGZPtzDxrvgYIsBcgbP85T0V7ZCUYF6-yHTvgxnVgsUErhOYGaJgabZJno3XHtl8QPGxj8w"
+    },
+    {
+      "position": 30,
+      "title": "Rossman Farms Naturipe Strawberries",
+      "product_id": "14720495755073535623",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:14720495755073535623,headlineOfferDocid:5560170056856282494,imageDocid:8389852674028040826,rds:PC_1932182491780576106|PROD_PC_1932182491780576106,gpcid:1932182491780576106,mid:576462872078268772,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTQ3MjA0OTU3NTUwNzM1MzU2MjMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI1NTYwMTcwMDU2ODU2MjgyNDk0IiwiaW1hZ2VEb2NpZCI6IjgzODk4NTI2NzQwMjgwNDA4MjYiLCJyZHMiOiJQQ18xOTMyMTgyNDkxNzgwNTc2MTA2fFBST0RfUENfMTkzMjE4MjQ5MTc4MDU3NjEwNiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxOTMyMTgyNDkxNzgwNTc2MTA2IiwibWlkIjoiNTc2NDYyODcyMDc4MjY4NzcyIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTQ3MjA0OTU3NTUwNzM1MzU2MjMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI1NTYwMTcwMDU2ODU2MjgyNDk0IiwiaW1hZ2VEb2NpZCI6IjgzODk4NTI2NzQwMjgwNDA4MjYiLCJyZHMiOiJQQ18xOTMyMTgyNDkxNzgwNTc2MTA2fFBST0RfUENfMTkzMjE4MjQ5MTc4MDU3NjEwNiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIxOTMyMTgyNDkxNzgwNTc2MTA2IiwibWlkIjoiNTc2NDYyODcyMDc4MjY4NzcyIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Douglas Food Valu",
+      "source_icon": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn%3AANd9GcRLqXE0EgKgSe5iqi9w0NTomUWAtRXIUIas74s-Miyat-10VBIWbHYNfsuZTRARSKISxeCRO3MgD3MEPxkZeICQN-EB4HF26KJnA-AB",
+      "multiple_sources": true,
+      "price": "$2.50",
+      "extracted_price": 2.5,
+      "old_price": "Usually $4",
+      "extracted_old_price": 4,
+      "rating": 4.5,
+      "reviews": 19,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRmI4YRl-UsCicK240fzlq-4NWTaM8K4cZxA1rmpKr2ry1cU_GrD_AgdvIJGc98s87HItdDpqMKhzRvy4EJodec1oPo1iJ-JBHjLgqzg9XaF_dbxdcK7mME",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/bjlWuHicDclbCoJAFADQFakpA2oQYS91JiOk6PEjesdGQ50nkS6q_bSbOr_n-2mMEXruOPUAahSmppapBs9m2pSmBRt47-iGC9EObCkX_5tHBxrGkPcpuuWdddbrFoiHZo-pkxY6XE5lFhAE93fkql4Q5anRhXMRq00RMfpKcQxhoAM_SQ3dCJmRZspfI9piTmtw-ZG7LbbwKnnumZxYeC13Ba3eFIjfZ9sf_OQ91w",
+      "tag": "LOW PRICE",
+      "extensions": [
+        "LOW PRICE"
+      ]
+    },
+    {
+      "position": 31,
+      "title": "Van Zyverden Strawberry All Star Bare Plant Root",
+      "product_id": "181919928170642549",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:181919928170642549,headlineOfferDocid:9770249203231381762,imageDocid:1111927642948150078,rds:PC_9054285186038876314|PROD_PC_9054285186038876314,gpcid:9054285186038876314,mid:576462372727491138,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTgxOTE5OTI4MTcwNjQyNTQ5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiOTc3MDI0OTIwMzIzMTM4MTc2MiIsImltYWdlRG9jaWQiOiIxMTExOTI3NjQyOTQ4MTUwMDc4IiwicmRzIjoiUENfOTA1NDI4NTE4NjAzODg3NjMxNHxQUk9EX1BDXzkwNTQyODUxODYwMzg4NzYzMTQiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiOTA1NDI4NTE4NjAzODg3NjMxNCIsIm1pZCI6IjU3NjQ2MjM3MjcyNzQ5MTEzOCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTgxOTE5OTI4MTcwNjQyNTQ5IiwiaGVhZGxpbmVPZmZlckRvY2lkIjoiOTc3MDI0OTIwMzIzMTM4MTc2MiIsImltYWdlRG9jaWQiOiIxMTExOTI3NjQyOTQ4MTUwMDc4IiwicmRzIjoiUENfOTA1NDI4NTE4NjAzODg3NjMxNHxQUk9EX1BDXzkwNTQyODUxODYwMzg4NzYzMTQiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiOTA1NDI4NTE4NjAzODg3NjMxNCIsIm1pZCI6IjU3NjQ2MjM3MjcyNzQ5MTEzOCIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Walmart",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcTnP5ISNmbEt5sfd-d6O77v8eZaWxR-UtwYkk865osEjKrS0r8udsVsfLPjH1VQBQizWhrYkhO2STFk8WaMhokVgFUhjn2NoxU",
+      "price": "$3.96",
+      "extracted_price": 3.96,
+      "rating": 1.7,
+      "reviews": 105,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQzMDRUp9NIAYs56-OTJJyVmRQuKMItG--AcPzGK7gvj6fH-4vvJtxp2rmdJYgvW3FSVLvef9ENHs_tUQC7S32oLI1rPR__J6fe_xo5Rz2-Wu61hgJdvPi_",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/TtXBjnicDcndCoIwGADQJ1qS5cIgQvoxl5o_qXg1auo0UJf7GuZD9T69TZ3b8_3UAEKuNa3s2PAWUBYI7p0-4xJu0LAZ61tN1r0QTce3z83_1pZfmDYLJ28fJcL0HSuXBkaXKyHvtI3C19lzwEbIYsFkn1dcPXB1QkulCIxCH9qC5Fxli2OcuqqszIN_khSScLeKF3rvOvMhiCgluCrp2BvRpKPshec1J4UKGvoD5w89Rw",
+      "delivery": "Next-day delivery $7"
+    },
+    {
+      "position": 32,
+      "title": "Gourmet Drizzled Strawberries - 24ct | Two Dozen | Perfect for Any Occasion | Shari's Berries",
+      "product_id": "12569362937147973666",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=productid:12569362937147973666,headlineOfferDocid:12569362937147973666,imageDocid:13554336352341642556,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiMTI1NjkzNjI5MzcxNDc5NzM2NjYiLCJjYXRhbG9naWQiOiIiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMjU2OTM2MjkzNzE0Nzk3MzY2NiIsImltYWdlRG9jaWQiOiIxMzU1NDMzNjM1MjM0MTY0MjU1NiIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiMTI1NjkzNjI5MzcxNDc5NzM2NjYiLCJjYXRhbG9naWQiOiIiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMjU2OTM2MjkzNzE0Nzk3MzY2NiIsImltYWdlRG9jaWQiOiIxMzU1NDMzNjM1MjM0MTY0MjU1NiIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Shari's Berries",
+      "source_icon": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn%3AANd9GcQyszuprLSamVVYuTJbVXIghsUMpLowmEFUuU5iaS-nuPNZ_eQj-4r1TaXPRlMf3CUDc5gGcTslBPKKt203I4zaJqpT4EpWXx8",
+      "price": "$76.99",
+      "extracted_price": 76.99,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQFySs8L3VJ05QMUJk5sgh_zOi_IqsoaIs1xfEghI-nFkgPbLX8ZOXkmP6BdZEAcBB4Hm5ImvSRtAKO0am0wIqAPCc8uNwspzMPrLZG5pCHJ25CFiYcVVtH",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/JSH5FnicDclJDoIwAADAFyG41CCJMUAEiixFI0EuBoq2DSkUWtdH-R9_o3Od74cqJaSl65cOjy-hLo2m6s6YEKkqxfAE91yXtBeCdWQzrP9n2Umz8nHmvQ7SjOZ5aIAsPoYtkISe3yk7w0H2FZTT53VLKNQ6ryWojgqzTIuWo6XTlFsbO84i4ADy-2Gv7F1qVNx4wMFGLjZvyUOKd4zGqPSBcINwBlyPnXCeq-AHFxk9jQ",
+      "delivery": "Next-day delivery $15"
+    },
+    {
+      "position": 33,
+      "title": "Driscolls Strawberries",
+      "product_id": "5148772033158218669",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:5148772033158218669,headlineOfferDocid:16048680361992862181,imageDocid:14515927446839287120,rds:PC_5536031765397888271|PROD_PC_5536031765397888271,gpcid:5536031765397888271,mid:576462482029697973,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNTE0ODc3MjAzMzE1ODIxODY2OSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE2MDQ4NjgwMzYxOTkyODYyMTgxIiwiaW1hZ2VEb2NpZCI6IjE0NTE1OTI3NDQ2ODM5Mjg3MTIwIiwicmRzIjoiUENfNTUzNjAzMTc2NTM5Nzg4ODI3MXxQUk9EX1BDXzU1MzYwMzE3NjUzOTc4ODgyNzEiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiNTUzNjAzMTc2NTM5Nzg4ODI3MSIsIm1pZCI6IjU3NjQ2MjQ4MjAyOTY5Nzk3MyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0=",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNTE0ODc3MjAzMzE1ODIxODY2OSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjE2MDQ4NjgwMzYxOTkyODYyMTgxIiwiaW1hZ2VEb2NpZCI6IjE0NTE1OTI3NDQ2ODM5Mjg3MTIwIiwicmRzIjoiUENfNTUzNjAzMTc2NTM5Nzg4ODI3MXxQUk9EX1BDXzU1MzYwMzE3NjUzOTc4ODgyNzEiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiNTUzNjAzMTc2NTM5Nzg4ODI3MSIsIm1pZCI6IjU3NjQ2MjQ4MjAyOTY5Nzk3MyIsInB2dCI6ImhnIiwidXVsZSI6IncrQ0FJUUlDSWhNREV3TURNc1RXRnpjMkZqYUhWelpYUjBjeXhWYm1sMFpXUWdVM1JoZEdWeiIsImdsIjoidXMiLCJobCI6ImVuIn0%3D",
+      "source": "Food Rite",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcSZdMTHBi-TOuO433lHJJHTFLh4k27DVjC1dHaLj6geP1qgT34uoiKrWeTSWDtKePsFVfdmtkOC6K8yAVE1G1exM5dB5Brj_w",
+      "multiple_sources": true,
+      "price": "$3.99",
+      "extracted_price": 3.99,
+      "rating": 4.7,
+      "reviews": 838,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRdtvqyWvCll46EYJklu9jj1hu0_PUH3uF8adpMbKV1WNZOjIsPEsoYQSldbELarggBM8JEfieNtWBZQHq76uh6XHFZKxMF",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/oUt0yXicDcltDoIgAADQE-XHaqZurWXDTNO0VqZ_moKBRooCLi_S3bpNvb_v-yFCMG6ratXCYWKiQjNRtpqCuShEDRXYvVROOsbqFq_71f_sTYSsHTwhMfZTOm4pXRgg859UWk2jE6nd44s3l65ZIBaWwVVPo_zY7HkMeJclZ4pKcCgGjJ3Q9MGjriKROnni9UtDEuPmuXnwDt0f2Ek2Og"
+    },
+    {
+      "position": 34,
+      "title": "Fresh Strawberries 1 lb. - 8/Case",
+      "product_id": "5546589049268267352",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=productid:5546589049268267352,headlineOfferDocid:5546589049268267352,imageDocid:14248568502247858253,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiNTU0NjU4OTA0OTI2ODI2NzM1MiIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjU1NDY1ODkwNDkyNjgyNjczNTIiLCJpbWFnZURvY2lkIjoiMTQyNDg1Njg1MDIyNDc4NTgyNTMiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiNTU0NjU4OTA0OTI2ODI2NzM1MiIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjU1NDY1ODkwNDkyNjgyNjczNTIiLCJpbWFnZURvY2lkIjoiMTQyNDg1Njg1MDIyNDc4NTgyNTMiLCJyZHMiOiIiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiIiwibWlkIjoiIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "WebstaurantStore.com",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcSxyQtmHgrdLZKY_IAr18wj-qmrD5wp-Vaz_QjwYh2Dknn_z2qhJhZ8avHc0grY4k3YDZ145gJevOK6NqrOldA97FWxUI_I1HBA19yY-mEB3ag",
+      "price": "$58.99",
+      "extracted_price": 58.99,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRLMDQ0ZMGkL5cybXgDuV2MJxKOM_sMp44Tyv8LkdLgLqu2m_J9nY2N7Bwl5FrlQ4rMYkc5UJf2X9-QJ8lDJQ0P7JKKcrgO4jFDIYDqIElZSxtqftrj6yup",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/rQPPCXicDcltDoIgAADQE6XFNLOttRrlRLDsa9qfllhYEiJixaW6T7ep9_d9P6XWsh3b9kVQZaS-FD2di4HFWn3WN2rR-mG3ZS3lTbBpM_nfeBYXfkA3mMCkfyRBhV1q8pTB7gAIekcrcmqJdJydeY5wVWCGmw48TsgXGYi9-Yu7S8UTR5Gsou4eXUHq9xI04hAl_bWHoogqtnLuSxhmsAkX_Lh96-aq1X1oOvkD4g89dA"
+    },
+    {
+      "position": 35,
+      "title": "All Star Strawberries - 10 Count",
+      "product_id": "6849222431650273027",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=productid:6849222431650273027,headlineOfferDocid:6849222431650273027,imageDocid:4071475095670568218,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiNjg0OTIyMjQzMTY1MDI3MzAyNyIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjY4NDkyMjI0MzE2NTAyNzMwMjciLCJpbWFnZURvY2lkIjoiNDA3MTQ3NTA5NTY3MDU2ODIxOCIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiNjg0OTIyMjQzMTY1MDI3MzAyNyIsImNhdGFsb2dpZCI6IiIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjY4NDkyMjI0MzE2NTAyNzMwMjciLCJpbWFnZURvY2lkIjoiNDA3MTQ3NTA5NTY3MDU2ODIxOCIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiIiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Menards",
+      "source_icon": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn%3AANd9GcQPcoeEAz5FhPNwy22aGZ9be7f4o9-vTe8pMad77TNbyUkcRzPvS-uJEniYF5bXfHEC77qeK3P4ZdvbHY6ciLOiW28TWrCQEk8",
+      "price": "$6.99",
+      "extracted_price": 6.99,
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSVAlIMY_N9sX2Wu6d4xRpDck_FKg28SyUbAeJm94BfGKX4ercBDKZ-VpA17l89I4URizVeJ7Ws47Yl-QKje1rO4Yd9KZsXww",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/5GSl9HicDcnbCoIwAADQL1JRRjohYiKJjowUry-i21LLy3ILsy_p1_qbOq_n--mk5MLWNDaRZeOSUUU2k6G2QtayJyqZR010M-f91B4e-__ZKKTQI3GKBv9UVCEUuZE9dxS8Iu6Se3XErWHFW9IgFowQOFcP54AtxHFxqaQc6eZgQR8kUf9OWWBmApjFoFzwjenLGRQU4lLk6_oDzzk1Hw"
+    },
+    {
+      "position": 36,
+      "title": "Buffalo Gal Organic Whole Strawberries",
+      "product_id": "15835403672676635935",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:15835403672676635935,headlineOfferDocid:10004853295979689041,imageDocid:6444940011751818433,gpcid:1877536660902197140,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTU4MzU0MDM2NzI2NzY2MzU5MzUiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMDAwNDg1MzI5NTk3OTY4OTA0MSIsImltYWdlRG9jaWQiOiI2NDQ0OTQwMDExNzUxODE4NDMzIiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjE4Nzc1MzY2NjA5MDIxOTcxNDAiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTU4MzU0MDM2NzI2NzY2MzU5MzUiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxMDAwNDg1MzI5NTk3OTY4OTA0MSIsImltYWdlRG9jaWQiOiI2NDQ0OTQwMDExNzUxODE4NDMzIiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjE4Nzc1MzY2NjA5MDIxOTcxNDAiLCJtaWQiOiIiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "BuffaloGal.com",
+      "source_icon": "https://encrypted-tbn0.gstatic.com/favicon-tbn?q=tbn%3AANd9GcS6zdmYPpUs7RvlgA9PVE7NCisKhyv4bT4BBLLqyiEbXKl551C7Jmi9XFHGybRKIrOJMxGMkK28-ZwNsPLzuZprw14ozdx3yPn6E_k",
+      "price": "$6.99",
+      "extracted_price": 6.99,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR8INWjo7AXajRiselQKBtptVgs5arOpR1g0SGIiIYc8O4uAf1n2cEOjGI_XFHUo48jXGHLusjunI2ShlZ7Nau7NigyYb9I",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/cpjdX3icDcndCoIwGADQJ0pTCn8gwqDmKCYplXYTc9rcsG25bxe-SO_W29S5Pd_PAGBs6vu9YtNsoO8W0KrA4xYoCOYx_fLtoI0Rim_fm_-lGekSxMoYk5vUUVZTWQrbj-fjDgxcuV3TqTBlwJcVwgI3LC5WLnsGKmT7QiL8qA_5Ra9iWaP85Kx0CofVMN4jQl1EBJ-bNsE_qnw10g"
+    },
+    {
+      "position": 37,
+      "title": "Andrew & Williamson Organic Strawberries",
+      "product_id": "15335200747055605977",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:15335200747055605977,headlineOfferDocid:17993600950368027643,imageDocid:10966724109747624044,gpcid:6656581806503319822,mid:576462863838640611,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTUzMzUyMDA3NDcwNTU2MDU5NzciLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNzk5MzYwMDk1MDM2ODAyNzY0MyIsImltYWdlRG9jaWQiOiIxMDk2NjcyNDEwOTc0NzYyNDA0NCIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiI2NjU2NTgxODA2NTAzMzE5ODIyIiwibWlkIjoiNTc2NDYyODYzODM4NjQwNjExIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTUzMzUyMDA3NDcwNTU2MDU5NzciLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNzk5MzYwMDk1MDM2ODAyNzY0MyIsImltYWdlRG9jaWQiOiIxMDk2NjcyNDEwOTc0NzYyNDA0NCIsInJkcyI6IiIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiI2NjU2NTgxODA2NTAzMzE5ODIyIiwibWlkIjoiNTc2NDYyODYzODM4NjQwNjExIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Central Market",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcQtpySjj_KRvqatqgM_A7mdmviUy7CEs-58N8ZZQj9r3A8QbHEnOi-kHCW0Y3pf3LLT7tOTpzDPsG82mdWvtfRIZZ5Pk486tw-6ow",
+      "multiple_sources": true,
+      "price": "$5.99",
+      "extracted_price": 5.99,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRg1vTLL1bAbxt3Gl2fgUHNdfnEAnPJdsv0sVbiEBQJJPJfPuAY71DZKQ6uhPQ5U7m2BH1f-q4X6kfYlBuPP4PSibgY1tEdJg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/cdvuNnicDcltDoIgAADQE_mBmS631nA5HTmHlS37FyDIUtRAVzfpat2m3t_3_bTGjDpynEbR53s0DbMMUa4ttLkbSW069I5uh3GUSuym7f8iWLBNSo8CLOc8BwSSl1mlncdFlRWMqwQqjJheXH0hMolLhDDieIZ1CPa3QxnMLS7XVdh7cQa4NfnX4MHrLp4x9vFJElEDkzAkfuyKNXM"
+    },
+    {
+      "position": 38,
+      "title": "Charlotte Strawberry Fragaria Live Bareroot Fruiting Plant 10-Pack",
+      "product_id": "5241528519159928629",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:5241528519159928629,headlineOfferDocid:4848080197480110213,imageDocid:16525663656660629885,rds:PC_7790583306778800494|PROD_PC_7790583306778800494,gpcid:7790583306778800494,mid:576462373335880408,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNTI0MTUyODUxOTE1OTkyODYyOSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjQ4NDgwODAxOTc0ODAxMTAyMTMiLCJpbWFnZURvY2lkIjoiMTY1MjU2NjM2NTY2NjA2Mjk4ODUiLCJyZHMiOiJQQ183NzkwNTgzMzA2Nzc4ODAwNDk0fFBST0RfUENfNzc5MDU4MzMwNjc3ODgwMDQ5NCIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiI3NzkwNTgzMzA2Nzc4ODAwNDk0IiwibWlkIjoiNTc2NDYyMzczMzM1ODgwNDA4IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiNTI0MTUyODUxOTE1OTkyODYyOSIsImhlYWRsaW5lT2ZmZXJEb2NpZCI6IjQ4NDgwODAxOTc0ODAxMTAyMTMiLCJpbWFnZURvY2lkIjoiMTY1MjU2NjM2NTY2NjA2Mjk4ODUiLCJyZHMiOiJQQ183NzkwNTgzMzA2Nzc4ODAwNDk0fFBST0RfUENfNzc5MDU4MzMwNjc3ODgwMDQ5NCIsInF1ZXJ5Ijoic3RyYXdiZXJyaWVzIiwiZ3BjaWQiOiI3NzkwNTgzMzA2Nzc4ODAwNDk0IiwibWlkIjoiNTc2NDYyMzczMzM1ODgwNDA4IiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "Lowe's",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcR3xmR1w-5O4CsetSdcZ8XFvLjnzpy_HFnF9Y5hUT_-5b0ghYL77HmIov6tFFyb6uJSqmD-3stiC5rUmL_ht4qkDpiEsY8j",
+      "multiple_sources": true,
+      "price": "$23.48",
+      "extracted_price": 23.48,
+      "rating": 3.5,
+      "reviews": 204,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSxQBGmsN1K4Foiup9DluMMIojPMvw3-pTpKi2j3e0r8KfcS5IevKKmcEo56KIUYL2qwigJuAnYkRnQGgiIXI2AUEAtJe64eIaiSKrvxPBf",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/sLMuJ3icDcnbDkMwAADQL8JcM5JlITOpjjCTzKNVUZu2qMt-Z3-1v9nO6_l-WiH45CgKpmh8c4ErSTyoKjeTKAVBMmK9MrWMc0Kb43D4n-PGlR2gbEu9oJ9iFRpnRmZun15zFAHWJdGy6hK_cUi0Tse7cQ9rlJkALxD2yGemBUFeXLRhJU04u7R4XmkaNATcgebmvitCbBkYlCSD47IlXv0DTS454w",
+      "delivery": "Free delivery on $45+"
+    },
+    {
+      "position": 39,
+      "title": "Commodity Domestic Whole Strawberry Fruit",
+      "product_id": "13237172327126744531",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:13237172327126744531,headlineOfferDocid:4727397727367952988,imageDocid:17422200403689191332,gpcid:11946401089031032876,mid:576462809293683263,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTMyMzcxNzIzMjcxMjY3NDQ1MzEiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI0NzI3Mzk3NzI3MzY3OTUyOTg4IiwiaW1hZ2VEb2NpZCI6IjE3NDIyMjAwNDAzNjg5MTkxMzMyIiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjExOTQ2NDAxMDg5MDMxMDMyODc2IiwibWlkIjoiNTc2NDYyODA5MjkzNjgzMjYzIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ==",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTMyMzcxNzIzMjcxMjY3NDQ1MzEiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiI0NzI3Mzk3NzI3MzY3OTUyOTg4IiwiaW1hZ2VEb2NpZCI6IjE3NDIyMjAwNDAzNjg5MTkxMzMyIiwicmRzIjoiIiwicXVlcnkiOiJzdHJhd2JlcnJpZXMiLCJncGNpZCI6IjExOTQ2NDAxMDg5MDMxMDMyODc2IiwibWlkIjoiNTc2NDYyODA5MjkzNjgzMjYzIiwicHZ0IjoiaGciLCJ1dWxlIjoidytDQUlRSUNJaE1ERXdNRE1zVFdGemMyRmphSFZ6WlhSMGN5eFZibWwwWldRZ1UzUmhkR1Z6IiwiZ2wiOiJ1cyIsImhsIjoiZW4ifQ%3D%3D",
+      "source": "FoodServiceDirect.com",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcT8yzg7DPdbSB0tgPEz4Uq2Kv7xWeiypV9Ze1xFySZT5P7wvFW01O4P5fsT7-o-RYmUrWWRnnNts8j7mrH8LQVXRbuBjIaRIEwCDSBKJfnBpl4b",
+      "multiple_sources": true,
+      "price": "$103.95",
+      "extracted_price": 103.95,
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRdrFa3v1744NrofesHsp1tSJW7gqsjqpcPmINcEvKkpqxkfDNwD_SiaJHKY_nAf2zbUjM6LjMBddXjUyHmQBh4aMvf9D11EwQ-Guv9F0A4-668toytIcxf8g",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/LLBO43icDclLDoIwFADAEwGiDYqJMRBQRCEiIeqKQEv5hVLok4-n8jreRmc7308BwMVWUTKG-5lDRiRI2ULOBSRQYhm3jSKKlvOS5ftu97-t4RP9iG-kPySrQV0j5PctzYQjuAqhe1_nnag6jq_Nycf2cK55N9XU8kcrDsvEdc7PmBl0-U6jytMulWcS8qii2WkCs0CJN1DdUlV7DKTja9APCwNJmraBdoYTnugm_wHzgT8o"
+    },
+    {
+      "position": 40,
+      "title": "Alexandria Strawberry Fragaria Plants",
+      "product_id": "14562961794398065303",
+      "product_link": "https://www.google.com/search?ibp=oshop&q=strawberries&prds=catalogid:14562961794398065303,headlineOfferDocid:1468689169774256959,imageDocid:14079079751442590841,rds:PC_8901008012469017416|PROD_PC_8901008012469017416,gpcid:17081263291130977828,mid:576462417010120659,pvt:hg&hl=en&gl=us&udm=28",
+      "immersive_product_page_token": "eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTQ1NjI5NjE3OTQzOTgwNjUzMDMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNDY4Njg5MTY5Nzc0MjU2OTU5IiwiaW1hZ2VEb2NpZCI6IjE0MDc5MDc5NzUxNDQyNTkwODQxIiwicmRzIjoiUENfODkwMTAwODAxMjQ2OTAxNzQxNnxQUk9EX1BDXzg5MDEwMDgwMTI0NjkwMTc0MTYiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiMTcwODEyNjMyOTExMzA5Nzc4MjgiLCJtaWQiOiI1NzY0NjI0MTcwMTAxMjA2NTkiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "serpapi_immersive_product_api": "https://serpapi.com/search.json?engine=google_immersive_product&page_token=eyJlaSI6ImtCYXphWTZDSDdISHA4NFA1Zm5HMlFRIiwicHJvZHVjdGlkIjoiIiwiY2F0YWxvZ2lkIjoiMTQ1NjI5NjE3OTQzOTgwNjUzMDMiLCJoZWFkbGluZU9mZmVyRG9jaWQiOiIxNDY4Njg5MTY5Nzc0MjU2OTU5IiwiaW1hZ2VEb2NpZCI6IjE0MDc5MDc5NzUxNDQyNTkwODQxIiwicmRzIjoiUENfODkwMTAwODAxMjQ2OTAxNzQxNnxQUk9EX1BDXzg5MDEwMDgwMTI0NjkwMTc0MTYiLCJxdWVyeSI6InN0cmF3YmVycmllcyIsImdwY2lkIjoiMTcwODEyNjMyOTExMzA5Nzc4MjgiLCJtaWQiOiI1NzY0NjI0MTcwMTAxMjA2NTkiLCJwdnQiOiJoZyIsInV1bGUiOiJ3K0NBSVFJQ0loTURFd01ETXNUV0Z6YzJGamFIVnpaWFIwY3l4VmJtbDBaV1FnVTNSaGRHVnoiLCJnbCI6InVzIiwiaGwiOiJlbiJ9",
+      "source": "Walmart - Hirts Gardens",
+      "source_icon": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn%3AANd9GcTnP5ISNmbEt5sfd-d6O77v8eZaWxR-UtwYkk865osEjKrS0r8udsVsfLPjH1VQBQizWhrYkhO2STFk8WaMhokVgFUhjn2NoxU",
+      "multiple_sources": true,
+      "price": "$23.99",
+      "extracted_price": 23.99,
+      "rating": 5,
+      "reviews": 1,
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT7v2GtI0M63IxhY2f1OSX8UMLW4SVIRC-ectScaIrsx2PQIJ6IxTWHvGkbMCLZJZ_wCL9IU8kZ6SQLRdfB4m9oRpLaX9JP",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/n_HwlnicDcndEkJAGADQJ0JkZM00TbnQmlVYIjcN63cMNvuN9CK9W29T5_Z8Py0AF5aiVCOb3xyqUoJiVOVGQA4dk9k0KKKdOO_G5vDc_886XkrksGi3aA7gjWds8dretVq90tSMPZLo9IZDW6oYUJbjWayaH2DXwGuUnBenLzybZG72eNkE4djsM4MGJCzrkz6gKeQkT5Hr_wBGQjQh"
+    }
+  ],
+  "filters": [
+    {
+      "input_type": "link_with_icon",
+      "options": [
+        {
+          "text": "Nearby",
+          "shoprs": "CAEYAyoMc3RyYXdiZXJyaWVzMgwIAxIGTmVhcmJ5GAJYuKIgYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+nearby&shoprs=CAEYAyoMc3RyYXdiZXJyaWVzMgwIAxIGTmVhcmJ5GAJYuKIgYAI"
+        },
+        {
+          "text": "On sale",
+          "shoprs": "CAESBEoCGAEYBioMc3RyYXdiZXJyaWVzMhMIBhIHT24gc2FsZRgCIgRKAhgBWLiiIGAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+sale&shoprs=CAESBEoCGAEYBioMc3RyYXdiZXJyaWVzMhMIBhIHT24gc2FsZRgCIgRKAhgBWLiiIGAC"
+        },
+        {
+          "text": "Get it today",
+          "shoprs": "CAESDZoBCgoIEAA4AUAESAEYFCoMc3RyYXdiZXJyaWVzMiUIFBIMR2V0IGl0IHRvZGF5Ig2aAQoKCBAAOAFABEgBKgQQARgBYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries&shoprs=CAESDZoBCgoIEAA4AUAESAEYFCoMc3RyYXdiZXJyaWVzMiUIFBIMR2V0IGl0IHRvZGF5Ig2aAQoKCBAAOAFABEgBKgQQARgBYAI"
+        },
+        {
+          "text": "Small business",
+          "shoprs": "CAESAmoAGBYqDHN0cmF3YmVycmllczIcCBYSDlNtYWxsIGJ1c2luZXNzIgJqACoEEAEYAWAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries&shoprs=CAESAmoAGBYqDHN0cmF3YmVycmllczIcCBYSDlNtYWxsIGJ1c2luZXNzIgJqACoEEAEYAWAC"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "input_type": "link",
+      "options": [
+        {
+          "text": "Frozen Fruit",
+          "shoprs": "CAEYCSoMc3RyYXdiZXJyaWVzMhAICRIMRnJvemVuIEZydWl0YAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=frozen+fruit+strawberries&shoprs=CAEYCSoMc3RyYXdiZXJyaWVzMhAICRIMRnJvemVuIEZydWl0YAI"
+        },
+        {
+          "text": "Trees",
+          "shoprs": "CAEYCSoMc3RyYXdiZXJyaWVzMgkICRIFVHJlZXNgAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=trees+strawberries&shoprs=CAEYCSoMc3RyYXdiZXJyaWVzMgkICRIFVHJlZXNgAg"
+        },
+        {
+          "text": "Fruit & Vegetable Seeds",
+          "shoprs": "CAEYCSoMc3RyYXdiZXJyaWVzMhsICRIXRnJ1aXQgJiBWZWdldGFibGUgU2VlZHNgAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=fruit+%26+vegetable+seeds+strawberries&shoprs=CAEYCSoMc3RyYXdiZXJyaWVzMhsICRIXRnJ1aXQgJiBWZWdldGFibGUgU2VlZHNgAg"
+        },
+        {
+          "text": "Seeds & Bulbs",
+          "shoprs": "CAEYCSoMc3RyYXdiZXJyaWVzMhEICRINU2VlZHMgJiBCdWxic2AC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=seeds+%26+bulbs+strawberries&shoprs=CAEYCSoMc3RyYXdiZXJyaWVzMhEICRINU2VlZHMgJiBCdWxic2AC"
+        },
+        {
+          "text": "Dried Fruit",
+          "shoprs": "CAEYCSoMc3RyYXdiZXJyaWVzMg8ICRILRHJpZWQgRnJ1aXRgAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=dried+fruit+strawberries&shoprs=CAEYCSoMc3RyYXdiZXJyaWVzMg8ICRILRHJpZWQgRnJ1aXRgAg"
+        }
+      ]
+    },
+    {
+      "type": "Product Rating",
+      "input_type": "link",
+      "options": [
+        {
+          "text": "4 and up",
+          "shoprs": "CAESBWIDCJADGB4qDHN0cmF3YmVycmllczIVCB4SCDQgYW5kIHVwIgViAwiQA0AEYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries&shoprs=CAESBWIDCJADGB4qDHN0cmF3YmVycmllczIVCB4SCDQgYW5kIHVwIgViAwiQA0AEYAI"
+        }
+      ]
+    },
+    {
+      "type": "Stores",
+      "input_type": "link",
+      "options": [
+        {
+          "text": "Walmart",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMgsIAhIHV2FsbWFydFi4oiBgAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=walmart+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMgsIAhIHV2FsbWFydFi4oiBgAg"
+        },
+        {
+          "text": "Sam's Club",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMg4IAhIKU2FtJ3MgQ2x1Yli4oiBgAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=sam%27s+club+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMg4IAhIKU2FtJ3MgQ2x1Yli4oiBgAg"
+        },
+        {
+          "text": "Target",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMgoIAhIGVGFyZ2V0WLiiIGAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=target+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMgoIAhIGVGFyZ2V0WLiiIGAC"
+        },
+        {
+          "text": "ShopRite",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMgwIAhIIU2hvcFJpdGVYuKIgYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=shoprite+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMgwIAhIIU2hvcFJpdGVYuKIgYAI"
+        }
+      ]
+    },
+    {
+      "type": "Features",
+      "input_type": "checkbox",
+      "options": [
+        {
+          "text": "Organic",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhkIARIHT3JnYW5pYzoMCL75hwEQv_mHATADWLiiIGAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=organic+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhkIARIHT3JnYW5pYzoMCL75hwEQv_mHATADWLiiIGAC"
+        },
+        {
+          "text": "Prepared",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhoIARIIUHJlcGFyZWQ6DAid-YcBEJ75hwEwA1i4oiBgAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=prepared+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhoIARIIUHJlcGFyZWQ6DAid-YcBEJ75hwEwA1i4oiBgAg"
+        }
+      ]
+    },
+    {
+      "type": "Price",
+      "input_type": "price_range",
+      "options": [
+        {
+          "text": "Under $6",
+          "shoprs": "CAESDRILEQAAAABg41ZBGAEYBSoMc3RyYXdiZXJyaWVzMiEIBRIIVW5kZXIgJDYYAiINEgsRAAAAAGDjVkEYASoCGAFYuKIgYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+under+%246&shoprs=CAESDRILEQAAAABg41ZBGAEYBSoMc3RyYXdiZXJyaWVzMiEIBRIIVW5kZXIgJDYYAiINEgsRAAAAAGDjVkEYASoCGAFYuKIgYAI"
+        },
+        {
+          "text": "$6 - $15",
+          "shoprs": "CAESFhIUCQAAAABg41ZBEQAAAAA4nGxBGAEYBSoMc3RyYXdiZXJyaWVzMioIBRIIJDYgLSAkMTUYAiIWEhQJAAAAAGDjVkERAAAAADicbEEYASoCGAFYuKIgYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+between+%246+and+%2415&shoprs=CAESFhIUCQAAAABg41ZBEQAAAAA4nGxBGAEYBSoMc3RyYXdiZXJyaWVzMioIBRIIJDYgLSAkMTUYAiIWEhQJAAAAAGDjVkERAAAAADicbEEYASoCGAFYuKIgYAI"
+        },
+        {
+          "text": "$15 - $35",
+          "shoprs": "CAESFhIUCQAAAAA4nGxBEQAAAAB2sIBBGAEYBSoMc3RyYXdiZXJyaWVzMisIBRIJJDE1IC0gJDM1GAIiFhIUCQAAAAA4nGxBEQAAAAB2sIBBGAEqAhgBWLiiIGAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+between+%2415+and+%2435&shoprs=CAESFhIUCQAAAAA4nGxBEQAAAAB2sIBBGAEYBSoMc3RyYXdiZXJyaWVzMisIBRIJJDE1IC0gJDM1GAIiFhIUCQAAAAA4nGxBEQAAAAB2sIBBGAEqAhgBWLiiIGAC"
+        },
+        {
+          "text": "Over $35",
+          "shoprs": "CAESDRILCQAAAAB2sIBBGAEYBSoMc3RyYXdiZXJyaWVzMiEIBRIIT3ZlciAkMzUYAiINEgsJAAAAAHawgEEYASoCGAFYuKIgYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+over+%2435&shoprs=CAESDRILCQAAAAB2sIBBGAEYBSoMc3RyYXdiZXJyaWVzMiEIBRIIT3ZlciAkMzUYAiINEgsJAAAAAHawgEEYASoCGAFYuKIgYAI"
+        }
+      ]
+    },
+    {
+      "type": "Sugar Content",
+      "input_type": "checkbox",
+      "options": [
+        {
+          "text": "No Sugar Added",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMiAIARIOTm8gU3VnYXIgQWRkZWQ6DAj334cBEIuIjAEwAFi4oiBgAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=no+sugar+added+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMiAIARIOTm8gU3VnYXIgQWRkZWQ6DAj334cBEIuIjAEwAFi4oiBgAg"
+        },
+        {
+          "text": "Reduced Sugar",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMh8IARINUmVkdWNlZCBTdWdhcjoMCPffhwEQ-N-HATAAWLiiIGAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=reduced+sugar+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMh8IARINUmVkdWNlZCBTdWdhcjoMCPffhwEQ-N-HATAAWLiiIGAC"
+        }
+      ]
+    },
+    {
+      "type": "Free shipping",
+      "input_type": "link",
+      "options": [
+        {
+          "text": "Free shipping",
+          "shoprs": "CAESBFICEAEYGSoMc3RyYXdiZXJyaWVzMhcIGRINRnJlZSBzaGlwcGluZyIEUgIQAWAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+free+shipping&shoprs=CAESBFICEAEYGSoMc3RyYXdiZXJyaWVzMhcIGRINRnJlZSBzaGlwcGluZyIEUgIQAWAC"
+        }
+      ]
+    },
+    {
+      "type": "Brand",
+      "input_type": "checkbox",
+      "options": [
+        {
+          "text": "Giant",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhUIARIFR2lhbnQ6CgiD8zwQ7OU9MAFYuKIgYAI",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=giant+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhUIARIFR2lhbnQ6CgiD8zwQ7OU9MAFYuKIgYAI"
+        },
+        {
+          "text": "Driscolls",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhoIARIJRHJpc2NvbGxzOgsIg_M8EJqx1AMwAVi4oiBgAg",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=driscolls+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhoIARIJRHJpc2NvbGxzOgsIg_M8EJqx1AMwAVi4oiBgAg"
+        },
+        {
+          "text": "Fresh",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhYIARIFRnJlc2g6CwiD8zwQ0d-OAjABWLiiIGAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=fresh+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhYIARIFRnJlc2g6CwiD8zwQ0d-OAjABWLiiIGAC"
+        },
+        {
+          "text": "Burpee",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhYIARIGQnVycGVlOgoIg_M8EI__PzABWLiiIGAC",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=burpee+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhYIARIGQnVycGVlOgoIg_M8EI__PzABWLiiIGAC"
+        }
+      ]
+    },
+    {
+      "type": "Carousel Filters",
+      "options": [
+        {
+          "text": "Nearby",
+          "shoprs": "CAEYAyoMc3RyYXdiZXJyaWVzMgwIAxIGTmVhcmJ5GAJYuKIgYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+nearby&shoprs=CAEYAyoMc3RyYXdiZXJyaWVzMgwIAxIGTmVhcmJ5GAJYuKIgYAE",
+          "input_type": "link_with_icon"
+        },
+        {
+          "text": "Chocolate",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhkIARIJQ2hvY29sYXRlOgoI8OhqEPHoajACWLiiIGAB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=chocolate+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhkIARIJQ2hvY29sYXRlOgoI8OhqEPHoajACWLiiIGAB",
+          "input_type": "link"
+        },
+        {
+          "text": "Frozen Fruit",
+          "shoprs": "CAEYCSoMc3RyYXdiZXJyaWVzMhAICRIMRnJvemVuIEZydWl0YAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=frozen+fruit+strawberries&shoprs=CAEYCSoMc3RyYXdiZXJyaWVzMhAICRIMRnJvemVuIEZydWl0YAE",
+          "input_type": "link"
+        },
+        {
+          "text": "On sale",
+          "shoprs": "CAESBEoCGAEYBioMc3RyYXdiZXJyaWVzMhMIBhIHT24gc2FsZRgCIgRKAhgBWLiiIGAB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+sale&shoprs=CAESBEoCGAEYBioMc3RyYXdiZXJyaWVzMhMIBhIHT24gc2FsZRgCIgRKAhgBWLiiIGAB",
+          "input_type": "link_with_icon"
+        },
+        {
+          "text": "Get it today",
+          "shoprs": "CAESDZoBCgoIEAA4AUAESAEYFCoMc3RyYXdiZXJyaWVzMiUIFBIMR2V0IGl0IHRvZGF5Ig2aAQoKCBAAOAFABEgBKgQQARgBYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries&shoprs=CAESDZoBCgoIEAA4AUAESAEYFCoMc3RyYXdiZXJyaWVzMiUIFBIMR2V0IGl0IHRvZGF5Ig2aAQoKCBAAOAFABEgBKgQQARgBYAE",
+          "input_type": "link_with_icon"
+        },
+        {
+          "text": "Frozen",
+          "shoprs": "CAEYEioMc3RyYXdiZXJyaWVzMgoIEhIGRnJvemVuYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=frozen+strawberries&shoprs=CAEYEioMc3RyYXdiZXJyaWVzMgoIEhIGRnJvemVuYAE",
+          "input_type": "link"
+        },
+        {
+          "text": "Walmart",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMgsIAhIHV2FsbWFydFi4oiBgAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=walmart+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMgsIAhIHV2FsbWFydFi4oiBgAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Organic",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhkIARIHT3JnYW5pYzoMCL75hwEQv_mHATADWLiiIGAB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=organic+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhkIARIHT3JnYW5pYzoMCL75hwEQv_mHATADWLiiIGAB",
+          "input_type": "checkbox"
+        },
+        {
+          "text": "Trees",
+          "shoprs": "CAEYCSoMc3RyYXdiZXJyaWVzMgkICRIFVHJlZXNgAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=trees+strawberries&shoprs=CAEYCSoMc3RyYXdiZXJyaWVzMgkICRIFVHJlZXNgAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Fruit & Vegetable Seeds",
+          "shoprs": "CAEYCSoMc3RyYXdiZXJyaWVzMhsICRIXRnJ1aXQgJiBWZWdldGFibGUgU2VlZHNgAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=fruit+%26+vegetable+seeds+strawberries&shoprs=CAEYCSoMc3RyYXdiZXJyaWVzMhsICRIXRnJ1aXQgJiBWZWdldGFibGUgU2VlZHNgAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Seeds & Bulbs",
+          "shoprs": "CAEYCSoMc3RyYXdiZXJyaWVzMhEICRINU2VlZHMgJiBCdWxic2AB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=seeds+%26+bulbs+strawberries&shoprs=CAEYCSoMc3RyYXdiZXJyaWVzMhEICRINU2VlZHMgJiBCdWxic2AB",
+          "input_type": "link"
+        },
+        {
+          "text": "Dried Fruit",
+          "shoprs": "CAEYCSoMc3RyYXdiZXJyaWVzMg8ICRILRHJpZWQgRnJ1aXRgAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=dried+fruit+strawberries&shoprs=CAEYCSoMc3RyYXdiZXJyaWVzMg8ICRILRHJpZWQgRnJ1aXRgAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Under $6",
+          "shoprs": "CAESDRILEQAAAABg41ZBGAEYBSoMc3RyYXdiZXJyaWVzMiEIBRIIVW5kZXIgJDYYAiINEgsRAAAAAGDjVkEYASoCGAFYuKIgYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+under+%246&shoprs=CAESDRILEQAAAABg41ZBGAEYBSoMc3RyYXdiZXJyaWVzMiEIBRIIVW5kZXIgJDYYAiINEgsRAAAAAGDjVkEYASoCGAFYuKIgYAE",
+          "input_type": "price_range"
+        },
+        {
+          "text": "Prepared",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhoIARIIUHJlcGFyZWQ6DAid-YcBEJ75hwEwA1i4oiBgAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=prepared+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhoIARIIUHJlcGFyZWQ6DAid-YcBEJ75hwEwA1i4oiBgAQ",
+          "input_type": "checkbox"
+        },
+        {
+          "text": "Sam's Club",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMg4IAhIKU2FtJ3MgQ2x1Yli4oiBgAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=sam%27s+club+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMg4IAhIKU2FtJ3MgQ2x1Yli4oiBgAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Target",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMgoIAhIGVGFyZ2V0WLiiIGAB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=target+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMgoIAhIGVGFyZ2V0WLiiIGAB",
+          "input_type": "link"
+        },
+        {
+          "text": "Indoor",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhYIARIGSW5kb29yOgoIpoJyEKiCcjACWLiiIGAB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=indoor+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhYIARIGSW5kb29yOgoIpoJyEKiCcjACWLiiIGAB",
+          "input_type": "link"
+        },
+        {
+          "text": "ShopRite",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMgwIAhIIU2hvcFJpdGVYuKIgYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=shoprite+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMgwIAhIIU2hvcFJpdGVYuKIgYAE",
+          "input_type": "link"
+        },
+        {
+          "text": "Burpee Gardening",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMhQIAhIQQnVycGVlIEdhcmRlbmluZ1i4oiBgAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=burpee+gardening+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMhQIAhIQQnVycGVlIEdhcmRlbmluZ1i4oiBgAQ",
+          "input_type": "link"
+        },
+        {
+          "text": "Weee!",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMgkIAhIFV2VlZSFYuKIgYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=weee%21+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMgkIAhIFV2VlZSFYuKIgYAE",
+          "input_type": "link"
+        },
+        {
+          "text": "Preserve",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMhgIARIIUHJlc2VydmU6CgiKrjkQjq45MAJYuKIgYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=preserve+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMhgIARIIUHJlc2VydmU6CgiKrjkQjq45MAJYuKIgYAE",
+          "input_type": "link"
+        },
+        {
+          "text": "No Sugar Added",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMiAIARIOTm8gU3VnYXIgQWRkZWQ6DAj334cBEIuIjAEwAFi4oiBgAQ",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=no+sugar+added+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMiAIARIOTm8gU3VnYXIgQWRkZWQ6DAj334cBEIuIjAEwAFi4oiBgAQ",
+          "input_type": "checkbox"
+        },
+        {
+          "text": "Reduced Sugar",
+          "shoprs": "CAEYASoMc3RyYXdiZXJyaWVzMh8IARINUmVkdWNlZCBTdWdhcjoMCPffhwEQ-N-HATAAWLiiIGAB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=reduced+sugar+strawberries&shoprs=CAEYASoMc3RyYXdiZXJyaWVzMh8IARINUmVkdWNlZCBTdWdhcjoMCPffhwEQ-N-HATAAWLiiIGAB",
+          "input_type": "checkbox"
+        },
+        {
+          "text": "Free shipping",
+          "shoprs": "CAESBFICEAEYGSoMc3RyYXdiZXJyaWVzMhcIGRINRnJlZSBzaGlwcGluZyIEUgIQAWAB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries+free+shipping&shoprs=CAESBFICEAEYGSoMc3RyYXdiZXJyaWVzMhcIGRINRnJlZSBzaGlwcGluZyIEUgIQAWAB",
+          "input_type": "link"
+        },
+        {
+          "text": "TikTok Shop",
+          "shoprs": "CAEYAioMc3RyYXdiZXJyaWVzMg8IAhILVGlrVG9rIFNob3BYuKIgYAE",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=tiktok+shop+strawberries&shoprs=CAEYAioMc3RyYXdiZXJyaWVzMg8IAhILVGlrVG9rIFNob3BYuKIgYAE",
+          "input_type": "link"
+        },
+        {
+          "text": "Small business",
+          "shoprs": "CAESAmoAGBYqDHN0cmF3YmVycmllczIcCBYSDlNtYWxsIGJ1c2luZXNzIgJqACoEEAEYAWAB",
+          "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries&shoprs=CAESAmoAGBYqDHN0cmF3YmVycmllczIcCBYSDlNtYWxsIGJ1c2luZXNzIgJqACoEEAEYAWAB",
+          "input_type": "link_with_icon"
+        }
+      ]
+    }
+  ],
+  "serpapi_pagination": {
+    "next": "https://serpapi.com/search.json?device=desktop&engine=google_shopping&gl=us&google_domain=google.com&hl=en&location=01003&q=strawberries&start=10"
+  }
+}
