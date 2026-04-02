@@ -4,7 +4,7 @@ export { create_user_context };
 interface UserContext {
     blacklist_store(store_source: string): Promise<boolean>;
     unblacklist_store(store_source: string): Promise<boolean>;
-    get_blacklisted_stores(): Promise<Array<number>>;
+    get_blacklisted_stores(): Promise<Array<string>>;
     blacklist_brand(brand: number | string): Promise<boolean>;
     unblacklist_brand(brand: number | string): Promise<boolean>;
     get_blacklisted_brands(): Promise<Array<number>>;
@@ -70,7 +70,7 @@ function user_context_object(client:Client, user_id: number): UserContext {retur
         const req = await client.query("DELETE FROM store_blacklists WHERE user_id = $1 AND store_source = $2", [user_id, store_source]);
         return _request_successful(req);
     },
-    async get_blacklisted_stores(): Promise<Array<number>> {
+    async get_blacklisted_stores(): Promise<Array<string>> {
         const req = await client.query("SELECT store_source FROM store_blacklists WHERE user_id = $1", [user_id]);
         return req.rows.map(row => row.store_source);
     },
