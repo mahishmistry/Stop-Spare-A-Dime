@@ -1,13 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const { getJson } = require('serpapi');
-<<<<<<< HEAD
 const helmet = require('helmet');
 const { query, body, validationResult } = require('express-validator');
-=======
 const { getBestItems } = require('./comparison_logic_test/comparison');
 
->>>>>>> fc75f2672e4dc3746698e305b03a796706165baf
 const app = express();
 const PORT = process.env.PORT || 3000;
 
