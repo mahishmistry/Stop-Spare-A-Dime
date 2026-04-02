@@ -1,8 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const { getJson } = require('serpapi');
+<<<<<<< HEAD
 const helmet = require('helmet');
 const { query, body, validationResult } = require('express-validator');
+=======
+const { getBestItems } = require('./comparison_logic_test/comparison');
+
+>>>>>>> fc75f2672e4dc3746698e305b03a796706165baf
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -26,6 +31,7 @@ app.get('/api/prices',
     }
     const { product, zipCode } = req.query;
     try {
+<<<<<<< HEAD
       const response = await getJson({
         engine: "google_shopping",
         q: product,
@@ -37,6 +43,22 @@ app.get('/api/prices',
       const results = (response.shopping_results || [])
         .filter(item => !blockedStores.some(store =>
           item.source?.toLowerCase().includes(store.toLowerCase())
+=======
+        // Fetch data from SerpApi's Google Shopping engine
+        const response = await getJson({
+            engine: "google_shopping",
+            q: `Grocery ${product}`,
+            location: zipCode || "United States", 
+            hl: "en",
+            gl: "us",
+            api_key: process.env.SERPAPI_KEY
+        });
+
+        //Filter for blocked stores
+        const results = (response.shopping_results || [])
+            .filter(item => !blockedStores.some(store => 
+            item.source?.toLowerCase().includes(store.toLowerCase())
+>>>>>>> fc75f2672e4dc3746698e305b03a796706165baf
         ));
       searchHistory.push({ product, zipCode, timestamp: new Date() });
       res.json({
@@ -74,6 +96,17 @@ app.get('/api/block', (req, res) => {
   res.json({ blockedStores });
 });
 
+// Endpoint for comparison logic
+app.get('/api/compare', (req, res) => {
+    getBestItems(req, res);
+});
+
 app.listen(PORT, () => {
+<<<<<<< HEAD
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+=======
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+>>>>>>> fc75f2672e4dc3746698e305b03a796706165baf
