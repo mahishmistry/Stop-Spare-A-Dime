@@ -1,10 +1,12 @@
 import { Client } from 'pg';
 import { pool } from "./pool.ts";
+import { get } from 'node:http';
 export { create_new_user, create_user_context };
 
 interface UserContext {
     name: string;
     email: string;
+    send_notifications: boolean;
     blacklist_store(store_source: string): Promise<boolean>;
     unblacklist_store(store_source: string): Promise<boolean>;
     get_blacklisted_stores(): Promise<Array<string>>;
@@ -23,10 +25,9 @@ interface UserContext {
     add_search_history(search_query: string, datetime: Date): Promise<boolean>;
     get_search_history(past_n_searches?: number): Promise<Array<string>>;
 
-    get_account_preferences?(): Promise<any>;
-    update_display_name?(new_display_name: string): Promise<boolean>;
-    update_email?(new_email: string): Promise<boolean>;
-    update_notification_preferences?(preferences: any): Promise<boolean>;
+    update_name(new_display_name: string): Promise<boolean>;
+    update_email(new_email: string): Promise<boolean>;
+    update_notifications(send_notifications: boolean): Promise<boolean>;
 }
 
 async function _get_brand_id_from_name(brand_name: string): Promise<number | null> {
@@ -78,8 +79,8 @@ async function create_new_user(email: string, display_name: string): Promise<{us
 
     const result = await pool.query(
         `
-        insert into public.users (email, name)
-        values ($1, $2)
+        insert into public.users (email, name, send_notifications)
+        values ($1, $2, false)
         returning *
         `,
         [email, display_name]
@@ -119,14 +120,16 @@ async function create_user_context(user_info: number | string): Promise<UserCont
 
     const email_req = await pool.query("SELECT email FROM users WHERE user_id = $1", [user_id]);
     const email = email_req.rows[0].email;
+    const notifs = email_req.rows[0].send_notifications || false;
     
-    return _user_context_object(user_id, display_name, email);
+    return _user_context_object(user_id, display_name, email, notifs);
 };
 
-function _user_context_object(user_id: number, display_name: string, user_email: string): UserContext {
+function _user_context_object(user_id: number, display_name: string, user_email: string, notifications:boolean): UserContext {
     return {
     name: display_name,
     email: user_email,
+    send_notifications: notifications,
     // Blacklisted Stores
     async blacklist_store(store_source: string): Promise<boolean> {
         const req = await pool.query("INSERT INTO store_blacklists (user_id, store_source) VALUES ($1, $2) ON CONFLICT DO NOTHING", [user_id, store_source]);
@@ -260,11 +263,43 @@ function _user_context_object(user_id: number, display_name: string, user_email:
 
     // Search History
     async add_search_history(search_query: string, datetime:Date): Promise<boolean> {
-        const req = await pool.query("INSERT INTO search_history (user_id, search_query, datetime) VALUES ($1, $2, $3)", [user_id, search_query, datetime]);
+        const req = await pool.query("INSERT INTO search_history (user_id, search_query, search_time) VALUES ($1, $2, $3)", [user_id, search_query, datetime]);
         return _request_successful(req);
     },
     async get_search_history(past_n_searches: number = 10): Promise<Array<string>> {
-        const req = await pool.query("SELECT search_query FROM search_history WHERE user_id = $1 ORDER BY datetime DESC LIMIT $2", [user_id, past_n_searches]);
+        const req = await pool.query("SELECT search_query FROM search_history WHERE user_id = $1 ORDER BY search_time DESC LIMIT $2", [user_id, past_n_searches]);
         return req.rows.map(row => row.search_query);
     },
+
+    // User Settings
+    async update_name(new_display_name: string): Promise<boolean> {
+        const req = await pool.query("UPDATE users SET name = $1 WHERE user_id = $2", [new_display_name, user_id]);
+        if (req !== null && req.rowCount != null && req.rowCount > 0) {
+            this.name = new_display_name;
+            return true;
+        }
+        return false;
+    },
+
+    async update_email(new_email: string): Promise<boolean> {
+        if (!_is_valid_email(new_email)) {
+            throw new Error("invalid email format");
+        }
+        const existing_user_check = await pool.query("SELECT user_id FROM users WHERE email = $1", [new_email]);
+        if ((existing_user_check.rowCount ?? 0) > 0) {
+            throw new Error("a user with this email already exists");
+        }
+        const req = await pool.query("UPDATE users SET email = $1 WHERE user_id = $2", [new_email, user_id]);
+        if (req !== null && req.rowCount != null && req.rowCount > 0) {
+            this.email = new_email;
+            return true;
+        }
+        return false;
+    },
+
+    async update_notifications(send_notifs:boolean): Promise<boolean> {
+        const req = await pool.query("UPDATE users SET send_notifications = $1 WHERE user_id = $2", [send_notifs, user_id]);
+        this.send_notifications = send_notifs;
+        return _request_successful(req);
+    }
 }};

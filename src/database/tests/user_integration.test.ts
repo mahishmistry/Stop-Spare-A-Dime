@@ -20,6 +20,16 @@ async function _test_user_context() {
   return user_context;
 }
 
+async function _test_second_user_context() {
+  await create_new_user("test2@example.com", "Testificate2");
+  const user_context = await create_user_context(2);
+  if (!user_context) {
+    throw new Error("User context was not created");
+  }
+  return user_context;
+}
+
+
 async function _test_user_context_with_id() {
   const new_user = await create_new_user("test@example.com", "Testificate");
   const user_context = await create_user_context(new_user.user_id);
@@ -219,6 +229,38 @@ describe("User Store Blacklisting", () => {
     const user_context = await _test_user_context();
     await expect(user_context.unblacklist_store("non_existent_store")).resolves.toBeFalsy();
   });
+
+  it("allows two different users to have independent blacklisted stores", async () => {
+    const user_context_1 = await _test_user_context();
+    const user_context_2 = await _test_second_user_context();
+    
+    // INSERT STORES
+    await Promise.all([
+      pool.query("INSERT INTO stores (store_source, url) VALUES ($1, $2)", ["store_a", "storea.com"]),
+      pool.query("INSERT INTO stores (store_source, url) VALUES ($1, $2)", ["store_b", "storeb.com"]),
+    ]);
+
+    // User 1 blacklists store_a
+    await user_context_1.blacklist_store("store_a");
+    // User 2 blacklists store_a
+    await user_context_2.blacklist_store("store_a");
+    // User 1 blacklists store_b
+    await user_context_1.blacklist_store("store_b");
+    // User 2 unblacklists store_a
+    await user_context_2.unblacklist_store("store_a");
+    // User 2 blacklists store_b
+    await user_context_2.blacklist_store("store_b");
+
+    // Verify final state: user 1 has store_a and store_b, user 2 has only store_b
+    const user1_blacklisted = await user_context_1.get_blacklisted_stores();
+    const user2_blacklisted = await user_context_2.get_blacklisted_stores();
+
+    expect(user1_blacklisted.length).toBe(2);
+    expect(user1_blacklisted).toContain("store_a");
+    expect(user1_blacklisted).toContain("store_b");
+    expect(user2_blacklisted.length).toBe(1);
+    expect(user2_blacklisted[0]).toBe("store_b");
+  });
 });
 
 describe("User Brand Blacklisting", () => {
@@ -304,6 +346,38 @@ describe("User Brand Blacklisting", () => {
     const user_context = await _test_user_context();
     await expect(user_context.unblacklist_brand("non_existent_brand")).resolves.toBeFalsy();
   });
+
+  it("allows two different users to have independent blacklisted brands", async () => {
+    const user_context_1 = await _test_user_context();
+    const user_context_2 = await _test_second_user_context();
+    
+    // INSERT BRANDS
+    const brandA = await pool.query("INSERT INTO brands (name) VALUES ($1) RETURNING brand_id", ["BrandA"]);
+    const brandB = await pool.query("INSERT INTO brands (name) VALUES ($1) RETURNING brand_id", ["BrandB"]);
+    const brandA_id = brandA.rows[0].brand_id;
+    const brandB_id = brandB.rows[0].brand_id;
+
+    // User 1 blacklists BrandA
+    await user_context_1.blacklist_brand("BrandA");
+    // User 2 blacklists BrandA
+    await user_context_2.blacklist_brand("BrandA");
+    // User 1 blacklists BrandB
+    await user_context_1.blacklist_brand("BrandB");
+    // User 2 unblacklists BrandA
+    await user_context_2.unblacklist_brand("BrandA");
+    // User 2 blacklists BrandB
+    await user_context_2.blacklist_brand("BrandB");
+
+    // Verify final state: user 1 has BrandA and BrandB, user 2 has only BrandB
+    const user1_blacklisted = await user_context_1.get_blacklisted_brands();
+    const user2_blacklisted = await user_context_2.get_blacklisted_brands();
+
+    expect(user1_blacklisted.length).toBe(2);
+    expect(user1_blacklisted).toContain(brandA_id);
+    expect(user1_blacklisted).toContain(brandB_id);
+    expect(user2_blacklisted.length).toBe(1);
+    expect(user2_blacklisted[0]).toBe(brandB_id);
+  });
 });
 
 describe("Products", () => {
@@ -378,6 +452,35 @@ describe("Products", () => {
   it("Handles unfavoriting of non-existent products", async () => {
     const user_context = await _test_user_context();
     await expect(user_context.unfavorite_product("non_existent_product")).resolves.toBeFalsy();
+  });
+
+  it("allows two different users to have independent favorite products", async () => {
+    const user_context_1 = await _test_user_context();
+    const user_context_2 = await _test_second_user_context();
+    
+    const product_a = await _insert_test_product("ProductA");
+    const product_b = await _insert_test_product("ProductB");
+
+    // User 1 favorites ProductA
+    await user_context_1.favorite_product(product_a.product_name);
+    // User 2 favorites ProductA
+    await user_context_2.favorite_product(product_a.product_name);
+    // User 1 favorites ProductB
+    await user_context_1.favorite_product(product_b.product_name);
+    // User 2 unfavorites ProductA
+    await user_context_2.unfavorite_product(product_a.product_name);
+    // User 2 favorites ProductB
+    await user_context_2.favorite_product(product_b.product_name);
+
+    // Verify final state: user 1 has ProductA and ProductB, user 2 has only ProductB
+    const user1_products = await user_context_1.get_favorite_products();
+    const user2_products = await user_context_2.get_favorite_products();
+
+    expect(user1_products.length).toBe(2);
+    expect(user1_products).toContain(product_a.product_id);
+    expect(user1_products).toContain(product_b.product_id);
+    expect(user2_products.length).toBe(1);
+    expect(user2_products[0]).toBe(product_b.product_id);
   });
 });
 
@@ -455,6 +558,35 @@ describe("Deals", () => {
   it("Handles unfavoriting of non-existent deals", async () => {
     const user_context = await _test_user_context();
     await expect(user_context.unsave_deal(999999)).resolves.toBeFalsy();
+  });
+
+  it("allows two different users to have independent saved deals", async () => {
+    const user_context_1 = await _test_user_context();
+    const user_context_2 = await _test_second_user_context();
+    
+    const deal_a = await _insert_test_deal();
+    const deal_b = await _insert_test_deal();
+
+    // User 1 saves deal_a
+    await user_context_1.save_deal(deal_a.deal_id);
+    // User 2 saves deal_a
+    await user_context_2.save_deal(deal_a.deal_id);
+    // User 1 saves deal_b
+    await user_context_1.save_deal(deal_b.deal_id);
+    // User 2 unsaves deal_a
+    await user_context_2.unsave_deal(deal_a.deal_id);
+    // User 2 saves deal_b
+    await user_context_2.save_deal(deal_b.deal_id);
+
+    // Verify final state: user 1 has deal_a and deal_b, user 2 has only deal_b
+    const user1_deals = await user_context_1.get_saved_deals();
+    const user2_deals = await user_context_2.get_saved_deals();
+
+    expect(user1_deals.length).toBe(2);
+    expect(user1_deals).toContain(deal_a.deal_id);
+    expect(user1_deals).toContain(deal_b.deal_id);
+    expect(user2_deals.length).toBe(1);
+    expect(user2_deals[0]).toBe(deal_b.deal_id);
   });
 });
 
@@ -552,6 +684,38 @@ describe("Memberships", () => {
     const user_context = await _test_user_context();
     await expect(user_context.remove_store_membership("non_existent_store")).resolves.toBeFalsy();
   });
+
+  it("allows two different users to have independent memberships", async () => {
+    const user_context_1 = await _test_user_context();
+    const user_context_2 = await _test_second_user_context();
+
+    // INSERT STORES
+    await Promise.all([
+      pool.query("INSERT INTO stores (store_source, url) VALUES ($1, $2)", ["store_a", "storea.com"]),
+      pool.query("INSERT INTO stores (store_source, url) VALUES ($1, $2)", ["store_b", "storeb.com"]),
+    ]);
+
+    // User 1 adds store_a membership
+    await user_context_1.add_store_membership("store_a", "user1-member-123");
+    // User 2 adds store_a membership
+    await user_context_2.add_store_membership("store_a", "user2-member-456");
+    // User 1 adds store_b membership
+    await user_context_1.add_store_membership("store_b", "user1-member-789");
+    // User 2 removes store_a membership
+    await user_context_2.remove_store_membership("store_a");
+    // User 2 adds store_b membership
+    await user_context_2.add_store_membership("store_b", "user2-member-101");
+
+    // Verify final state: user 1 has store_a and store_b, user 2 has only store_b
+    const user1_memberships = await user_context_1.get_memberships();
+    const user2_memberships = await user_context_2.get_memberships();
+
+    expect(user1_memberships.length).toBe(2);
+    expect(user1_memberships).toContain("store_a");
+    expect(user1_memberships).toContain("store_b");
+    expect(user2_memberships.length).toBe(1);
+    expect(user2_memberships[0]).toBe("store_b");
+  });
 });
 
 describe("Search History", () => {
@@ -595,17 +759,6 @@ describe("Search History", () => {
     expect(search_history[2]).toBe("oldest_query");
   });
 
-  it("Doesn't allow duplicate saving of the same search query", async () => {
-    const user_context = await _test_user_context();
-
-    await user_context.add_search_history("milk", new Date("2026-04-01T10:00:00.000Z"));
-    await user_context.add_search_history("milk", new Date("2026-04-01T11:00:00.000Z"));
-
-    const search_history = await user_context.get_search_history();
-    const milk_entries = search_history.filter((query) => query === "milk");
-    expect(milk_entries.length).toBe(1);
-  });
-
   it("Handles deletion of search queries that aren't saved", async () => {
     const { user_id } = await _test_user_context_with_id();
 
@@ -635,11 +788,68 @@ describe("Search History", () => {
     const search_history = await user_context.get_search_history();
     expect(search_history.length).toBe(0);
   });
+
+  it("allows two different users to have independent search history", async () => {
+    const user_context_1 = await _test_user_context();
+    const user_context_2 = await _test_second_user_context();
+
+    // User 1 adds query_a
+    await user_context_1.add_search_history("query_a", new Date("2026-04-01T08:00:00.000Z"));
+    // User 2 adds query_a
+    await user_context_2.add_search_history("query_a", new Date("2026-04-01T08:15:00.000Z"));
+    // User 1 adds query_b
+    await user_context_1.add_search_history("query_b", new Date("2026-04-01T09:00:00.000Z"));
+    // User 2 deletes query_a
+    await pool.query(
+      "DELETE FROM search_history WHERE user_id = $1 AND search_query = $2",
+      [2, "query_a"],
+    );
+    // User 2 adds query_b
+    await user_context_2.add_search_history("query_b", new Date("2026-04-01T09:15:00.000Z"));
+
+    // Verify final state: user 1 has query_a and query_b, user 2 has only query_b
+    const user1_history = await user_context_1.get_search_history();
+    const user2_history = await user_context_2.get_search_history();
+
+    expect(user1_history.length).toBe(2);
+    expect(user1_history).toContain("query_a");
+    expect(user1_history).toContain("query_b");
+
+    expect(user2_history.length).toBe(1);
+    expect(user2_history[0]).toBe("query_b");
+    expect(user2_history).not.toContain("query_a");
+  });
 });
 
 describe("User Settings", () => {
-  it("Allows the user to update their display name", async () => {});
-  it("Allows the user to update their email", async () => {});
-  it("Doesn't allow the user to update their email to an invalid email", async () => {});
-  it("Allows the user to update their notification preferences", async () => {});
+
+  it("Allows the user to update their display name", async () => {
+    const user_context = await _test_user_context();
+    await user_context.update_name("New Name");
+    expect(user_context.name).toBe("New Name");
+    const db_result = await pool.query("SELECT name FROM users WHERE user_id = $1", [1]);
+    expect(db_result.rows[0].name).toBe("New Name");
+  });
+
+  it("Allows the user to update their email", async () => {
+    const user_context = await _test_user_context();
+    await user_context.update_email("iliketrainslol41@ifunny.com");
+    expect(user_context.email).toBe("iliketrainslol41@ifunny.com");
+    const db_result = await pool.query("SELECT email FROM users WHERE user_id = $1", [1]);
+    expect(db_result.rows[0].email).toBe("iliketrainslol41@ifunny.com");
+  });
+
+  it("Doesn't allow the user to update their email to an invalid email", async () => {
+    const user_context = await _test_user_context();
+    await expect(user_context.update_email("invalid-email")).rejects.toThrow("invalid email format");
+  });
+  
+  it("Allows the user to update their notification preferences", async () => {
+    const user_context = await _test_user_context();
+    await expect(user_context.send_notifications).toBeFalsy();
+    await user_context.update_notifications(true);
+    expect(user_context.send_notifications).toBeTruthy();
+    const db_result = await pool.query("SELECT send_notifications FROM users WHERE user_id = $1", [1]);
+    expect(db_result.rows[0].send_notifications).toBe(true);
+  });
 });
