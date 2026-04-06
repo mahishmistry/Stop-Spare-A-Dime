@@ -17,9 +17,9 @@ interface UserContext {
     save_deal(deal_id: number): Promise<boolean>;
     unsave_deal(deal_id: number): Promise<boolean>;
     get_saved_deals(number_to_fetch?: number): Promise<Array<number>>;
-    add_store_membership(store_id: number, membership_id: number): Promise<boolean>;
-    remove_store_membership(store_id: number): Promise<boolean>;
-    get_memberships(): Promise<Array<number>>;
+    add_store_membership(store_source: string, membership_id: string): Promise<boolean>;
+    remove_store_membership(store_source: string): Promise<boolean>;
+    get_memberships(): Promise<Array<string>>;
     add_search_history(search_query: string, datetime: Date): Promise<boolean>;
     get_search_history(past_n_searches?: number): Promise<Array<string>>;
 
@@ -205,7 +205,7 @@ function _user_context_object(user_id: number, display_name: string, user_email:
             product_id = resolved_product_id;
         }
 
-        const req = await pool.query("INSERT INTO product_favorites (user_id, product_id) VALUES ($1, $2) ON CONFLICT DO NOTHING", [user_id, product_id]);
+        const req = await pool.query("INSERT INTO favorite_products (user_id, product_id) VALUES ($1, $2) ON CONFLICT DO NOTHING", [user_id, product_id]);
         return _request_successful(req);
     },
     async unfavorite_product(product: number | string): Promise<boolean> {
@@ -222,11 +222,11 @@ function _user_context_object(user_id: number, display_name: string, user_email:
             product_id = resolved_product_id;
         }
 
-        const req = await pool.query("DELETE FROM product_favorites WHERE user_id = $1 AND product_id = $2", [user_id, product_id]);
+        const req = await pool.query("DELETE FROM favorite_products WHERE user_id = $1 AND product_id = $2", [user_id, product_id]);
         return _request_successful(req);
     },
     async get_favorite_products(max: number = 10): Promise<Array<number>> {
-        const req = await pool.query("SELECT product_id FROM product_favorites WHERE user_id = $1 LIMIT $2", [user_id, max]);
+        const req = await pool.query("SELECT product_id FROM favorite_products WHERE user_id = $1 LIMIT $2", [user_id, max]);
         return req.rows.map(row => row.product_id);
     },
 
@@ -245,17 +245,17 @@ function _user_context_object(user_id: number, display_name: string, user_email:
     },
 
     // Memberships
-    async add_store_membership(store_id: number, membership_id: number): Promise<boolean> {
-        const req = await pool.query("INSERT INTO store_memberships (user_id, store_id, membership_id) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING", [user_id, store_id, membership_id]);
+    async add_store_membership(store_source: string, membership_id: string): Promise<boolean> {
+        const req = await pool.query("INSERT INTO store_memberships (user_id, store_source, membership_id) VALUES ($1, $2, $3) ON CONFLICT (user_id, store_source) DO NOTHING", [user_id, store_source, membership_id]);
         return _request_successful(req);
     },
-    async remove_store_membership(store_id: number): Promise<boolean> {
-        const req = await pool.query("DELETE FROM store_memberships WHERE user_id = $1 AND store_id = $2", [user_id, store_id]);
+    async remove_store_membership(store_source: string): Promise<boolean> {
+        const req = await pool.query("DELETE FROM store_memberships WHERE user_id = $1 AND store_source = $2", [user_id, store_source]);
         return _request_successful(req);
     },
-    async get_memberships(): Promise<Array<number>> {
-        const req = await pool.query("SELECT membership_id FROM store_memberships WHERE user_id = $1", [user_id]);
-        return req.rows.map(row => row.membership_id);
+    async get_memberships(): Promise<Array<string>> {
+        const req = await pool.query("SELECT store_source FROM store_memberships WHERE user_id = $1", [user_id]);
+        return req.rows.map(row => row.store_source);
     },
 
     // Search History

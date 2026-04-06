@@ -234,7 +234,7 @@ ALTER TABLE "public"."store_blacklists" OWNER TO "postgres";
 
 CREATE TABLE IF NOT EXISTS "public"."store_memberships" (
     "user_id" integer NOT NULL,
-    "membership_id" character varying(100),
+    "membership_id" "text",
     "is_active" boolean DEFAULT true NOT NULL,
     "store_source" "text" NOT NULL
 );
@@ -384,18 +384,18 @@ ALTER TABLE ONLY "public"."products"
 
 
 
+ALTER TABLE ONLY "public"."saved_deals"
+    ADD CONSTRAINT "saved_deals_pkey" PRIMARY KEY ("user_id", "deal_id");
+
+
+
 ALTER TABLE ONLY "public"."store_addresses"
     ADD CONSTRAINT "store_addresses_pkey" PRIMARY KEY ("address");
 
 
 
-ALTER TABLE ONLY "public"."store_blacklists"
-    ADD CONSTRAINT "store_blacklists_pkey" PRIMARY KEY ("user_id");
-
-
-
 ALTER TABLE ONLY "public"."store_memberships"
-    ADD CONSTRAINT "store_memberships_pkey" PRIMARY KEY ("user_id");
+    ADD CONSTRAINT "store_memberships_pkey" PRIMARY KEY ("user_id", "store_source");
 
 
 
