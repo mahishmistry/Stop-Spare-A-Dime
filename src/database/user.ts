@@ -22,6 +22,10 @@ interface UserContext {
     get_memberships(): Promise<Array<number>>;
     add_search_history(search_query: string, datetime: Date): Promise<boolean>;
     get_search_history(past_n_searches?: number): Promise<Array<string>>;
+
+    update_display_name?(new_display_name: string): Promise<boolean>;
+    update_email?(new_email: string): Promise<boolean>;
+    update_notification_preferences?(preferences: any): Promise<boolean>;
 }
 
 async function _get_brand_id_from_name(brand_name: string): Promise<number | null> {

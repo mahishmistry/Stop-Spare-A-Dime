@@ -7,7 +7,12 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/database/index.js",
-    "test": "jest --config jest.config.cjs --watch"
+    "supabase:start": "npx supabase start",
+    "supabase:stop": "npx supabase stop",
+    "db:reset": "npx supabase db reset",
+    "test:db": "npx supabase test db",
+    "test:integration": "jest --runInBand",
+    "test": "npm run test:db && npm run test:integration"
   },
   "keywords": [],
   "author": "",
