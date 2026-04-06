@@ -14,11 +14,13 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-typescript": "^7.28.5",
+    "@testcontainers/postgresql": "^11.13.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.5.0",
     "@types/pg": "^8.20.0",
     "eslint": "^10.1.0",
     "jest": "^30.3.0",
+    "testcontainers": "^11.13.0",
     "ts-jest": "^29.4.9",
     "tsx": "^4.21.0",
     "typescript": "^6.0.2"

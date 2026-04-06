@@ -1,6 +1,7 @@
 import assert from "assert";
 import { Client } from 'pg';
-import { create_user_context } from "./user.ts";
+import { truncate_tables, close_pool } from "./test_helpers.ts";
+import { create_user_context } from "../user.ts";
 import * as dotenv from 'dotenv';
 dotenv.config();
 

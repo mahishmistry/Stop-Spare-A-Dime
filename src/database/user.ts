@@ -183,8 +183,14 @@ function user_context_object(client:Client, user_id: number): UserContext {retur
         const req = await client.query("INSERT INTO store_memberships (user_id, store_id, membership_id) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING", [user_id, store_id, membership_id]);
         return _request_successful(req);
     },
-    async remove_store_membership(store_id: number): Promise<boolean> {return false},
-    async get_memberships(): Promise<Array<number>> {return Array()},
+    async remove_store_membership(store_id: number): Promise<boolean> {
+        const req = await client.query("DELETE FROM store_memberships WHERE user_id = $1 AND store_id = $2", [user_id, store_id]);
+        return _request_successful(req);
+    },
+    async get_memberships(): Promise<Array<number>> {
+        const req = await client.query("SELECT membership_id FROM store_memberships WHERE user_id = $1", [user_id]);
+        return req.rows.map(row => row.membership_id);
+    },
 
     // Search History
     async add_search_history(search_query: string, datetime:Date): Promise<boolean> {
