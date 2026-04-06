@@ -23,6 +23,7 @@ interface UserContext {
     add_search_history(search_query: string, datetime: Date): Promise<boolean>;
     get_search_history(past_n_searches?: number): Promise<Array<string>>;
 
+    get_account_preferences?(): Promise<any>;
     update_display_name?(new_display_name: string): Promise<boolean>;
     update_email?(new_email: string): Promise<boolean>;
     update_notification_preferences?(preferences: any): Promise<boolean>;
@@ -56,7 +57,25 @@ function _request_successful(req: any): boolean {
     return req.rowCount !== null && req.rowCount > 0;
 }
 
+function _is_valid_email(email: string): boolean {
+    const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return email_regex.test(email);
+}
+
 async function create_new_user(email: string, display_name: string): Promise<{user_id: number, email: string, name: string}> {
+    if(!_is_valid_email(email)) {
+        throw new Error("invalid email format");
+    }
+
+    const existing_user_check = await pool.query("SELECT user_id FROM users WHERE email = $1", [email]);
+    if ((existing_user_check.rowCount ?? 0) > 0) {
+        throw new Error("a user with this email already exists");
+    }
+
+    if (display_name.length === 0) {
+        display_name = "User"; // Default display name if none provided
+    }
+
     const result = await pool.query(
         `
         insert into public.users (email, name)
@@ -69,7 +88,22 @@ async function create_new_user(email: string, display_name: string): Promise<{us
     return result.rows[0];
 };
 
-async function create_user_context(user_id: number): Promise<UserContext | null> {
+async function create_user_context(user_info: number | string): Promise<UserContext | null> {
+    let user_id: number;
+
+    if (typeof user_info === "number") {
+        user_id = user_info;
+    } else {
+        if (!_is_valid_email(user_info)) {
+            throw new Error("invalid email format");
+        }
+        const req = await pool.query("SELECT user_id FROM users WHERE email = $1", [user_info]);
+        if (req.rowCount === 0) {
+            return null; // No user with the given email exists
+        }
+        user_id = req.rows[0].user_id;
+    }
+
     if (!pool) {
         throw new Error("Database pool is required to create user context");
     }
