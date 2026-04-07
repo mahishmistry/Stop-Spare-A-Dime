@@ -14,8 +14,12 @@ import {
   add_deal,
   get_deal_by_id,
 } from './queries.js';
+import { initialize_pool } from './pool.js';
+import { truncate_tables, close_pool } from './tests/test_helpers.js';
 
 async function main() {
+  await initialize_pool(true); // Initialize the database connection pool in test mode
+  await truncate_tables(); // Clear the database tables before running the tests
   try {
     console.log("Testing add_user...");
     const user = await add_user("josie_test@example.com", "Josie Test");
@@ -97,6 +101,7 @@ async function main() {
   } catch (err) {
     console.error("Test failed:", err);
   }
+  await close_pool(); // Close the database connection pool after running the tests
 }
 
 main();

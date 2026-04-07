@@ -1,20 +1,6 @@
-import { Client } from 'pg';
 import * as dotenv from 'dotenv';
+import { pool } from './pool.ts';
 dotenv.config();
-
-console.log("Starting database connection...");
-
-const client = new Client({
-    host: process.env.CLIENT_HOST,
-    port: 5432,
-    database: process.env.CLIENT_DATABASE,
-    user: process.env.CLIENT_USER,
-    password: process.env.CLIENT_PASSWORD,
-});
-
-await client.connect();
-
-console.log("Connected to database");
 
 interface Address {
     street: string;
@@ -29,7 +15,7 @@ interface Address {
  * @param name The user's name. This is an optional field and can be null if the user does not wish to provide it.
  */
 export async function add_user(email: string, name?: string) {
-    const result = await client.query(
+    const result = await pool.query(
         `INSERT INTO users (email,name)
         VALUES ($1, $2)
         RETURNING *;`,
@@ -39,7 +25,7 @@ export async function add_user(email: string, name?: string) {
 };
 
 export async function get_user_by_email(email: string) {
-    const result = await client.query(
+    const result = await pool.query(
         `SELECT * 
         FROM users
         WHERE email = $1;`,
@@ -54,7 +40,7 @@ export async function get_user_by_email(email: string) {
  * @param url The URL of the store's website.
  */
 export async function add_store(source: string, url: string,) {
-    const result = await client.query(
+    const result = await pool.query(
         `INSERT INTO stores(store_source,url)
          VALUES ($1, $2)
          RETURNING *;`,
@@ -64,7 +50,7 @@ export async function add_store(source: string, url: string,) {
 };
 
 export async function get_store_by_source(source: string) {
-    const result = await client.query(
+    const result = await pool.query(
         `SELECT * 
         FROM stores
         WHERE store_source = $1;`,
@@ -80,7 +66,7 @@ export async function get_store_by_source(source: string) {
  */
 export async function add_store_location(source: string, address: Address) {
     const full_address = `${address.street}, ${address.city}, ${address.state}, ${address.zip_code}`;
-    const result = await client.query(
+    const result = await pool.query(
         `INSERT INTO store_addresses(store_source, address)
         VALUES ($1, $2)
         RETURNING *;`,
@@ -94,7 +80,7 @@ export async function add_store_location(source: string, address: Address) {
  * @param name 
  */
 export async function _add_brand(name: string) {
-    const result = await client.query(
+    const result = await pool.query(
         `INSERT INTO brands (name)
         VALUES ($1)
         RETURNING *;`,
@@ -108,7 +94,7 @@ export async function _add_brand(name: string) {
  * @param name
  */
 export async function _add_category(name: string) {
-    const result = await client.query(
+    const result = await pool.query(
         `INSERT INTO categories (name)
         VALUES($1)
         RETURNING *;`,
@@ -121,7 +107,7 @@ export async function _add_category(name: string) {
  * @param name 
  */
 export async function _add_unit(name: string, unit_type: string) {
-    const result = await client.query(
+    const result = await pool.query(
         `INSERT INTO units (name, unit_type)
         VALUES ($1, $2)
         RETURNING *;`,
@@ -139,7 +125,7 @@ export async function _add_unit(name: string, unit_type: string) {
  * @param ebt_elligible 
  */
 export async function add_product(name: string, brand_id?: number, category_id?: number, unit_id?: number, ebt_eligible?:boolean) {
-    const result = await client.query(
+    const result = await pool.query(
         `INSERT INTO products (name, brand_id, category_id, unit_id, ebt_eligible)
         VALUES ($1, $2, $3, $4, $5)
         RETURNING *;`,
@@ -155,7 +141,7 @@ export async function add_product(name: string, brand_id?: number, category_id?:
 };
 
 export async function get_product_by_id(product_id: number) {
-    const result = await client.query(
+    const result = await pool.query(
         `SELECT *
         FROM products
         WHERE product_id = $1;`,
@@ -164,7 +150,7 @@ export async function get_product_by_id(product_id: number) {
     return result.rows[0] ?? null;
 };
 export async function get_product_by_name(name: string) {
-    const result = await client.query(
+    const result = await pool.query(
         `SELECT *
         FROM products
         WHERE name = $1;`,
@@ -184,7 +170,7 @@ export async function get_product_by_name(name: string) {
  * @param unit_id 
  */
 export async function add_item(product_id: number, store_source: string, store_item_id: number, avg_rating?: number, rating_count?: number, package_quantity?: number, unit_id?: number) {
-    const result = await client.query(
+    const result = await pool.query(
         `INSERT INTO items
         (product_id, store_source, store_item_id, avg_rating, rating_count, package_quantity, unit_id)
         VALUES ($1, $2, $3, $4, $5, $6, $7)
@@ -202,7 +188,7 @@ export async function add_item(product_id: number, store_source: string, store_i
 };
 
 export async function get_item_by_store_item_id(store_source: string, store_item_id: number) {
-    const result = await client.query(
+    const result = await pool.query(
         `SELECT *
         FROM items
         WHERE store_source = $1 AND store_item_id = $2;`,
@@ -211,7 +197,7 @@ export async function get_item_by_store_item_id(store_source: string, store_item
     return result.rows[0] ?? null; 
 };
 export async function get_item_by_id(item_id: number) {
-    const result = await client.query(
+    const result = await pool.query(
         `SELECT *
         FROM items
         WHERE item_id = $1;`, 
@@ -220,7 +206,7 @@ export async function get_item_by_id(item_id: number) {
     return result.rows[0] ?? null;
 };
 export async function get_item_by_name(name: string) {
-    const result = await client.query(
+    const result = await pool.query(
         `SELECT items.*
         FROM items
         JOIN products ON items.product_id = products.product_id
@@ -240,7 +226,7 @@ export async function get_item_by_name(name: string) {
  * @param membership_sale 
  */
 export async function add_deal(item_id: number, original_price: number, on_sale: boolean, last_fetched:Date, sale_price?: number, membership_sale?: boolean) {
-    const result = await client.query(
+    const result = await pool.query(
         `INSERT INTO deals
         (item_id, original_price, on_sale, last_fetched, sale_price, membership_sale)
         VALUES ($1, $2, $3, $4, $5, $6)
@@ -258,7 +244,7 @@ export async function add_deal(item_id: number, original_price: number, on_sale:
 };
 
 export async function get_deal_by_id(deal_id: number) {
-    const result = await client.query(
+    const result = await pool.query(
         `SELECT *
         FROM deals
         WHERE deal_id = $1;`, 
