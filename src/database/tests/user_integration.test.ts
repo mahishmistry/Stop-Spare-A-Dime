@@ -1,6 +1,10 @@
 import { truncate_tables, close_pool } from "./test_helpers.ts";
 import { create_new_user, create_user_context } from "../user.ts";
-import { pool } from "../pool.ts";
+import { initialize_pool, pool } from "../pool.ts";
+
+beforeAll(async () => {
+  await initialize_pool(true);
+});
 
 beforeEach(async () => {
   await truncate_tables();

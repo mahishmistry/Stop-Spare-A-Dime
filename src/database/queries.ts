@@ -55,7 +55,7 @@ export async function get_user_by_email(email: string) {
  */
 export async function add_store(source: string, url: string,) {
     const result = await client.query(
-        `INSERT INTO stores(source,url)
+        `INSERT INTO stores(store_source,url)
          VALUES ($1, $2)
          RETURNING *;`,
          [source, url]
