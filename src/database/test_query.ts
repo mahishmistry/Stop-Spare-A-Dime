@@ -15,7 +15,7 @@ const client = await new Client({
 
 console.log("Connected to database");
 
-const user = await create_user_context(client, 0);
+const user = await create_user_context(0);
 
 if (!user) {
     throw new Error("User 0 does not exist, cannot create user context.");
@@ -24,7 +24,7 @@ if (!user) {
 const x1:boolean = await user.blacklist_store("fantasy_store");
 console.log(x1);
 
-const x2:Array<number> = await user.get_blacklisted_stores();
+const x2:Array<string> = await user.get_blacklisted_stores();
 console.log(x2);
 
 const x3:boolean = await user.blacklist_brand("dole");

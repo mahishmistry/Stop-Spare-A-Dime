@@ -28,7 +28,7 @@ interface Address {
  * @param email The user's email address. This should be unique across all users in the database and should be validated by the caller before being passed to this function.
  * @param name The user's name. This is an optional field and can be null if the user does not wish to provide it.
  */
-async function add_user(email: string, name?: string) {
+export async function add_user(email: string, name?: string) {
     const result = await client.query(
         `INSERT INTO users (email,name)
         VALUES ($1, $2)
@@ -38,7 +38,7 @@ async function add_user(email: string, name?: string) {
     return result.rows[0];
 };
 
-async function get_user_by_email(email: string) {
+export async function get_user_by_email(email: string) {
     const result = await client.query(
         `SELECT * 
         FROM users
@@ -53,7 +53,7 @@ async function get_user_by_email(email: string) {
  * @param source The source string of the store.
  * @param url The URL of the store's website.
  */
-async function add_store(source: string, url: string,) {
+export async function add_store(source: string, url: string,) {
     const result = await client.query(
         `INSERT INTO stores(source,url)
          VALUES ($1, $2)
@@ -63,7 +63,7 @@ async function add_store(source: string, url: string,) {
     return result.rows[0];
 };
 
-async function get_store_by_source(source: string) {
+export async function get_store_by_source(source: string) {
     const result = await client.query(
         `SELECT * 
         FROM stores
@@ -78,7 +78,7 @@ async function get_store_by_source(source: string) {
  * @param source The source string of the store. This should match the source string used when adding the store to the database.
  * @param address The address of the store location. This should be an object including the street, city, state, and zip_code of the location.
  */
-async function add_store_location(source: string, address: Address) {
+export async function add_store_location(source: string, address: Address) {
     const full_address = `${address.street}, ${address.city}, ${address.state}, ${address.zip_code}`;
     const result = await client.query(
         `INSERT INTO store_addresses(store_source, address)
@@ -93,7 +93,7 @@ async function add_store_location(source: string, address: Address) {
  * Adds a new brand to the database. A brand represents a specific company or manufacturer that produces products that can be sold at stores.
  * @param name 
  */
-async function _add_brand(name: string) {
+export async function _add_brand(name: string) {
     const result = await client.query(
         `INSERT INTO brands (name)
         VALUES ($1)
@@ -107,7 +107,7 @@ async function _add_brand(name: string) {
  * Adds a new category to the database. A category represents a specific type of product, such as "dairy" or "snacks", that can be used to group products together.
  * @param name
  */
-async function _add_category(name: string) {
+export async function _add_category(name: string) {
     const result = await client.query(
         `INSERT INTO categories (name)
         VALUES($1)
@@ -120,7 +120,7 @@ async function _add_category(name: string) {
 /** Adds a new unit of measurement to the database. A unit represents a specific way of measuring the quantity of a product, such as "ounce" or "pound".
  * @param name 
  */
-async function _add_unit(name: string, unit_type: string) {
+export async function _add_unit(name: string, unit_type: string) {
     const result = await client.query(
         `INSERT INTO units (name, unit_type)
         VALUES ($1, $2)
@@ -138,9 +138,9 @@ async function _add_unit(name: string, unit_type: string) {
  * @param unit_id 
  * @param ebt_elligible 
  */
-async function add_product(name: string, brand_id?: number, category_id?: number, unit_id?: number, ebt_eligible?:boolean) {
+export async function add_product(name: string, brand_id?: number, category_id?: number, unit_id?: number, ebt_eligible?:boolean) {
     const result = await client.query(
-        `INSERT INTO products (name, brand_id, category_id, unit_id. ebt_eligible)
+        `INSERT INTO products (name, brand_id, category_id, unit_id, ebt_eligible)
         VALUES ($1, $2, $3, $4, $5)
         RETURNING *;`,
         [
@@ -154,7 +154,7 @@ async function add_product(name: string, brand_id?: number, category_id?: number
     return result.rows[0];
 };
 
-async function get_product_by_id(product_id: number) {
+export async function get_product_by_id(product_id: number) {
     const result = await client.query(
         `SELECT *
         FROM products
@@ -163,7 +163,7 @@ async function get_product_by_id(product_id: number) {
     );
     return result.rows[0] ?? null;
 };
-async function get_product_by_name(name: string) {
+export async function get_product_by_name(name: string) {
     const result = await client.query(
         `SELECT *
         FROM products
@@ -183,7 +183,7 @@ async function get_product_by_name(name: string) {
  * @param package_quantity 
  * @param unit_id 
  */
-async function add_item(product_id: number, store_source: string, store_item_id: number, avg_rating?: number, rating_count?: number, package_quantity?: number, unit_id?: number) {
+export async function add_item(product_id: number, store_source: string, store_item_id: number, avg_rating?: number, rating_count?: number, package_quantity?: number, unit_id?: number) {
     const result = await client.query(
         `INSERT INTO items
         (product_id, store_source, store_item_id, avg_rating, rating_count, package_quantity, unit_id)
@@ -201,7 +201,7 @@ async function add_item(product_id: number, store_source: string, store_item_id:
     return result.rows[0];
 };
 
-async function get_item_by_store_item_id(store_source: string, store_item_id: number) {
+export async function get_item_by_store_item_id(store_source: string, store_item_id: number) {
     const result = await client.query(
         `SELECT *
         FROM items
@@ -210,7 +210,7 @@ async function get_item_by_store_item_id(store_source: string, store_item_id: nu
     );
     return result.rows[0] ?? null; 
 };
-async function get_item_by_id(item_id: number) {
+export async function get_item_by_id(item_id: number) {
     const result = await client.query(
         `SELECT *
         FROM items
@@ -219,7 +219,7 @@ async function get_item_by_id(item_id: number) {
     );
     return result.rows[0] ?? null;
 };
-async function get_item_by_name(name: string) {
+export async function get_item_by_name(name: string) {
     const result = await client.query(
         `SELECT items.*
         FROM items
@@ -239,7 +239,7 @@ async function get_item_by_name(name: string) {
  * @param sale_price 
  * @param membership_sale 
  */
-async function add_deal(item_id: number, original_price: number, on_sale: boolean, last_fetched:Date, sale_price?: number, membership_sale?: boolean) {
+export async function add_deal(item_id: number, original_price: number, on_sale: boolean, last_fetched:Date, sale_price?: number, membership_sale?: boolean) {
     const result = await client.query(
         `INSERT INTO deals
         (item_id, original_price, on_sale, last_fetched, sale_price, membership_sale)
@@ -257,7 +257,7 @@ async function add_deal(item_id: number, original_price: number, on_sale: boolea
     return result.rows[0];
 };
 
-async function get_deal_by_id(deal_id: number) {
+export async function get_deal_by_id(deal_id: number) {
     const result = await client.query(
         `SELECT *
         FROM deals
