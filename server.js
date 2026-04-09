@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const { getJson } = require('serpapi');
+const { getBestItems, getItemById } = require('./comparison_logic_test/comparison.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -79,6 +80,11 @@ app.get('/api/block', (req, res) => {
 // Endpoint for comparison logic
 app.get('/api/compare', (req, res) => {
     getBestItems(req, res);
+});
+
+// Endpoint to get a specific item by its product_id
+app.get('/api/item/:item_id', (req, res) => {
+    getItemById(req, res);
 });
 
 app.listen(PORT, () => {
