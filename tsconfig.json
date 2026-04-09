@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "NodeNext", // defines the module for the system to use
+        "moduleResolution": "NodeNext", // How typescript will find code you import
+        "sourceMap": true, // generates .map files for debugging
+        "rootDir": "src",
+        "outDir": "dist", // output directory for compiled files
+        "noEmit": true,
+        "types": ["jest", "node"],
+        "allowImportingTsExtensions": true, // Allow importing .ts files with their extension
+    },
+    "include": ["src/**/*"], // Src directory to include in compilation
+}
