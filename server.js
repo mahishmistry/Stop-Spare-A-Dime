@@ -4,17 +4,15 @@ const { getJson } = require('serpapi');
 const helmet = require('helmet');
 const { query, body, validationResult } = require('express-validator');
 const { getBestItems } = require('./comparison_logic_test/comparison');
+const verifyToken = require("./middleware/verifyToken");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(helmet());
-// Middleware to parse JSON
 app.use(express.json());
 
-//Array for search history
 const searchHistory = [];
-//Array for blocked stores
 const blockedStores = [];
 
 // Main endpoint for fetching grocery prices
@@ -28,10 +26,9 @@ app.get('/api/prices',
     }
     const { product, zipCode } = req.query;
     try {
-<<<<<<< HEAD
       const response = await getJson({
         engine: "google_shopping",
-        q: product,
+        q: `Grocery ${product}`,
         location: zipCode || "United States",
         hl: "en",
         gl: "us",
@@ -40,28 +37,9 @@ app.get('/api/prices',
       const results = (response.shopping_results || [])
         .filter(item => !blockedStores.some(store =>
           item.source?.toLowerCase().includes(store.toLowerCase())
-=======
-        // Fetch data from SerpApi's Google Shopping engine
-        const response = await getJson({
-            engine: "google_shopping",
-            q: `Grocery ${product}`,
-            location: zipCode || "United States", 
-            hl: "en",
-            gl: "us",
-            api_key: process.env.SERPAPI_KEY
-        });
-
-        //Filter for blocked stores
-        const results = (response.shopping_results || [])
-            .filter(item => !blockedStores.some(store => 
-            item.source?.toLowerCase().includes(store.toLowerCase())
->>>>>>> fc75f2672e4dc3746698e305b03a796706165baf
         ));
       searchHistory.push({ product, zipCode, timestamp: new Date() });
-      res.json({
-        count: results.length,
-        data: results
-      });
+      res.json({ count: results.length, data: results });
     } catch (error) {
       console.error("SerpApi Error:", error);
       res.status(500).json({ error: 'Failed to fetch pricing data.' });
@@ -69,13 +47,13 @@ app.get('/api/prices',
   }
 );
 
-//Search history endpoint
-app.get('/api/history', (req, res) => {
+// Search history endpoint (protected)
+app.get('/api/history', verifyToken, (req, res) => {
   res.json({ history: searchHistory });
 });
 
-//Add blocked store
-app.post('/api/block',
+// Add blocked store (protected)
+app.post('/api/block', verifyToken,
   body('store').isString().trim().escape().notEmpty(),
   (req, res) => {
     const errors = validationResult(req);
@@ -88,22 +66,16 @@ app.post('/api/block',
   }
 );
 
-//Get the blocked stores
-app.get('/api/block', (req, res) => {
+// Get blocked stores (protected)
+app.get('/api/block', verifyToken, (req, res) => {
   res.json({ blockedStores });
 });
 
 // Endpoint for comparison logic
 app.get('/api/compare', (req, res) => {
-    getBestItems(req, res);
+  getBestItems(req, res);
 });
 
 app.listen(PORT, () => {
-<<<<<<< HEAD
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-=======
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
-
->>>>>>> fc75f2672e4dc3746698e305b03a796706165baf

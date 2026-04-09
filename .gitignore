@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 node_modules/
 .env
 local_test/*.json
-=======
-.env
->>>>>>> fc75f2672e4dc3746698e305b03a796706165baf
+serviceAccountKey.json

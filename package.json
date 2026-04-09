@@ -12,6 +12,9 @@
   "dependencies": {
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "firebase-admin": "^13.7.0",
+    "helmet": "^8.1.0",
     "serpapi": "^2.2.1"
   }
 }
