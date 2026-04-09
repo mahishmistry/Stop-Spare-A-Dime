@@ -1,4 +1,5 @@
+*.env
 node_modules/
 .env
 local_test/*.json
-serviceAccountKey.json
+venv/serviceAccountKey.json
