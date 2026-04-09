@@ -4,3 +4,4 @@ node_modules/
 .env
 local_test/*.json
 .env
+venv/
