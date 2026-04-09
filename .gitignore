@@ -1,7 +1,5 @@
 *.env
 node_modules/
-node_modules/
 .env
 local_test/*.json
-.env
 venv/
