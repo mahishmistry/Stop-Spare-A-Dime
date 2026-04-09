@@ -1,0 +1,40 @@
+{
+  "name": "stop-spare-a-dime",
+  "version": "1.0.0",
+  "description": "Spring 2026 Comp360 Project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/database/index.js",
+    "supabase:start": "npx supabase start",
+    "supabase:stop": "npx supabase stop",
+    "db:reset": "npx supabase db reset",
+    "test:db": "npx supabase test db",
+    "test:integration": "jest --runInBand",
+    "test": "npm run test:db && npm run test:integration"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.28.5",
+    "@testcontainers/postgresql": "^11.13.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.5.0",
+    "@types/pg": "^8.20.0",
+    "eslint": "^10.1.0",
+    "jest": "^30.3.0",
+    "testcontainers": "^11.13.0",
+    "ts-jest": "^29.4.9",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "pg": "^8.20.0"
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "serpapi": "^2.2.1"
+  }
+}
