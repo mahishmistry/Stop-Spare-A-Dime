@@ -69,7 +69,7 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
         </h1>
 
         <img
-          src="../../assets/logo.png"
+          src="../logo.png"
           alt="Stop Spare A Dime Logo"
           className="w-24 h-24 sm:w-32 sm:h-32 object-contain mb-8"
           style={{ position: 'relative', top: '1px' }}
