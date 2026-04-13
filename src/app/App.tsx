@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from 'react';
 import { Header } from './components/Header';
 import { ProductCarousel } from './components/ProductCarousel';
@@ -5,6 +6,7 @@ import { LocationModal } from './components/LocationModal';
 import { LoginPage } from './components/LoginPage';
 import { ItemDetailPage } from './components/ItemDetailPage';
 import { SearchResultsPage } from './components/SearchResultsPage';
+import { SettingsPage } from './components/SettingsPage';
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -13,6 +15,7 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [currentPage, setCurrentPage] = useState<'home' | 'settings'>('home');
 
   const handleLogin = () => {
     setIsAuthenticated(true);
@@ -213,7 +216,15 @@ export default function App() {
       </>
     );
   }
-
+      if (currentPage === 'settings') {
+  return (
+    <SettingsPage
+      location={location}
+      onBack={() => setCurrentPage('home')}
+      onLogout={handleLogout}
+    />
+  );
+}
   // If a product is selected, show the detail page
   if (selectedProduct) {
     const itemDetails = {
@@ -261,6 +272,7 @@ export default function App() {
       ],
     };
 
+
     return (
       <>
         <ItemDetailPage
@@ -286,6 +298,8 @@ export default function App() {
         onLocationClick={() => setLocationModalOpen(true)}
         onLogout={handleLogout}
         onSearch={handleSearch}
+        onSettingsClick={() => setCurrentPage('settings')}
+        onHistoryClick={() => console.log('history later')}
       />
 
       <main className="max-w-7xl mx-auto px-6 py-8">

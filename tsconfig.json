@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "jsx": "react",
         "target": "ES2020",
         "module": "NodeNext", // defines the module for the system to use
         "moduleResolution": "NodeNext", // How typescript will find code you import
