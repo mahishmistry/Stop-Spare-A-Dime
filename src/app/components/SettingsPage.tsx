@@ -12,7 +12,30 @@ export function SettingsPage({ location, onBack, onLogout }: SettingsPageProps) 
   const [activeSection, setActiveSection] = useState<string>('settings');
   const [excludedStores, setExcludedStores] = useState<string[]>(['Target']);
   const [storeSearch, setStoreSearch] = useState('');
+  const [memberships, setMemberships] = useState([
+  {
+    name: 'Costco Membership',
+    detail: 'Expires: 12/31/2026',
+    status: 'Active',
+  },
+  {
+    name: 'Whole Foods Prime',
+    detail: 'Monthly subscription',
+    status: 'Active',
+  },
+]);
 
+const [membershipSearch, setMembershipSearch] = useState('');
+// will want to replace this with DATABASE connect for avail stores
+const availableMemberships = [
+  'Costco Membership',
+  'Stop & Shop Membership',
+  'Whole Foods Prime',
+  'Sam’s Club Membership',
+  'BJ’s Membership',
+];
+
+  // will want to replace this with DATABASE connect for avail stores
   const availableStores = ['Walmart', 'Target', 'Kroger', 'Whole Foods', 'Safeway', 'Trader Joes', 'Costco', 'Aldi'];
 
   const removeStore = (store: string) => {
@@ -25,6 +48,25 @@ export function SettingsPage({ location, onBack, onLogout }: SettingsPageProps) 
     }
     setStoreSearch('');
   };
+  const addMembership = (membershipName: string) => {
+    if (!memberships.some((membership) => membership.name === membershipName)) {
+        setMemberships([
+        ...memberships,
+        {
+            name: membershipName,
+            detail: 'New membership',
+            status: 'Active',
+        },
+        ]);
+    }
+    setMembershipSearch('');
+    };
+
+    const removeMembership = (membershipName: string) => {
+    setMemberships(
+        memberships.filter((membership) => membership.name !== membershipName)
+    );
+    };
 
   return (
     <div className="min-h-screen bg-[#F9F9F9]">
@@ -197,25 +239,64 @@ export function SettingsPage({ location, onBack, onLogout }: SettingsPageProps) 
           </section>
 
           {/* Manage Memberships Section */}
-          <section id="manage-memberships" className="mb-12">
-            <h2 className="text-2xl mb-6 text-gray-800">Manage Memberships</h2>
+<section id="manage-memberships" className="mb-12">
+  <h2 className="text-2xl mb-6 text-gray-800">Manage Memberships</h2>
+
+  <div className="relative mb-4">
+    <input
+      type="text"
+      placeholder="Add membership..."
+      value={membershipSearch}
+      onChange={(e) => setMembershipSearch(e.target.value)}
+      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6FBD7A]"
+    />
+
+    {membershipSearch && (
+      <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg max-h-48 overflow-y-auto z-10">
+        {availableMemberships
+          .filter(
+            (membership) =>
+              membership.toLowerCase().includes(membershipSearch.toLowerCase()) &&
+              !memberships.some((m) => m.name === membership)
+          )
+          .map((membership) => (
+            <button
+              key={membership}
+              onClick={() => addMembership(membership)}
+              className="w-full px-4 py-2 text-left hover:bg-gray-50 text-sm text-gray-700"
+            >
+              {membership}
+            </button>
+          ))}
+      </div>
+    )}
+  </div>
+            {/* Manage Memberships Section */}
             <div className="space-y-4">
-              <div className="border border-gray-200 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <p className="text-sm text-gray-800">Costco Membership</p>
-                  <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Active</span>
+                {memberships.map((membership) => (
+                <div key={membership.name} className="border border-gray-200 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-2">
+                    <p className="text-sm text-gray-800">{membership.name}</p>
+
+                    <div className="flex items-center gap-3">
+                        <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                        {membership.status}
+                        </span>
+
+                        <button
+                        onClick={() => removeMembership(membership.name)}
+                        className="text-sm text-red-500 hover:text-red-600"
+                        >
+                        Remove
+                        </button>
+                    </div>
+                    </div>
+
+                    <p className="text-xs text-gray-500">{membership.detail}</p>
                 </div>
-                <p className="text-xs text-gray-500">Expires: 12/31/2026</p>
-              </div>
-              <div className="border border-gray-200 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <p className="text-sm text-gray-800">Whole Foods Prime</p>
-                  <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Active</span>
-                </div>
-                <p className="text-xs text-gray-500">Monthly subscription</p>
-              </div>
+                ))}
             </div>
-          </section>
+            </section>
 
           {/* Logout Section */}
           <section id="logout" className="mb-8">
