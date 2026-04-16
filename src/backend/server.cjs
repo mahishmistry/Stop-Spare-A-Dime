@@ -3,17 +3,14 @@ const express = require('express');
 const helmet = require('helmet');
 const { query, body, validationResult } = require('express-validator');
 const { getJson } = require('serpapi');
-
+const verifyToken = require("../../middleware/verifyToken.cjs");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(helmet());
-// Middleware to parse JSON
 app.use(express.json());
 
-//Array for search history
 const searchHistory = [];
-//Array for blocked stores
 const blockedStores = [];
 
 // Main endpoint for fetching grocery prices
@@ -27,26 +24,20 @@ app.get('/api/prices',
     }
     const { product, zipCode } = req.query;
     try {
-        // Fetch data from SerpApi's Google Shopping engine
-        const response = await getJson({
-            engine: "google_shopping",
-            q: `Grocery ${product}`,
-            location: zipCode || "United States", 
-            hl: "en",
-            gl: "us",
-            api_key: process.env.SERPAPI_KEY
-        });
-
-        //Filter for blocked stores
-        const results = (response.shopping_results || [])
-            .filter(item => !blockedStores.some(store => 
-            item.source?.toLowerCase().includes(store.toLowerCase())
+      const response = await getJson({
+        engine: "google_shopping",
+        q: `Grocery ${product}`,
+        location: zipCode || "United States",
+        hl: "en",
+        gl: "us",
+        api_key: process.env.SERPAPI_KEY
+      });
+      const results = (response.shopping_results || [])
+        .filter(item => !blockedStores.some(store =>
+          item.source?.toLowerCase().includes(store.toLowerCase())
         ));
       searchHistory.push({ product, zipCode, timestamp: new Date() });
-      res.json({
-        count: results.length,
-        data: results
-      });
+      res.json({ count: results.length, data: results });
     } catch (error) {
       console.error("SerpApi Error:", error);
       res.status(500).json({ error: 'Failed to fetch pricing data.' });
@@ -54,13 +45,13 @@ app.get('/api/prices',
   }
 );
 
-//Search history endpoint
-app.get('/api/history', (req, res) => {
+// Search history endpoint (protected)
+app.get('/api/history', verifyToken, (req, res) => {
   res.json({ history: searchHistory });
 });
 
-//Add blocked store
-app.post('/api/block',
+// Add blocked store (protected)
+app.post('/api/block', verifyToken,
   body('store').isString().trim().escape().notEmpty(),
   (req, res) => {
     const errors = validationResult(req);
@@ -73,14 +64,14 @@ app.post('/api/block',
   }
 );
 
-//Get the blocked stores
-app.get('/api/block', (req, res) => {
-    res.json({ blockedStores });
-  });
+// Get blocked stores (protected)
+app.get('/api/block', verifyToken, (req, res) => {
+  res.json({ blockedStores });
+});
 
 // Endpoint for comparison logic
 app.get('/api/compare', (req, res) => {
-    getBestItems(req, res);
+  getBestItems(req, res);
 });
 
 app.listen(PORT, () => {
