@@ -1,8 +1,11 @@
 import 'dotenv/config';
-import { add_store, add_product, add_item, add_deal, get_item_by_id } from './src/database/queries.ts';
-import { pool } from './src/database/pool.ts';
+import { add_store, add_product, add_item, add_deal, get_item_by_id } from '../src/database/queries.ts';
+import { pool, initialize_pool } from '../src/database/pool.ts';
 
 async function runTest() {
+    // Set to true to use the local test database configuration (port 54322)
+    await initialize_pool(true);
+
     const baseUrl = 'http://localhost:3000';
 
     try {
@@ -76,7 +79,9 @@ async function runTest() {
     } catch (err) {
         console.error("Error during test workflow:", err);
     } finally {
-        await pool.end();
+        if (pool) {
+            await pool.end();
+        }
     }
 }
 

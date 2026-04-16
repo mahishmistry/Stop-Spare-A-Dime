@@ -1,9 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const helmet = require('helmet');
-const { query, body, validationResult } = require('express-validator');
 const { getJson } = require('serpapi');
-const { getBestItems, getItemById } = require('./comparison.cjs');
+const { getBestItems, getItemById } = require('./src/backend/comparison.cjs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
