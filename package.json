@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "supabase:start": "npx supabase start",
     "supabase:stop": "npx supabase stop",
     "db:reset": "npx supabase db reset",

@@ -1,5 +1,5 @@
 import { Client } from 'pg';
-import { pool } from "./pool.ts";
+import { pool } from "./pool.js";
 import { get } from 'node:http';
 export { create_new_user, create_user_context };
 

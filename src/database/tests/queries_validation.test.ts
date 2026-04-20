@@ -8,7 +8,7 @@ import {
   add_item,
   add_deal,
   get_deal_by_id,
-} from '../queries.ts';
+} from '../queries.js';
 
 describe('database query input validation', () => {
   it('rejects invalid emails when adding a user', async () => {
