@@ -1,5 +1,5 @@
 import { Client } from 'pg';
-import { create_user_context } from './user.js';
+import { create_user_context } from '../user.js';
 import * as dotenv from 'dotenv';
 dotenv.config();
 console.log("Starting database connection...");
@@ -11,7 +11,7 @@ const client = await new Client({
     password: process.env.CLIENT_PASSWORD,
 }).connect();
 console.log("Connected to database");
-const user = await create_user_context(client, 0);
+const user = await create_user_context(0);
 if (!user) {
     throw new Error("User 0 does not exist, cannot create user context.");
 }
