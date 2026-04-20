@@ -10,9 +10,10 @@ interface Address {
 }
 
 /**
- * Saves a user to the database.
- * @param email The user's email address. This should be unique across all users in the database and should be validated by the caller before being passed to this function.
- * @param name The user's name. This is an optional field and can be null if the user does not wish to provide it.
+ * Inserts a user row into the users table.
+ * @param email The user's email address.
+ * @param name Optional display name for the user.
+ * @returns A Promise that resolves to the inserted user object with user_id, email, name, and send_notifications.
  */
 export async function add_user(email: string, name?: string) {
     const result = await pool.query(
@@ -24,6 +25,11 @@ export async function add_user(email: string, name?: string) {
     return result.rows[0];
 };
 
+/**
+ * Fetches a single user row by email.
+ * @param email The email address to search for.
+ * @returns A Promise that resolves to a user object with user_id, email, name, and send_notifications, or null.
+ */
 export async function get_user_by_email(email: string) {
     const result = await pool.query(
         `SELECT * 
@@ -35,9 +41,10 @@ export async function get_user_by_email(email: string) {
 };
 
 /**
- * Saves a new store to the database.
- * @param source The source string of the store.
- * @param url The URL of the store's website.
+ * Inserts a store row into the stores table.
+ * @param source The store source identifier.
+ * @param url The store URL.
+ * @returns A Promise that resolves to the inserted store object with store_source, accepts_ebt, offers_delivery, and url.
  */
 export async function add_store(source: string, url: string,) {
     const result = await pool.query(
@@ -49,6 +56,11 @@ export async function add_store(source: string, url: string,) {
     return result.rows[0];
 };
 
+/**
+ * Fetches a single store row by source.
+ * @param source The store source identifier.
+ * @returns A Promise that resolves to a store object with store_source, accepts_ebt, offers_delivery, and url, or null.
+ */
 export async function get_store_by_source(source: string) {
     const result = await pool.query(
         `SELECT * 
@@ -60,9 +72,10 @@ export async function get_store_by_source(source: string) {
 };
 
 /**
- * Adds a new location for a store to the database.
- * @param source The source string of the store. This should match the source string used when adding the store to the database.
- * @param address The address of the store location. This should be an object including the street, city, state, and zip_code of the location.
+ * Inserts a store address row for a store source.
+ * @param source The store source identifier.
+ * @param address The structured address object to store.
+ * @returns A Promise that resolves to the inserted store address object with store_source and address.
  */
 export async function add_store_location(source: string, address: Address) {
     const full_address = `${address.street}, ${address.city}, ${address.state}, ${address.zip_code}`;
@@ -76,8 +89,9 @@ export async function add_store_location(source: string, address: Address) {
 };
 
 /**
- * Adds a new brand to the database. A brand represents a specific company or manufacturer that produces products that can be sold at stores.
- * @param name 
+ * Inserts a brand row into the brands table.
+ * @param name The brand name.
+ * @returns A Promise that resolves to the inserted brand object with brand_id and name.
  */
 export async function _add_brand(name: string) {
     const result = await pool.query(
@@ -90,8 +104,9 @@ export async function _add_brand(name: string) {
 };
 
 /**
- * Adds a new category to the database. A category represents a specific type of product, such as "dairy" or "snacks", that can be used to group products together.
- * @param name
+ * Inserts a category row into the categories table.
+ * @param name The category name.
+ * @returns A Promise that resolves to the inserted category object with category_id and name.
  */
 export async function _add_category(name: string) {
     const result = await pool.query(
@@ -103,8 +118,11 @@ export async function _add_category(name: string) {
     return result.rows[0];
 };
 
-/** Adds a new unit of measurement to the database. A unit represents a specific way of measuring the quantity of a product, such as "ounce" or "pound".
- * @param name 
+/**
+ * Inserts a unit row into the units table.
+ * @param name The unit name.
+ * @param unit_type The unit type grouping.
+ * @returns A Promise that resolves to the inserted unit object with unit_id, name, and unit_type.
  */
 export async function _add_unit(name: string, unit_type: string) {
     const result = await pool.query(
@@ -117,12 +135,13 @@ export async function _add_unit(name: string, unit_type: string) {
 };
 
 /**
- * Adds a new product to the database. A product represents a specific type of item that can be sold at multiple stores, and includes information about the brand, category, unit of measurement, and whether the product is eligible for purchase with EBT benefits.
- * @param name 
- * @param brand_id 
- * @param category_id 
- * @param unit_id 
- * @param ebt_elligible 
+ * Inserts a product row into the products table.
+ * @param name The product name.
+ * @param brand_id Optional brand ID.
+ * @param category_id Optional category ID.
+ * @param unit_id Optional unit ID.
+ * @param ebt_eligible Optional EBT eligibility flag.
+ * @returns A Promise that resolves to the inserted product object with product_id, name, brand_id, category_id, unit_id, and ebt_eligible.
  */
 export async function add_product(name: string, brand_id?: number, category_id?: number, unit_id?: number, ebt_eligible?:boolean) {
     const result = await pool.query(
@@ -140,6 +159,11 @@ export async function add_product(name: string, brand_id?: number, category_id?:
     return result.rows[0];
 };
 
+/**
+ * Fetches a single product row by ID.
+ * @param product_id The product ID.
+ * @returns A Promise that resolves to a product object with product_id, name, brand_id, category_id, unit_id, and ebt_eligible, or null.
+ */
 export async function get_product_by_id(product_id: number) {
     const result = await pool.query(
         `SELECT *
@@ -149,6 +173,12 @@ export async function get_product_by_id(product_id: number) {
     );
     return result.rows[0] ?? null;
 };
+
+/**
+ * Fetches product rows that match a product name.
+ * @param name The product name.
+ * @returns A Promise that resolves to an array of product objects, each with product_id, name, brand_id, category_id, unit_id, and ebt_eligible.
+ */
 export async function get_product_by_name(name: string) {
     const result = await pool.query(
         `SELECT *
@@ -160,14 +190,15 @@ export async function get_product_by_name(name: string) {
 };
 
 /**
- * Adds a new item to the database. An item represents a specific product being sold at a specific store, and includes information about the average rating of the product at that store, the number of ratings, the quantity in a package, and the unit of measurement for the product.
- * @param product_id 
- * @param store_id 
- * @param store_item_id 
- * @param avg_rating 
- * @param rating_count 
- * @param package_quantity 
- * @param unit_id 
+ * Inserts an item row into the items table.
+ * @param product_id The related product ID.
+ * @param store_source The store source identifier.
+ * @param store_item_id The store-specific item ID.
+ * @param avg_rating Optional average rating value.
+ * @param rating_count Optional number of ratings.
+ * @param package_quantity Optional quantity per package.
+ * @param unit_id Optional unit ID.
+ * @returns A Promise that resolves to the inserted item object with item_id, product_id, store_item_id, avg_rating, rating_count, package_quantity, unit_id, and store_source.
  */
 export async function add_item(product_id: number, store_source: string, store_item_id: number, avg_rating?: number, rating_count?: number, package_quantity?: number, unit_id?: number) {
     const result = await pool.query(
@@ -187,6 +218,12 @@ export async function add_item(product_id: number, store_source: string, store_i
     return result.rows[0];
 };
 
+/**
+ * Fetches a single item row by store source and store item ID.
+ * @param store_source The store source identifier.
+ * @param store_item_id The store-specific item ID.
+ * @returns A Promise that resolves to an item object with item_id, product_id, store_item_id, avg_rating, rating_count, package_quantity, unit_id, and store_source, or null.
+ */
 export async function get_item_by_store_item_id(store_source: string, store_item_id: number) {
     const result = await pool.query(
         `SELECT *
@@ -196,6 +233,12 @@ export async function get_item_by_store_item_id(store_source: string, store_item
     );
     return result.rows[0] ?? null; 
 };
+
+/**
+ * Fetches a single item row by item ID.
+ * @param item_id The item ID.
+ * @returns A Promise that resolves to an item object with item_id, product_id, store_item_id, avg_rating, rating_count, package_quantity, unit_id, and store_source, or null.
+ */
 export async function get_item_by_id(item_id: number) {
     const result = await pool.query(
         `SELECT *
@@ -205,6 +248,12 @@ export async function get_item_by_id(item_id: number) {
     );
     return result.rows[0] ?? null;
 };
+
+/**
+ * Fetches item rows by product name.
+ * @param name The product name.
+ * @returns A Promise that resolves to an array of item objects, each with item_id, product_id, store_item_id, avg_rating, rating_count, package_quantity, unit_id, and store_source.
+ */
 export async function get_item_by_name(name: string) {
     const result = await pool.query(
         `SELECT items.*
@@ -217,13 +266,14 @@ export async function get_item_by_name(name: string) {
 };
 
 /**
- * Adds a new deal to the database. A deal represents a specific price on an item at a specific store, and includes information about the original price, whether the item is currently on sale, the last time the deal was fetched from the store's website, the sale price (if the item is currently on sale), and whether the sale price is only available to members of the store's loyalty program.
- * @param item_id 
- * @param original_price 
- * @param on_sale 
- * @param last_fetched 
- * @param sale_price 
- * @param membership_sale 
+ * Inserts a deal row into the deals table.
+ * @param item_id The related item ID.
+ * @param original_price The regular item price.
+ * @param on_sale Whether the item is on sale.
+ * @param last_fetched The timestamp when pricing was fetched.
+ * @param sale_price Optional sale price.
+ * @param membership_sale Optional membership-only sale flag.
+ * @returns A Promise that resolves to the inserted deal object with deal_id, item_id, original_price, on_sale, sale_price, membership_sale, membership_price, and last_fetched.
  */
 export async function add_deal(item_id: number, original_price: number, on_sale: boolean, last_fetched:Date, sale_price?: number, membership_sale?: boolean) {
     const result = await pool.query(
@@ -243,6 +293,11 @@ export async function add_deal(item_id: number, original_price: number, on_sale:
     return result.rows[0];
 };
 
+/**
+ * Fetches a single deal row by deal ID.
+ * @param deal_id The deal ID.
+ * @returns A Promise that resolves to a deal object with deal_id, item_id, original_price, on_sale, sale_price, membership_sale, membership_price, and last_fetched, or null.
+ */
 export async function get_deal_by_id(deal_id: number) {
     const result = await pool.query(
         `SELECT *

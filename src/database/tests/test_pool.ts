@@ -1,5 +1,5 @@
-import { initialize_pool, pool } from './pool.ts';
-import { create_new_user, create_user_context } from './user.ts';
+import { initialize_pool, pool } from '../pool.ts';
+import { create_new_user, create_user_context } from '../user.ts';
 
 async function main() {
     await initialize_pool(false);
