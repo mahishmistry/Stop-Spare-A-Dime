@@ -403,3 +403,34 @@ export async function get_deal_by_id(deal_id: number) {
     );
     return result.rows[0] ?? null;
 };
+
+/**
+ * Retrieves a cached search result if it exists.
+ * @param query_key The unique key for the search query (e.g., 'product-location').
+ */
+export async function get_cached_search(query_key: string) {
+    const result = await pool.query(
+        `SELECT results, last_fetched
+         FROM search_cache
+         WHERE query_key = $1;`,
+         [query_key]
+    );
+    return result.rows[0] ?? null;
+}
+
+/**
+ * Saves or updates a search result in the cache.
+ * @param query_key The unique key for the search query.
+ * @param results The JSON data of the search results.
+ */
+export async function set_cached_search(query_key: string, results: any) {
+    const result = await pool.query(
+        `INSERT INTO search_cache (query_key, results, last_fetched)
+         VALUES ($1, $2, CURRENT_TIMESTAMP)
+         ON CONFLICT (query_key) 
+         DO UPDATE SET results = EXCLUDED.results, last_fetched = EXCLUDED.last_fetched
+         RETURNING *;`,
+         [query_key, JSON.stringify(results)]
+    );
+    return result.rows[0];
+}
