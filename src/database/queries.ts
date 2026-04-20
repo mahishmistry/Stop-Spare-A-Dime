@@ -9,6 +9,49 @@ interface Address {
     zip_code: string;
 }
 
+function _is_valid_email(email: string): boolean {
+    const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return email_regex.test(email);
+}
+
+function _assert_valid_email(email: string): void {
+    if (!_is_valid_email(email)) {
+        throw new SyntaxError("BAD INPUT: invalid email format");
+    }
+}
+
+function _assert_non_empty_string(value: string, field_name: string): void {
+    if (typeof value !== "string" || value.trim().length === 0) {
+        throw new SyntaxError(`BAD INPUT: ${field_name} must be a non-empty string`);
+    }
+}
+
+function _assert_positive_integer(value: number, field_name: string): void {
+    if (!Number.isInteger(value) || value <= 0) {
+        throw new RangeError(`BAD INPUT: ${field_name} must be a positive integer`);
+    }
+}
+
+function _assert_non_negative_number(value: number, field_name: string): void {
+    if (typeof value !== "number" || !Number.isFinite(value) || value < 0) {
+        throw new RangeError(`BAD INPUT: ${field_name} must be a non-negative number`);
+    }
+}
+
+function _assert_valid_url(url: string, field_name: string = "url"): void {
+    try {
+        new URL(url);
+    } catch {
+        throw new SyntaxError(`BAD INPUT: ${field_name} must be a valid URL`);
+    }
+}
+
+function _assert_valid_date(value: Date, field_name: string): void {
+    if (!(value instanceof Date) || Number.isNaN(value.getTime())) {
+        throw new RangeError(`BAD INPUT: ${field_name} must be a valid date`);
+    }
+}
+
 /**
  * Inserts a user row into the users table.
  * @param email The user's email address.
@@ -16,6 +59,7 @@ interface Address {
  * @returns A Promise that resolves to the inserted user object with user_id, email, name, and send_notifications.
  */
 export async function add_user(email: string, name?: string) {
+    _assert_valid_email(email);
     const result = await pool.query(
         `INSERT INTO users (email,name)
         VALUES ($1, $2)
@@ -31,6 +75,7 @@ export async function add_user(email: string, name?: string) {
  * @returns A Promise that resolves to a user object with user_id, email, name, and send_notifications, or null.
  */
 export async function get_user_by_email(email: string) {
+    _assert_valid_email(email);
     const result = await pool.query(
         `SELECT * 
         FROM users
@@ -47,6 +92,9 @@ export async function get_user_by_email(email: string) {
  * @returns A Promise that resolves to the inserted store object with store_source, accepts_ebt, offers_delivery, and url.
  */
 export async function add_store(source: string, url: string,) {
+    _assert_non_empty_string(source, "source");
+    _assert_non_empty_string(url, "url");
+    _assert_valid_url(url);
     const result = await pool.query(
         `INSERT INTO stores(store_source,url)
          VALUES ($1, $2)
@@ -62,6 +110,7 @@ export async function add_store(source: string, url: string,) {
  * @returns A Promise that resolves to a store object with store_source, accepts_ebt, offers_delivery, and url, or null.
  */
 export async function get_store_by_source(source: string) {
+    _assert_non_empty_string(source, "source");
     const result = await pool.query(
         `SELECT * 
         FROM stores
@@ -78,6 +127,11 @@ export async function get_store_by_source(source: string) {
  * @returns A Promise that resolves to the inserted store address object with store_source and address.
  */
 export async function add_store_location(source: string, address: Address) {
+    _assert_non_empty_string(source, "source");
+    _assert_non_empty_string(address.street, "address.street");
+    _assert_non_empty_string(address.city, "address.city");
+    _assert_non_empty_string(address.state, "address.state");
+    _assert_non_empty_string(address.zip_code, "address.zip_code");
     const full_address = `${address.street}, ${address.city}, ${address.state}, ${address.zip_code}`;
     const result = await pool.query(
         `INSERT INTO store_addresses(store_source, address)
@@ -94,6 +148,7 @@ export async function add_store_location(source: string, address: Address) {
  * @returns A Promise that resolves to the inserted brand object with brand_id and name.
  */
 export async function _add_brand(name: string) {
+    _assert_non_empty_string(name, "name");
     const result = await pool.query(
         `INSERT INTO brands (name)
         VALUES ($1)
@@ -109,6 +164,7 @@ export async function _add_brand(name: string) {
  * @returns A Promise that resolves to the inserted category object with category_id and name.
  */
 export async function _add_category(name: string) {
+    _assert_non_empty_string(name, "name");
     const result = await pool.query(
         `INSERT INTO categories (name)
         VALUES($1)
@@ -125,6 +181,8 @@ export async function _add_category(name: string) {
  * @returns A Promise that resolves to the inserted unit object with unit_id, name, and unit_type.
  */
 export async function _add_unit(name: string, unit_type: string) {
+    _assert_non_empty_string(name, "name");
+    _assert_non_empty_string(unit_type, "unit_type");
     const result = await pool.query(
         `INSERT INTO units (name, unit_type)
         VALUES ($1, $2)
@@ -144,6 +202,16 @@ export async function _add_unit(name: string, unit_type: string) {
  * @returns A Promise that resolves to the inserted product object with product_id, name, brand_id, category_id, unit_id, and ebt_eligible.
  */
 export async function add_product(name: string, brand_id?: number, category_id?: number, unit_id?: number, ebt_eligible?:boolean) {
+    _assert_non_empty_string(name, "name");
+    if (brand_id != null) {
+        _assert_positive_integer(brand_id, "brand_id");
+    }
+    if (category_id != null) {
+        _assert_positive_integer(category_id, "category_id");
+    }
+    if (unit_id != null) {
+        _assert_positive_integer(unit_id, "unit_id");
+    }
     const result = await pool.query(
         `INSERT INTO products (name, brand_id, category_id, unit_id, ebt_eligible)
         VALUES ($1, $2, $3, $4, $5)
@@ -165,6 +233,7 @@ export async function add_product(name: string, brand_id?: number, category_id?:
  * @returns A Promise that resolves to a product object with product_id, name, brand_id, category_id, unit_id, and ebt_eligible, or null.
  */
 export async function get_product_by_id(product_id: number) {
+    _assert_positive_integer(product_id, "product_id");
     const result = await pool.query(
         `SELECT *
         FROM products
@@ -180,6 +249,7 @@ export async function get_product_by_id(product_id: number) {
  * @returns A Promise that resolves to an array of product objects, each with product_id, name, brand_id, category_id, unit_id, and ebt_eligible.
  */
 export async function get_product_by_name(name: string) {
+    _assert_non_empty_string(name, "name");
     const result = await pool.query(
         `SELECT *
         FROM products
@@ -201,6 +271,21 @@ export async function get_product_by_name(name: string) {
  * @returns A Promise that resolves to the inserted item object with item_id, product_id, store_item_id, avg_rating, rating_count, package_quantity, unit_id, and store_source.
  */
 export async function add_item(product_id: number, store_source: string, store_item_id: number, avg_rating?: number, rating_count?: number, package_quantity?: number, unit_id?: number) {
+    _assert_positive_integer(product_id, "product_id");
+    _assert_non_empty_string(store_source, "store_source");
+    _assert_positive_integer(store_item_id, "store_item_id");
+    if (avg_rating != null) {
+        _assert_non_negative_number(avg_rating, "avg_rating");
+    }
+    if (rating_count != null) {
+        _assert_non_negative_number(rating_count, "rating_count");
+    }
+    if (package_quantity != null) {
+        _assert_non_negative_number(package_quantity, "package_quantity");
+    }
+    if (unit_id != null) {
+        _assert_positive_integer(unit_id, "unit_id");
+    }
     const result = await pool.query(
         `INSERT INTO items
         (product_id, store_source, store_item_id, avg_rating, rating_count, package_quantity, unit_id)
@@ -225,6 +310,8 @@ export async function add_item(product_id: number, store_source: string, store_i
  * @returns A Promise that resolves to an item object with item_id, product_id, store_item_id, avg_rating, rating_count, package_quantity, unit_id, and store_source, or null.
  */
 export async function get_item_by_store_item_id(store_source: string, store_item_id: number) {
+    _assert_non_empty_string(store_source, "store_source");
+    _assert_positive_integer(store_item_id, "store_item_id");
     const result = await pool.query(
         `SELECT *
         FROM items
@@ -240,6 +327,7 @@ export async function get_item_by_store_item_id(store_source: string, store_item
  * @returns A Promise that resolves to an item object with item_id, product_id, store_item_id, avg_rating, rating_count, package_quantity, unit_id, and store_source, or null.
  */
 export async function get_item_by_id(item_id: number) {
+    _assert_positive_integer(item_id, "item_id");
     const result = await pool.query(
         `SELECT *
         FROM items
@@ -255,6 +343,7 @@ export async function get_item_by_id(item_id: number) {
  * @returns A Promise that resolves to an array of item objects, each with item_id, product_id, store_item_id, avg_rating, rating_count, package_quantity, unit_id, and store_source.
  */
 export async function get_item_by_name(name: string) {
+    _assert_non_empty_string(name, "name");
     const result = await pool.query(
         `SELECT items.*
         FROM items
@@ -276,6 +365,12 @@ export async function get_item_by_name(name: string) {
  * @returns A Promise that resolves to the inserted deal object with deal_id, item_id, original_price, on_sale, sale_price, membership_sale, membership_price, and last_fetched.
  */
 export async function add_deal(item_id: number, original_price: number, on_sale: boolean, last_fetched:Date, sale_price?: number, membership_sale?: boolean) {
+    _assert_positive_integer(item_id, "item_id");
+    _assert_non_negative_number(original_price, "original_price");
+    _assert_valid_date(last_fetched, "last_fetched");
+    if (sale_price != null) {
+        _assert_non_negative_number(sale_price, "sale_price");
+    }
     const result = await pool.query(
         `INSERT INTO deals
         (item_id, original_price, on_sale, last_fetched, sale_price, membership_sale)
@@ -299,6 +394,7 @@ export async function add_deal(item_id: number, original_price: number, on_sale:
  * @returns A Promise that resolves to a deal object with deal_id, item_id, original_price, on_sale, sale_price, membership_sale, membership_price, and last_fetched, or null.
  */
 export async function get_deal_by_id(deal_id: number) {
+    _assert_positive_integer(deal_id, "deal_id");
     const result = await pool.query(
         `SELECT *
         FROM deals
