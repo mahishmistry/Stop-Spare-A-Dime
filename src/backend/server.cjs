@@ -5,16 +5,14 @@ const { query, body, validationResult } = require('express-validator');
 const { getJson } = require('serpapi');
 const { get_cached_search, set_cached_search } = require('../database/queries.ts');
 
+const verifyToken = require("../../middleware/verifyToken.cjs");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(helmet());
-// Middleware to parse JSON
 app.use(express.json());
 
-//Array for search history
 const searchHistory = [];
-//Array for blocked stores
 const blockedStores = [];
 
 const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
@@ -87,13 +85,13 @@ app.get('/api/prices',
   }
 );
 
-//Search history endpoint
-app.get('/api/history', (req, res) => {
+// Search history endpoint (protected)
+app.get('/api/history', verifyToken, (req, res) => {
   res.json({ history: searchHistory });
 });
 
-//Add blocked store
-app.post('/api/block',
+// Add blocked store (protected)
+app.post('/api/block', verifyToken,
   body('store').isString().trim().escape().notEmpty(),
   (req, res) => {
     const errors = validationResult(req);
@@ -106,14 +104,14 @@ app.post('/api/block',
   }
 );
 
-//Get the blocked stores
-app.get('/api/block', (req, res) => {
-    res.json({ blockedStores });
-  });
+// Get blocked stores (protected)
+app.get('/api/block', verifyToken, (req, res) => {
+  res.json({ blockedStores });
+});
 
 // Endpoint for comparison logic
 app.get('/api/compare', (req, res) => {
-    getBestItems(req, res);
+  getBestItems(req, res);
 });
 
 app.listen(PORT, () => {
