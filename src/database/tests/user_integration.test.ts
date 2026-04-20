@@ -112,7 +112,7 @@ describe("Creating Users & Fetching User Context", () => {
   });
 
   it("Doesn't try to fetch a user with an invalid email", async () => {
-    await expect(create_user_context("invalid-email")).rejects.toThrow("invalid email format");
+    await expect(create_user_context("invalid-email")).rejects.toThrow("BAD INPUT: invalid email format");
   });
 
   it("Returns null when trying to fetch a user with an email that doesn't exist", async () => {
@@ -121,16 +121,16 @@ describe("Creating Users & Fetching User Context", () => {
   });
 
   it("doesn't allow a user to be created with an invalid email", async () => {
-      await expect(create_new_user("invalid-email", "Bob")).rejects.toThrow("invalid email format");
-      await expect(create_new_user("another-invalid-email@", "Bob")).rejects.toThrow("invalid email format");
-      await expect(create_new_user("@invalid-email.com", "Bob")).rejects.toThrow("invalid email format");
-      await expect(create_new_user("invalid@email.", "Bob")).rejects.toThrow("invalid email format");
-      await expect(create_new_user("invalid@.com", "Bob")).rejects.toThrow("invalid email format");
+      await expect(create_new_user("invalid-email", "Bob")).rejects.toThrow("BAD INPUT: invalid email format");
+      await expect(create_new_user("another-invalid-email@", "Bob")).rejects.toThrow("BAD INPUT: invalid email format");
+      await expect(create_new_user("@invalid-email.com", "Bob")).rejects.toThrow("BAD INPUT: invalid email format");
+      await expect(create_new_user("invalid@email.", "Bob")).rejects.toThrow("BAD INPUT: invalid email format");
+      await expect(create_new_user("invalid@.com", "Bob")).rejects.toThrow("BAD INPUT: invalid email format");
   });
 
   it("doesn't allow a user to be created with an email that already exists", async () => {
     const new_user = await create_new_user("charlie@smiling_friends.com", "Charlie");
-    await expect(create_new_user("charlie@smiling_friends.com", "Charlie2")).rejects.toThrow("a user with this email already exists");
+    await expect(create_new_user("charlie@smiling_friends.com", "Charlie2")).rejects.toThrow("ALREADY EXISTS: user with this email already exists");
   });
 
   it("returns null for non-existent user", async () => {
@@ -845,7 +845,7 @@ describe("User Settings", () => {
 
   it("Doesn't allow the user to update their email to an invalid email", async () => {
     const user_context = await _test_user_context();
-    await expect(user_context.update_email("invalid-email")).rejects.toThrow("invalid email format");
+    await expect(user_context.update_email("invalid-email")).rejects.toThrow("BAD INPUT: invalid email format");
   });
   
   it("Allows the user to update their notification preferences", async () => {

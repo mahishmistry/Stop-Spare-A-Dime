@@ -186,12 +186,12 @@ function _is_valid_email(email: string): boolean {
 
 async function create_new_user(email: string, display_name: string): Promise<{user_id: number, email: string, name: string}> {
     if(!_is_valid_email(email)) {
-        throw new Error("invalid email format");
+        throw new SyntaxError("BAD INPUT: invalid email format");
     }
 
     const existing_user_check = await pool.query("SELECT user_id FROM users WHERE email = $1", [email]);
     if ((existing_user_check.rowCount ?? 0) > 0) {
-        throw new Error("a user with this email already exists");
+        throw new Error("ALREADY EXISTS: user with this email already exists");
     }
 
     if (display_name.length === 0) {
@@ -222,7 +222,7 @@ async function create_user_context(user_info: number | string): Promise<UserCont
         user_id = user_info;
     } else {
         if (!_is_valid_email(user_info)) {
-            throw new Error("invalid email format");
+            throw new SyntaxError("BAD INPUT: invalid email format");
         }
         const req = await pool.query("SELECT user_id FROM users WHERE email = $1", [user_info]);
         if (req.rowCount === 0) {
@@ -232,7 +232,7 @@ async function create_user_context(user_info: number | string): Promise<UserCont
     }
 
     if (!pool) {
-        throw new Error("Database pool is required to create user context");
+        throw new Error("NO POOL: database connection pool is required to create user context");
     }
     
     const req = await pool.query("SELECT EXISTS(SELECT 1 FROM users WHERE user_id = $1) as user_exists", [user_id]);
@@ -511,11 +511,11 @@ function _user_context_object(user_id: number, display_name: string, user_email:
      */
     async update_email(new_email: string): Promise<boolean> {
         if (!_is_valid_email(new_email)) {
-            throw new Error("invalid email format");
+            throw new SyntaxError("BAD INPUT: invalid email format");
         }
         const existing_user_check = await pool.query("SELECT user_id FROM users WHERE email = $1", [new_email]);
         if ((existing_user_check.rowCount ?? 0) > 0) {
-            throw new Error("a user with this email already exists");
+           throw new Error("ALREADY EXISTS: user with this email already exists");
         }
         const req = await pool.query("UPDATE users SET email = $1 WHERE user_id = $2", [new_email, user_id]);
         if (req !== null && req.rowCount != null && req.rowCount > 0) {
