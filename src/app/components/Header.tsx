@@ -14,8 +14,12 @@ interface HeaderProps { // HEADER PARAMS
   onLocationChange: (location: string) => void;
   onSettingsClick: () => void;
   onHistoryClick?: () => void;
+  onNavigateToSettings?: () => void;
+  onNavigateToHistory?: () => void;
   accountName?: string;
   accountEmail?: string;
+  searchHistory?: string[];
+  onClearSearchHistory?: () => void;
 }
  
 interface LocationButtonProps { // LOCATION BUTTON PARAMS
@@ -55,10 +59,21 @@ interface SearchInputProps { // SEARCH BAR PARAMS
   searchQuery: string;
   onQueryChange: (query: string) => void;
   onSearch: () => void;
+  onHistoryClick: () => void;
+  searchHistory?: string[];
   autoFocus?: boolean;
 }
 
-function SearchInput({ searchQuery, onQueryChange, onSearch, autoFocus }: SearchInputProps) {
+function SearchInput({ searchQuery, onQueryChange, onSearch, onHistoryClick, searchHistory, autoFocus }: SearchInputProps) {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleSelectHistory = (query: string) => {
+    onQueryChange(query);
+    setShowDropdown(false);
+  };
+
+  const recentSearches = searchHistory?.slice(0, 5) || [];
+
   return (
     <div className="flex-1 relative">
       <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -66,12 +81,40 @@ function SearchInput({ searchQuery, onQueryChange, onSearch, autoFocus }: Search
         type="text"
         placeholder="Search for groceries..."
         value={searchQuery}
-        onChange={(e) => onQueryChange(e.target.value)}
-        onKeyDown={(e) => { if (e.key === 'Enter') onSearch(); }} // APP.tsx search function. runSearch()
-        // when backend endpoints created, runSearch in app.tsx should be connected to products.ts for the API calls
+        onChange={(e) => {
+          onQueryChange(e.target.value);
+          setShowDropdown(true);
+        }}
+        onKeyDown={(e) => { if (e.key === 'Enter') onSearch(); }} 
+        onFocus={() => {
+          if ((searchQuery.length === 0 || searchQuery.trim() === '') && recentSearches.length > 0) {
+            setShowDropdown(true);
+          }
+        }}
         className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6FBD7A] focus:border-transparent bg-white"
         autoFocus={autoFocus}
       />
+      
+      {/* Search history dropdown */}
+      {showDropdown && recentSearches.length > 0 && (
+        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-10 max-h-80 overflow-y-auto">
+          {recentSearches.map((query, index) => (
+            <button
+              key={index}
+              onClick={() => handleSelectHistory(query)}
+              className="w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
+            >
+              <span className="text-gray-700">{query}</span>
+            </button>
+          ))}
+          <button
+            onClick={onHistoryClick}
+            className="w-full text-left px-4 py-3 bg-[#6FBD7A] text-white hover:bg-[#5da968] transition-colors font-medium rounded-b-lg"
+          >
+            View Full History
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -89,6 +132,7 @@ export function Header({
   onHistoryClick,
   accountName,
   accountEmail,
+  searchHistory,
 }: HeaderProps) {
   const [showMobileMenu, setShowMobileMenu] = useState(false); // hide the search bar on mobile or not
   // Mobile menu is the menu icon (3 lines stacked) containing the search bar and zip code setter.
@@ -100,6 +144,7 @@ export function Header({
       onSearch(searchQuery); // sends query up to app.tsx to runSearch function, which should do api calls
       // SEE: services/products.ts for that api backend calls.
       setShowMobileMenu(false); // hide the search/location menu on mobile, if on mobile.
+      setSearchQuery(''); // clear the search query after searching
     }
   };
 
@@ -138,6 +183,8 @@ export function Header({
               searchQuery={searchQuery}
               onQueryChange={setSearchQuery}
               onSearch={handleSearch}
+              onHistoryClick={onHistoryClick!}
+              searchHistory={searchHistory}
             />
           </div>
 
@@ -185,6 +232,8 @@ export function Header({
               searchQuery={searchQuery}
               onQueryChange={setSearchQuery}
               onSearch={handleSearch}
+              onHistoryClick={onHistoryClick!}
+              searchHistory={searchHistory}
               autoFocus
             />
             <button

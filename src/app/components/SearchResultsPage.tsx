@@ -1,7 +1,7 @@
-import { ArrowLeft } from 'lucide-react'; // https://lucide.dev/icons/
-import { useState } from 'react';
-import { Header } from './Header.tsx';
-import React from 'react';
+import { ArrowLeft } from "lucide-react"; // https://lucide.dev/icons/
+import { useState } from "react";
+import { Header } from "./Header.tsx";
+import React from "react";
 
 interface SearchResult {
   id: string;
@@ -14,6 +14,8 @@ interface SearchResult {
   dealText?: string;
   unitPrice?: string;
   savingsText?: string;
+  snapEligible?: boolean;
+  loyaltyProgramIndicator?: boolean;
 }
 
 interface SearchResultsPageProps {
@@ -30,6 +32,7 @@ interface SearchResultsPageProps {
   onHomeClick?: () => void;
   onSettingsClick: () => void;
   onHistoryClick?: () => void;
+  searchHistory?: string[];
 }
 
 export function SearchResultsPage({
@@ -46,16 +49,36 @@ export function SearchResultsPage({
   onHomeClick,
   onSettingsClick,
   onHistoryClick,
+  searchHistory = [],
 }: SearchResultsPageProps) {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
 
   const toggleFilter = (filter: string) => {
-    setActiveFilters(prev =>
+    setActiveFilters((prev) =>
       prev.includes(filter)
-        ? prev.filter(f => f !== filter)
-        : [...prev, filter]
+        ? prev.filter((f) => f !== filter)
+        : [...prev, filter],
     );
   };
+
+  // Apply filters to results
+  const filteredResults = results.filter((result) => {
+    if (activeFilters.length === 0) return true;
+
+    return activeFilters.every((filter) => {
+      if (filter === "sale") {
+        return result.saleLabel ? true : false;
+      }
+      if (filter === "memberships") {
+        return result.loyaltyProgramIndicator ? true : false;
+      }
+      if (filter === "snap") {
+        return result.snapEligible !== false; // true by default
+      }
+      return true;
+    });
+  });
 
   return (
     <div className="min-h-screen bg-[#F9F9F9]">
@@ -76,37 +99,38 @@ export function SearchResultsPage({
         <div className="max-w-7xl mx-auto flex items-center gap-2 text-sm">
           <span className="text-gray-700">(Filters)</span>
           <button
-            onClick={() => toggleFilter('sale')}
+            onClick={() => toggleFilter("sale")}
             className={`px-3 py-1 rounded-full border transition-colors ${
-              activeFilters.includes('sale')
-                ? 'bg-[#6FBD7A] text-white border-[#6FBD7A]'
-                : 'bg-white text-gray-600 border-gray-300'
+              activeFilters.includes("sale")
+                ? "bg-[#6FBD7A] text-white border-[#6FBD7A]"
+                : "bg-white text-gray-600 border-gray-300"
             }`}
           >
             Sale Promotions?
           </button>
           <button
-            onClick={() => toggleFilter('memberships')}
+            onClick={() => toggleFilter("memberships")}
             className={`px-3 py-1 rounded-full border transition-colors ${
-              activeFilters.includes('memberships')
-                ? 'bg-[#6FBD7A] text-white border-[#6FBD7A]'
-                : 'bg-white text-gray-600 border-gray-300'
+              activeFilters.includes("memberships")
+                ? "bg-[#6FBD7A] text-white border-[#6FBD7A]"
+                : "bg-white text-gray-600 border-gray-300"
             }`}
           >
             Memberships?
           </button>
           <button
-            onClick={() => toggleFilter('snap')}
+            onClick={() => toggleFilter("snap")}
             className={`px-3 py-1 rounded-full border transition-colors ${
-              activeFilters.includes('snap')
-                ? 'bg-[#6FBD7A] text-white border-[#6FBD7A]'
-                : 'bg-white text-gray-600 border-gray-300'
+              activeFilters.includes("snap")
+                ? "bg-[#6FBD7A] text-white border-[#6FBD7A]"
+                : "bg-white text-gray-600 border-gray-300"
             }`}
           >
             Snap Eligible?
           </button>
         </div>
       </div>
+
 
       <main className="max-w-7xl mx-auto px-6 py-6">
         <button
@@ -118,7 +142,7 @@ export function SearchResultsPage({
         </button>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {results.map((result) => (
+          {filteredResults.map((result) => (
             <button
               key={result.id}
               onClick={() => onProductClick(result)}
@@ -130,7 +154,9 @@ export function SearchResultsPage({
                     {result.saleLabel}
                   </span>
                   {result.saleEndDate && (
-                    <span className="text-xs text-gray-600">Ends {result.saleEndDate}</span>
+                    <span className="text-xs text-gray-600">
+                      Ends {result.saleEndDate}
+                    </span>
                   )}
                 </div>
               )}
@@ -144,13 +170,17 @@ export function SearchResultsPage({
               </div>
 
               {result.dealText && (
-                <p className="text-sm font-medium text-gray-800 mb-2">{result.dealText}</p>
+                <p className="text-sm font-medium text-gray-800 mb-2">
+                  {result.dealText}
+                </p>
               )}
 
               <p className="text-xs text-gray-600 mb-1">{result.store}</p>
 
               {result.unitPrice && (
-                <p className="text-sm font-semibold text-gray-800 mb-1">{result.unitPrice}</p>
+                <p className="text-sm font-semibold text-gray-800 mb-1">
+                  {result.unitPrice}
+                </p>
               )}
 
               {result.savingsText && (
@@ -160,9 +190,11 @@ export function SearchResultsPage({
           ))}
         </div>
 
-        {results.length === 0 && (
+        {filteredResults.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500">No results found for "{searchQuery}"</p>
+            <p className="text-gray-500">
+              No results found for "{searchQuery}"
+            </p>
           </div>
         )}
       </main>
