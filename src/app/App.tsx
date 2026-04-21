@@ -8,7 +8,7 @@ import { SettingsPage } from "./components/SettingsPage.tsx";
 import React from "react";
 
 // all possible pages to access: home , search results, item comparison details,
-type View = "home" | "search" | "item" | "settings" | "login" | "history";
+type View = "home" | "search" | "item" | "settings" | "login";
 
 // data -- remove later and use api endpoints for data
 const recommendations = [
@@ -267,7 +267,7 @@ export default function App() {
   const handleLogout = () => {
     setIsAuthenticated(false);
     // If on a protected page, redirect to home
-    if (view === "settings" || view === "history") {
+    if (view === "settings") {
       setView("home");
     }
   };
@@ -297,15 +297,7 @@ export default function App() {
   };
 
   const goToHistory = () => {
-    if (!isAuthenticated) {
-      setLoginReturnView(view);
-      setView("login");
-      return;
-    }
-    if (view !== "history") {
-      setPreviousView(view);
-    }
-    setView("history");
+    // History page functionality disabled for now
   };
 
   const handleProductClick = (product: any) => {
@@ -403,6 +395,7 @@ export default function App() {
         onLocationChange={setLocation}
         onSettingsClick={goToSettings}
         onHistoryClick={goToHistory}
+        searchHistory={searchHistory}
       />
     );
   }
@@ -426,45 +419,6 @@ export default function App() {
         onSettingsClick={goToSettings}
         onHistoryClick={goToHistory}
       />
-    );
-  }
-
-  // viewing history
-  if (view === "history") {
-    return (
-      <div className="min-h-screen bg-[#F9F9F9]">
-        <Header {...headerProps} />
-        <main className="max-w-7xl mx-auto px-6 py-8">
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h1 className="text-2xl font-bold text-gray-900 mb-6">
-              Search History
-            </h1>
-            {searchHistory.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">
-                No search history yet
-              </p>
-            ) : (
-              <div className="space-y-2">
-                {searchHistory.map((query, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleSearch(query)}
-                    className="w-full text-left px-4 py-3 rounded-lg hover:bg-[#F9F9F9] transition-colors border border-gray-100 hover:border-[#6FBD7A]"
-                  >
-                    <span className="text-gray-700">{query}</span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-          <button
-            onClick={goHome}
-            className="mt-6 px-4 py-2 bg-[#6FBD7A] text-white rounded-lg hover:bg-[#5da968] transition-colors"
-          >
-            Back to Home
-          </button>
-        </main>
-      </div>
     );
   }
 

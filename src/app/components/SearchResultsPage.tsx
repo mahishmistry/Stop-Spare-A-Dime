@@ -92,6 +92,7 @@ export function SearchResultsPage({
         onHomeClick={onHomeClick}
         onSettingsClick={onSettingsClick}
         onHistoryClick={onHistoryClick}
+        searchHistory={searchHistory}
       />
 
       {/* Filters bar */}
@@ -130,7 +131,6 @@ export function SearchResultsPage({
           </button>
         </div>
       </div>
-
 
       <main className="max-w-7xl mx-auto px-6 py-6">
         <button
