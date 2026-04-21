@@ -1,6 +1,7 @@
 import { ArrowLeft } from 'lucide-react'; // https://lucide.dev/icons/
 import { useState } from 'react';
-import { Header } from './Header';
+import { Header } from './Header.tsx';
+import React from 'react';
 
 interface SearchResult {
   id: string;
@@ -28,6 +29,7 @@ interface SearchResultsPageProps {
   onLoginClick: () => void;
   onHomeClick?: () => void;
   onSettingsClick: () => void;
+  onHistoryClick?: () => void;
 }
 
 export function SearchResultsPage({
@@ -43,6 +45,7 @@ export function SearchResultsPage({
   onLoginClick,
   onHomeClick,
   onSettingsClick,
+  onHistoryClick,
 }: SearchResultsPageProps) {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
@@ -65,6 +68,7 @@ export function SearchResultsPage({
         onLoginClick={onLoginClick}
         onHomeClick={onHomeClick}
         onSettingsClick={onSettingsClick}
+        onHistoryClick={onHistoryClick}
       />
 
       {/* Filters bar */}

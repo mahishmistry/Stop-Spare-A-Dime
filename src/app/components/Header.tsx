@@ -1,7 +1,8 @@
 import { MapPin, Search, Menu, X } from 'lucide-react';
 import { useState, useRef } from 'react';
-import { LocationModal } from './LocationModal';
-import { ProfileMenu } from './ProfileMenu';
+import { LocationModal } from './LocationModal.tsx';
+import { ProfileMenu } from './ProfileMenu.tsx';
+import React from 'react';
 
 interface HeaderProps { // HEADER PARAMS
   location: string;
@@ -12,8 +13,11 @@ interface HeaderProps { // HEADER PARAMS
   onHomeClick?: () => void;
   onLocationChange: (location: string) => void;
   onSettingsClick: () => void;
+  onHistoryClick?: () => void;
+  accountName?: string;
+  accountEmail?: string;
 }
-
+ 
 interface LocationButtonProps { // LOCATION BUTTON PARAMS
   location: string;
   showDropdown: boolean;
@@ -75,13 +79,16 @@ function SearchInput({ searchQuery, onQueryChange, onSearch, autoFocus }: Search
 // HEADER BELOW
 export function Header({
   location,
-  onLogout, // updating on logout
-  onSearch, // updating on search query
-  isAuthenticated, // logged in or not
-  onLoginClick, // prompting login
-  onHomeClick, // going to home page
-  onLocationChange, // location modal if updated location
-  onSettingsClick, // clicking on user pfp if logged in
+  onLogout,
+  onSearch,
+  isAuthenticated,
+  onLoginClick,
+  onHomeClick,
+  onLocationChange,
+  onSettingsClick,
+  onHistoryClick,
+  accountName,
+  accountEmail,
 }: HeaderProps) {
   const [showMobileMenu, setShowMobileMenu] = useState(false); // hide the search bar on mobile or not
   // Mobile menu is the menu icon (3 lines stacked) containing the search bar and zip code setter.
@@ -157,7 +164,7 @@ export function Header({
                 Login
               </button>
             ) : (
-              <ProfileMenu onLogout={onLogout} onSettingsClick={onSettingsClick} />
+              <ProfileMenu onLogout={onLogout} onSettingsClick={onSettingsClick} onHistoryClick={onHistoryClick} accountName={accountName} accountEmail={accountEmail} />
             )}
           </div>
         </div>

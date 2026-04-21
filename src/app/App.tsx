@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { Header } from './components/Header';
-import { ProductCarousel } from './components/ProductCarousel';
-import { LoginPage } from './components/LoginPage';
-import { ItemDetailPage } from './components/ItemDetailPage';
-import { SearchResultsPage } from './components/SearchResultsPage';
-import { SettingsPage } from './components/SettingsPage';
+import { Header } from './components/Header.tsx';
+import { ProductCarousel } from './components/ProductCarousel.tsx';
+import { LoginPage } from './components/LoginPage.tsx';
+import { ItemDetailPage } from './components/ItemDetailPage.tsx';
+import { SearchResultsPage } from './components/SearchResultsPage.tsx';
+import { SettingsPage } from './components/SettingsPage.tsx';
+import React from 'react';
 
 // all possible pages to access: home , search results, item comparison details, 
-type View = 'home' | 'search' | 'item' | 'settings' | 'login';
+type View = 'home' | 'search' | 'item' | 'settings' | 'login' | 'history';
 
 // data -- remove later and use api endpoints for data 
 const recommendations = [
@@ -98,15 +99,25 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
+  // Account state — lives here so ProfileMenu (via Header) stays in sync with SettingsPage edits.
+  // Swap these useState defaults for Firebase reads when you wire up auth.ts.
+  const [accountName,  setAccountName]  = useState('Zoe');
+  const [accountEmail, setAccountEmail] = useState('p****@email.com');
+  const [accountZip,   setAccountZip]   = useState('01003');
 
   // AUTH
   const handleLogin = () => {
     setIsAuthenticated(true);
-    setView('home');
+    // Return to the page the user was on before being sent to login
+    setView(loginReturnView);
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
+    // If on a protected page, redirect to home
+    if (view === 'settings' || view === 'history') {
+      setView('home');
+    }
   };
 
   // NAV
@@ -124,8 +135,25 @@ export default function App() {
       setView('login');
       return;
     }
-    setPreviousView(view);
+    // Only save previousView when not already on settings —
+    // clicking the profile menu while on settings would otherwise
+    // overwrite previousView with 'settings' and break the back button.
+    if (view !== 'settings') {
+      setPreviousView(view);
+    }
     setView('settings');
+  };
+
+  const goToHistory = () => {
+    if (!isAuthenticated) {
+      setLoginReturnView(view);
+      setView('login');
+      return;
+    }
+    if (view !== 'history') {
+      setPreviousView(view);
+    }
+    setView('history');
   };
 
   const handleProductClick = (product: any) => {
@@ -150,21 +178,23 @@ export default function App() {
     setView('search');
   };
 
-  // HEADER — only used on home page
+  // HEADER props — shared across pages
   const headerProps = {
     location,
     onLocationChange: setLocation,
     onLogout: handleLogout,
     onSearch: handleSearch,
     isAuthenticated,
-    onLoginClick: () => { setLoginReturnView('home'); setView('login'); },
+    onLoginClick: () => { setLoginReturnView(view); setView('login'); },
     onHomeClick: goHome,
     onSettingsClick: goToSettings,
+    onHistoryClick: goToHistory,
+    accountName,
+    accountEmail,
   };
 
   // RENDERING VARIOUS PAGES:
   // rendering login page:
-  // we want to remember the previous page
   if (view === 'login') {
     return (
       <LoginPage
@@ -174,9 +204,22 @@ export default function App() {
     );
   }
 
-  // if we view settings:
+  // if we view settings — pass onBack using previousView
+  // previousView can be 'home' | 'search' | 'item', all handled by just restoring the view
+  // selectedProduct is preserved during the settings flow so item detail works correctly
   if (view === 'settings') {
-    return <SettingsPage {...headerProps} />;
+    return (
+      <SettingsPage
+        {...headerProps}
+        onBack={() => setView(previousView)}
+        accountName={accountName}
+        accountEmail={accountEmail}
+        accountZip={accountZip}
+        onAccountNameChange={setAccountName}
+        onAccountEmailChange={setAccountEmail}
+        onAccountZipChange={setAccountZip}
+      />
+    );
   }
 
   // if we view the search after searching
@@ -195,10 +238,12 @@ export default function App() {
         onHomeClick={goHome}
         onLocationChange={setLocation}
         onSettingsClick={goToSettings}
+        onHistoryClick={goToHistory}
       />
     );
   }
 
+  // viewing product
   if (view === 'item' && selectedProduct) {
     return (
       <ItemDetailPage
@@ -212,10 +257,12 @@ export default function App() {
         onLocationChange={setLocation}
         location={location}
         onSettingsClick={goToSettings}
+        onHistoryClick={goToHistory}
       />
     );
   }
 
+  // home page!
   return (
     <div className="min-h-screen bg-[#F9F9F9]">
       <Header {...headerProps} />

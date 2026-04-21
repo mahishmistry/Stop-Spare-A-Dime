@@ -1,4 +1,5 @@
 import { X, MapPin, Navigation } from 'lucide-react'; // https://lucide.dev/icons/
+import React from 'react';
 import { useState, useEffect } from 'react';
 
 interface LocationModalProps {

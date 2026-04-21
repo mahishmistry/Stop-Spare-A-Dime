@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Eye, EyeOff } from "lucide-react"; // https://lucide.dev/icons/?search=eye
+import React from 'react';
 
 interface LoginPageProps {
   onLogin: () => void; // if login succeeds -- authenticated and no longer show login page

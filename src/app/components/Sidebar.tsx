@@ -1,4 +1,5 @@
 import { X, Home, Tag, Heart, User, Settings, HelpCircle, MapPin } from 'lucide-react';
+import React from 'react';
 
 interface SidebarProps {
   isOpen: boolean;

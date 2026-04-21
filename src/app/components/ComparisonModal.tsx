@@ -1,5 +1,6 @@
 import { X } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from './figma/ImageWithFallback.tsx';
+import React from 'react';
 
 interface Product {
   id: string;

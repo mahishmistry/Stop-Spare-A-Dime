@@ -1,9 +1,10 @@
 // WILL NEED A SEVERE UPDATE WITH BACKEND IMPLEMENTATION!
 import { ArrowLeft, Heart, Bookmark, MapPin, ExternalLink } from 'lucide-react'; // https://lucide.dev/icons/
 import { useState } from 'react';
-import { Header } from './Header';
-import { Carousel } from './OtherRetailerCarousel';
-import { effectivePrice, formatPriceDiff } from '../utils/pricing';
+import { Header } from './Header.tsx';
+import { Carousel } from './OtherRetailerCarousel.tsx';
+import { effectivePrice, formatPriceDiff } from '../utils/pricing.ts';
+import React from 'react';
 
 interface Promotion {
   salePrice: number;
@@ -60,6 +61,7 @@ interface ItemDetailPageProps {
   onLoginClick: () => void;
   onHomeClick?: () => void;
   onSettingsClick: () => void;
+  onHistoryClick?: () => void;
 }
 
 // Returns the active promotion if one is currently valid, falls back to first
@@ -158,6 +160,7 @@ export function ItemDetailPage({
   onLoginClick,
   onHomeClick,
   onSettingsClick,
+  onHistoryClick,
 }: ItemDetailPageProps) {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
@@ -194,6 +197,7 @@ export function ItemDetailPage({
         onLoginClick={onLoginClick}
         onHomeClick={onHomeClick}
         onSettingsClick={onSettingsClick}
+        onHistoryClick={onHistoryClick}
       />
 
       <main className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
@@ -266,7 +270,7 @@ export function ItemDetailPage({
                 {/* Active promotion details — original price context */}
                 {activePromo && (
                   <p className="text-sm text-red-500 font-medium">
-                    On <span className="uppercase">sale</span> for {activePromo.pricePerUnitItem}! Usually: <span className="line-through">{item.bestChoice.pricePerUnitItem}</span> (Sale ends: {new Date(activePromo.validTo).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })})
+                    Sale ends: {new Date(activePromo.validTo).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                   </p>
                 )}
 
