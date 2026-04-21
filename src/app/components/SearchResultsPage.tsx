@@ -1,5 +1,7 @@
-import { ArrowLeft, User } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react'; // https://lucide.dev/icons/
 import { useState } from 'react';
+import { Header } from './Header.tsx';
+import React from 'react';
 
 interface SearchResult {
   id: string;
@@ -20,7 +22,14 @@ interface SearchResultsPageProps {
   location: string;
   onProductClick: (result: SearchResult) => void;
   onBack: () => void;
-  onShowProfileMenu: () => void;
+  onSearch: (query: string) => void;
+  onLocationChange: (location: string) => void;
+  onLogout: () => void;
+  isAuthenticated: boolean;
+  onLoginClick: () => void;
+  onHomeClick?: () => void;
+  onSettingsClick: () => void;
+  onHistoryClick?: () => void;
 }
 
 export function SearchResultsPage({
@@ -29,7 +38,14 @@ export function SearchResultsPage({
   location,
   onProductClick,
   onBack,
-  onShowProfileMenu,
+  onSearch,
+  onLocationChange,
+  onLogout,
+  isAuthenticated,
+  onLoginClick,
+  onHomeClick,
+  onSettingsClick,
+  onHistoryClick,
 }: SearchResultsPageProps) {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
@@ -43,72 +59,54 @@ export function SearchResultsPage({
 
   return (
     <div className="min-h-screen bg-[#F9F9F9]">
-      <header className="bg-white border-b border-gray-300 py-4 px-6">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-14 h-14 rounded-full bg-[#B3B3B3] flex items-center justify-center">
-              <span className="text-sm text-white">Logo</span>
-            </div>
-          </div>
+      <Header
+        location={location}
+        onLocationChange={onLocationChange}
+        onLogout={onLogout}
+        onSearch={onSearch}
+        isAuthenticated={isAuthenticated}
+        onLoginClick={onLoginClick}
+        onHomeClick={onHomeClick}
+        onSettingsClick={onSettingsClick}
+        onHistoryClick={onHistoryClick}
+      />
 
-          <div className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg bg-white">
-            <span className="text-sm text-gray-700">{location}</span>
-            <button className="text-gray-500">▼</button>
-          </div>
-
-          <div className="flex-1 max-w-2xl">
-            <input
-              type="text"
-              value={searchQuery}
-              readOnly
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-800"
-            />
-          </div>
-
+      {/* Filters bar */}
+      <div className="bg-white border-b border-gray-200 px-6 py-3">
+        <div className="max-w-7xl mx-auto flex items-center gap-2 text-sm">
+          <span className="text-gray-700">(Filters)</span>
           <button
-            onClick={onShowProfileMenu}
-            className="w-14 h-14 rounded-full bg-[#B3B3B3] hover:bg-[#6FBD7A] transition-colors flex items-center justify-center"
+            onClick={() => toggleFilter('sale')}
+            className={`px-3 py-1 rounded-full border transition-colors ${
+              activeFilters.includes('sale')
+                ? 'bg-[#6FBD7A] text-white border-[#6FBD7A]'
+                : 'bg-white text-gray-600 border-gray-300'
+            }`}
           >
-            <User className="w-6 h-6 text-white" />
+            Sale Promotions?
+          </button>
+          <button
+            onClick={() => toggleFilter('memberships')}
+            className={`px-3 py-1 rounded-full border transition-colors ${
+              activeFilters.includes('memberships')
+                ? 'bg-[#6FBD7A] text-white border-[#6FBD7A]'
+                : 'bg-white text-gray-600 border-gray-300'
+            }`}
+          >
+            Memberships?
+          </button>
+          <button
+            onClick={() => toggleFilter('snap')}
+            className={`px-3 py-1 rounded-full border transition-colors ${
+              activeFilters.includes('snap')
+                ? 'bg-[#6FBD7A] text-white border-[#6FBD7A]'
+                : 'bg-white text-gray-600 border-gray-300'
+            }`}
+          >
+            Snap Eligible?
           </button>
         </div>
-
-        <div className="max-w-7xl mx-auto mt-4">
-          <div className="flex items-center gap-2 text-sm">
-            <span className="text-gray-700">(Filters)</span>
-            <button
-              onClick={() => toggleFilter('sale')}
-              className={`px-3 py-1 rounded-full border transition-colors ${
-                activeFilters.includes('sale')
-                  ? 'bg-[#6FBD7A] text-white border-[#6FBD7A]'
-                  : 'bg-white text-gray-600 border-gray-300'
-              }`}
-            >
-              Sale Promotions?
-            </button>
-            <button
-              onClick={() => toggleFilter('memberships')}
-              className={`px-3 py-1 rounded-full border transition-colors ${
-                activeFilters.includes('memberships')
-                  ? 'bg-[#6FBD7A] text-white border-[#6FBD7A]'
-                  : 'bg-white text-gray-600 border-gray-300'
-              }`}
-            >
-              Memberships?
-            </button>
-            <button
-              onClick={() => toggleFilter('snap')}
-              className={`px-3 py-1 rounded-full border transition-colors ${
-                activeFilters.includes('snap')
-                  ? 'bg-[#6FBD7A] text-white border-[#6FBD7A]'
-                  : 'bg-white text-gray-600 border-gray-300'
-              }`}
-            >
-              Snap Eligible?
-            </button>
-          </div>
-        </div>
-      </header>
+      </div>
 
       <main className="max-w-7xl mx-auto px-6 py-6">
         <button

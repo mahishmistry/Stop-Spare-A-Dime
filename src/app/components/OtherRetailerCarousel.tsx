@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
 import { useState, useEffect, useRef, ReactNode } from 'react';
 
 interface CarouselProps {
