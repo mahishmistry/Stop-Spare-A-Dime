@@ -4,6 +4,12 @@ const fs = require('fs/promises');
 const path = require('path');
 const { getJson } = require('serpapi');
 
+/**
+ * Main execution function for the SerpApi fetch script.
+ * Reads the product name and optional location from command-line arguments,
+ * queries the Google Shopping API, and saves the formatted results to a local JSON file.
+ * @returns {Promise<void>} A Promise that resolves when the file is successfully written.
+ */
 async function main() {
     const product = `Grocery ${process.argv[2]}`;
     
