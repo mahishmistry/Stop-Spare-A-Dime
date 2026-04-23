@@ -8,13 +8,13 @@ import {
 } from "lucide-react";
 import React from "react";
 import { useState } from "react";
+//import { useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
   location: string;
   onLocationClick: () => void;
   onLogout: () => void;
   onSearch: (query: string) => void;
-  // adding this to make settings and history usable
   onSettingsClick: () => void;
   onHistoryClick: () => void;
 
@@ -25,12 +25,12 @@ export function Header({
   onLocationClick,
   onLogout,
   onSearch,
-  //same here, adding settings and history
   onSettingsClick,
   onHistoryClick,
 }: HeaderProps) {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  //const navigate = useNavigate();
 
   return (
     <header className="bg-[#F5F5F5] border-b border-[#e0e0e0] py-4 px-6">

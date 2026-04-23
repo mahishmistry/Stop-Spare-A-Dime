@@ -7,6 +7,7 @@ import { LoginPage } from './components/LoginPage';
 import { ItemDetailPage } from './components/ItemDetailPage';
 import { SearchResultsPage } from './components/SearchResultsPage';
 import { SettingsPage } from './components/SettingsPage';
+import { HistoryPage} from './components/HistoryPage';
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -15,7 +16,7 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
-  const [currentPage, setCurrentPage] = useState<'home' | 'settings'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'settings' | 'history'>('home');
 
   const handleLogin = () => {
     setIsAuthenticated(true);
@@ -26,6 +27,7 @@ export default function App() {
     setSelectedProduct(null);
     setSearchQuery('');
     setSearchResults([]);
+    setCurrentPage('home');
   };
 
   const handleProductClick = (product: any) => {
@@ -225,6 +227,17 @@ export default function App() {
     />
   );
 }
+
+      if (currentPage === 'history') {
+    return (
+    <HistoryPage
+      location={location}
+      onBack={() => setCurrentPage('home')}
+      onLogout={handleLogout}
+    />
+  );
+}
+
   // If a product is selected, show the detail page
   if (selectedProduct) {
     const itemDetails = {
@@ -299,7 +312,7 @@ export default function App() {
         onLogout={handleLogout}
         onSearch={handleSearch}
         onSettingsClick={() => setCurrentPage('settings')}
-        onHistoryClick={() => console.log('history later')}
+        onHistoryClick={() => setCurrentPage('history')}
       />
 
       <main className="max-w-7xl mx-auto px-6 py-8">
