@@ -43,6 +43,12 @@ export async function run_migrations(): Promise<void> {
       email TEXT NOT NULL UNIQUE,
       name TEXT NOT NULL
     );
+
+    CREATE TABLE IF NOT EXISTS search_cache (
+      query_key TEXT PRIMARY KEY,
+      results JSONB NOT NULL,
+      last_fetched TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
   `);
 }
 

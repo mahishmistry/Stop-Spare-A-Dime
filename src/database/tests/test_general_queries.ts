@@ -13,9 +13,9 @@ import {
   get_item_by_name,
   add_deal,
   get_deal_by_id,
-} from './queries.js';
-import { initialize_pool } from './pool.js';
-import { truncate_tables, close_pool } from './tests/test_helpers.js';
+} from '../queries.js';
+import { initialize_pool } from '../pool.js';
+import { truncate_tables, close_pool } from './test_helpers.js';
 
 async function main() {
   await initialize_pool(true); // Initialize the database connection pool in test mode

@@ -1,5 +1,5 @@
 import { Client } from 'pg';
-import { create_user_context } from './user.js';
+import { create_user_context } from '../user.js';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
