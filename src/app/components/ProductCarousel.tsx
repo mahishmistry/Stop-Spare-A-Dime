@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
 import { useState } from 'react';
 
 interface Product {

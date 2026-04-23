@@ -1,6 +1,7 @@
 import { Plus, Heart } from 'lucide-react';
 import { useState } from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from './figma/ImageWithFallback.tsx';
+import React from 'react';
 
 interface ProductCardProps {
   id: string;
