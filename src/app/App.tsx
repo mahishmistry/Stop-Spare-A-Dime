@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import { Header } from './components/Header.tsx';
-import { ProductCarousel } from './components/ProductCarousel.tsx';
-import { LoginPage } from './components/LoginPage.tsx';
-import { ItemDetailPage } from './components/ItemDetailPage.tsx';
-import { SearchResultsPage } from './components/SearchResultsPage.tsx';
-import { SettingsPage } from './components/SettingsPage.tsx';
-import { HistoryPage } from './components/HistoryPage.tsx'
-import React from 'react';
+import { useState } from "react";
+import { Header } from "./components/Header.tsx";
+import { ProductCarousel } from "./components/ProductCarousel.tsx";
+import { LoginPage } from "./components/LoginPage.tsx";
+import { ItemDetailPage } from "./components/ItemDetailPage.tsx";
+import { SearchResultsPage } from "./components/SearchResultsPage.tsx";
+import { SettingsPage } from "./components/SettingsPage.tsx";
+import { HistoryPage } from "./components/HistoryPage.tsx"
+import React from "react";
 
-// all possible pages to access: home , search results, item comparison details, 
+// all possible pages to access: home , search results, item comparison details,
 type View = 'home' | 'search' | 'item' | 'settings' | 'login' | 'history';
 
-// data -- remove later and use api endpoints for data 
+// data -- remove later and use api endpoints for data
 const recommendations = [
   { id: '1', name: 'Organic Bananas', price: 0.49, store: 'Walmart', image: 'https://images.unsplash.com/photo-1603833665858-e61d17a86224?w=400', isOnSale: true, salePrice: 0.29},
   { id: '2', name: 'Whole Milk Gallon', price: 3.99, store: 'Target', image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400' },
@@ -61,15 +61,22 @@ function runSearch(query: string) {
 // product details func: replace with real API item details and functions to find this data!
 function buildItemDetails(product: any) {
   // Active promotion if the product is on sale
-  const promotion = product.isOnSale && product.salePrice
-    ? [{
-        salePrice: product.salePrice,
-        validFrom: product.saleValidFrom ?? new Date().toISOString(),
-        validTo: product.saleValidTo ?? new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
-        pricePerUnitItem: product.salePricePerUnitItem ?? `$${product.salePrice.toFixed(2)}/${product.unit ?? 'ea'}`,
-      }]
-    : undefined;
- 
+  const promotion =
+    product.isOnSale && product.salePrice
+      ? [
+          {
+            salePrice: product.salePrice,
+            validFrom: product.saleValidFrom ?? new Date().toISOString(),
+            validTo:
+              product.saleValidTo ??
+              new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+            pricePerUnitItem:
+              product.salePricePerUnitItem ??
+              `$${product.salePrice.toFixed(2)}/${product.unit ?? "ea"}`,
+          },
+        ]
+      : undefined;
+
   return {
     name: product.name,
     image: product.image,
@@ -122,22 +129,22 @@ function buildItemDetails(product: any) {
   };
 }
 
-
 // ACTUAL APP UI AND DATA BEGINS HERE:
 export default function App() {
-  const [view, setView] = useState<View>('home');
-  const [previousView, setPreviousView] = useState<View>('home');
-  const [loginReturnView, setLoginReturnView] = useState<View>('home');
+  const [view, setView] = useState<View>("home");
+  const [previousView, setPreviousView] = useState<View>("home");
+  const [loginReturnView, setLoginReturnView] = useState<View>("home");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [location, setLocation] = useState('Amherst, MA 01003');
+  const [location, setLocation] = useState("Amherst, MA 01003");
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [searchHistory, setSearchHistory] = useState<string[]>([]);
   // Account state — lives here so ProfileMenu (via Header) stays in sync with SettingsPage edits.
   // Swap these useState defaults for Firebase reads when you wire up auth.ts.
-  const [accountName,  setAccountName]  = useState('Zoe');
-  const [accountEmail, setAccountEmail] = useState('p****@email.com');
-  const [accountZip,   setAccountZip]   = useState('01003');
+  const [accountName, setAccountName] = useState("Zoe");
+  const [accountEmail, setAccountEmail] = useState("p****@email.com");
+  const [accountZip, setAccountZip] = useState("01003");
 
   // AUTH
   const handleLogin = () => {
@@ -149,33 +156,33 @@ export default function App() {
   const handleLogout = () => {
     setIsAuthenticated(false);
     // If on a protected page, redirect to home
-    if (view === 'settings' || view === 'history') {
-      setView('home');
+    if (view === "settings" || view === "history") {
+      setView("home");
     }
   };
 
   // NAV
   const goHome = () => {
-    setView('home');
-    setPreviousView('home');
+    setView("home");
+    setPreviousView("home");
     setSelectedProduct(null);
-    setSearchQuery('');
+    setSearchQuery("");
     setSearchResults([]);
   };
 
   const goToSettings = () => {
     if (!isAuthenticated) {
       setLoginReturnView(view);
-      setView('login');
+      setView("login");
       return;
     }
     // Only save previousView when not already on settings —
     // clicking the profile menu while on settings would otherwise
     // overwrite previousView with 'settings' and break the back button.
-    if (view !== 'settings') {
+    if (view !== "settings") {
       setPreviousView(view);
     }
-    setView('settings');
+    setView("settings");
   };
 
   const goToHistory = () => {
@@ -193,13 +200,13 @@ export default function App() {
   const handleProductClick = (product: any) => {
     setPreviousView(view);
     setSelectedProduct(product);
-    setView('item');
+    setView("item");
   };
 
   const handleBackFromProduct = () => {
     setSelectedProduct(null);
-    if (previousView === 'search') {
-      setView('search');
+    if (previousView === "search") {
+      setView("search");
     } else {
       goHome();
     }
@@ -209,7 +216,12 @@ export default function App() {
   const handleSearch = (query: string) => {
     setSearchQuery(query);
     setSearchResults(runSearch(query));
-    setView('search');
+    setView("search");
+    // Save to history, avoid duplicates by removing if it already exists
+    setSearchHistory((prev) => {
+      const filtered = prev.filter((q) => q !== query);
+      return [query, ...filtered];
+    });
   };
 
   // HEADER props — shared across pages
@@ -219,17 +231,21 @@ export default function App() {
     onLogout: handleLogout,
     onSearch: handleSearch,
     isAuthenticated,
-    onLoginClick: () => { setLoginReturnView(view); setView('login'); },
+    onLoginClick: () => {
+      setLoginReturnView(view);
+      setView("login");
+    },
     onHomeClick: goHome,
     onSettingsClick: goToSettings,
     onHistoryClick: goToHistory,
     accountName,
     accountEmail,
+    searchHistory,
   };
 
   // RENDERING VARIOUS PAGES:
   // rendering login page:
-  if (view === 'login') {
+  if (view === "login") {
     return (
       <LoginPage
         onLogin={handleLogin}
@@ -241,7 +257,7 @@ export default function App() {
   // if we view settings — pass onBack using previousView
   // previousView can be 'home' | 'search' | 'item', all handled by just restoring the view
   // selectedProduct is preserved during the settings flow so item detail works correctly
-  if (view === 'settings') {
+  if (view === "settings") {
     return (
       <SettingsPage
         {...headerProps}
@@ -268,7 +284,7 @@ export default function App() {
   }
 
   // if we view the search after searching
-  if (view === 'search') {
+  if (view === "search") {
     return (
       <SearchResultsPage
         searchQuery={searchQuery}
@@ -279,17 +295,21 @@ export default function App() {
         onLogout={handleLogout}
         onSearch={handleSearch}
         isAuthenticated={isAuthenticated}
-        onLoginClick={() => { setLoginReturnView('search'); setView('login'); }}
+        onLoginClick={() => {
+          setLoginReturnView("search");
+          setView("login");
+        }}
         onHomeClick={goHome}
         onLocationChange={setLocation}
         onSettingsClick={goToSettings}
         onHistoryClick={goToHistory}
+        searchHistory={searchHistory}
       />
     );
   }
 
   // viewing product
-  if (view === 'item' && selectedProduct) {
+  if (view === "item" && selectedProduct) {
     return (
       <ItemDetailPage
         item={buildItemDetails(selectedProduct)}
@@ -297,7 +317,10 @@ export default function App() {
         onLogout={handleLogout}
         onSearch={handleSearch}
         isAuthenticated={isAuthenticated}
-        onLoginClick={() => { setLoginReturnView('item'); setView('login'); }}
+        onLoginClick={() => {
+          setLoginReturnView("item");
+          setView("login");
+        }}
         onHomeClick={goHome}
         onLocationChange={setLocation}
         location={location}
