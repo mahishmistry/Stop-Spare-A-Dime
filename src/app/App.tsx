@@ -39,16 +39,22 @@ const allOtherAvailableProducts = [
 
 // temporary search function replace later and edit possibly even move to header component
 function runSearch(query: string) {
-  const all = [...recommendations, ...biggestSales, ...allOtherAvailableProducts];
+  const all = [
+    ...recommendations,
+    ...biggestSales,
+    ...allOtherAvailableProducts,
+  ];
   return all
-    .filter(p => p.name.toLowerCase().includes(query.toLowerCase()))
+    .filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
     .map((p, i) => ({
       ...p,
-      saleLabel: i % 3 === 0 ? 'SALE' : undefined,
-      saleEndDate: i % 3 === 0 ? '6/29' : undefined,
+      saleLabel: i % 3 === 0 ? "SALE" : undefined,
+      saleEndDate: i % 3 === 0 ? "6/29" : undefined,
       dealText: i % 2 === 0 ? `2/$${(p.price * 2).toFixed(2)}` : undefined,
       unitPrice: `$${(p.price / 16).toFixed(2)}/oz`,
-      savingsText: i % 3 === 0 ? 'Save $1.19' : undefined,
+      savingsText: i % 3 === 0 ? "Save $1.19" : undefined,
+      snapEligible: i % 4 !== 0, // most items SNAP eligible, some aren't
+      loyaltyProgramIndicator: i % 2 === 0, // alternating loyalty programs
     }));
 }
 
@@ -70,25 +76,52 @@ function buildItemDetails(product: any) {
     bestChoice: {
       store: product.store,
       price: product.price,
-      unit: product.unit ?? 'each',
-      pricePerUnitItem: product.pricePerUnitItem ?? `$${product.price.toFixed(2)}/${product.unit || "each"}`,
+      unit: product.unit ?? "each",
+      pricePerUnitItem:
+        product.pricePerUnitItem ??
+        `$${product.price.toFixed(2)}/${product.unit || "each"}`,
       isOnSale: product.isOnSale ?? false,
       promotions: promotion,
       snapEligible: product.snapEligible ?? true,
-      distance: product.distance ?? '3.5 Miles away',
-      address: product.address ?? '233 Russell St. Amherst MA',
+      distance: product.distance ?? "3.5 Miles away",
+      address: product.address ?? "233 Russell St. Amherst MA",
       mapUrl: product.mapUrl,
       loyaltyProgramIndicator: product.loyaltyProgramIndicator,
       isOutOfStock: product.isOutOfStock ?? false,
     },
-    otherRetailers: (product.otherRetailers ?? [
-      { store: 'Target',      price: product.price + 0.50, pricePerUnitItem: `$${(product.price + 0.50).toFixed(2)}/${product.unit || "each"}`, snapEligible: true,  image: product.image },
-      { store: 'Kroger',      price: product.price + 0.75, pricePerUnitItem: `$${(product.price + 0.75).toFixed(2)}/${product.unit || "each"}`, snapEligible: false, image: product.image },
-      { store: 'Whole Foods', price: product.price + 1.00, pricePerUnitItem: `$${(product.price + 1.00).toFixed(2)}/${product.unit || "each"}`, snapEligible: true,  image: product.image },
-      { store: 'Safeway',     price: product.price + 0.30, pricePerUnitItem: `$${(product.price + 0.30).toFixed(2)}/${product.unit || "each"}`, snapEligible: true,  image: product.image },
-    ]),
+    otherRetailers: product.otherRetailers ?? [
+      {
+        store: "Target",
+        price: product.price + 0.5,
+        pricePerUnitItem: `$${(product.price + 0.5).toFixed(2)}/${product.unit || "each"}`,
+        snapEligible: true,
+        image: product.image,
+      },
+      {
+        store: "Kroger",
+        price: product.price + 0.75,
+        pricePerUnitItem: `$${(product.price + 0.75).toFixed(2)}/${product.unit || "each"}`,
+        snapEligible: false,
+        image: product.image,
+      },
+      {
+        store: "Whole Foods",
+        price: product.price + 1.0,
+        pricePerUnitItem: `$${(product.price + 1.0).toFixed(2)}/${product.unit || "each"}`,
+        snapEligible: true,
+        image: product.image,
+      },
+      {
+        store: "Safeway",
+        price: product.price + 0.3,
+        pricePerUnitItem: `$${(product.price + 0.3).toFixed(2)}/${product.unit || "each"}`,
+        snapEligible: true,
+        image: product.image,
+      },
+    ],
   };
 }
+
 
 // ACTUAL APP UI AND DATA BEGINS HERE:
 export default function App() {
