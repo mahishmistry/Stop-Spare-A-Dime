@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Eye, EyeOff } from "lucide-react"; // https://lucide.dev/icons/?search=eye
 import React from 'react';
+import { loginWithEmail, signUpWithEmail, loginWithGoogle } from '../services/auth';
 
 interface LoginPageProps {
   onLogin: () => void; // if login succeeds -- authenticated and no longer show login page
@@ -17,11 +18,10 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   // login logic and catching sign up errors to print
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setError('');
-
-    if (isSignUp) { // prints custom errors for sign up if any
+    if (isSignUp) {
       if (password !== confirmPassword) {
         setError('Passwords do not match.');
         return;
@@ -30,17 +30,29 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
         setError('Password must be at least 8 characters.');
         return;
       }
-      // sign up — replace with real API call later
-      onLogin();
-    } else { // logging in.
-      // login — replace with real API call later
-      onLogin();
+      try {
+        await signUpWithEmail(email, password);
+        onLogin();
+      } catch (err: any) {
+        setError(err.message);
+      }
+    } else {
+      try {
+        await loginWithEmail(email, password);
+        onLogin();
+      } catch (err: any) {
+        setError(err.message);
+      }
     }
   };
 
-  const handleGoogleLogin = () => {
-    // Google login — replace with real OAuth later
-    onLogin();
+  const handleGoogleLogin = async () => {
+    try {
+      await loginWithGoogle();
+      onLogin();
+    } catch (err: any) {
+      setError(err.message);
+    }
   };
 
   // switch and clear info for switching between login/signup
