@@ -1,4 +1,4 @@
-import { pool } from "../pool.ts"
+import { pool } from "../pool.js"
 
 
 export async function truncate_tables() {
@@ -9,6 +9,7 @@ export async function truncate_tables() {
     TRUNCATE TABLE public.brands RESTART IDENTITY CASCADE;
     TRUNCATE TABLE public.brand_blacklists RESTART IDENTITY CASCADE;
     TRUNCATE TABLE public.store_memberships RESTART IDENTITY CASCADE;
+    TRUNCATE TABLE public.search_cache RESTART IDENTITY CASCADE;
   `);
 }
 
