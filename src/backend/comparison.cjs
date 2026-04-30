@@ -1,10 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-// Load the strawberries json
+/* Load the strawberries json
 const dataPath = path.join(__dirname, 'strawberries-google-shopping.json');
 const rawData = fs.readFileSync(dataPath, 'utf-8');
 const jsonData = JSON.parse(rawData);
+*/
+const jsonData = { shopping_results: [] };
 
 
 /**

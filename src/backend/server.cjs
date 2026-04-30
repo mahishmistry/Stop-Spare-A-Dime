@@ -5,14 +5,16 @@ const { query, body, validationResult } = require('express-validator');
 const { getJson } = require('serpapi');
 const { getBestItems, getItemById } = require('./comparison.cjs');
 const { get_cached_search, set_cached_search } = require('../database/queries.ts');
-const { create_user_context } = require('../database/user.ts');
+const { create_user_context, create_new_user } = require('../database/user.ts');
+
 
 const verifyToken = require("../../middleware/verifyToken.cjs");
 const app = express();
 const PORT = process.env.PORT || 3000;
-
 app.use(helmet());
 app.use(express.json());
+const cors = require('cors');
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 const searchHistory = [];
 
@@ -221,6 +223,21 @@ app.get('/api/compare', verifyToken, async (req, res) => {
  */
 app.get('/api/item/:item_id', (req, res) => {
     getItemById(req, res);
+});
+
+app.post('/api/user/register', verifyToken, async (req, res) => {
+  try {
+    const { email, name } = req.body;
+    const user = await create_new_user(email, name);
+    res.json(user);
+  } catch (err) {
+    if (err.code === '23505') {
+      const userContext = await create_user_context(email);
+      return res.json(userContext);
+    }
+    console.error("Error registering user:", err);
+    res.status(500).json({ error: "Failed to register user." });
+  }
 });
 
 app.listen(PORT, () => {
