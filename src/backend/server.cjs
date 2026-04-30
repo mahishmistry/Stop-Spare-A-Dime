@@ -164,6 +164,41 @@ app.post('/api/block', verifyToken,
 );
 
 /**
+ * Removes a specific "store" name identifier from a user's persistent Database blocklist.
+ * Filters via the verifyToken session email embedded into Req.
+ *
+ * @name DELETE /api/block (protected)
+ * @function
+ * @param {string} req.body.store - The literal store source parameter identifying the merchant to stop ignoring.
+ * @returns {Object} JSON payload explicitly detailing the user's updated blocklist arrays upon successful removal.
+ */
+app.delete('/api/block', verifyToken,
+  body('store').isString().trim().escape().notEmpty(),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { store } = req.body;
+
+    try {
+      const userContext = await create_user_context(req.user.email);
+      if (userContext) {
+        await userContext.unblacklist_store(store);
+        const blockedStores = await userContext.get_blacklisted_stores();
+        res.json({ blockedStores });
+      } else {
+        res.status(404).json({ error: "User not found in database." });
+      }
+    } catch (err) {
+      console.error("Error unblacklisting store:", err);
+      res.status(500).json({ error: "Failed to unblacklist store." });
+    }
+  }
+);
+
+/**
  * Exposes a user's full array list of implicitly blacklisted store locations out from PostgreSQL.
  * Verified and parsed dynamically using the authenticated request `user.email`.
  * 
@@ -192,21 +227,39 @@ app.get('/api/block', verifyToken, async (req, res) => {
  * 
  * @name GET /api/compare (protected)
  * @function
- * @param {string} [req.query.criteria] - Filter structure dictating best sorting values (defaults to 'price').
+ * @param {string} [req.query.criteria] - Filter structure dictating best sorting values ("price", "rating", or "bang for buck" defaults to 'price').
  * @param {number} [req.query.k] - An optional limiting parameters dictating returned items maximum map array length limit.
  * @returns {Array<Object>} Sorted payload map array of items strictly passing through the algorithm.
  */
-app.get('/api/compare', verifyToken, async (req, res) => {
+app.get('/api/compare', verifyToken, 
+  query('product').isString().trim().escape().notEmpty(),
+  query('zipCode').optional().isPostalCode('US'),
+  async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { product, zipCode } = req.query;
+  const location = zipCode || "United States";
+  const cacheKey = `${product.toLowerCase().trim()}-${location}`;
+
   try {
+    const cachedEntry = await get_cached_search(cacheKey);
+    if (!cachedEntry) {
+        return res.status(404).json({ error: "Product search results not found in cache. Please search first." });
+    }
+    const items = cachedEntry.results;
+
     let userBlockedStores = [];
     const userContext = await create_user_context(req.user.email);
     if (userContext) {
       userBlockedStores = await userContext.get_blacklisted_stores();
     }
-    getBestItems(req, res, userBlockedStores);
+    getBestItems(req, res, items, userBlockedStores);
   } catch (err) {
     console.error("Comparison Error:", err);
-    getBestItems(req, res, []);
+    res.status(500).json({ error: "Failed to compare items." });
   }
 });
 
@@ -219,8 +272,31 @@ app.get('/api/compare', verifyToken, async (req, res) => {
  * @param {string} req.params.item_id - The strict alphanumeric URL route parameter literal mapping to an item identifier tag.
  * @returns {Object} JSON payload directly mimicking the exact raw `shopping_results` property map structure object for given item tag.
  */
-app.get('/api/item/:item_id', (req, res) => {
-    getItemById(req, res);
+app.get('/api/item/:item_id', 
+  query('product').isString().trim().escape().notEmpty(),
+  query('zipCode').optional().isPostalCode('US'),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { product, zipCode } = req.query;
+    const location = zipCode || "United States";
+    const cacheKey = `${product.toLowerCase().trim()}-${location}`;
+
+    try {
+      const cachedEntry = await get_cached_search(cacheKey);
+      if (!cachedEntry) {
+          return res.status(404).json({ error: "Product search results not found in cache." });
+      }
+      const items = cachedEntry.results;
+
+      getItemById(req, res, items);
+    } catch (err) {
+      console.error("Item Fetch Error:", err);
+      res.status(500).json({ error: "Failed to fetch item." });
+    }
 });
 
 app.listen(PORT, () => {
