@@ -7,6 +7,7 @@ import { SearchResultsPage } from "./components/SearchResultsPage.tsx";
 import { SettingsPage } from "./components/SettingsPage.tsx";
 import { HistoryPage } from "./components/HistoryPage.tsx"
 import React from "react";
+import { getComparedProducts } from "./services/products.ts";
 
 // all possible pages to access: home , search results, item comparison details,
 type View = 'home' | 'search' | 'item' | 'settings' | 'login' | 'history';
@@ -213,12 +214,26 @@ export default function App() {
   };
 
   // SEARCH
-  const handleSearch = (query: string) => {
+  // CHANGING THIS RIGHT NOW TO TEST SEARCH WITH BACKEND
+  const handleSearch = async (query: string) => {
+    console.log("SEARCH FIRED:", query);
+
     setSearchQuery(query);
-    setSearchResults(runSearch(query));
     setView("search");
-    // Save to history, avoid duplicates by removing if it already exists
-    setSearchHistory((prev) => {
+
+    try {
+      console.log("Calling backend...");
+      const backendResults = await getComparedProducts("price", 20);
+      console.log("Backend results:", backendResults);
+
+      setSearchResults(backendResults);
+    } catch (error) {
+      console.error("Backend search failed:", error);
+      setSearchResults([]);
+    }
+    // CHANGED DOWN TO HERE 
+
+    setSearchHistory((prev: any[]) => {
       const filtered = prev.filter((q) => q !== query);
       return [query, ...filtered];
     });
