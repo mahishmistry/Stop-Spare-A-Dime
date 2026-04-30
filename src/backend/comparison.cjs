@@ -1,24 +1,16 @@
-const fs = require('fs');
-const path = require('path');
-
-// Load the strawberries json
-const dataPath = path.join(__dirname, 'strawberries-google-shopping.json');
-const rawData = fs.readFileSync(dataPath, 'utf-8');
-const jsonData = JSON.parse(rawData);
-
-
 /**
  * Parses query parameters and returns the best items based on specific criteria ("price", "rating", or "bang for buck").
  * Filters out items from stores matching the blockedStores array.
  * 
  * @param {import('express').Request} req - The Express Request object containing query logic (k limit and criteria).
  * @param {import('express').Response} res - The Express Response object used to send back JSON data.
+ * @param {Array<Object>} items - The items to be sorted.
  * @param {Array<string>} [blockedStores=[]] - Optional array of blocklisted store names to filter out of the shopping results.
  * @returns {import('express').Response} A JSON response containing a limited array of sorted item objects, or an error status.
  */
-const getBestItems = (req, res, blockedStores = []) => {
+const getBestItems = (req, res, items, blockedStores = []) => {
     // If k is provided, parse it. Otherwise, use the total length (no limit by default)
-    const k = req.query.k ? parseInt(req.query.k, 10) : jsonData.shopping_results.length;
+    const k = req.query.k ? parseInt(req.query.k, 10) : items.length;
     
     // Get criteria from query, default to 'price'
     const criteria = req.query.criteria || 'price';
@@ -28,7 +20,7 @@ const getBestItems = (req, res, blockedStores = []) => {
     }
 
     // Filter for blocked stores
-    let results = jsonData.shopping_results;
+    let results = items;
     if (blockedStores && blockedStores.length > 0) {
         results = results.filter(item => !blockedStores.some(store => 
             item.source?.toLowerCase().includes(store.toLowerCase())
@@ -71,16 +63,17 @@ const getBestItems = (req, res, blockedStores = []) => {
  * 
  * @param {import('express').Request} req - The Express Request object containing route params (item_id).
  * @param {import('express').Response} res - The Express Response object used to send back JSON data.
+ * @param {Array<Object>} items - The items to search.
  * @returns {import('express').Response} A JSON response containing a singular item's complete data structure, or a 404 error if missing.
  */
-const getItemById = (req, res) => {
+const getItemById = (req, res, items) => {
     const { item_id } = req.params;
 
     if (!item_id) {
         return res.status(400).json({ error: "Item ID is required." });
     }
 
-    const item = jsonData.shopping_results.find(i => i.product_id === item_id);
+    const item = items.find(i => i.product_id === item_id);
 
     if (!item) {
         return res.status(404).json({ error: "Item not found." });
