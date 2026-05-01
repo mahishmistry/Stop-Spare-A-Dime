@@ -1,4 +1,4 @@
-import { pool } from "./pool.js";
+import { pool } from "../../dist/database/pool.js";
 export { create_new_user, create_user_context };
 async function _get_brand_id_from_name(brand_name) {
     const req = await pool.query("SELECT brand_id FROM brands WHERE name = $1", [brand_name]);

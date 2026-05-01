@@ -7,7 +7,7 @@ export let pool;
  * Creates a new database connection pool. If test_mode is true, it will use the test database configuration. Otherwise, it will use the actual database configuration, specified in a .env file.
  * @param test_mode - Whether to use the test database configuration or the actual database configuration.
  */
-async function initialize_pool(test_mode) {
+async function initialize_pool(test_mode = true) {
     if (test_mode) {
         pool = _test_pool;
     }
@@ -31,4 +31,11 @@ export async function connectPool() {
     const client = await pool.connect();
     client.release();
 }
+/**
+ * Closes the database connection pool. This should be called when the application is shutting down to ensure that all database connections are properly closed.
+ */
+export async function disconnect_pool() {
+    await pool.end();
+}
+;
 //# sourceMappingURL=pool.js.map
