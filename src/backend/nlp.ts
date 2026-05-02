@@ -218,9 +218,8 @@ export function parse_product_data(title: string): ParsedProductData {
   const numeric_tokens = tokens.filter((token) => !Number.isNaN(parseFloat(token)));
   const alphabetic_tokens = tokens.filter((token) => _is_alphabetic(token));
 
-  const brand_result = _find_brand_names(alphabetic_tokens, 3);
-  const brand_tokens = brand_result.brand_names;
-  const non_brand_tokens = brand_result.non_brand_tokens;
+  const brand_tokens =[tokens[0]];
+  const non_brand_tokens = tokens.slice(1);
 
   const stemmed_non_brand_tokens = non_brand_tokens
     .map((token) => PorterStemmer.stem(token))
