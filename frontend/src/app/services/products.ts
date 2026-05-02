@@ -1,3 +1,5 @@
+import { auth } from "./auth";
+
 const API_BASE_URL =
   (import.meta as any).env?.VITE_API_BASE_URL || "http://localhost:3000";
 
@@ -24,9 +26,17 @@ export async function getComparedProducts(
   url.searchParams.set("criteria", criteria);
   url.searchParams.set("k", String(k));
 
+  const token = await auth.currentUser?.getIdToken();
+  // another debugger we can remove after
+  alert("Firebase user: " + auth.currentUser?.email);
+
+
+
   const res = await fetch(url.toString(), {
     method: "GET",
-    credentials: "include",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   });
 
   if (!res.ok) {
