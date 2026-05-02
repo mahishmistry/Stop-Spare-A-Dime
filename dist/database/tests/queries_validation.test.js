@@ -1,4 +1,4 @@
-import { add_user, get_user_by_email, add_store, add_store_location, add_product, get_product_by_id, add_item, add_deal, get_deal_by_id, } from '../../dist/database/queries.js';
+import { add_user, get_user_by_email, add_store, add_store_location, add_product, get_product_by_id, add_item, add_deal, get_deal_by_id, } from '../queries.js';
 describe('database query input validation', () => {
     it('rejects invalid emails when adding a user', async () => {
         await expect(add_user('invalid-email', 'Test')).rejects.toThrow('BAD INPUT: invalid email format');

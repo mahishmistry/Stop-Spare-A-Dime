@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import { pool } from '../../dist/database/pool.js';
+import { pool } from './pool.js';
 dotenv.config();
 function _is_valid_email(email) {
     const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -347,7 +347,7 @@ export async function get_all_brand_names() {
     const result = await pool.query(`SELECT name
         FROM brands
         ORDER BY name;`);
-    return new Set(result.rows.map(row => row.name));
+    return new Set(result.rows.map((row) => row.name));
 }
 ;
 /**
@@ -358,7 +358,7 @@ export async function get_all_product_names() {
     const result = await pool.query(`SELECT name
         FROM products
         ORDER BY name;`);
-    return new Set(result.rows.map(row => row.name));
+    return new Set(result.rows.map((row) => row.name));
 }
 ;
 /**

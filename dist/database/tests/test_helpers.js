@@ -1,4 +1,4 @@
-import { pool } from "../../dist/database/pool.js";
+import { pool } from "../pool.js";
 export async function truncate_tables() {
     await pool.query(`
     TRUNCATE TABLE public.users RESTART IDENTITY CASCADE;

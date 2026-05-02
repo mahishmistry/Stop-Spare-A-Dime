@@ -1,5 +1,5 @@
-import { initialize_pool, disconnect_pool } from '../../dist/database/pool.js';
-import { create_new_user, create_user_context } from '../../dist/database/user.js';
+import { initialize_pool, disconnect_pool } from '../pool.js';
+import { create_new_user, create_user_context } from '../user.js';
 async function main() {
     await initialize_pool(false);
     console.log("Testing database connection...");

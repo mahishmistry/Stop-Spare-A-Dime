@@ -1,6 +1,6 @@
-import { get_cached_search, set_cached_search } from '../../dist/database/queries.js';
-import { truncate_tables, close_pool } from "./test_helpers.ts";
-import { initialize_pool } from "../../dist/database/pool.js";
+import { get_cached_search, set_cached_search } from "../queries.js";
+import { truncate_tables, close_pool } from "./test_helpers.js";
+import { initialize_pool } from "../pool.js";
 beforeAll(async () => {
     await initialize_pool(true);
 });

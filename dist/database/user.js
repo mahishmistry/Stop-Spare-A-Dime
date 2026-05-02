@@ -1,4 +1,4 @@
-import { pool } from "../../dist/database/pool.js";
+import { pool } from "./pool.js";
 export { create_new_user, create_user_context };
 async function _get_brand_id_from_name(brand_name) {
     const req = await pool.query("SELECT brand_id FROM brands WHERE name = $1", [brand_name]);
@@ -72,7 +72,7 @@ async function create_user_context(user_info) {
         throw new Error("NO POOL: database connection pool is required to create user context");
     }
     const req = await pool.query("SELECT EXISTS(SELECT 1 FROM users WHERE user_id = $1) as user_exists", [user_id]);
-    console.log("User existence check result for user_id", user_id, ":", req.rows[0].user_exists);
+    //console.log("User existence check result for user_id", user_id, ":", req.rows[0].user_exists);
     if (!req.rows[0].user_exists) {
         return null;
     }
@@ -137,12 +137,12 @@ function _user_context_object(user_id, display_name, user_email, notifications) 
                 brand_id = brand;
             }
             else {
-                console.log("Getting brand ID for brand name:", brand);
+                //console.log("Getting brand ID for brand name:", brand);
                 const resolved_brand_id = await _get_brand_id_from_name(brand);
                 if (resolved_brand_id === null) {
                     return false; // No brand with the given name exists
                 }
-                console.log("Brand ID for brand name", brand, "is", resolved_brand_id);
+                //console.log("Brand ID for brand name", brand, "is", resolved_brand_id);
                 brand_id = resolved_brand_id;
             }
             const req = await pool.query("INSERT INTO brand_blacklists (user_id, brand_id) VALUES ($1, $2) ON CONFLICT DO NOTHING", [user_id, brand_id]);
@@ -159,12 +159,12 @@ function _user_context_object(user_id, display_name, user_email, notifications) 
                 brand_id = brand;
             }
             else {
-                console.log("Getting brand ID for brand name:", brand);
+                //console.log("Getting brand ID for brand name:", brand);
                 const resolved_brand_id = await _get_brand_id_from_name(brand);
                 if (resolved_brand_id === null) {
                     return false; // No brand with the given name exists
                 }
-                console.log("Brand ID for brand name", brand, "is", resolved_brand_id);
+                //console.log("Brand ID for brand name", brand, "is", resolved_brand_id);
                 brand_id = resolved_brand_id;
             }
             const req = await pool.query("DELETE FROM brand_blacklists WHERE user_id = $1 AND brand_id = $2", [user_id, brand_id]);
@@ -190,12 +190,12 @@ function _user_context_object(user_id, display_name, user_email, notifications) 
                 product_id = product;
             }
             else {
-                console.log("Getting product ID for product name:", product);
+                //console.log("Getting product ID for product name:", product);
                 const resolved_product_id = await _get_product_id_from_name(product);
                 if (resolved_product_id === null) {
                     return false; // No product with the given name exists
                 }
-                console.log("Product ID for product name", product, "is", resolved_product_id);
+                //console.log("Product ID for product name", product, "is", resolved_product_id);
                 product_id = resolved_product_id;
             }
             const req = await pool.query("INSERT INTO favorite_products (user_id, product_id) VALUES ($1, $2) ON CONFLICT DO NOTHING", [user_id, product_id]);
@@ -216,7 +216,7 @@ function _user_context_object(user_id, display_name, user_email, notifications) 
                 if (resolved_product_id === null) {
                     return false; // No product with the given name exists
                 }
-                console.log("Product ID for product name", product, "is", resolved_product_id);
+                //console.log("Product ID for product name", product, "is", resolved_product_id);
                 product_id = resolved_product_id;
             }
             const req = await pool.query("DELETE FROM favorite_products WHERE user_id = $1 AND product_id = $2", [user_id, product_id]);
