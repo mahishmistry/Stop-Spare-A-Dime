@@ -216,9 +216,7 @@ export default function App() {
   // SEARCH
   // CHANGING THIS RIGHT NOW TO TEST SEARCH WITH BACKEND line 217 to 238
   const handleSearch = async (query: string) => {
-    // debugging code can remove when done 
-    alert("Search fired: " + query);
-    console.log("SEARCH FIRED:", query);
+
 
     setSearchQuery(query);
     setView("search");

@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "hidden!",
+  apiKey: "make sure u put this in",
   authDomain: "stop-spare-a-dime.firebaseapp.com",
   projectId: "stop-spare-a-dime",
   storageBucket: "stop-spare-a-dime.firebasestorage.app",
