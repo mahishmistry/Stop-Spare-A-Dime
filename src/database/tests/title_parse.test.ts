@@ -5,7 +5,6 @@
 
 import { parse_product_data } from "../../backend/nlp.js";
 
-
 // All test titles extracted from src/backend/strawberries-google-shopping.json
 const TEST_TITLES = [
   "Driscoll's Organic Strawberries",
@@ -179,10 +178,16 @@ describe("NLP parse_product_data function", () => {
       expect(result.numeric_tokens).toBeDefined();
       expect(result.quantity_values_and_types).toBeDefined();
       // Should find the 0.5 and "Pounds" quantity
-      const hasQuantity = result.quantity_values_and_types.some((q: any) => 
-        q.value === 0.5 || q.type.includes("pound")
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 0.5 })
+        ])
       );
-      expect(hasQuantity).toBe(true);
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ type: expect.stringMatching(/pound/i) })
+        ])
+      );
     });
   });
 
@@ -202,10 +207,11 @@ describe("NLP parse_product_data function", () => {
 
     test("should identify oz quantity", () => {
       expect(result.quantity_values_and_types).toBeDefined();
-      const hasOz = result.quantity_values_and_types.some((q: any) => 
-        q.type === "oz"
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 40, type: "oz" })
+        ])
       );
-      expect(hasOz).toBe(true);
     });
   });
 
@@ -239,10 +245,11 @@ describe("NLP parse_product_data function", () => {
     });
 
     test("should identify Lb quantity", () => {
-      const hasLb = result.quantity_values_and_types.some((q: any) => 
-        q.type === "lb"
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 1, type: "lb" })
+        ])
       );
-      expect(hasLb).toBe(true);
     });
   });
 
@@ -286,8 +293,12 @@ describe("NLP parse_product_data function", () => {
 
     test(`should parse "${title}" with packaging and quantity`, () => {
       expect(result).toBeDefined();
-      expect(result.numeric_tokens).toContain("2");
-      expect(result.quantity_values_and_types.some((q: any) => q.type === "lb")).toBe(true);
+      expect(result.quantity_values_and_types).toBeDefined();
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 2, type: "lb" })
+        ])
+      );
     });
   });
 
@@ -344,7 +355,12 @@ describe("NLP parse_product_data function", () => {
     test(`should parse "${title}" with lowercase bulk`, () => {
       expect(result).toBeDefined();
       expect(result.tokens).toBeDefined();
-      expect(result.numeric_tokens.length).toBeGreaterThan(0);
+      expect(result.quantity_values_and_types).toBeDefined();
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 1, type: "lb" })
+        ])
+      );
     });
   });
 
@@ -416,7 +432,11 @@ describe("NLP parse_product_data function", () => {
     test(`should parse "${title}" with color and quantity`, () => {
       expect(result).toBeDefined();
       expect(result.numeric_tokens).toContain("10");
-      expect(result.quantity_values_and_types.some((q: any) => q.type === "oz")).toBe(true);
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 10, type: "oz" })
+        ])
+      );
     });
   });
 
@@ -472,7 +492,12 @@ describe("NLP parse_product_data function", () => {
 
     test(`should parse "${title}" as plant with quantity`, () => {
       expect(result).toBeDefined();
-      expect(result.numeric_tokens).toContain("25");
+      expect(result.quantity_values_and_types).toBeDefined();
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 25, type: expect.stringMatching(/root/i) })
+        ])
+      );
     });
   });
 
@@ -486,7 +511,12 @@ describe("NLP parse_product_data function", () => {
 
     test(`should parse "${title}" with all caps brand`, () => {
       expect(result).toBeDefined();
-      expect(result.numeric_tokens).toContain("10");
+      expect(result.quantity_values_and_types).toBeDefined();
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 10, type: "oz" })
+        ])
+      );
     });
   });
 
@@ -500,7 +530,11 @@ describe("NLP parse_product_data function", () => {
 
     test(`should parse "${title}" with volume measurement`, () => {
       expect(result).toBeDefined();
-      expect(result.numeric_tokens).toContain("1");
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 1, type: "quart" })
+        ])
+      );
     });
   });
 
@@ -584,7 +618,12 @@ describe("NLP parse_product_data function", () => {
 
     test(`should parse "${title}"`, () => {
       expect(result).toBeDefined();
-      expect(result.numeric_tokens).toContain("24");
+      expect(result.quantity_values_and_types).toBeDefined();
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 24, type: "ct" })
+        ])
+      );
     });
   });
 
@@ -612,8 +651,12 @@ describe("NLP parse_product_data function", () => {
 
     test(`should parse "${title}" with case quantity`, () => {
       expect(result).toBeDefined();
-      expect(result.numeric_tokens).toContain("1");
-      expect(result.numeric_tokens).toContain("8");
+      expect(result.quantity_values_and_types).toBeDefined();
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 1, type: "lb" })
+        ])
+      );
     });
   });
 
@@ -793,45 +836,72 @@ describe("NLP parse_product_data function", () => {
     test("should identify numeric quantity values", () => {
       const title = "Driscolls Strawberries Heart Shaped 0.5 Pounds";
       const result = parse_product_data(title);
-      expect(result.numeric_tokens).toBeDefined();
-      expect(result.numeric_tokens).toContain("0.5");
+      expect(result.quantity_values_and_types).toBeDefined();
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 0.5 })
+        ])
+      );
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ type: expect.stringMatching(/pound/i) })
+        ])
+      );
     });
 
     test("should identify quantity units like oz", () => {
       const title = "Columbia Fruit Whole Strawberries 40 oz";
       const result = parse_product_data(title);
       expect(result.quantity_values_and_types).toBeDefined();
-      const hasOz = result.quantity_values_and_types!.some((q: any) => q.type === "oz");
-      expect(hasOz).toBe(true);
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 40, type: "oz" })
+        ])
+      );
     });
 
     test("should identify quantity units like Lb", () => {
       const title = "Strawberries Long Stem Prepacked - 1 Lb";
       const result = parse_product_data(title);
       expect(result.quantity_values_and_types).toBeDefined();
-      const hasLb = result.quantity_values_and_types!.some((q: any) => q.type === "lb");
-      expect(hasLb).toBe(true);
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 1, type: "lb" })
+        ])
+      );
     });
 
     test("should identify pack sizes", () => {
       const title = "Bonnie Plants Strawberry Live Plant 2-Pack";
       const result = parse_product_data(title);
-      expect(result.numeric_tokens).toBeDefined();
-      expect(result.numeric_tokens).toContain("2");
+      expect(result.quantity_values_and_types).toBeDefined();
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 2, type: "pack" })
+        ])
+      );
     });
 
     test("should identify count measurements", () => {
       const title = "All Star Strawberries - 10 Count";
       const result = parse_product_data(title);
-      expect(result.numeric_tokens).toBeDefined();
-      expect(result.numeric_tokens).toContain("10");
+      expect(result.quantity_values_and_types).toBeDefined();
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 10, type: "count" })
+        ])
+      );
     });
 
     test("should handle combined quantity formats", () => {
       const title = "Fresh Strawberries 1 lb. - 8/Case";
       const result = parse_product_data(title);
-      expect(result.numeric_tokens).toBeDefined();
-      expect(result.numeric_tokens!.length).toBeGreaterThanOrEqual(2);
+      expect(result.quantity_values_and_types).toBeDefined();
+      expect(result.quantity_values_and_types).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ value: 1, type: "lb" })
+        ])
+      );
     });
   });
 

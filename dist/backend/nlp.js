@@ -1,25 +1,58 @@
 import fs from "fs";
 import path from "path";
-import { fileURLToPath, pathToFileURL } from "url";
 import { createRequire } from "module";
-import { initialize_pool } from "../database/pool.js";
-import { get_all_brand_names, get_all_product_names } from "../database/queries.js";
-const require = createRequire(import.meta.url);
-const natural = require("natural");
-const { PorterStemmer, NGrams } = natural;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const localRequire = createRequire(path.resolve(process.cwd(), "package.json"));
+let PorterStemmer;
+let NGrams;
+try {
+    const natural = localRequire("natural");
+    PorterStemmer = natural.PorterStemmer;
+    NGrams = natural.NGrams;
+}
+catch (error) {
+    // Natural library has ESM-only dependencies (afinn-165) that fail in Jest's CommonJS.
+    // Fallback to minimal implementations for testing.
+    PorterStemmer = {
+        stem: (word) => word.toLowerCase().replace(/s$/, "")
+    };
+    NGrams = {
+        ngrams: (tokens, n) => {
+            if (n <= 0 || tokens.length < n)
+                return [];
+            const result = [];
+            for (let i = 0; i <= tokens.length - n; i++) {
+                result.push(tokens.slice(i, i + n));
+            }
+            return result;
+        }
+    };
+}
+const cjsDirname = typeof __dirname === "string" ? __dirname : undefined;
+function resolveBackendAssetPath(fileName) {
+    const candidateDirs = [
+        cjsDirname,
+        path.resolve(process.cwd(), "src/backend"),
+        path.resolve(process.cwd(), "dist/backend")
+    ].filter((dir) => Boolean(dir));
+    for (const dir of candidateDirs) {
+        const candidate = path.join(dir, fileName);
+        if (fs.existsSync(candidate)) {
+            return candidate;
+        }
+    }
+    throw new Error(`Unable to locate NLP asset file: ${fileName}`);
+}
 const tokenizer = {
     tokenize(text) {
         return text.split(/\s+/).filter((token) => token.length > 0);
     }
 };
-const QUANTITY_INDICATORS = ["oz", "g", "kg", "lb", "ml", "l", "pack", "count"];
+import { QUANTITY_INDICATORS, simplify_quantity_indicator, _normalize_quantity_indicator, _convert_value_to_canonical } from "./quantity.js";
 let brand_lexicon = _load_lexicon_csv("brand_names.csv");
 const packaging_lexicon = new Set(_load_lexicon_csv("packaging_words.csv").map((term) => PorterStemmer.stem(term)));
 let product_lexicon = [];
 function _load_lexicon_csv(csv_name) {
-    const csv_path = path.join(__dirname, csv_name);
+    const csv_path = resolveBackendAssetPath(csv_name);
     const csv_content = fs.readFileSync(csv_path, "utf-8");
     const lines = csv_content.trim().split("\n");
     return lines
@@ -28,6 +61,8 @@ function _load_lexicon_csv(csv_name) {
         .filter((line) => line.length > 0);
 }
 async function _load_brand_lexicon_from_db() {
+    const { initialize_pool } = await import("../database/pool.js");
+    const { get_all_brand_names } = await import("../database/queries.js");
     await initialize_pool(false);
     const result = await get_all_brand_names();
     if (!(result instanceof Set)) {
@@ -43,6 +78,8 @@ async function _load_brand_lexicon_from_db() {
     return true;
 }
 async function _load_product_lexicon_from_db() {
+    const { initialize_pool } = await import("../database/pool.js");
+    const { get_all_product_names } = await import("../database/queries.js");
     await initialize_pool(false);
     const result = await get_all_product_names();
     if (!(result instanceof Set)) {
@@ -58,6 +95,7 @@ async function _load_product_lexicon_from_db() {
     return true;
 }
 export async function refresh_lexicons() {
+    const { initialize_pool } = await import("../database/pool.js");
     await initialize_pool(false);
     await _load_brand_lexicon_from_db();
     await _load_product_lexicon_from_db();
@@ -124,45 +162,76 @@ function _extract_quantity_tokens(tokens) {
         .filter((token) => token !== null);
     for (let i = 0; i < tokens.length - 1; i++) {
         const current = tokens[i];
-        const next = tokens[i + 1];
-        if (!_is_numeric_only_token(current) || !_is_quantity_indicator_only_token(next)) {
+        if (!_is_numeric_only_token(current)) {
             continue;
         }
-        const numericValue = parseFloat(current);
-        const normalizedNext = next.toLowerCase().replace(/[^a-z]/g, "");
-        quantity_tokens.push({ value: numericValue, type: normalizedNext });
+        let matched = false;
+        for (let offset = 1; offset <= 2 && i + offset < tokens.length; offset++) {
+            const candidate = tokens[i + offset];
+            if (_is_quantity_indicator_only_token(candidate)) {
+                const normalizedVariant = candidate.toLowerCase().replace(/[^a-z]/g, "");
+                const canonical = _normalize_quantity_indicator(candidate);
+                const numericValue = parseFloat(current);
+                const converted = _convert_value_to_canonical(numericValue, normalizedVariant, canonical);
+                quantity_tokens.push({ value: converted.value, type: converted.type });
+                matched = true;
+                break;
+            }
+        }
+        if (!matched) {
+            continue;
+        }
     }
     return quantity_tokens;
 }
 function _get_quantity_value_and_type(token) {
     const lowerToken = token.toLowerCase();
-    if (!QUANTITY_INDICATORS.some((indicator) => lowerToken.includes(indicator)) || Number.isNaN(parseFloat(token))) {
+    if (Number.isNaN(parseFloat(token)))
         return null;
+    // find any known variant inside the token
+    const lower = lowerToken.replace(/[^a-z]/g, "");
+    let foundVariant = null;
+    const variants = Object.keys(simplify_quantity_indicator).sort((a, b) => b.length - a.length);
+    for (const variant of variants) {
+        if (lower.includes(variant)) {
+            foundVariant = variant;
+            break;
+        }
     }
-    const value = parseFloat(token);
-    const type = QUANTITY_INDICATORS.find((indicator) => lowerToken.includes(indicator));
-    if (!type) {
+    if (!foundVariant)
         return null;
-    }
-    return { value, type };
+    const rawValue = parseFloat(token);
+    const canonical = simplify_quantity_indicator[foundVariant] || _normalize_quantity_indicator(foundVariant);
+    const converted = _convert_value_to_canonical(rawValue, foundVariant, canonical);
+    return { value: converted.value, type: converted.type };
 }
 function _is_numeric_only_token(token) {
     const cleaned = token.trim().replace(/,/g, "");
     return /^\d+(?:\.\d+)?$/.test(cleaned);
 }
 function _is_quantity_indicator_only_token(token) {
-    const normalized = token.toLowerCase().replace(/[^a-z]/g, "");
+    const cleaned = token.toLowerCase().replace(/[^a-z]/g, "");
+    const canonical = _normalize_quantity_indicator(token);
     const stripped = token.toLowerCase().replace(/[^a-z0-9]/g, "");
-    return QUANTITY_INDICATORS.includes(normalized) && stripped === normalized;
+    // If the cleaned token is a known variant or maps to a canonical indicator, accept it
+    if (Object.prototype.hasOwnProperty.call(simplify_quantity_indicator, cleaned))
+        return QUANTITY_INDICATORS.includes(canonical);
+    return QUANTITY_INDICATORS.includes(canonical) && (stripped === canonical || stripped === `${canonical}s`);
 }
 function _is_alphabetic(token) {
-    return /^[a-zA-Z'"]+$/.test(token) && !QUANTITY_INDICATORS.some((indicator) => token.toLowerCase() === indicator);
+    const isAlpha = /^[a-zA-Z'"]+$/.test(token);
+    if (!isAlpha)
+        return false;
+    const cleaned = token.toLowerCase().replace(/[^a-z]/g, "");
+    if (Object.prototype.hasOwnProperty.call(simplify_quantity_indicator, cleaned))
+        return false;
+    return !QUANTITY_INDICATORS.some((indicator) => token.toLowerCase() === indicator);
 }
 async function main() {
     await refresh_lexicons();
     console.log(parse_product_data("Driscoll Strawberries 16oz, 2-pack"));
 }
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && /(?:^|[\\/])nlp\.(?:ts|js)$/.test(process.argv[1])) {
     void main();
 }
 //# sourceMappingURL=nlp.js.map

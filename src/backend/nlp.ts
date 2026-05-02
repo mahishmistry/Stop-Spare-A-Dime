@@ -3,56 +3,30 @@ import path from "path";
 import { createRequire } from "module";
 
 const localRequire = createRequire(path.resolve(process.cwd(), "package.json"));
-type NaturalLike = {
-  PorterStemmer: { stem: (word: string) => string };
-  NGrams: { ngrams: (tokens: string[], n: number) => string[][] };
-};
 
-function fallbackStem(word: string): string {
-  const lower = word.toLowerCase();
-  if (lower.endsWith("berries")) {
-    return `${lower.slice(0, -7)}berri`;
-  }
-  if (lower.endsWith("ies")) {
-    return `${lower.slice(0, -3)}i`;
-  }
-  if (lower.endsWith("ing") && lower.length > 5) {
-    return lower.slice(0, -3);
-  }
-  if (lower.endsWith("ed") && lower.length > 4) {
-    return lower.slice(0, -2);
-  }
-  if (lower.endsWith("es") && lower.length > 4) {
-    return lower.slice(0, -2);
-  }
-  if (lower.endsWith("s") && lower.length > 3) {
-    return lower.slice(0, -1);
-  }
-  return lower;
-}
-
-function fallbackNgrams(tokens: string[], n: number): string[][] {
-  if (n <= 0 || tokens.length < n) {
-    return [];
-  }
-
-  const result: string[][] = [];
-  for (let i = 0; i <= tokens.length - n; i++) {
-    result.push(tokens.slice(i, i + n));
-  }
-  return result;
-}
-
-let PorterStemmer: { stem: (word: string) => string } = { stem: fallbackStem };
-let NGrams: { ngrams: (tokens: string[], n: number) => string[][] } = { ngrams: fallbackNgrams };
+let PorterStemmer: any;
+let NGrams: any;
 
 try {
-  const naturalLib = localRequire("natural") as NaturalLike;
-  PorterStemmer = naturalLib.PorterStemmer;
-  NGrams = naturalLib.NGrams;
-} catch {
-  // Jest in this repo runs in CommonJS mode; some natural.js deps are ESM-only.
-  // Fallback keeps parse_product_data testable without changing the public API.
+  const natural = localRequire("natural");
+  PorterStemmer = natural.PorterStemmer;
+  NGrams = natural.NGrams;
+} catch (error) {
+  // Natural library has ESM-only dependencies (afinn-165) that fail in Jest's CommonJS.
+  // Fallback to minimal implementations for testing.
+  PorterStemmer = {
+    stem: (word: string) => word.toLowerCase().replace(/s$/, "")
+  };
+  NGrams = {
+    ngrams: (tokens: string[], n: number) => {
+      if (n <= 0 || tokens.length < n) return [];
+      const result = [];
+      for (let i = 0; i <= tokens.length - n; i++) {
+        result.push(tokens.slice(i, i + n));
+      }
+      return result;
+    }
+  };
 }
 
 const cjsDirname = typeof __dirname === "string" ? __dirname : undefined;
@@ -94,7 +68,69 @@ const tokenizer = {
   }
 };
 
-const QUANTITY_INDICATORS = ["oz", "g", "kg", "lb", "ml", "l", "pack", "count"];
+// Canonical simplified quantity indicators (all lowercase)
+const QUANTITY_INDICATORS = [
+  "oz",
+  "g",
+  "lb",
+  "l",
+  "quart",
+  "count"
+];
+
+// Map variations -> simplified canonical indicator (all lowercase)
+// Canonical targets: oz, g, lb, l, quart, count
+const simplify_quantity_indicator: Record<string, string> = {
+  // ounces
+  ounce: "oz",
+  ounces: "oz",
+  ozs: "oz",
+  oz: "oz",
+
+  // grams & kilograms -> canonical `g`
+  g: "g",
+  gram: "g",
+  grams: "g",
+  kg: "g",
+  kilogram: "g",
+  kilograms: "g",
+
+  // pounds -> canonical `lb`
+  lb: "lb",
+  lbs: "lb",
+  pound: "lb",
+  pounds: "lb",
+
+  // milliliters & liters -> canonical `l`
+  ml: "l",
+  milliliter: "l",
+  milliliters: "l",
+  l: "l",
+  liter: "l",
+  liters: "l",
+
+  // packaging / counts -> canonical `count`
+  pack: "count",
+  packs: "count",
+  count: "count",
+  counts: "count",
+  ct: "count",
+  pcs: "count",
+  pc: "count",
+  piece: "count",
+  pieces: "count",
+
+  // volume -> canonical `quart`
+  quart: "quart",
+  quarts: "quart",
+  gallon: "quart",
+  gallons: "quart",
+
+  // produce (treated as count)
+  root: "count",
+  roots: "count"
+};
+
 
 let brand_lexicon = _load_lexicon_csv("brand_names.csv");
 const packaging_lexicon = new Set(
@@ -233,14 +269,27 @@ function _extract_quantity_tokens(tokens: string[]): QuantityToken[] {
 
   for (let i = 0; i < tokens.length - 1; i++) {
     const current = tokens[i];
-    const next = tokens[i + 1];
-    if (!_is_numeric_only_token(current) || !_is_quantity_indicator_only_token(next)) {
+    if (!_is_numeric_only_token(current)) {
       continue;
     }
 
-    const numericValue = parseFloat(current);
-    const normalizedNext = next.toLowerCase().replace(/[^a-z]/g, "");
-    quantity_tokens.push({ value: numericValue, type: normalizedNext });
+    let matched = false;
+    for (let offset = 1; offset <= 2 && i + offset < tokens.length; offset++) {
+      const candidate = tokens[i + offset];
+      if (_is_quantity_indicator_only_token(candidate)) {
+        const normalizedVariant = candidate.toLowerCase().replace(/[^a-z]/g, "");
+        const canonical = _normalize_quantity_indicator(candidate);
+        const numericValue = parseFloat(current);
+        const converted = _convert_value_to_canonical(numericValue, normalizedVariant, canonical);
+        quantity_tokens.push({ value: converted.value, type: converted.type });
+        matched = true;
+        break;
+      }
+    }
+
+    if (!matched) {
+      continue;
+    }
   }
 
   return quantity_tokens;
@@ -248,17 +297,59 @@ function _extract_quantity_tokens(tokens: string[]): QuantityToken[] {
 
 function _get_quantity_value_and_type(token: string): QuantityToken | null {
   const lowerToken = token.toLowerCase();
-  if (!QUANTITY_INDICATORS.some((indicator) => lowerToken.includes(indicator)) || Number.isNaN(parseFloat(token))) {
-    return null;
+  if (Number.isNaN(parseFloat(token))) return null;
+
+  // find any known variant inside the token
+  const lower = lowerToken.replace(/[^a-z]/g, "");
+  let foundVariant: string | null = null;
+  const variants = Object.keys(simplify_quantity_indicator).sort((a, b) => b.length - a.length);
+  for (const variant of variants) {
+    if (lower.includes(variant)) {
+      foundVariant = variant;
+      break;
+    }
   }
 
-  const value = parseFloat(token);
-  const type = QUANTITY_INDICATORS.find((indicator) => lowerToken.includes(indicator));
-  if (!type) {
-    return null;
-  }
+  if (!foundVariant) return null;
 
-  return { value, type };
+  const rawValue = parseFloat(token);
+  const canonical = simplify_quantity_indicator[foundVariant] || _normalize_quantity_indicator(foundVariant);
+  const converted = _convert_value_to_canonical(rawValue, foundVariant, canonical);
+  return { value: converted.value, type: converted.type };
+}
+
+function _convert_value_to_canonical(value: number, originalVariant: string, canonical: string): { value: number; type: string } {
+  const v = value;
+  switch (canonical) {
+    case "g":
+      // kg -> g (handled by mapping where variant 'kg' -> 'g')
+      if (originalVariant === "kg" || originalVariant === "kilogram" || originalVariant === "kilograms") {
+        return { value: v * 1000, type: "g" };
+      }
+      // otherwise assume already grams
+      return { value: v, type: "g" };
+    case "l":
+      // ml -> l
+      if (originalVariant === "ml" || originalVariant === "milliliter" || originalVariant === "milliliters") {
+        return { value: v / 1000, type: "l" };
+      }
+      return { value: v, type: "l" };
+    case "quart":
+      // gallon -> quart
+      if (originalVariant === "gallon" || originalVariant === "gallons") {
+        return { value: v * 4, type: "quart" };
+      }
+      return { value: v, type: "quart" };
+    case "oz":
+      // keep ounces as-is
+      return { value: v, type: "oz" };
+    case "lb":
+      return { value: v, type: "lb" };
+    case "count":
+      return { value: v, type: "count" };
+    default:
+      return { value: v, type: canonical };
+  }
 }
 
 function _is_numeric_only_token(token: string): boolean {
@@ -267,13 +358,49 @@ function _is_numeric_only_token(token: string): boolean {
 }
 
 function _is_quantity_indicator_only_token(token: string): boolean {
-  const normalized = token.toLowerCase().replace(/[^a-z]/g, "");
+  const cleaned = token.toLowerCase().replace(/[^a-z]/g, "");
+  const canonical = _normalize_quantity_indicator(token);
   const stripped = token.toLowerCase().replace(/[^a-z0-9]/g, "");
-  return QUANTITY_INDICATORS.includes(normalized) && stripped === normalized;
+  // If the cleaned token is a known variant or maps to a canonical indicator, accept it
+  if (Object.prototype.hasOwnProperty.call(simplify_quantity_indicator, cleaned)) return QUANTITY_INDICATORS.includes(canonical);
+  return QUANTITY_INDICATORS.includes(canonical) && (stripped === canonical || stripped === `${canonical}s`);
+}
+
+function _normalize_quantity_indicator(token: string): string {
+  const cleaned = token.toLowerCase().replace(/[^a-z]/g, "");
+
+  if (cleaned.length === 0) return cleaned;
+
+  // If there's a direct mapping for the cleaned token, return the canonical form
+  if (Object.prototype.hasOwnProperty.call(simplify_quantity_indicator, cleaned)) {
+    return simplify_quantity_indicator[cleaned];
+  }
+
+  // If cleaned is plural (ends with 's'), try stripping and mapping
+  if (cleaned.endsWith("s") && cleaned.length > 1) {
+    const singular = cleaned.slice(0, -1);
+    if (Object.prototype.hasOwnProperty.call(simplify_quantity_indicator, singular)) {
+      return simplify_quantity_indicator[singular];
+    }
+    if (QUANTITY_INDICATORS.includes(singular)) {
+      return singular;
+    }
+  }
+
+  // Fallback: if cleaned already matches a canonical indicator, return it
+  if (QUANTITY_INDICATORS.includes(cleaned)) {
+    return cleaned;
+  }
+
+  return cleaned;
 }
 
 function _is_alphabetic(token: string): boolean {
-  return /^[a-zA-Z'"]+$/.test(token) && !QUANTITY_INDICATORS.some((indicator) => token.toLowerCase() === indicator);
+  const isAlpha = /^[a-zA-Z'"]+$/.test(token);
+  if (!isAlpha) return false;
+  const cleaned = token.toLowerCase().replace(/[^a-z]/g, "");
+  if (Object.prototype.hasOwnProperty.call(simplify_quantity_indicator, cleaned)) return false;
+  return !QUANTITY_INDICATORS.some((indicator) => token.toLowerCase() === indicator);
 }
 
 async function main(): Promise<void> {
