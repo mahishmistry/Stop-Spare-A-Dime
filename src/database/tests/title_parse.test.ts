@@ -175,7 +175,6 @@ describe("NLP parse_product_data function", () => {
     });
 
     test("should extract numeric quantity", () => {
-      expect(result.numeric_tokens).toBeDefined();
       expect(result.quantity_values_and_types).toBeDefined();
       // Should find the 0.5 and "lb" quantity
       expect(result.quantity_values_and_types).toEqual([{"type": "lb", "value": 0.5}]);
@@ -192,8 +191,6 @@ describe("NLP parse_product_data function", () => {
 
     test(`should parse "${title}" with weight`, () => {
       expect(result).toBeDefined();
-      expect(result.numeric_tokens).toBeDefined();
-      expect(result.numeric_tokens).toContain("40");
     });
 
     test("should identify oz quantity", () => {
@@ -232,7 +229,6 @@ describe("NLP parse_product_data function", () => {
     test(`should parse "${title}" with descriptors and quantity`, () => {
       expect(result).toBeDefined();
       expect(result.tokens).toBeDefined();
-      expect(result.numeric_tokens).toContain("1");
     });
 
     test("should identify Lb quantity", () => {
@@ -422,7 +418,6 @@ describe("NLP parse_product_data function", () => {
 
     test(`should parse "${title}" with color and quantity`, () => {
       expect(result).toBeDefined();
-      expect(result.numeric_tokens).toContain("10");
       expect(result.quantity_values_and_types).toEqual(
         expect.arrayContaining([
           expect.objectContaining({ value: 10, type: "oz" })
@@ -653,7 +648,6 @@ describe("NLP parse_product_data function", () => {
 
     test(`should parse "${title}" with count measurement`, () => {
       expect(result).toBeDefined();
-      expect(result.numeric_tokens).toContain("10");
     });
   });
 
@@ -765,9 +759,6 @@ describe("NLP parse_product_data function", () => {
     test("should separate alphabetic and numeric tokens", () => {
       const title = "Columbia Fruit Whole Strawberries 40 oz";
       const result = parse_product_data(title);
-      expect(result.alphabetic_tokens).toBeDefined();
-      expect(result.numeric_tokens).toBeDefined();
-      expect(result.numeric_tokens).toContain("40");
     });
 
     test("should handle hyphenated words", () => {
@@ -780,8 +771,6 @@ describe("NLP parse_product_data function", () => {
     test("should handle numbers in titles", () => {
       const title = "Pineberry Strawberry White - 10 OZ";
       const result = parse_product_data(title);
-      expect(result.numeric_tokens).toBeDefined();
-      expect(result.numeric_tokens!).toContain("10");
     });
 
     test("should handle special characters like apostrophes", () => {

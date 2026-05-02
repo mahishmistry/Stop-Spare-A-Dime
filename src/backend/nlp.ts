@@ -2,6 +2,40 @@ import fs from "fs";
 import path from "path";
 import { createRequire } from "module";
 
+
+interface QuantityToken {
+  value: number;
+  type: string;
+}
+
+// Example output of parse_product_data:
+// {
+//   tokens: ["Driscoll", "Strawberries", "16oz,", "2-pack"],
+//   stemmed_product_name: "Strawberri",
+//   brand_names: ["Driscoll"],
+//   quantity_values_and_types: [
+//     { value: 16, type: "oz" },
+//     { value: 2, type: "count" }
+//   ]
+// }
+
+export interface ParsedProductData {
+  tokens?: string[];
+  stemmed_product_name?: string;
+  brand_names?: string[];
+  quantity_values_and_types?: QuantityToken[];
+}
+
+// Canonical simplified quantity indicators (all lowercase). Variants will be mapped to these canonical forms.
+const QUANTITY_INDICATORS = [
+  "oz",
+  "g",
+  "lb",
+  "l",
+  "quart",
+  "count"
+];
+
 const localRequire = createRequire(path.resolve(process.cwd(), "package.json"));
 
 let PorterStemmer: any;
@@ -48,87 +82,35 @@ function resolveBackendAssetPath(fileName: string): string {
   throw new Error(`Unable to locate NLP asset file: ${fileName}`);
 }
 
-interface QuantityToken {
-  value: number;
-  type: string;
-}
-
-export interface ParsedProductData {
-  tokens?: string[];
-  numeric_tokens?: string[];
-  alphabetic_tokens?: string[];
-  stemmed_product_name?: string;
-  brand_names?: string[];
-  quantity_values_and_types?: QuantityToken[];
-}
-
 const tokenizer = {
   tokenize(text: string): string[] {
     return text.split(/\s+/).filter((token) => token.length > 0);
   }
 };
 
-// Canonical simplified quantity indicators (all lowercase)
-const QUANTITY_INDICATORS = [
-  "oz",
-  "g",
-  "lb",
-  "l",
-  "quart",
-  "count"
-];
-
 // Map variations -> simplified canonical indicator (all lowercase)
 // Canonical targets: oz, g, lb, l, quart, count
 const simplify_quantity_indicator: Record<string, string> = {
   // ounces
-  ounce: "oz",
-  ounces: "oz",
-  ozs: "oz",
-  oz: "oz",
+  ounce: "oz", ounces: "oz", ozs: "oz", oz: "oz",
 
   // grams & kilograms -> canonical `g`
-  g: "g",
-  gram: "g",
-  grams: "g",
-  kg: "g",
-  kilogram: "g",
-  kilograms: "g",
+  g: "g", gram: "g", grams: "g", kg: "g", kilogram: "g", kilograms: "g",
 
   // pounds -> canonical `lb`
-  lb: "lb",
-  lbs: "lb",
-  pound: "lb",
-  pounds: "lb",
+  lb: "lb", lbs: "lb", pound: "lb", pounds: "lb",
 
   // milliliters & liters -> canonical `l`
-  ml: "l",
-  milliliter: "l",
-  milliliters: "l",
-  l: "l",
-  liter: "l",
-  liters: "l",
+  ml: "l", milliliter: "l", milliliters: "l", l: "l", liter: "l", liters: "l",
 
   // packaging / counts -> canonical `count`
-  pack: "count",
-  packs: "count",
-  count: "count",
-  counts: "count",
-  ct: "count",
-  pcs: "count",
-  pc: "count",
-  piece: "count",
-  pieces: "count",
+  pack: "count", packs: "count", count: "count", counts: "count", ct: "count", pcs: "count", pc: "count", piece: "count", pieces: "count",
 
   // volume -> canonical `quart`
-  quart: "quart",
-  quarts: "quart",
-  gallon: "quart",
-  gallons: "quart",
+  quart: "quart", quarts: "quart", gallon: "quart", gallons: "quart",
 
   // produce (treated as count)
-  root: "count",
-  roots: "count"
+  root: "count", roots: "count"
 };
 
 
@@ -203,24 +185,25 @@ export function parse_product_data(title: string): ParsedProductData {
   const tokens = tokenizer.tokenize(title);
 
   if (tokens.length === 0) {
-    return {};
+    return {}; // No tokens to process, return empty result
   }
 
   if (tokens.length === 1) {
     const singleToken = tokens[0];
     const stemmed_product_name = PorterStemmer.stem(singleToken);
-    return {
+    return { // For single-token titles, we can only reliably extract the stemmed product name.
       tokens,
       stemmed_product_name
     };
   }
 
-  const numeric_tokens = tokens.filter((token) => !Number.isNaN(parseFloat(token)));
   const alphabetic_tokens = tokens.filter((token) => _is_alphabetic(token));
 
-  const brand_tokens =[tokens[0]];
-  const non_brand_tokens = tokens.slice(1);
+  const brand_tokens =[alphabetic_tokens[0]]; // Assume the alphabetic first token is the brand name.
+  const non_brand_tokens = alphabetic_tokens.slice(1); // The rest of the alphabetic tokens are considered part of the product name.
 
+
+  // Stem the non-brand tokens and filter out any that are packaging-related, as they don't contribute to the core product identity.
   const stemmed_non_brand_tokens = non_brand_tokens
     .map((token) => PorterStemmer.stem(token))
     .filter((token) => !packaging_lexicon.has(token.toLowerCase()));
@@ -230,35 +213,10 @@ export function parse_product_data(title: string): ParsedProductData {
 
   return {
     tokens,
-    numeric_tokens,
-    alphabetic_tokens,
     stemmed_product_name,
     brand_names: brand_tokens,
     quantity_values_and_types: quantity_tokens
   };
-}
-
-function _find_brand_names(tokens: string[], maxN: number): { brand_names: string[]; non_brand_tokens: string[] } {
-  const cleaned = tokens.map((t) => t.replace(/[^\w'\-]/g, "").toLowerCase());
-  const matchedIndices = new Set<number>();
-  const brand_names: string[] = [];
-
-  for (let n = Math.min(maxN, cleaned.length); n >= 1; n--) {
-    const ngrams = NGrams.ngrams(cleaned, n);
-    for (let i = 0; i < ngrams.length; i++) {
-      const gram = ngrams[i];
-      const phrase = gram.join(" ").trim();
-      if (brand_lexicon.includes(phrase)) {
-        brand_names.push(phrase);
-        for (let j = 0; j < n; j++) {
-          matchedIndices.add(i + j);
-        }
-      }
-    }
-  }
-
-  const non_brand_tokens = tokens.filter((_, idx) => !matchedIndices.has(idx));
-  return { brand_names, non_brand_tokens };
 }
 
 function _extract_quantity_tokens(tokens: string[]): QuantityToken[] {
@@ -403,10 +361,8 @@ function _is_alphabetic(token: string): boolean {
 }
 
 async function main(): Promise<void> {
-  await refresh_lexicons();
+  // await refresh_lexicons();
   console.log(parse_product_data("Driscoll Strawberries 16oz, 2-pack"));
 }
 
-if (process.argv[1] && /(?:^|[\\/])nlp\.(?:ts|js)$/.test(process.argv[1])) {
-  void main();
-}
+void main();
