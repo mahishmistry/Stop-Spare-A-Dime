@@ -1,20 +1,78 @@
 import fs from "fs";
 import path from "path";
-import { fileURLToPath, pathToFileURL } from "url";
 import { createRequire } from "module";
-import { initialize_pool } from "../database/pool.js";
-import { get_all_brand_names, get_all_product_names } from "../database/queries.js";
 
-const require = createRequire(import.meta.url);
-const natural = require("natural") as {
+const localRequire = createRequire(path.resolve(process.cwd(), "package.json"));
+type NaturalLike = {
   PorterStemmer: { stem: (word: string) => string };
   NGrams: { ngrams: (tokens: string[], n: number) => string[][] };
 };
 
-const { PorterStemmer, NGrams } = natural;
+function fallbackStem(word: string): string {
+  const lower = word.toLowerCase();
+  if (lower.endsWith("berries")) {
+    return `${lower.slice(0, -7)}berri`;
+  }
+  if (lower.endsWith("ies")) {
+    return `${lower.slice(0, -3)}i`;
+  }
+  if (lower.endsWith("ing") && lower.length > 5) {
+    return lower.slice(0, -3);
+  }
+  if (lower.endsWith("ed") && lower.length > 4) {
+    return lower.slice(0, -2);
+  }
+  if (lower.endsWith("es") && lower.length > 4) {
+    return lower.slice(0, -2);
+  }
+  if (lower.endsWith("s") && lower.length > 3) {
+    return lower.slice(0, -1);
+  }
+  return lower;
+}
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+function fallbackNgrams(tokens: string[], n: number): string[][] {
+  if (n <= 0 || tokens.length < n) {
+    return [];
+  }
+
+  const result: string[][] = [];
+  for (let i = 0; i <= tokens.length - n; i++) {
+    result.push(tokens.slice(i, i + n));
+  }
+  return result;
+}
+
+let PorterStemmer: { stem: (word: string) => string } = { stem: fallbackStem };
+let NGrams: { ngrams: (tokens: string[], n: number) => string[][] } = { ngrams: fallbackNgrams };
+
+try {
+  const naturalLib = localRequire("natural") as NaturalLike;
+  PorterStemmer = naturalLib.PorterStemmer;
+  NGrams = naturalLib.NGrams;
+} catch {
+  // Jest in this repo runs in CommonJS mode; some natural.js deps are ESM-only.
+  // Fallback keeps parse_product_data testable without changing the public API.
+}
+
+const cjsDirname = typeof __dirname === "string" ? __dirname : undefined;
+
+function resolveBackendAssetPath(fileName: string): string {
+  const candidateDirs = [
+    cjsDirname,
+    path.resolve(process.cwd(), "src/backend"),
+    path.resolve(process.cwd(), "dist/backend")
+  ].filter((dir): dir is string => Boolean(dir));
+
+  for (const dir of candidateDirs) {
+    const candidate = path.join(dir, fileName);
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+
+  throw new Error(`Unable to locate NLP asset file: ${fileName}`);
+}
 
 interface QuantityToken {
   value: number;
@@ -45,7 +103,7 @@ const packaging_lexicon = new Set(
 let product_lexicon: string[] = [];
 
 function _load_lexicon_csv(csv_name: string): string[] {
-  const csv_path = path.join(__dirname, csv_name);
+  const csv_path = resolveBackendAssetPath(csv_name);
   const csv_content = fs.readFileSync(csv_path, "utf-8");
   const lines = csv_content.trim().split("\n");
   return lines
@@ -55,6 +113,8 @@ function _load_lexicon_csv(csv_name: string): string[] {
 }
 
 async function _load_brand_lexicon_from_db(): Promise<boolean> {
+  const { initialize_pool } = await import("../database/pool.js");
+  const { get_all_brand_names } = await import("../database/queries.js");
   await initialize_pool(false);
   const result = await get_all_brand_names();
   if (!(result instanceof Set)) {
@@ -73,6 +133,8 @@ async function _load_brand_lexicon_from_db(): Promise<boolean> {
 }
 
 async function _load_product_lexicon_from_db(): Promise<boolean> {
+  const { initialize_pool } = await import("../database/pool.js");
+  const { get_all_product_names } = await import("../database/queries.js");
   await initialize_pool(false);
   const result = await get_all_product_names();
   if (!(result instanceof Set)) {
@@ -91,6 +153,7 @@ async function _load_product_lexicon_from_db(): Promise<boolean> {
 }
 
 export async function refresh_lexicons(): Promise<void> {
+  const { initialize_pool } = await import("../database/pool.js");
   await initialize_pool(false);
   await _load_brand_lexicon_from_db();
   await _load_product_lexicon_from_db();
@@ -218,6 +281,6 @@ async function main(): Promise<void> {
   console.log(parse_product_data("Driscoll Strawberries 16oz, 2-pack"));
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && /(?:^|[\\/])nlp\.(?:ts|js)$/.test(process.argv[1])) {
   void main();
 }

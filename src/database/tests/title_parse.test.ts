@@ -3,10 +3,6 @@
  * Tests parsing of all product titles from strawberries-google-shopping.json
  */
 
-
-
-import { truncate_tables, close_pool } from "./test_helpers.js";
-import { initialize_pool, pool } from "../pool.js";
 import { parse_product_data } from "../../backend/nlp.js";
 
 
@@ -66,23 +62,12 @@ interface ParsedProductData {
   quantity_values_and_types?: Array<{ value: number; type: string }>;
 }
 
-beforeAll(async () => {
-  await initialize_pool(true);
-});
-
-beforeEach(async () => {
-  await truncate_tables();
-});
-
-afterAll(async () => {
-  await close_pool();
-});
-
 describe("NLP parse_product_data function", () => {
   describe("Basic functionality", () => {
     test("should return an object", () => {
       const title = "Strawberries";
       const result = parse_product_data(title);
+      console.log("Parsed result for 'Strawberries':", result);
       expect(result).toBeDefined();
       expect(typeof result).toBe("object");
     });
@@ -748,7 +733,7 @@ describe("NLP parse_product_data function", () => {
       const result = parse_product_data(title);
       expect(result.tokens).toBeDefined();
       expect(Array.isArray(result.tokens)).toBe(true);
-      expect(result.tokens.length).toBeGreaterThan(0);
+      expect(result.tokens!.length).toBeGreaterThan(0);
     });
 
     test("should separate alphabetic and numeric tokens", () => {
@@ -763,35 +748,35 @@ describe("NLP parse_product_data function", () => {
       const title = "Strawberries Long Stem Prepacked - 1 Lb";
       const result = parse_product_data(title);
       expect(result.tokens).toBeDefined();
-      expect(result.tokens.length).toBeGreaterThan(0);
+      expect(result.tokens!.length).toBeGreaterThan(0);
     });
 
     test("should handle numbers in titles", () => {
       const title = "Pineberry Strawberry White - 10 OZ";
       const result = parse_product_data(title);
       expect(result.numeric_tokens).toBeDefined();
-      expect(result.numeric_tokens).toContain("10");
+      expect(result.numeric_tokens!).toContain("10");
     });
 
     test("should handle special characters like apostrophes", () => {
       const title = "Driscoll's Organic Strawberries";
       const result = parse_product_data(title);
       expect(result.tokens).toBeDefined();
-      expect(result.tokens.length).toBeGreaterThan(0);
+      expect(result.tokens!.length).toBeGreaterThan(0);
     });
 
     test("should handle pipe separators in long titles", () => {
       const title = "Gourmet Drizzled Strawberries | Full Dozen | Perfect for Any Occasion | Shari's Berries";
       const result = parse_product_data(title);
       expect(result.tokens).toBeDefined();
-      expect(result.tokens.length).toBeGreaterThan(0);
+      expect(result.tokens!.length).toBeGreaterThan(0);
     });
 
     test("should handle ampersands", () => {
       const title = "Harry & David Organic Strawberries";
       const result = parse_product_data(title);
       expect(result.tokens).toBeDefined();
-      expect(result.tokens.length).toBeGreaterThan(0);
+      expect(result.tokens!.length).toBeGreaterThan(0);
     });
 
     test("should parse all 40 test titles", () => {
@@ -816,7 +801,7 @@ describe("NLP parse_product_data function", () => {
       const title = "Columbia Fruit Whole Strawberries 40 oz";
       const result = parse_product_data(title);
       expect(result.quantity_values_and_types).toBeDefined();
-      const hasOz = result.quantity_values_and_types.some((q: any) => q.type === "oz");
+      const hasOz = result.quantity_values_and_types!.some((q: any) => q.type === "oz");
       expect(hasOz).toBe(true);
     });
 
@@ -824,7 +809,7 @@ describe("NLP parse_product_data function", () => {
       const title = "Strawberries Long Stem Prepacked - 1 Lb";
       const result = parse_product_data(title);
       expect(result.quantity_values_and_types).toBeDefined();
-      const hasLb = result.quantity_values_and_types.some((q: any) => q.type === "lb");
+      const hasLb = result.quantity_values_and_types!.some((q: any) => q.type === "lb");
       expect(hasLb).toBe(true);
     });
 
@@ -846,7 +831,7 @@ describe("NLP parse_product_data function", () => {
       const title = "Fresh Strawberries 1 lb. - 8/Case";
       const result = parse_product_data(title);
       expect(result.numeric_tokens).toBeDefined();
-      expect(result.numeric_tokens.length).toBeGreaterThanOrEqual(2);
+      expect(result.numeric_tokens!.length).toBeGreaterThanOrEqual(2);
     });
   });
 
