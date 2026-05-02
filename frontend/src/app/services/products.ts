@@ -5,6 +5,34 @@ const API_BASE_URL =
 
 export type CompareSort = "price" | "rating" | "bang for buck";
 
+export async function registerCurrentUser() {
+  const token = await auth.currentUser?.getIdToken();
+  const user = auth.currentUser;
+
+  if (!token || !user?.email) {
+    throw new Error("No Firebase user to register");
+  }
+
+  const res = await fetch(`${API_BASE_URL}/api/user/register`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      email: user.email,
+      name: user.displayName || user.email,
+    }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Failed to register user: ${res.status} ${text}`);
+  }
+
+  return await res.json();
+}
+
 function normalizeProduct(item: any, index: number) {
   return {
     id: item.product_id || item.id || String(index),
@@ -14,36 +42,59 @@ function normalizeProduct(item: any, index: number) {
     image: item.thumbnail || item.image || "",
     unitPrice: item.price || "",
     snapEligible: item.snapEligible ?? true,
-    loyaltyProgramIndicator: item.loyaltyProgramIndicator ?? false,
+  };
+}
+async function getAuthHeaders() {
+  const token = await auth.currentUser?.getIdToken();
+
+  if (!token) {
+    throw new Error("No Firebase user token found");
+  }
+
+  return {
+    Authorization: `Bearer ${token}`,
   };
 }
 
-export async function getComparedProducts(
+export async function searchAndCompareProducts(
+  product: string,
   criteria: CompareSort = "price",
-  k: number = 20
+  k: number = 20,
+  zipCode?: string
 ) {
-  const url = new URL(`${API_BASE_URL}/api/compare`);
-  url.searchParams.set("criteria", criteria);
-  url.searchParams.set("k", String(k));
+  if (!product.trim()) return [];
 
-  const token = await auth.currentUser?.getIdToken();
-  // another debugger we can remove after
-  alert("Firebase user: " + auth.currentUser?.email);
+  const headers = await getAuthHeaders();
 
+  const pricesUrl = new URL(`${API_BASE_URL}/api/prices`);
+  pricesUrl.searchParams.set("product", product);
+  if (zipCode) pricesUrl.searchParams.set("zipCode", zipCode);
 
-
-  const res = await fetch(url.toString(), {
+  const pricesRes = await fetch(pricesUrl.toString(), {
     method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    headers,
   });
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch compared products");
+  if (!pricesRes.ok) {
+    throw new Error(`Failed to search products: ${pricesRes.status}`);
   }
 
-  const data = await res.json();
+  const compareUrl = new URL(`${API_BASE_URL}/api/compare`);
+  compareUrl.searchParams.set("product", product);
+  compareUrl.searchParams.set("criteria", criteria);
+  compareUrl.searchParams.set("k", String(k));
+  if (zipCode) compareUrl.searchParams.set("zipCode", zipCode);
+
+  const compareRes = await fetch(compareUrl.toString(), {
+    method: "GET",
+    headers,
+  });
+
+  if (!compareRes.ok) {
+    throw new Error(`Failed to compare products: ${compareRes.status}`);
+  }
+
+  const data = await compareRes.json();
 
   return Array.isArray(data)
     ? data.map(normalizeProduct)

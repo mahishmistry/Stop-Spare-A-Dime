@@ -7,7 +7,7 @@ import { SearchResultsPage } from "./components/SearchResultsPage.tsx";
 import { SettingsPage } from "./components/SettingsPage.tsx";
 import { HistoryPage } from "./components/HistoryPage.tsx"
 import React from "react";
-import { getComparedProducts } from "./services/products.ts";
+import { searchAndCompareProducts } from "./services/products.ts";
 
 // all possible pages to access: home , search results, item comparison details,
 type View = 'home' | 'search' | 'item' | 'settings' | 'login' | 'history';
@@ -225,7 +225,7 @@ export default function App() {
 
     try {
       console.log("Calling backend...");
-      const backendResults = await getComparedProducts("price", 20);
+      const backendResults = await searchAndCompareProducts(query,"price", 20);
       console.log("Backend results:", backendResults);
 
       setSearchResults(backendResults);

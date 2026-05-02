@@ -1,6 +1,16 @@
 import { useState } from 'react';
 import { Eye, EyeOff } from "lucide-react"; // https://lucide.dev/icons/?search=eye
 import React from 'react';
+// added these imports to make fire base connect and real login
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  updateProfile,
+} from "firebase/auth";
+import { auth } from "../services/auth";
+import { registerCurrentUser } from "../services/products";
 
 interface LoginPageProps {
   onLogin: () => void; // if login succeeds -- authenticated and no longer show login page
@@ -16,11 +26,12 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  // changed this handleSUBMIT to connect to firebase/database
   // login logic and catching sign up errors to print
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setError('');
-
+    try{
     if (isSignUp) { // prints custom errors for sign up if any
       if (password !== confirmPassword) {
         setError('Passwords do not match.');
@@ -30,18 +41,43 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
         setError('Password must be at least 8 characters.');
         return;
       }
-      // sign up — replace with real API call later
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      await updateProfile(userCredential.user, {
+        displayName: name,
+      });
+      await registerCurrentUser();
       onLogin();
-    } else { // logging in.
-      // login — replace with real API call later
+    } else {
+      await signInWithEmailAndPassword(auth, email, password);
+      await registerCurrentUser();
       onLogin();
     }
-  };
+  } catch (err: any){
+    console.error("Sign up failed: ", err);
+    setError(err.message || "Login Failed.");
+  }
+};
 
-  const handleGoogleLogin = () => {
+
+  const handleGoogleLogin = async () => {
     // Google login — replace with real OAuth later
-    onLogin();
-  };
+    try {
+      setError('');
+
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+
+      await registerCurrentUser();
+      onLogin();
+    } catch (err: any) {
+      console.error("Google login failed:", err);
+      setError(err.message || "Google login failed.");
+    }
+};
 
   // switch and clear info for switching between login/signup
   const switchMode = () => {

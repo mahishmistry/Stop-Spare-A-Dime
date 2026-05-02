@@ -5,19 +5,54 @@ const { query, body, validationResult } = require('express-validator');
 const { getJson } = require('serpapi');
 const { getBestItems, getItemById } = require('./comparison.cjs');
 const { get_cached_search, set_cached_search } = require('../database/queries.ts');
-const { create_user_context } = require('../database/user.ts');
-
+const { create_user_context, create_new_user } = require('../database/user.ts');
+// change on line 8 adding import for adding user! 
+const { initialize_pool } = require('../database/pool.ts'); // need to connect database for users
 const verifyToken = require("../../middleware/verifyToken.cjs");
 const app = express();
 const PORT = process.env.PORT || 3000;
+const cors = require('cors')
 
 app.use(helmet());
 app.use(express.json());
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true,
+}));
+// run npm install cors
+// these lines above + line 13 helps the browser front end connect to backend requests 
+
+
 
 const searchHistory = [];
 
 const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+// this route is adding user to database if they do not exist 
+app.post('/api/user/register', verifyToken, async (req, res) => {
+  try {
+    const email = req.user.email;
+    const name = req.body.name || req.user.name || email;
 
+    if (!email) {
+      return res.status(400).json({ error: "Missing user email" });
+    }
+
+    let userContext = await create_user_context(email);
+
+    if (!userContext) {
+      await create_new_user(email, name);
+      userContext = await create_user_context(email);
+    }
+
+    res.json({
+      message: "User registered",
+      email,
+    });
+  } catch (err) {
+    console.error("User registration error:", err);
+    res.status(500).json({ error: "Failed to register user" });
+  }
+});
 /**
  * Main endpoint for fetching grocery prices.
  * Queries SerpApi or directly loads cached 24h data from the PostgreSQL database.
@@ -298,7 +333,14 @@ app.get('/api/item/:item_id',
       res.status(500).json({ error: "Failed to fetch item." });
     }
 });
-
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// replaced old app.listen to initalize pool (database connect)
+initialize_pool(true)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to initialize database pool:", err);
+    process.exit(1);
+  });
