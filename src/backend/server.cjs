@@ -6,10 +6,14 @@ const { getJson } = require('serpapi');
 const { getBestItems, getItemById } = require('./comparison.cjs');
 const { get_cached_search, set_cached_search } = require('../database/queries.ts');
 const { create_user_context } = require('../database/user.ts');
+const { initialize_pool } = require('../database/pool.ts');
 
 const verifyToken = require("../../middleware/verifyToken.cjs");
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Initialize database pool
+initialize_pool(process.env.NODE_ENV === 'test').catch(console.error);
 
 app.use(helmet());
 app.use(express.json());
@@ -227,22 +231,24 @@ app.get('/api/block', verifyToken, async (req, res) => {
  * 
  * @name GET /api/compare (protected)
  * @function
- * @param {string} [req.query.criteria] - Filter structure dictating best sorting values ("price", "rating", or "bang for buck" defaults to 'price').
+ * @param {string} req.query.product - The product name to retrieve cached items for.
+ * @param {string} [req.query.zipCode] - Optional ZIP Code.
+ * @param {string} [req.query.criteria] - Filter structure dictating best sorting values (defaults to 'price').
  * @param {number} [req.query.k] - An optional limiting parameters dictating returned items maximum map array length limit.
  * @returns {Array<Object>} Sorted payload map array of items strictly passing through the algorithm.
  */
-app.get('/api/compare', verifyToken, 
+app.get('/api/compare', verifyToken,
   query('product').isString().trim().escape().notEmpty(),
   query('zipCode').optional().isPostalCode('US'),
   async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
 
-  const { product, zipCode } = req.query;
-  const location = zipCode || "United States";
-  const cacheKey = `${product.toLowerCase().trim()}-${location}`;
+    const { product, zipCode } = req.query;
+    const location = zipCode || "United States";
+    const cacheKey = `${product.toLowerCase().trim()}-${location}`;
 
   try {
     const cachedEntry = await get_cached_search(cacheKey);
@@ -256,7 +262,7 @@ app.get('/api/compare', verifyToken,
     if (userContext) {
       userBlockedStores = await userContext.get_blacklisted_stores();
     }
-    getBestItems(req, res, items, userBlockedStores);
+    getBestItems(items, req, res, userBlockedStores);
   } catch (err) {
     console.error("Comparison Error:", err);
     res.status(500).json({ error: "Failed to compare items." });
@@ -270,15 +276,17 @@ app.get('/api/compare', verifyToken,
  * @name GET /api/item/:item_id
  * @function
  * @param {string} req.params.item_id - The strict alphanumeric URL route parameter literal mapping to an item identifier tag.
+ * @param {string} req.query.product - The product name to retrieve cached items for.
+ * @param {string} [req.query.zipCode] - Optional ZIP Code.
  * @returns {Object} JSON payload directly mimicking the exact raw `shopping_results` property map structure object for given item tag.
  */
-app.get('/api/item/:item_id', 
+app.get('/api/item/:item_id',
   query('product').isString().trim().escape().notEmpty(),
   query('zipCode').optional().isPostalCode('US'),
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     const { product, zipCode } = req.query;
@@ -286,16 +294,16 @@ app.get('/api/item/:item_id',
     const cacheKey = `${product.toLowerCase().trim()}-${location}`;
 
     try {
-      const cachedEntry = await get_cached_search(cacheKey);
-      if (!cachedEntry) {
-          return res.status(404).json({ error: "Product search results not found in cache." });
-      }
-      const items = cachedEntry.results;
-
-      getItemById(req, res, items);
+        const cachedEntry = await get_cached_search(cacheKey);
+        if (!cachedEntry) {
+            return res.status(404).json({ error: "Product search results not found in cache." });
+        }
+        const items = cachedEntry.results;
+        
+        getItemById(items, req, res);
     } catch (err) {
-      console.error("Item Fetch Error:", err);
-      res.status(500).json({ error: "Failed to fetch item." });
+        console.error("Item Fetch Error:", err);
+        res.status(500).json({ error: "Failed to fetch item." });
     }
 });
 
