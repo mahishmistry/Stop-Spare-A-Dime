@@ -237,7 +237,7 @@ async function create_user_context(user_info: number | string): Promise<UserCont
     
     const req = await pool.query("SELECT EXISTS(SELECT 1 FROM users WHERE user_id = $1) as user_exists", [user_id]);
     
-    console.log("User existence check result for user_id", user_id, ":", req.rows[0].user_exists);
+    //console.log("User existence check result for user_id", user_id, ":", req.rows[0].user_exists);
 
     if (!req.rows[0].user_exists) {return null}; // If the user doesn't exist, return no context
 
@@ -304,14 +304,14 @@ function _user_context_object(user_id: number, display_name: string, user_email:
         if (typeof brand === "number") {
             brand_id = brand;
         } else {
-            console.log("Getting brand ID for brand name:", brand);
+            //console.log("Getting brand ID for brand name:", brand);
             const resolved_brand_id = await _get_brand_id_from_name(brand);
 
             if (resolved_brand_id === null) {
                 return false; // No brand with the given name exists
             }
 
-            console.log("Brand ID for brand name", brand, "is", resolved_brand_id);
+            //console.log("Brand ID for brand name", brand, "is", resolved_brand_id);
             brand_id = resolved_brand_id;
         }
 
@@ -329,14 +329,14 @@ function _user_context_object(user_id: number, display_name: string, user_email:
         if (typeof brand === "number") {
             brand_id = brand;
         } else {
-            console.log("Getting brand ID for brand name:", brand);
+            //console.log("Getting brand ID for brand name:", brand);
             const resolved_brand_id = await _get_brand_id_from_name(brand);
 
             if (resolved_brand_id === null) {
                 return false; // No brand with the given name exists
             }
 
-            console.log("Brand ID for brand name", brand, "is", resolved_brand_id);
+            //console.log("Brand ID for brand name", brand, "is", resolved_brand_id);
             brand_id = resolved_brand_id;
         }
 
@@ -364,14 +364,14 @@ function _user_context_object(user_id: number, display_name: string, user_email:
         if (typeof product === "number") {
             product_id = product;
         } else {
-            console.log("Getting product ID for product name:", product);
+            //console.log("Getting product ID for product name:", product);
             const resolved_product_id = await _get_product_id_from_name(product);
 
             if (resolved_product_id === null) {
                 return false; // No product with the given name exists
             }
             
-            console.log("Product ID for product name", product, "is", resolved_product_id);
+            //console.log("Product ID for product name", product, "is", resolved_product_id);
             product_id = resolved_product_id;
         }
 
@@ -393,7 +393,7 @@ function _user_context_object(user_id: number, display_name: string, user_email:
                 return false; // No product with the given name exists
             }
 
-            console.log("Product ID for product name", product, "is", resolved_product_id);
+            //console.log("Product ID for product name", product, "is", resolved_product_id);
             product_id = resolved_product_id;
         }
 

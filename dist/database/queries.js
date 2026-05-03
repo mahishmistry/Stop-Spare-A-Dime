@@ -339,4 +339,49 @@ export async function get_deal_by_id(deal_id) {
     return result.rows[0] ?? null;
 }
 ;
+/**
+ * Fetches all brand names from the brands table.
+ * @returns A Promise that resolves to a Set of all brand names.
+ */
+export async function get_all_brand_names() {
+    const result = await pool.query(`SELECT name
+        FROM brands
+        ORDER BY name;`);
+    return new Set(result.rows.map((row) => row.name));
+}
+;
+/**
+ * Fetches all product names from the products table.
+ * @returns A Promise that resolves to a Set of all product names.
+ */
+export async function get_all_product_names() {
+    const result = await pool.query(`SELECT name
+        FROM products
+        ORDER BY name;`);
+    return new Set(result.rows.map((row) => row.name));
+}
+;
+/**
+ * Retrieves a cached search result if it exists.
+ * @param query_key The unique key for the search query (e.g., 'product-location').
+ */
+export async function get_cached_search(query_key) {
+    const result = await pool.query(`SELECT results, last_fetched
+         FROM search_cache
+         WHERE query_key = $1;`, [query_key]);
+    return result.rows[0] ?? null;
+}
+/**
+ * Saves or updates a search result in the cache.
+ * @param query_key The unique key for the search query.
+ * @param results The JSON data of the search results.
+ */
+export async function set_cached_search(query_key, results) {
+    const result = await pool.query(`INSERT INTO search_cache (query_key, results, last_fetched)
+         VALUES ($1, $2, CURRENT_TIMESTAMP)
+         ON CONFLICT (query_key) 
+         DO UPDATE SET results = EXCLUDED.results, last_fetched = EXCLUDED.last_fetched
+         RETURNING *;`, [query_key, JSON.stringify(results)]);
+    return result.rows[0];
+}
 //# sourceMappingURL=queries.js.map
