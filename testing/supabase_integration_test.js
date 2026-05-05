@@ -15,9 +15,9 @@ async function runTest() {
         console.log(`Found ${searchData.count || 0} items.`);
 
         console.log("2. Comparing by bang for buck...");
-        const compareRes = await fetch(`${baseUrl}/api/compare?criteria=bang%20for%20buck`);
+        const compareRes = await fetch(`${baseUrl}/api/compare?product=Strawberries&zipCode=01003&criteria=bang%20for%20buck`);
         const compareData = await compareRes.json();
-        
+
         if (!compareData || compareData.length === 0) {
             throw new Error("No data returned from comparison endpoint.");
         }
@@ -27,9 +27,8 @@ async function runTest() {
         console.log(`Best item determined by 'bang for buck': ${firstItem.title} (ID: ${firstItemId})`);
 
         console.log("3. Calling get item by id...");
-        const itemRes = await fetch(`${baseUrl}/api/item/${firstItemId}`);
-        const itemData = await itemRes.json();
-        console.log(`Got item details: ${itemData.title}, Price: $${itemData.extracted_price}`);
+        const itemRes = await fetch(`${baseUrl}/api/item/${firstItemId}?product=Strawberries&zipCode=01003`);
+        const itemData = await itemRes.json();        console.log(`Got item details: ${itemData.title}, Price: $${itemData.extracted_price}`);
 
         console.log("4. Loading to REAL Supabase database...");
         

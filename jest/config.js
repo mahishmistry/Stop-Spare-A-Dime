@@ -1,13 +1,13 @@
-module.exports = {
-    preset: 'ts-jest',
-    testEnvironment: 'node',
-    testMatch: ['**/src/**/*.test.ts'], // Match test files in src directory
+import { createRequire } from 'module';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-    transform: { // Transform TypeScript files using ts-jest
-        '^.+\\.ts$': 'ts-jest',
-    },
+const require = createRequire(import.meta.url);
+const baseConfig = require('../jest.config.cjs');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-    testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.ts$', // Match test files with .test.ts or .spec.ts
-
-    moduleFileExtensions: ['ts', 'js', 'json', 'node', 'tsx'], // Recognize these file extensions
+export default {
+	...baseConfig,
+	rootDir: path.resolve(__dirname, '..'),
 };
