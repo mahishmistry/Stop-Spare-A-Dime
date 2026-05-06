@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const { query, body, validationResult } = require('express-validator');
 const { getJson } = require('serpapi');
 const { getBestItems, getItemById } = require('./comparison.cjs');
-const { get_cached_search, set_cached_search } = require('../database/queries.ts');
+const { get_cached_search, set_cached_search, add_store, add_product, get_product_by_id, get_all_stores } = require('../database/queries.ts');
 const { create_user_context } = require('../database/user.ts');
 
 const verifyToken = require("../../middleware/verifyToken.cjs");
@@ -43,13 +43,24 @@ app.get('/api/prices', verifyToken,
     const location = zipCode || "United States";
     const cacheKey = `${product.toLowerCase().trim()}-${location}`;
     
+    let userBlockedStores = [];
+    let favoriteIdentifiers = [];
+
     try {
-        let userBlockedStores = [];
         const userContext = await create_user_context(req.user.email);
         if (userContext) {
             userBlockedStores = await userContext.get_blacklisted_stores();
+            const favIds = await userContext.get_favorite_products(100);
+            for (const fid of favIds) {
+                const prod = await get_product_by_id(fid);
+                if (prod) favoriteIdentifiers.push(prod.name);
+            }
         }
+    } catch (e) {
+        console.error("Error fetching user context for filters/favorites:", e);
+    }
 
+    try {
         // Check if valid cache exists in the database
         const cachedEntry = await get_cached_search(cacheKey);
         
@@ -61,6 +72,13 @@ app.get('/api/prices', verifyToken,
             const filteredCache = cachedEntry.results.filter(item => !userBlockedStores.some(store => 
                 item.source?.toLowerCase().includes(store.toLowerCase())
             ));
+
+            // Highlight favorites (show first)
+            filteredCache.sort((a, b) => {
+                const aFav = (favoriteIdentifiers.includes(a.product_id) || favoriteIdentifiers.includes(a.title)) ? 1 : 0;
+                const bFav = (favoriteIdentifiers.includes(b.product_id) || favoriteIdentifiers.includes(b.title)) ? 1 : 0;
+                return bFav - aFav;
+            });
 
             return res.json({
                 count: filteredCache.length,
@@ -92,18 +110,17 @@ app.get('/api/prices', verifyToken,
             console.error("Cache Write Error:", error);
         }
         
-        let userBlockedStores = [];
-        try {
-            const userContext = await create_user_context(req.user.email);
-            if (userContext) userBlockedStores = await userContext.get_blacklisted_stores();
-        } catch (e) {
-            console.error("Error fetching user context for filter:", e);
-        }
-
         //Filter for blocked stores
         const results = allResults.filter(item => !userBlockedStores.some(store => 
             item.source?.toLowerCase().includes(store.toLowerCase())
         ));
+        
+        // Highlight favorites (show first)
+        results.sort((a, b) => {
+            const aFav = (favoriteIdentifiers.includes(a.product_id) || favoriteIdentifiers.includes(a.title)) ? 1 : 0;
+            const bFav = (favoriteIdentifiers.includes(b.product_id) || favoriteIdentifiers.includes(b.title)) ? 1 : 0;
+            return bFav - aFav;
+        });
       
       searchHistory.push({ product, zipCode, timestamp: new Date(), cached: false });
       res.json({
@@ -150,6 +167,10 @@ app.post('/api/block', verifyToken,
     try {
       const userContext = await create_user_context(req.user.email);
       if (userContext) {
+        try {
+          await add_store(store, "http://placeholder.com");
+        } catch (e) {}
+
         await userContext.blacklist_store(store);
         const blockedStores = await userContext.get_blacklisted_stores();
         res.json({ blockedStores });
@@ -218,6 +239,228 @@ app.get('/api/block', verifyToken, async (req, res) => {
   } catch (err) {
     console.error("Error getting blacklisted stores:", err);
     res.status(500).json({ error: "Failed to get blocked stores." });
+  }
+});
+
+/**
+ * Inserts a specific product identifier to a user's persistent favorites list.
+ * 
+ * @name POST /api/favorites (protected)
+ */
+app.post('/api/favorites', verifyToken,
+  body('productId').isString().trim().escape().notEmpty(),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const { productId } = req.body;
+    
+    try {
+      const userContext = await create_user_context(req.user.email);
+      if (userContext) {
+        try {
+          await add_product(productId);
+        } catch (e) {}
+
+        await userContext.favorite_product(productId);
+        const favorites = await userContext.get_favorite_products(100);
+        res.json({ favorites });
+      } else {
+        res.status(404).json({ error: "User not found in database." });
+      }
+    } catch (err) {
+      console.error("Error adding favorite product:", err);
+      res.status(500).json({ error: "Failed to favorite product." });
+    }
+  }
+);
+
+/**
+ * Removes a specific product identifier from a user's persistent favorites list.
+ *
+ * @name DELETE /api/favorites (protected)
+ */
+app.delete('/api/favorites', verifyToken,
+  body('productId').isString().trim().escape().notEmpty(),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { productId } = req.body;
+
+    try {
+      const userContext = await create_user_context(req.user.email);
+      if (userContext) {
+        await userContext.unfavorite_product(productId);
+        const favorites = await userContext.get_favorite_products(100);
+        res.json({ favorites });
+      } else {
+        res.status(404).json({ error: "User not found in database." });
+      }
+    } catch (err) {
+      console.error("Error unfavoriting product:", err);
+      res.status(500).json({ error: "Failed to unfavorite product." });
+    }
+  }
+);
+
+/**
+ * Exposes a user's full array list of favorited products.
+ * 
+ * @name GET /api/favorites (protected)
+ */
+app.get('/api/favorites', verifyToken, async (req, res) => {
+  try {
+    const userContext = await create_user_context(req.user.email);
+    if (userContext) {
+      const favorites = await userContext.get_favorite_products(100);
+      res.json({ favorites });
+    } else {
+      res.status(404).json({ error: "User not found in database." });
+    }
+  } catch (err) {
+    console.error("Error getting favorites:", err);
+    res.status(500).json({ error: "Failed to get favorites." });
+  }
+});
+
+/**
+ * Exposes a user's recent search queries from the database.
+ * 
+ * @name GET /api/search-history (protected)
+ */
+app.get('/api/search-history', verifyToken, async (req, res) => {
+  try {
+    const userContext = await create_user_context(req.user.email);
+    if (userContext) {
+      // Fetch the last 50 recent search queries
+      const history = await userContext.get_search_history(50);
+      res.json({ history });
+    } else {
+      res.status(404).json({ error: "User not found in database." });
+    }
+  } catch (err) {
+    console.error("Error getting search history:", err);
+    res.status(500).json({ error: "Failed to get search history." });
+  }
+});
+
+/**
+ * Adds a specific search query to a user's persistent search history.
+ * 
+ * @name POST /api/search-history (protected)
+ */
+app.post('/api/search-history', verifyToken,
+  body('query').isString().trim().escape().notEmpty(),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const { query } = req.body;
+    
+    try {
+      const userContext = await create_user_context(req.user.email);
+      if (userContext) {
+        await userContext.add_search_history(query, new Date());
+        const history = await userContext.get_search_history(50);
+        res.json({ history });
+      } else {
+        res.status(404).json({ error: "User not found in database." });
+      }
+    } catch (err) {
+      console.error("Error adding search history:", err);
+      res.status(500).json({ error: "Failed to add search history." });
+    }
+  }
+);
+
+/**
+ * Updates the authenticated user's profile details.
+ * 
+ * @name PUT /api/user/profile (protected)
+ */
+app.put('/api/user/profile', verifyToken,
+  body('name').optional().isString().trim().escape(),
+  body('email').optional().isEmail().normalizeEmail(),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    
+    const { name, email } = req.body;
+    
+    try {
+      const userContext = await create_user_context(req.user.email);
+      if (userContext) {
+        let updated = false;
+        if (name !== undefined) {
+          await userContext.update_name(name);
+          updated = true;
+        }
+        if (email !== undefined) {
+          await userContext.update_email(email);
+          updated = true;
+        }
+        
+        res.json({ success: updated, message: "Profile updated successfully.", name: userContext.name, email: userContext.email });
+      } else {
+        res.status(404).json({ error: "User not found in database." });
+      }
+    } catch (err) {
+      console.error("Error updating profile:", err);
+      // Safely pass back specific duplicate email errors from the database if they occur
+      res.status(500).json({ error: err.message || "Failed to update profile." });
+    }
+  }
+);
+
+/**
+ * Updates the authenticated user's notification preferences.
+ * 
+ * @name PUT /api/user/notifications (protected)
+ */
+app.put('/api/user/notifications', verifyToken,
+  body('enabled').isBoolean(),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    
+    const { enabled } = req.body;
+    
+    try {
+      const userContext = await create_user_context(req.user.email);
+      if (userContext) {
+        await userContext.update_notifications(enabled);
+        res.json({ success: true, notifications_enabled: enabled });
+      } else {
+        res.status(404).json({ error: "User not found in database." });
+      }
+    } catch (err) {
+      console.error("Error updating notifications:", err);
+      res.status(500).json({ error: "Failed to update notifications." });
+    }
+  }
+);
+
+/**
+ * Exposes a full list of all known store names in the database for autocomplete.
+ * 
+ * @name GET /api/stores
+ */
+app.get('/api/stores', async (req, res) => {
+  try {
+    const stores = await get_all_stores();
+    res.json({ stores });
+  } catch (err) {
+    console.error("Error fetching stores:", err);
+    res.status(500).json({ error: "Failed to fetch stores." });
   }
 });
 
