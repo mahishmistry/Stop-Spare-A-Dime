@@ -2,6 +2,8 @@ import * as dotenv from 'dotenv';
 import { pool } from './pool.js';
 dotenv.config();
 
+export {}
+
 interface Address {
     street: string;
     city: string;
@@ -415,6 +417,32 @@ export async function get_deal_by_id(deal_id: number) {
         [deal_id]
     );
     return result.rows[0] ?? null;
+};
+
+/**
+ * Fetches all brand names from the brands table.
+ * @returns A Promise that resolves to a Set of all brand names.
+ */
+export async function get_all_brand_names() {
+    const result = await pool.query(
+        `SELECT name
+        FROM brands
+        ORDER BY name;`
+    );
+    return new Set(result.rows.map((row: { name: string }) => row.name));
+};
+
+/**
+ * Fetches all product names from the products table.
+ * @returns A Promise that resolves to a Set of all product names.
+ */
+export async function get_all_product_names() {
+    const result = await pool.query(
+        `SELECT name
+        FROM products
+        ORDER BY name;`
+    );
+    return new Set(result.rows.map((row: { name: string }) => row.name));
 };
 
 /**

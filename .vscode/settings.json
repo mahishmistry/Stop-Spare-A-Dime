@@ -2,5 +2,6 @@
   "code-runner.runInTerminal": true,
   "code-runner.executorMap": {
     "typescript": "npx tsx"
-  }
+  },
+  "jest.jestCommandLine": "npx jest --config jest/config.js"
 }

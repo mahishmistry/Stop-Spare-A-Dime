@@ -4,3 +4,4 @@ node_modules/
 local_test/*.json
 venv/
 serviceAccountKey.json
+query_strawberries.ts
