@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "tsx src/backend/server.cjs",
     "supabase:start": "npx supabase start",
+    "test:serp": "tsx src/backend/tests/serp_parse.cjs",
     "supabase:stop": "npx supabase stop",
     "db:reset": "npx supabase db reset",
     "test:db": "npx supabase test db",
