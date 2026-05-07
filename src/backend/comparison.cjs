@@ -36,6 +36,7 @@ const normalizeWeight = (value, unit) => {
  * @param {Array<Object>} items - The array of items to compare.
  * @param {import('express').Request} req - The Express Request object containing query logic (k limit and criteria).
  * @param {import('express').Response} res - The Express Response object used to send back JSON data.
+ * @param {Array<Object>} items - The items to be sorted.
  * @param {Array<string>} [blockedStores=[]] - Optional array of blocklisted store names to filter out of the shopping results.
  * @param {Object} [itemMetrics={}] - Optional map of pre-parsed item metrics, keyed by product_id, containing { weight, unit }.
  * @returns {import('express').Response} A JSON response containing a limited array of sorted item objects, or an error status.
@@ -116,6 +117,7 @@ const getBestItems = (items, req, res, blockedStores = [], itemMetrics = {}) => 
  * @param {Array<Object>} items - The array of items to search in.
  * @param {import('express').Request} req - The Express Request object containing route params (item_id).
  * @param {import('express').Response} res - The Express Response object used to send back JSON data.
+ * @param {Array<Object>} items - The items to search.
  * @returns {import('express').Response} A JSON response containing a singular item's complete data structure, or a 404 error if missing.
  */
 const getItemById = (items, req, res) => {
