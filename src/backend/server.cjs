@@ -11,16 +11,50 @@ const { initialize_pool } = require('../database/pool.ts');
 const verifyToken = require("../../middleware/verifyToken.cjs");
 const app = express();
 const PORT = process.env.PORT || 3000;
+const cors = require('cors');
+
 
 // Initialize database pool
 initialize_pool(process.env.NODE_ENV === 'test').catch(console.error);
 
 app.use(helmet());
 app.use(express.json());
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true,
+}));
+// run npm install cors, these lines above + adding const cors helps the browser front end connect to backend requests 
 
 const searchHistory = [];
 
 const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+// this route is adding user to database if they do not exist 
+app.post('/api/user/register', verifyToken, async (req, res) => {
+  try {
+    const email = req.user.email;
+    const name = req.body.name || req.user.name || email;
+
+    if (!email) {
+      return res.status(400).json({ error: "Missing user email" });
+    }
+
+    let userContext = await create_user_context(email);
+
+    if (!userContext) {
+      await create_new_user(email, name);
+      userContext = await create_user_context(email);
+    }
+
+    res.json({
+      message: "User registered",
+      email,
+    });
+  } catch (err) {
+    console.error("User registration error:", err);
+    res.status(500).json({ error: "Failed to register user" });
+  }
+});
 
 /**
  * Main endpoint for fetching grocery prices.
@@ -59,6 +93,9 @@ app.get('/api/prices', verifyToken,
                 const prod = await get_product_by_id(fid);
                 if (prod) favoriteIdentifiers.push(prod.name);
             }
+            
+            // Trigger addition to the user's database search history
+            await userContext.add_search_history(product, new Date());
         }
     } catch (e) {
         console.error("Error fetching user context for filters/favorites:", e);
@@ -550,6 +587,14 @@ app.get('/api/item/:item_id',
     }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// replaced old app.listen to initialize pool (database connect)
+initialize_pool(true)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to initialize database pool:", err);
+    process.exit(1);
+  });
