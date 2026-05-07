@@ -3,7 +3,7 @@ require('dotenv').config();
 const { spawn } = require('child_process');
 const http = require('http');
 
-const { parse_product_data } = require('../nlp.ts');
+// comparison.cjs will derive metrics from titles, so no local parsing required here
 
 const PORT = process.env.PORT || 3000;
 // Spawn the server using the local `node_modules/.bin/tsx` so TypeScript files load
@@ -92,22 +92,13 @@ async function main() {
     const res = await fetchPrices('Driscoll Strawberries', zip);
     const items = (res && res.data) || [];
     console.log(`Fetched ${items.length} items from server\n`);
-    // Build item metrics from parsed product data
+    // Prepare to call comparison module which will derive metrics from titles itself
     const { getBestItems } = require('../comparison.cjs');
 
-    const itemMetrics = {};
+    // Ensure each item has a product_id, and ensure price extracted
     for (let idx = 0; idx < items.length; idx++) {
       const item = items[idx];
-      
-      // Ensure each item has a product_id for metrics lookup
-      if (!item.product_id) {
-        item.product_id = String(idx);
-      }
-      
-      const title = item.title || item.product_title || item.snippet || (item.product && item.product.title) || JSON.stringify(item);
-      const parsed = parse_product_data(title);
-
-      // Extract price from any available field
+      if (!item.product_id) item.product_id = String(idx);
       if (!item.extracted_price) {
         const priceField = item.price || item.product_price || item.inline_price || item.lprice || item.price_string || '';
         if (typeof priceField === 'string' && priceField.length > 0) {
@@ -116,35 +107,16 @@ async function main() {
           if (!Number.isNaN(price)) item.extracted_price = price;
         }
       }
-
-      // find weight and count tokens
-      const q = parsed.quantity_values_and_types || [];
-      const weightToken = q.find(t => ['oz','g','lb','l','quart'].includes(t.type));
-      const countToken = q.find(t => t.type === 'count');
-      if (weightToken) {
-        const totalWeight = countToken ? weightToken.value * countToken.value : weightToken.value;
-        itemMetrics[item.product_id] = { weight: totalWeight, unit: weightToken.type };
-      } else if (countToken) {
-        itemMetrics[item.product_id] = { weight: countToken.value, unit: 'count' };
-      }
-
-      if (idx < 3 || (weightToken && item.extracted_price)) {
-        console.log('---');
-        console.log('Raw title:', title);
-        console.log('Price:', item.extracted_price);
-        console.log('Parsed:', parsed);
-      }
     }
 
     // Prepare fake express req/res to use getBestItems for 'unit price'
     const fakeReq = { query: { criteria: 'unit price', k: String(items.length) } };
-    let comparedResult = null;
     const fakeRes = {
-      json: (d) => { comparedResult = d; console.log('\nComparison (unit price) result:'); console.log(JSON.stringify(d, null, 2)); },
+      json: (d) => { console.log('\nComparison (unit price) result:'); console.log(JSON.stringify(d, null, 2)); },
       status: (code) => ({ json: (obj) => console.error('Error', code, obj) })
     };
 
-    getBestItems(items, fakeReq, fakeRes, [], itemMetrics);
+    getBestItems(items, fakeReq, fakeRes, [], {});
   } catch (err) {
     console.error('Error during fetch/parse:', err);
   } finally {

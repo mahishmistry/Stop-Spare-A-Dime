@@ -59,12 +59,31 @@ const getBestItems = (items, req, res, blockedStores = [], itemMetrics = {}) => 
         ));
     }
 
-    // For unit price, filter out items that don't have weight/unit provided
-    if (criteria === 'unit price') {
-        results = results.filter(item => {
-            const metrics = itemMetrics[item.product_id] || item;
-            return metrics && metrics.weight !== undefined && metrics.unit !== undefined;
-        });
+    // If itemMetrics weren't provided, try to derive metrics from titles using NLP
+    if (parse_product_data && (!itemMetrics || Object.keys(itemMetrics).length === 0)) {
+        itemMetrics = itemMetrics || {};
+        for (const item of results) {
+            const id = item.product_id || item.id;
+            if (id && itemMetrics[id]) continue;
+
+            const title = item.title || item.product_title || item.snippet || (item.product && item.product.title) || '';
+            if (!title) continue;
+
+            try {
+                const parsed = parse_product_data(title);
+                const q = parsed.quantity_values_and_types || [];
+                const weightToken = q.find(t => ['oz','g','lb','l','quart'].includes(t.type));
+                const countToken = q.find(t => t.type === 'count');
+                if (weightToken) {
+                    const totalWeight = countToken ? weightToken.value * countToken.value : weightToken.value;
+                    itemMetrics[id || String(Math.random())] = { weight: totalWeight, unit: weightToken.type };
+                } else if (countToken) {
+                    itemMetrics[id || String(Math.random())] = { weight: countToken.value, unit: 'count' };
+                }
+            } catch (e) {
+                // ignore parse failures
+            }
+        }
     }
 
     // Create a copy to avoid mutating the original array
@@ -94,19 +113,44 @@ const getBestItems = (items, req, res, blockedStores = [], itemMetrics = {}) => 
             const calculateUnitPrice = (item, itemPrice) => {
                 if (itemPrice === Infinity || itemPrice <= 0) return Infinity;
                 const metrics = itemMetrics[item.product_id] || item;
-                const normWeight = normalizeWeight(metrics.weight, metrics.unit);
+                const normWeight = normalizeWeight(metrics && metrics.weight, metrics && metrics.unit);
                 return normWeight ? itemPrice / normWeight : Infinity;
             };
 
             const unitPriceA = calculateUnitPrice(a, priceA);
             const unitPriceB = calculateUnitPrice(b, priceB);
-            
+
             return unitPriceA - unitPriceB;
         }
     });
 
-    const bestItems = sortedItems.slice(0, k);
-    
+    // Annotate returned items with canonical unit_type and price_per_unit (price per single unit)
+    const bestItems = sortedItems.slice(0, k).map((item) => {
+        const copy = Object.assign({}, item);
+        const metrics = itemMetrics[item.product_id] || item;
+        const normWeight = normalizeWeight(metrics && metrics.weight, metrics && metrics.unit);
+
+        const price = item.extracted_price || Infinity;
+
+        if (metrics && metrics.unit === 'count') {
+            copy.unit_type = 'count';
+            copy.price_per_unit = (price !== Infinity && metrics.weight > 0) ? (price / metrics.weight) : null;
+        } else if (metrics && metrics.unit) {
+            // For other canonical units (oz, g, lb, l, quart), report price per single unit
+            copy.unit_type = metrics.unit;
+            copy.price_per_unit = (price !== Infinity && metrics.weight > 0) ? (price / metrics.weight) : null;
+        } else if (normWeight) {
+            // If we only have normalized grams but no unit, report per gram
+            copy.unit_type = 'g';
+            copy.price_per_unit = (price !== Infinity && normWeight > 0) ? (price / normWeight) : null;
+        } else {
+            copy.unit_type = null;
+            copy.price_per_unit = null;
+        }
+
+        return copy;
+    });
+
     return res.json(bestItems);
 };
 
@@ -138,3 +182,12 @@ module.exports = {
     getBestItems,
     getItemById
 };
+
+// Use the shared NLP parser when available (running under tsx/node that can require .ts)
+let parse_product_data;
+try {
+    parse_product_data = require('./nlp.ts').parse_product_data;
+} catch (e) {
+    // If unavailable, parse_product_data will remain undefined and upstream callers
+    // can supply `itemMetrics` directly.
+}
