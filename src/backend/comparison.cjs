@@ -21,7 +21,10 @@ const normalizeWeight = (value, unit) => {
         'kilograms': 1000,
         'ml': 1,
         'l': 1000,
-        'fl oz': 29.5735
+        'fl oz': 29.5735,
+        'quart': 946.352946,
+        'quarts': 946.352946,
+        'qt': 946.352946
     };
     
     const factor = conversionTable[unit.toLowerCase()];
@@ -148,6 +151,8 @@ const getBestItems = (items, req, res, blockedStores = [], itemMetrics = {}) => 
             copy.price_per_unit = null;
         }
 
+        copy.normalized_weight = normWeight || null;
+
         return copy;
     });
 
@@ -183,6 +188,102 @@ module.exports = {
     getItemById
 };
 
+/**
+ * Comparator function for two item objects that orders by their unit price.
+ * Returns `[comparisonValue, meta]`, where `comparisonValue` is negative if a < b,
+ * positive if a > b, or 0 if equal, and `meta` is one of the shared unit type,
+ * `'norm'` for normalized weight comparisons, or `'whole'` for whole-item pricing.
+ * Accepts an optional itemMetrics map to derive units/weights when present.
+ *
+ * @param {Object} a
+ * @param {Object} b
+ * @param {Object} [itemMetrics={}] - optional map keyed by product_id with {weight, unit}
+ * @returns {number}
+ */
+function compareByUnitPrice(a, b, itemMetrics = {}) {
+    const priceA = a.extracted_price || Infinity;
+    const priceB = b.extracted_price || Infinity;
+
+    const metricsA = itemMetrics[a.product_id] || a;
+    const metricsB = itemMetrics[b.product_id] || b;
+
+    const returnWithMeta = (val, meta) => [val, meta];
+
+    // If items already contain `price_per_unit` and `unit_type`/`normalized_weight` (from getBestItems), prefer those
+    const ppuA = (a && typeof a.price_per_unit === 'number') ? a.price_per_unit : undefined;
+    const ppuB = (b && typeof b.price_per_unit === 'number') ? b.price_per_unit : undefined;
+    const unitA = a.unit_type || (metricsA && metricsA.unit) || undefined;
+    const unitB = b.unit_type || (metricsB && metricsB.unit) || undefined;
+    const normA = (a && typeof a.normalized_weight === 'number') ? a.normalized_weight : (metricsA && normalizeWeight(metricsA.weight, metricsA.unit));
+    const normB = (b && typeof b.normalized_weight === 'number') ? b.normalized_weight : (metricsB && normalizeWeight(metricsB.weight, metricsB.unit));
+
+    // If both have explicit ppu and unit_type
+    if (ppuA !== undefined && ppuB !== undefined && unitA !== undefined && unitB !== undefined) {
+        if (unitA === unitB) {
+            // same unit: compare price_per_unit directly
+            if (!isFinite(ppuA) && !isFinite(ppuB)) return returnWithMeta(0, unitA);
+            if (!isFinite(ppuA)) return returnWithMeta(1, unitA);
+            if (!isFinite(ppuB)) return returnWithMeta(-1, unitA);
+            const diff = ppuA - ppuB;
+            if (Math.abs(diff) < Number.EPSILON) return returnWithMeta(0, unitA);
+            return returnWithMeta(diff, unitA);
+        }
+        // different units: if one ppu is infinite and the other finite, order accordingly
+        if (ppuA !== undefined && ppuB !== undefined) {
+            if (!isFinite(ppuA) && isFinite(ppuB)) return returnWithMeta(1, 'whole');
+            if (isFinite(ppuA) && !isFinite(ppuB)) return returnWithMeta(-1, 'whole');
+        }
+
+        // if both have normalized_weight, compare price per normalized weight (price per gram/ml)
+        if (normA != null && normB != null) {
+            const pricePerNormA = (priceA === Infinity || normA === 0) ? Infinity : priceA / normA;
+            const pricePerNormB = (priceB === Infinity || normB === 0) ? Infinity : priceB / normB;
+            if (pricePerNormA === pricePerNormB) return returnWithMeta(0, 'norm');
+            if (pricePerNormA === Infinity) return returnWithMeta(1, 'norm');
+            if (pricePerNormB === Infinity) return returnWithMeta(-1, 'norm');
+            return returnWithMeta(pricePerNormA - pricePerNormB, 'norm');
+        }
+        // otherwise fall through to fallback logic below
+    }
+
+    // If either metrics object is missing or has undefined/null weight/unit, fall back to total-price comparison
+    if (!metricsA || !metricsB || metricsA.weight == null || metricsB.weight == null || metricsA.unit == null || metricsB.unit == null) {
+        console.log("Missing metrics for one or both items, falling back to total price comparison");
+        if (priceA === priceB) return returnWithMeta(0, 'whole');
+        if (priceA === Infinity) return returnWithMeta(1, 'whole');
+        if (priceB === Infinity) return returnWithMeta(-1, 'whole');
+        return returnWithMeta(priceA - priceB, 'whole');
+    }
+
+    // count units are interpreted as price per single count
+    const calc = (price, metrics) => {
+        if (price === Infinity || price <= 0) return Infinity;
+        if (metrics && metrics.unit === 'count' && metrics.weight > 0) {
+            return price / metrics.weight;
+        }
+        const norm = normalizeWeight(metrics && metrics.weight, metrics && metrics.unit);
+        return norm ? (price / norm) : Infinity;
+    };
+
+    const unitPriceA = calc(priceA, metricsA);
+    const unitPriceB = calc(priceB, metricsB);
+
+    if (unitPriceA === unitPriceB) {
+        // decide meta: same canonical unit?
+        if (metricsA.unit && metricsB.unit && metricsA.unit === metricsB.unit) return returnWithMeta(0, metricsA.unit);
+        if (normA != null && normB != null) return returnWithMeta(0, 'norm');
+        return returnWithMeta(0, 'whole');
+    }
+    if (unitPriceA === Infinity) return returnWithMeta(1, 'whole');
+    if (unitPriceB === Infinity) return returnWithMeta(-1, 'whole');
+    // choose meta: if both metrics share a unit, prefer that; else if both normalized, 'norm', else 'whole'
+    if (metricsA.unit && metricsB.unit && metricsA.unit === metricsB.unit) return returnWithMeta(unitPriceA - unitPriceB, metricsA.unit);
+    if (normA != null && normB != null) return returnWithMeta(unitPriceA - unitPriceB, 'norm');
+    return returnWithMeta(unitPriceA - unitPriceB, 'whole');
+}
+
+module.exports.compareByUnitPrice = compareByUnitPrice;
+
 // Use the shared NLP parser when available (running under tsx/node that can require .ts)
 let parse_product_data;
 try {
@@ -191,3 +292,5 @@ try {
     // If unavailable, parse_product_data will remain undefined and upstream callers
     // can supply `itemMetrics` directly.
 }
+
+// Add comparator logic
