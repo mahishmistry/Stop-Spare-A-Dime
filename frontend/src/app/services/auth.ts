@@ -1,19 +1,17 @@
-// import firebase stuff here for auth
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+const env = (import.meta as any).env;
+
 const firebaseConfig = {
-  apiKey: "make sure u put this in",
-  authDomain: "stop-spare-a-dime.firebaseapp.com",
-  projectId: "stop-spare-a-dime",
-  storageBucket: "stop-spare-a-dime.firebasestorage.app",
-  messagingSenderId: "375761236980",
-  appId: "1:375761236980"
+  apiKey: env.VITE_FIREBASE_API_KEY,
+  authDomain: env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: env.VITE_FIREBASE_APP_ID,
 };
-
 const app = initializeApp(firebaseConfig);
-
 export const auth = getAuth(app);
-
 
 
