@@ -123,6 +123,19 @@ export async function get_store_by_source(source: string) {
 };
 
 /**
+ * Fetches all store sources from the stores table.
+ * @returns A Promise that resolves to an array of store source strings.
+ */
+export async function get_all_stores() {
+    const result = await pool.query(
+        `SELECT store_source 
+        FROM stores
+        ORDER BY store_source ASC;`
+    );
+    return result.rows.map(row => row.store_source);
+};
+
+/**
  * Inserts a store address row for a store source.
  * @param source The store source identifier.
  * @param address The structured address object to store.
