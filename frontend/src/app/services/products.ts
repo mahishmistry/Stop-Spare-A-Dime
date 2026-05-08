@@ -44,16 +44,13 @@ function normalizeProduct(item: any, index: number) {
     snapEligible: item.snapEligible ?? true,
   };
 }
-async function getAuthHeaders() {
+
+async function getAuthHeaders(): Promise<HeadersInit> {
   const token = await auth.currentUser?.getIdToken();
 
-  if (!token) {
-    throw new Error("No Firebase user token found");
-  }
-
-  return {
-    Authorization: `Bearer ${token}`,
-  };
+  return token
+    ? { Authorization: `Bearer ${token}` }
+    : {};
 }
 
 export async function searchAndCompareProducts(

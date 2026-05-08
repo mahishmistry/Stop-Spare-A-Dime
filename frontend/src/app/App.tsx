@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "./components/Header.tsx";
 import { ProductCarousel } from "./components/ProductCarousel.tsx";
 import { LoginPage } from "./components/LoginPage.tsx";
@@ -6,8 +6,8 @@ import { ItemDetailPage } from "./components/ItemDetailPage.tsx";
 import { SearchResultsPage } from "./components/SearchResultsPage.tsx";
 import { SettingsPage } from "./components/SettingsPage.tsx";
 import { HistoryPage } from "./components/HistoryPage.tsx"
-import React from "react";
 import { searchAndCompareProducts } from "./services/products.ts";
+import { onAuthChange, logOut } from "./services/auth.ts";
 
 // all possible pages to access: home , search results, item comparison details,
 type View = 'home' | 'search' | 'item' | 'settings' | 'login' | 'history';
@@ -37,27 +37,6 @@ const allOtherAvailableProducts = [
   { id: '17', name: 'Orange Juice - Tropicana', price: 4.99, store: 'Whole Foods', image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400' },
   { id: '18', name: "Apple Juice - Martinez's", price: 3.49, store: 'Safeway', image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400' },
 ];
-
-// temporary search function replace later and edit possibly even move to header component
-function runSearch(query: string) {
-  const all = [
-    ...recommendations,
-    ...biggestSales,
-    ...allOtherAvailableProducts,
-  ];
-  return all
-    .filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
-    .map((p, i) => ({
-      ...p,
-      saleLabel: i % 3 === 0 ? "SALE" : undefined,
-      saleEndDate: i % 3 === 0 ? "6/29" : undefined,
-      dealText: i % 2 === 0 ? `2/$${(p.price * 2).toFixed(2)}` : undefined,
-      unitPrice: `$${(p.price / 16).toFixed(2)}/oz`,
-      savingsText: i % 3 === 0 ? "Save $1.19" : undefined,
-      snapEligible: i % 4 !== 0, // most items SNAP eligible, some aren't
-      loyaltyProgramIndicator: i % 2 === 0, // alternating loyalty programs
-    }));
-}
 
 // product details func: replace with real API item details and functions to find this data!
 function buildItemDetails(product: any) {
@@ -141,21 +120,49 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
-  // Account state — lives here so ProfileMenu (via Header) stays in sync with SettingsPage edits.
-  // Swap these useState defaults for Firebase reads when you wire up auth.ts.
-  const [accountName, setAccountName] = useState("Zoe");
-  const [accountEmail, setAccountEmail] = useState("p****@email.com");
+  const [accountName, setAccountName] = useState("");
+  const [accountEmail, setAccountEmail] = useState("");
   const [accountZip, setAccountZip] = useState("01003");
 
   // AUTH
+  useEffect(() => {
+    const unsubscribe = onAuthChange(async (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+        try {
+          const token = await user.getIdToken();
+          const response = await fetch("http://localhost:3000/api/user/profile",
+            {headers: {Authorization: `Bearer ${token}`,},});
+          if (!response.ok) {
+            throw new Error("Failed to fetch profile");
+          }
+          const data = await response.json();
+          setAccountName(data.name ?? "User");
+          setAccountEmail(data.email ?? user.email ?? "");
+        } catch (err) {
+          console.error("Profile fetch failed:", err);
+          setAccountName("User");
+          setAccountEmail(user.email ?? "");
+        }
+        setView(loginReturnView);
+      } else {
+        setIsAuthenticated(false);
+        setAccountName("");
+        setAccountEmail("");
+        if (view === "settings" || view === "history") {
+          setView("home");
+        }
+      }
+    });
+    return unsubscribe;
+  }, []);
+
   const handleLogin = () => {
-    setIsAuthenticated(true);
-    // Return to the page the user was on before being sent to login
     setView(loginReturnView);
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
+  const handleLogout = async () => {
+    await logOut();
     // If on a protected page, redirect to home
     if (view === "settings" || view === "history") {
       setView("home");
@@ -216,8 +223,6 @@ export default function App() {
   // SEARCH
   // CHANGING THIS RIGHT NOW TO TEST SEARCH WITH BACKEND line 217 to 238
   const handleSearch = async (query: string) => {
-
-
     setSearchQuery(query);
     setView("search");
 
