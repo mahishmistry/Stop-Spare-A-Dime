@@ -5,7 +5,7 @@ const { query, body, validationResult } = require('express-validator');
 const { getJson } = require('serpapi');
 const { getBestItems, getItemById } = require('./comparison.cjs');
 const { get_cached_search, set_cached_search, add_store, add_product, get_product_by_id, get_all_stores } = require('../database/queries.ts');
-const { create_user_context } = require('../database/user.ts');
+const { create_user_context, create_new_user } = require('../database/user.ts');
 const { initialize_pool } = require('../database/pool.ts');
 
 const verifyToken = require("../../middleware/verifyToken.cjs");

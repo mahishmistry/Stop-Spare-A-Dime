@@ -1,20 +1,11 @@
 import { useState } from 'react';
 import { Eye, EyeOff } from "lucide-react"; // https://lucide.dev/icons/?search=eye
-import React from 'react';
-
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  updateProfile,
-} from "firebase/auth";
-import { auth } from "../services/auth";
+import { signUp, signIn, signInWithGoogle, parseFirebaseError } from "../services/auth";
 import { registerCurrentUser } from "../services/products";
 
 interface LoginPageProps {
   onLogin: () => void; // if login succeeds -- authenticated and no longer show login page
-  onBack: () => void; // if closing -- don't show login page -- no change to authenticated state
+  onBack: () => void; // if closing -- don't show login page -- no change to auth state
 }
 
 export function LoginPage({ onLogin, onBack }: LoginPageProps) {
@@ -25,13 +16,14 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false); // used to detect if an async call in progress (to prevent multiple)
 
   // changed this handleSUBMIT to connect to firebase/database
   // login logic and catching sign up errors to print
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setError('');
-    try{
+    try {
     if (isSignUp) { // prints custom errors for sign up if any
       if (password !== confirmPassword) {
         setError('Passwords do not match.');
@@ -41,24 +33,21 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
         setError('Password must be at least 8 characters.');
         return;
       }
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      await updateProfile(userCredential.user, {
-        displayName: name,
-      });
+      setLoading(true);
+      await signUp(email, password, name);
       await registerCurrentUser();
       onLogin();
     } else {
-      await signInWithEmailAndPassword(auth, email, password);
+      setLoading(true);
+      await signIn(email, password);
       await registerCurrentUser();
       onLogin();
     }
   } catch (err: any){
     console.error("Sign up failed: ", err);
-    setError(err.message || "Login Failed.");
+    setError(parseFirebaseError(err.code) ?? err.message);
+  } finally {
+    setLoading(false);
   }
 };
 
@@ -66,17 +55,26 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
     // Google login — replace with real OAuth later
     try {
       setError('');
-
-      const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
-
+      setLoading(true);
+      await signInWithGoogle();
       await registerCurrentUser();
       onLogin();
     } catch (err: any) {
       console.error("Google login failed:", err);
-      setError(err.message || "Google login failed.");
+      setError(parseFirebaseError(err.code) ?? err.message);
+    } finally {
+      setLoading(false);
     }
-};
+  };
+
+  const handleForgotPassword = async () => {
+    setError('');
+    if (!email.trim()) {
+      setError('Enter your email above, then click "Forgot Password?".');
+      return;
+    }
+    setError("Password Reset in future updates; not planned in CS320.")
+  };
 
   // switch and clear info for switching between login/signup
   const switchMode = () => {
@@ -201,7 +199,11 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
             {/* if logging in: forgot password option */}
             {!isSignUp && (
               <div className="flex items-center justify-end text-sm">
-                <button type="button" className="text-gray-800 hover:text-[#6FBD7A] underline">
+                <button
+                  type="button"
+                  onClick={handleForgotPassword}
+                  className="text-gray-800 hover:text-[#6FBD7A] underline"
+                >
                   Forgot Password?
                 </button>
               </div>
@@ -209,9 +211,10 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
 
             <button
               type="submit"
-              className="w-full bg-[#6FBD7A] text-white py-3 rounded-lg hover:bg-[#5da968] transition-colors mt-2"
+              disabled={loading}
+              className="w-full bg-[#6FBD7A] text-white py-3 rounded-lg hover:bg-[#5da968] transition-colors mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSignUp ? 'Create Account' : 'Login'}
+              {loading ? 'Please wait…' : (isSignUp ? 'Create Account' : 'Login')}
             </button>
 
             <div className="relative my-6">
@@ -227,7 +230,8 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
             <button
               type="button"
               onClick={handleGoogleLogin}
-              className="w-full border border-gray-300 bg-white text-gray-800 py-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+              disabled={loading}
+              className="w-full border border-gray-300 bg-white text-gray-800 py-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {/* Given from figma: the google auth button code + coloring etc*/}
               <svg className="w-5 h-5" viewBox="0 0 24 24">
