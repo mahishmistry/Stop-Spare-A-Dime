@@ -534,36 +534,41 @@ app.get('/api/stores', async (req, res) => {
  * @param {number} [req.query.k] - An optional limiting parameters dictating returned items maximum map array length limit.
  * @returns {Array<Object>} Sorted payload map array of items strictly passing through the algorithm.
  */
-app.get('/api/compare', verifyToken,
-  query('product').isString().trim().escape().notEmpty(),
-  query('zipCode').optional().isPostalCode('US'),
-  async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
+app.get('/api/compare', optionalVerifyToken, 
+ query('product').isString().trim().escape().notEmpty(),
+ query('zipCode').optional().isPostalCode('US'),
+ async (req, res) => {
+   const errors = validationResult(req);
+   if (!errors.isEmpty()) {
+     return res.status(400).json({ errors: errors.array() });
+   }
 
-    const { product, zipCode } = req.query;
-    const location = zipCode || "United States";
-    const cacheKey = `${product.toLowerCase().trim()}-${location}`;
 
-  try {
-    const cachedEntry = await get_cached_search(cacheKey);
-    if (!cachedEntry) {
-        return res.status(404).json({ error: "Product search results not found in cache. Please search first." });
-    }
-    const items = cachedEntry.results;
+   const { product, zipCode } = req.query;
+   const location = zipCode || "United States";
+   const cacheKey = `${product.toLowerCase().trim()}-${location}`;
 
-    let userBlockedStores = [];
-    const userContext = await create_user_context(req.user.email);
-    if (userContext) {
-      userBlockedStores = await userContext.get_blacklisted_stores();
-    }
-    getBestItems(items, req, res, userBlockedStores);
-  } catch (err) {
-    console.error("Comparison Error:", err);
-    res.status(500).json({ error: "Failed to compare items." });
-  }
+
+ try {
+   const cachedEntry = await get_cached_search(cacheKey);
+   if (!cachedEntry) {
+       return res.status(404).json({ error: "Product search results not found in cache. Please search first." });
+   }
+   const items = cachedEntry.results;
+
+
+   let userBlockedStores = [];
+   if(req.user?.email){
+     const userContext = await create_user_context(req.user.email);
+     if (userContext) {
+       userBlockedStores = await userContext.get_blacklisted_stores();
+     }
+   }
+   getBestItems(items, req, res, userBlockedStores);
+ } catch (err) {
+   console.error("Comparison Error:", err);
+   res.status(500).json({ error: "Failed to compare items." });
+ }
 });
 
 /**
