@@ -62,6 +62,8 @@ interface ItemDetailPageProps {
   onHomeClick?: () => void;
   onSettingsClick: () => void;
   onHistoryClick?: () => void;
+  accountName?: string;
+  accountEmail?: string;
 }
 
 // Returns the active promotion if one is currently valid, falls back to first
@@ -161,6 +163,8 @@ export function ItemDetailPage({
   onHomeClick,
   onSettingsClick,
   onHistoryClick,
+  accountName,
+  accountEmail,
 }: ItemDetailPageProps) {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
@@ -198,6 +202,8 @@ export function ItemDetailPage({
         onHomeClick={onHomeClick}
         onSettingsClick={onSettingsClick}
         onHistoryClick={onHistoryClick}
+        accountName={accountName}
+        accountEmail={accountEmail}
       />
 
       <main className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">

@@ -33,6 +33,8 @@ interface SearchResultsPageProps {
   onSettingsClick: () => void;
   onHistoryClick?: () => void;
   searchHistory?: string[];
+  accountName?: string;
+  accountEmail?: string;
 }
 
 export function SearchResultsPage({
@@ -50,6 +52,8 @@ export function SearchResultsPage({
   onSettingsClick,
   onHistoryClick,
   searchHistory = [],
+  accountName,
+  accountEmail,
 }: SearchResultsPageProps) {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [showSearchDropdown, setShowSearchDropdown] = useState(false);
@@ -93,6 +97,8 @@ export function SearchResultsPage({
         onSettingsClick={onSettingsClick}
         onHistoryClick={onHistoryClick}
         searchHistory={searchHistory}
+        accountName={accountName}
+        accountEmail={accountEmail}
       />
 
       {/* Filters bar */}
