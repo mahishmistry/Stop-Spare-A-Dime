@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const { query, body, validationResult } = require('express-validator');
 const { getJson } = require('serpapi');
 const { getBestItems, getItemById } = require('./comparison.cjs');
-const { get_cached_search, set_cached_search, add_store, add_product, get_product_by_id, get_all_stores } = require('../database/queries.ts');
+const { get_cached_search, set_cached_search, add_store, add_product, get_product_by_id, get_all_stores, _add_brand,add_item, add_deal} = require('../database/queries.ts');
 const { create_user_context, create_new_user } = require('../database/user.ts');
 const { initialize_pool } = require('../database/pool.ts');
 
@@ -164,8 +164,9 @@ app.get('/api/prices', optionalVerifyToken,
         // Store un-filtered results in cache
         try {
             await set_cached_search(cacheKey, allResults);
+            await saveSearchResultsToDb(allResults);
         } catch (error) {
-            console.error("Cache Write Error:", error);
+            console.error("Cache/Product DB Write Error:", error);
         }
         
         //Filter for blocked stores
@@ -191,7 +192,87 @@ app.get('/api/prices', optionalVerifyToken,
     }
   }
 );
+async function saveSearchResultsToDb(allResults) {
+  console.log("Saving search results to DB:", allResults.length);
 
+  for (const item of allResults) {
+    try {
+      const title = item.title || item.name;
+      const source = item.source;
+      const link = item.link || "http://placeholder.com";
+      const price = item.extracted_price || parseFloat(String(item.price || "").replace(/[^0-9.]/g, ""));
+      const serpProductId = item.product_id;
+
+      if (!title || !source) continue;
+
+      // 1. Save store
+      try {
+        await add_store(source, link);
+      } catch (e) {
+        // probably duplicate store, ignore
+      }
+
+      // 2. Save brand
+      let brandId = null;
+      const brandName = title.split(" ")[0];
+
+      if (brandName) {
+        try {
+          const brand = await _add_brand(brandName);
+          brandId = brand.brand_id;
+        } catch (e) {
+          // duplicate brand or insert issue — ignore for now
+        }
+      }
+
+      // 3. Save product
+      let product = null;
+
+      try {
+        product = await add_product(title, brandId ?? undefined);
+      } catch (e) {
+        // duplicate product or insert issue — ignore for now
+      }
+
+      if (!product?.product_id) continue;
+
+      // 4. Save item
+      // add_item currently requires store_item_id to be a positive integer
+      const storeItemId = String(item.product_id || `${title}-${source}`);
+
+      let dbItem = null;
+
+      try {
+          dbItem = await add_item(
+            product.product_id,
+            source,
+            storeItemId,
+            item.rating ?? null,
+            item.reviews ?? null
+          );
+      } catch (e) {
+          // duplicate item or schema issue — ignore for now
+        }
+
+        // 5. Save deal/price
+        if (dbItem?.item_id && Number.isFinite(price)) {
+          try {
+            await add_deal(
+              dbItem.item_id,
+              price,
+              false,
+              new Date()
+            );
+          } catch (e) {
+            // duplicate deal or insert issue — ignore for now
+          }
+        }
+      
+    } catch (err) {
+      console.error("Error saving search result to DB:", err);
+    }
+  }
+}
 /**
  * Protected endpoint returning local API hit history.
  * Pushes historical items array directly tied to the active server session runtime.
