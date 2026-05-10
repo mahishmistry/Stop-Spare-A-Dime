@@ -7,7 +7,7 @@ import { Header } from "./Header.tsx";
 import {
   addFavorite,
   removeFavorite,
-  saveBookmark,
+  addBookmark,
   removeBookmark,
   getFavorites,
   getBookmarks,
