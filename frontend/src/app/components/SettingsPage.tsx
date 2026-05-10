@@ -1,7 +1,12 @@
 import { ChevronLeft, X } from 'lucide-react';
-import React from "react";
+import React, { use } from "react";
 import { useState, useEffect, useRef } from 'react';
 import { Header } from './Header.tsx';
+
+//to implement connect store autocomplete task and connecting account settings- ava
+import { getStores, updateUserProfile, updateUserNotifications } from '../services/products';
+import { updateUserPassword } from '../services/auth.ts';
+
 
 interface SettingsPageProps {
   location: string;
@@ -109,6 +114,52 @@ export function SettingsPage({
   accountName, accountEmail, accountZip,
   onAccountNameChange, onAccountEmailChange, onAccountZipChange,
 }: SettingsPageProps) {
+
+  //handlers to help with updating user profile, email, password save, and notifications if these fail
+  const handleNameSave = async (newName: string) => {
+    try {
+      await updateUserProfile({ name: newName });
+      onAccountNameChange(newName);
+    } catch (error) {
+      console.error("Failed to update name:", error);
+    }
+  };
+
+  const handleEmailSave = async (newEmail: string) => {
+    try {
+      await updateUserProfile({ email: newEmail });
+      onAccountEmailChange(newEmail);
+    } catch (error) {
+      console.error("Failed to update email:", error);
+    }
+  };
+
+  const handleZipSave = async (newZip: string) => {
+    try {
+      await updateUserProfile({ zipCode: newZip });
+      onAccountZipChange(newZip);
+    } catch (error) {
+      console.error("Failed to update zip code:", error);
+    }
+  };
+
+  const handlePasswordSave = async (newPassword: string) => {
+    try {
+      await updateUserPassword(newPassword);
+      alert("Password updated successfully!");
+    } catch (error) {
+      console.error("Failed to update password:", error);
+    }
+  };
+
+  const handleNotificationToggle = async (enabled: boolean) => {
+    try {
+      await updateUserNotifications(enabled);
+    } catch (error) {
+      console.error("Failed to toggle notifications:", error);
+    }
+  };
+
   const [activeSection, setActiveSection] = useState<string>(initialSection ?? 'account');
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -121,7 +172,17 @@ export function SettingsPage({
   const [membershipSearch, setMembershipSearch] = useState('');
 
   const availableMemberships = ['Costco Membership', 'Stop & Shop Membership', 'Whole Foods Prime', "Sam's Club Membership", "BJ's Membership"];
-  const availableStores = ['Walmart', 'Target', 'Kroger', 'Whole Foods', 'Safeway', 'Trader Joes', 'Costco', 'Aldi'];
+  
+  // connecting the auto stores with real ones. (instead of fakes) - ava
+  const [availableStores, setAvailableStores] = useState<string[]>([]);
+  useEffect(()=> {
+    const fetchStores = async () => {
+      const stores = await getStores();
+      setAvailableStores(stores);
+    };
+    fetchStores();
+  }, []);
+
 
   useEffect(() => {
     if (!initialSection) return;
@@ -183,9 +244,26 @@ export function SettingsPage({
           <section id="account" className="mb-12">
             <h2 className="text-2xl mb-6 text-gray-800">Account</h2>
             <div className="divide-y divide-gray-100">
-              <EditRow label="Name"             value={accountName}  onSave={onAccountNameChange} />
-              <EditRow label="Email"            value={accountEmail} onSave={onAccountEmailChange} type="email" />
-              <EditRow label="Primary zip code" value={accountZip}   onSave={onAccountZipChange}  maxLength={10} />
+              
+              <EditRow 
+                label="Name" 
+                value={accountName} 
+                onSave={handleNameSave} 
+              />
+              <EditRow 
+                label="Email" 
+                value={accountEmail} 
+                onSave={handleEmailSave} 
+                type="email" 
+              />
+              <EditRow 
+                label="Primary zip code" 
+                value={accountZip} 
+                onSave={handleZipSave} 
+                maxLength={10} 
+
+
+              />
               <PasswordRow />
             </div>
           </section>

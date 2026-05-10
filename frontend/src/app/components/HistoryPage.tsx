@@ -1,6 +1,10 @@
 import { ChevronLeft } from 'lucide-react'; // https://lucide.dev/icons/
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './Header.tsx';
+
+//to get history for connecting to backend - ava
+import { getSearchHistory } from '../services/products';
+
 
 interface HistoryPageProps {
   location: string;
@@ -31,22 +35,33 @@ export function HistoryPage({
   accountName,
   accountEmail,
 }: HistoryPageProps) {
-  const [historyItems, setHistoryItems] = useState([
-    { id: 1, text: 'Organic Bananas' },
-    { id: 2, text: 'Whole Milk Gallon' },
-    { id: 3, text: 'Searched: "Orange Juice"' },
-    { id: 4, text: 'Free Range Eggs' },
-    { id: 5, text: 'Fresh Strawberries' },
-    { id: 6, text: 'Searched: "Bread"' },
-    { id: 7, text: 'Ground Beef 1lb' },
-    { id: 8, text: 'Organic Spinach' },
-    { id: 9, text: 'Avocados' },
-    { id: 10, text: 'Searched: "Yogurt"' },
-  ]);
+  
+  const[historyItems, setHistoryItems] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleClearHistory = () => {
-    setHistoryItems([]);
-  };
+  useEffect(() => {
+    const fetchHistory = async () => {
+      try {
+        const data = await getSearchHistory();
+        // If your backend returns objects instead of strings, map them here:
+        // setHistoryItems(data.map((item: any) => item.query) || []);
+        setHistoryItems(data || []);
+      } catch (error) {
+        console.error("Failed to fetch search history:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+  
+    if (isAuthenticated) {
+      fetchHistory();
+    } else {
+      setIsLoading(false);
+    }
+  }, [isAuthenticated]);
+
+  //got rid of clear history func so dont have to deal with that
+
 
   return (
     <div className="min-h-screen bg-[#F9F9F9]">
@@ -77,24 +92,23 @@ export function HistoryPage({
 
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold text-gray-800">History</h1>
-            {historyItems.length > 0 && (
-              <button
-                onClick={handleClearHistory}
-                className="text-sm text-gray-500 hover:text-red-600 font-medium transition-colors"
-              >
-                Clear History
-              </button>
-            )}
-          </div>
+              {/* Clear History button is hidden for now until the API is built */}
 
-          {historyItems.length > 0 ? (
+          </div>
+          
+          {isLoading ? (
+            <div className="flex-1 flex items-center justify-center text-gray-400">
+              Loading history...
+            </div>
+          ) : historyItems.length > 0 ? (
             <div className="overflow-y-auto flex-1 pr-4 space-y-4">
-              {historyItems.map((item) => (
+              {historyItems.map((item, index) => (
                 <div
-                  key={item.id}
+                  key={index}
+                  onClick={() => onSearch(item)}
                   className="py-3 border-b border-gray-100 last:border-0 text-gray-700 hover:bg-gray-50 px-2 rounded transition-colors cursor-pointer"
                 >
-                  {item.text}
+                  {item}
                 </div>
               ))}
             </div>

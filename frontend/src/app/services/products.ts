@@ -97,3 +97,93 @@ export async function searchAndCompareProducts(
     ? data.map(normalizeProduct)
     : [];
 }
+
+
+
+
+//Ava's changings to implement connect store autocomplete for settings page
+export async function getStores(): Promise<string[]> {
+  try {
+    const headers = await getAuthHeaders();
+    
+    const res = await fetch(`${API_BASE_URL}/api/stores`, {
+      method: "GET",
+      headers,
+    });
+
+    if (!res.ok) {
+      console.warn(`Failed to fetch stores: ${res.status}`);
+      return []; 
+    }
+
+    const data = await res.json();
+    
+    // to make sure it returns an array, even if the backend acts up
+    return Array.isArray(data) ? data : [];
+    
+  } catch (error) {
+    console.error("Error fetching stores:", error);
+    return [];
+  }
+}
+
+
+
+//Ava's changing for connecting account settings task
+export async function updateUserProfile(data: { name?: string; email?: string; zipCode?: string }) {
+  const headers = await getAuthHeaders();
+  
+  // We need to add Content-Type since we are sending a JSON body
+  const requestHeaders = {
+    ...headers,
+    "Content-Type": "application/json",
+  };
+
+  const res = await fetch(`${API_BASE_URL}/api/user/profile`, {
+    method: "PUT",
+    headers: requestHeaders,
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) throw new Error("Failed to update profile");
+  return res.json();
+}
+
+export async function updateUserNotifications(enabled: boolean) {
+  const headers = await getAuthHeaders();
+  const requestHeaders = {
+    ...headers,
+    "Content-Type": "application/json",
+  };
+
+  const res = await fetch(`${API_BASE_URL}/api/user/notifications`, {
+    method: "PUT",
+    headers: requestHeaders,
+    body: JSON.stringify({ enabled }),
+  });
+
+  if (!res.ok) throw new Error("Failed to update notifications");
+  return res.json();
+}
+
+//connecting history page , need search history func - ava
+export async function getSearchHistory() {
+  try {
+    const headers = await getAuthHeaders();
+    const res = await fetch(`${API_BASE_URL}/api/history`, {
+      method: "GET",
+      headers,
+    });
+
+    if (!res.ok) {
+      console.warn(`Failed to fetch history: ${res.status}`);
+      return []; 
+    }
+
+    const data = await res.json();
+    return Array.isArray(data) ? data : [];
+  } catch (error) {
+    console.error("Error fetching search history:", error);
+    return [];
+  }
+}

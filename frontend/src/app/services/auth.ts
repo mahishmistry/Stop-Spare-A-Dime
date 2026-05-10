@@ -9,6 +9,7 @@ import {
   onAuthStateChanged,
   updateProfile,
   User,
+  updatePassword
 } from "firebase/auth"; // https://firebase.google.com/docs/reference/js/auth
  
 const env = (import.meta as any).env;
@@ -103,4 +104,14 @@ export function parseFirebaseError(code: string): string {
     "auth/network-request-failed": "Network error. Check your connection.", // in case 
   };
   return messages[code] ?? "Something went wrong. Please try again.";
+}
+
+
+
+//letting people change their passwords for connecting account settings - ava
+export async function updateUserPassword(newPassword: string): Promise<void> {
+  const user = auth.currentUser;
+  if (!user) throw new Error("No user is logged in");
+  
+  await updatePassword(user, newPassword);
 }
