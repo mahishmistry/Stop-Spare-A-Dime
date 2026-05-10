@@ -2,7 +2,6 @@ import { MapPin, Search, Menu, X, Clock } from "lucide-react";
 import { useState, useRef } from "react";
 import { LocationModal } from "./LocationModal.tsx";
 import { ProfileMenu } from "./ProfileMenu.tsx";
-import React from "react";
 
 interface HeaderProps {
   // HEADER PARAMS

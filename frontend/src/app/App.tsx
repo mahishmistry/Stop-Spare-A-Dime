@@ -100,32 +100,39 @@ export default function App() {
   const [accountZip, setAccountZip] = useState("01003");
 
   // AUTH
-  useEffect(() => {
-    const unsubscribe = onAuthChange(async (user) => {
+  useEffect(() => { // runs on first render to subscribe once to firebase through onauthchange
+    const unsubscribe = onAuthChange(async (user) => { // listening to changes to auth state! subscribed to take action
       if (user) {
         setIsAuthenticated(true);
-        try {
-          const token = await user.getIdToken();
-          const response = await fetch("http://localhost:3000/api/user/profile",
-            {headers: {Authorization: `Bearer ${token}`,},});
-          if (!response.ok) {
-            throw new Error("Failed to fetch profile");
+        // Retry profile fetch up to 5 times if it failed the first time in case something didnt work the first time.
+        let data: { name?: string; email?: string } | null = null; // want data to survive loops of retries
+        for (let attempt = 1; attempt <= 5; attempt++) { // try 5 times then give up
+          try {
+            const token = await user.getIdToken(); // firebase token
+            const response = await fetch("http://localhost:3000/api/user/profile", {
+              headers: { Authorization: `Bearer ${token}` },}); //supabase request for the users data
+            if (!response.ok) throw new Error(`HTTP ${response.status}`); 
+            data = await response.json();
+            break; // success, end retries 
+          } catch (err) {
+            console.warn(`Profile fetch attempt ${attempt}/5 failed:`, err);
+            if (attempt < 5) {
+              await new Promise((res) => setTimeout(res, 750));
+            }
           }
-          const data = await response.json();
-          setAccountName(data.name ?? "User");
-          setAccountEmail(data.email ?? user.email ?? "");
-        } catch (err) {
-          console.error("Profile fetch failed:", err);
-          setAccountName("User");
-          setAccountEmail(user.email ?? "");
         }
+        // take backend supabase name, if none, then google's and if something failed just do user
+        const name = data?.name ?? user.displayName ?? "User";
+        const email = data?.email ?? user.email ?? "";
+        setAccountName(name);
+        setAccountEmail(email);
         setView(loginReturnView);
       } else {
-        setIsAuthenticated(false);
+        setIsAuthenticated(false); // logged out state, header doesnt show logged in
         setAccountName("");
         setAccountEmail("");
         if (view === "settings" || view === "history") {
-          setView("home");
+          setView("home"); // safety if already not done
         }
       }
     });

@@ -25,7 +25,7 @@ export function LocationModal({ isOpen, onClose, currentLocation, onLocationChan
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [onClose, containerRef]);
+  }, []);
 
   // zipcode validator, ensuring length of 5. we don't do a number only check because 
   // out input box has inputMode="numeric", but if we decide to support canada in the
