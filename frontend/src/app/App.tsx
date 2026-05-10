@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "./components/Header.tsx";
 import { ProductCarousel } from "./components/ProductCarousel.tsx";
 import { LoginPage } from "./components/LoginPage.tsx";
@@ -6,58 +6,12 @@ import { ItemDetailPage } from "./components/ItemDetailPage.tsx";
 import { SearchResultsPage } from "./components/SearchResultsPage.tsx";
 import { SettingsPage } from "./components/SettingsPage.tsx";
 import { HistoryPage } from "./components/HistoryPage.tsx"
-import React from "react";
 import { searchAndCompareProducts } from "./services/products.ts";
+import { onAuthChange, logOut } from "./services/auth.ts";
+import { HomePage } from "./components/HomePage.tsx";
 
 // all possible pages to access: home , search results, item comparison details,
 type View = 'home' | 'search' | 'item' | 'settings' | 'login' | 'history';
-
-// data -- remove later and use api endpoints for data
-const recommendations = [
-  { id: '1', name: 'Organic Bananas', price: 0.49, store: 'Walmart', image: 'https://images.unsplash.com/photo-1603833665858-e61d17a86224?w=400', isOnSale: true, salePrice: 0.29},
-  { id: '2', name: 'Whole Milk Gallon', price: 3.99, store: 'Target', image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400' },
-  { id: '3', name: 'Free Range Eggs', price: 4.29, store: 'Kroger', image: 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=400' },
-  { id: '4', name: 'Fresh Strawberries', price: 3.99, store: 'Whole Foods', image: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400' },
-  { id: '5', name: 'Organic Spinach', price: 2.99, store: 'Trader Joes', image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400' },
-  { id: '6', name: 'Avocados', price: 1.29, store: 'Costco', image: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400' },
-];
-const biggestSales = [
-  { id: '7', name: 'Ground Beef 1lb', price: 4.99, store: 'Safeway', image: 'https://justcook.butcherbox.com/wp-content/uploads/2019/06/ground-beef.jpg' },
-  { id: '8', name: 'Sourdough Bread', price: 3.49, store: 'Walmart', image: 'https://www.theperfectloaf.com/wp-content/uploads/2015/12/theperfectloaf-mybestsourdoughrecipe-title-1.jpg' },
-  { id: '9', name: 'Baby Carrots', price: 1.99, store: 'Target', image: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400' },
-  { id: '10', name: 'Greek Yogurt', price: 0.99, store: 'Aldi', image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400' },
-  { id: '11', name: 'Chicken Breast', price: 6.99, store: 'Kroger', image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400' },
-  { id: '12', name: 'Tomatoes', price: 2.49, store: 'Whole Foods', image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400' },
-];
-const allOtherAvailableProducts = [
-  { id: '13', name: 'Coca-Cola Diet Coke Soda 2L Bottle', price: 2.50, store: 'Walmart', image: 'https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400' },
-  { id: '14', name: 'Coca-Cola Classic 2L Bottle', price: 2.99, store: 'Target', image: 'https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400' },
-  { id: '15', name: 'Pepsi Cola 2L Bottle', price: 2.49, store: 'Kroger', image: 'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=400' },
-  { id: '16', name: 'Sprite Lemon-Lime Soda 2L', price: 2.75, store: 'Walmart', image: 'https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?w=400' },
-  { id: '17', name: 'Orange Juice - Tropicana', price: 4.99, store: 'Whole Foods', image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400' },
-  { id: '18', name: "Apple Juice - Martinez's", price: 3.49, store: 'Safeway', image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400' },
-];
-
-// temporary search function replace later and edit possibly even move to header component
-function runSearch(query: string) {
-  const all = [
-    ...recommendations,
-    ...biggestSales,
-    ...allOtherAvailableProducts,
-  ];
-  return all
-    .filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
-    .map((p, i) => ({
-      ...p,
-      saleLabel: i % 3 === 0 ? "SALE" : undefined,
-      saleEndDate: i % 3 === 0 ? "6/29" : undefined,
-      dealText: i % 2 === 0 ? `2/$${(p.price * 2).toFixed(2)}` : undefined,
-      unitPrice: `$${(p.price / 16).toFixed(2)}/oz`,
-      savingsText: i % 3 === 0 ? "Save $1.19" : undefined,
-      snapEligible: i % 4 !== 0, // most items SNAP eligible, some aren't
-      loyaltyProgramIndicator: i % 2 === 0, // alternating loyalty programs
-    }));
-}
 
 // product details func: replace with real API item details and functions to find this data!
 function buildItemDetails(product: any) {
@@ -141,21 +95,56 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
-  // Account state — lives here so ProfileMenu (via Header) stays in sync with SettingsPage edits.
-  // Swap these useState defaults for Firebase reads when you wire up auth.ts.
-  const [accountName, setAccountName] = useState("Zoe");
-  const [accountEmail, setAccountEmail] = useState("p****@email.com");
+  const [accountName, setAccountName] = useState("");
+  const [accountEmail, setAccountEmail] = useState("");
   const [accountZip, setAccountZip] = useState("01003");
 
   // AUTH
+  useEffect(() => { // runs on first render to subscribe once to firebase through onauthchange
+    const unsubscribe = onAuthChange(async (user) => { // listening to changes to auth state! subscribed to take action
+      if (user) {
+        setIsAuthenticated(true);
+        // Retry profile fetch up to 5 times if it failed the first time in case something didnt work the first time.
+        let data: { name?: string; email?: string } | null = null; // want data to survive loops of retries
+        for (let attempt = 1; attempt <= 5; attempt++) { // try 5 times then give up
+          try {
+            const token = await user.getIdToken(); // firebase token
+            const response = await fetch("http://localhost:3000/api/user/profile", {
+              headers: { Authorization: `Bearer ${token}` },}); //supabase request for the users data
+            if (!response.ok) throw new Error(`HTTP ${response.status}`); 
+            data = await response.json();
+            break; // success, end retries 
+          } catch (err) {
+            console.warn(`Profile fetch attempt ${attempt}/5 failed:`, err);
+            if (attempt < 5) {
+              await new Promise((res) => setTimeout(res, 750));
+            }
+          }
+        }
+        // take backend supabase name, if none, then google's and if something failed just do user
+        const name = data?.name ?? user.displayName ?? "User";
+        const email = data?.email ?? user.email ?? "";
+        setAccountName(name);
+        setAccountEmail(email);
+        setView(loginReturnView);
+      } else {
+        setIsAuthenticated(false); // logged out state, header doesnt show logged in
+        setAccountName("");
+        setAccountEmail("");
+        if (view === "settings" || view === "history") {
+          setView("home"); // safety if already not done
+        }
+      }
+    });
+    return unsubscribe;
+  }, []);
+
   const handleLogin = () => {
-    setIsAuthenticated(true);
-    // Return to the page the user was on before being sent to login
     setView(loginReturnView);
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
+  const handleLogout = async () => {
+    await logOut();
     // If on a protected page, redirect to home
     if (view === "settings" || view === "history") {
       setView("home");
@@ -216,8 +205,6 @@ export default function App() {
   // SEARCH
   // CHANGING THIS RIGHT NOW TO TEST SEARCH WITH BACKEND line 217 to 238
   const handleSearch = async (query: string) => {
-
-
     setSearchQuery(query);
     setView("search");
 
@@ -306,21 +293,13 @@ export default function App() {
       <SearchResultsPage
         searchQuery={searchQuery}
         results={searchResults}
-        location={location}
         onProductClick={handleProductClick}
         onBack={goHome}
-        onLogout={handleLogout}
-        onSearch={handleSearch}
-        isAuthenticated={isAuthenticated}
+        {...headerProps}
         onLoginClick={() => {
           setLoginReturnView("search");
           setView("login");
         }}
-        onHomeClick={goHome}
-        onLocationChange={setLocation}
-        onSettingsClick={goToSettings}
-        onHistoryClick={goToHistory}
-        searchHistory={searchHistory}
       />
     );
   }
@@ -331,38 +310,15 @@ export default function App() {
       <ItemDetailPage
         item={buildItemDetails(selectedProduct)}
         onBack={handleBackFromProduct}
-        onLogout={handleLogout}
-        onSearch={handleSearch}
-        isAuthenticated={isAuthenticated}
+        {...headerProps}
         onLoginClick={() => {
           setLoginReturnView("item");
           setView("login");
         }}
-        onHomeClick={goHome}
-        onLocationChange={setLocation}
-        location={location}
-        onSettingsClick={goToSettings}
-        onHistoryClick={goToHistory}
       />
     );
   }
 
   // home page!
-  return (
-    <div className="min-h-screen bg-[#F9F9F9]">
-      <Header {...headerProps} />
-      <main className="max-w-7xl mx-auto px-6 py-8">
-        <ProductCarousel
-          title="Recommendations"
-          products={recommendations}
-          onProductClick={handleProductClick}
-        />
-        <ProductCarousel
-          title="Biggest Sales"
-          products={biggestSales}
-          onProductClick={handleProductClick}
-        />
-      </main>
-    </div>
-  );
+return <HomePage {...headerProps} onProductClick={handleProductClick} />;
 }

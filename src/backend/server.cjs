@@ -5,10 +5,11 @@ const { query, body, validationResult } = require('express-validator');
 const { getJson } = require('serpapi');
 const { getBestItems, getItemById } = require('./comparison.cjs');
 const { get_cached_search, set_cached_search, add_store, add_product, get_product_by_id, get_all_stores } = require('../database/queries.ts');
-const { create_user_context } = require('../database/user.ts');
+const { create_user_context, create_new_user } = require('../database/user.ts');
 const { initialize_pool } = require('../database/pool.ts');
 
 const verifyToken = require("../../middleware/verifyToken.cjs");
+const optionalVerifyToken = require("../../middleware/optionalVerifyToken.cjs");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require('cors');
@@ -49,11 +50,26 @@ app.post('/api/user/register', verifyToken, async (req, res) => {
     res.json({
       message: "User registered",
       email,
+      name
     });
   } catch (err) {
     console.error("User registration error:", err);
     res.status(500).json({ error: "Failed to register user" });
   }
+});
+
+// fetches user data! different from post
+app.get('/api/user/profile', verifyToken, async (req, res) => {
+  const userContext = await create_user_context(req.user.email);
+
+  if (!userContext) {
+    return res.status(404).json({ error: "User not found in database." });
+  }
+
+  res.json({
+    name: userContext.name,
+    email: req.user.email
+  });
 });
 
 /**
@@ -67,7 +83,7 @@ app.post('/api/user/register', verifyToken, async (req, res) => {
  * @param {string} [req.query.zipCode] - Optional ZIP Code to bind geo-location data for prices.
  * @returns {Object} JSON payload holding total active item counts and raw filtered item results.
  */
-app.get('/api/prices', verifyToken,
+app.get('/api/prices', optionalVerifyToken,
   query('product').isString().trim().escape().notEmpty(),
   query('zipCode').optional().isPostalCode('US'),
   async (req, res) => {
@@ -85,20 +101,21 @@ app.get('/api/prices', verifyToken,
     let favoriteIdentifiers = [];
 
     try {
+      if(req.user?.email){
         const userContext = await create_user_context(req.user.email);
-        if (userContext) {
+          if (userContext) {
             userBlockedStores = await userContext.get_blacklisted_stores();
             const favIds = await userContext.get_favorite_products(100);
             for (const fid of favIds) {
                 const prod = await get_product_by_id(fid);
                 if (prod) favoriteIdentifiers.push(prod.name);
             }
-            
             // Trigger addition to the user's database search history
             await userContext.add_search_history(product, new Date());
         }
+      } 
     } catch (e) {
-        console.error("Error fetching user context for filters/favorites:", e);
+      console.error("Error fetching user context for filters/favorites:", e);
     }
 
     try {
@@ -517,36 +534,35 @@ app.get('/api/stores', async (req, res) => {
  * @param {number} [req.query.k] - An optional limiting parameters dictating returned items maximum map array length limit.
  * @returns {Array<Object>} Sorted payload map array of items strictly passing through the algorithm.
  */
-app.get('/api/compare', verifyToken,
-  query('product').isString().trim().escape().notEmpty(),
-  query('zipCode').optional().isPostalCode('US'),
+app.get('/api/compare', optionalVerifyToken, 
+ query('product').isString().trim().escape().notEmpty(),
+ query('zipCode').optional().isPostalCode('US'),
   async (req, res) => {
-    const errors = validationResult(req);
+  const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
-    const { product, zipCode } = req.query;
-    const location = zipCode || "United States";
-    const cacheKey = `${product.toLowerCase().trim()}-${location}`;
-
+  const { product, zipCode } = req.query;
+  const location = zipCode || "United States";
+  const cacheKey = `${product.toLowerCase().trim()}-${location}`;
   try {
     const cachedEntry = await get_cached_search(cacheKey);
     if (!cachedEntry) {
         return res.status(404).json({ error: "Product search results not found in cache. Please search first." });
     }
-    const items = cachedEntry.results;
-
+    const items = cachedEntry.results;  
     let userBlockedStores = [];
-    const userContext = await create_user_context(req.user.email);
-    if (userContext) {
-      userBlockedStores = await userContext.get_blacklisted_stores();
-    }
-    getBestItems(items, req, res, userBlockedStores);
-  } catch (err) {
-    console.error("Comparison Error:", err);
-    res.status(500).json({ error: "Failed to compare items." });
+    if(req.user?.email){
+      const userContext = await create_user_context(req.user.email);
+      if (userContext) {
+        userBlockedStores = await userContext.get_blacklisted_stores();
+      }
   }
+  getBestItems(items, req, res, userBlockedStores);
+ } catch (err) {
+   console.error("Comparison Error:", err);
+   res.status(500).json({ error: "Failed to compare items." });
+ }
 });
 
 /**
