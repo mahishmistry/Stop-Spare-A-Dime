@@ -7,6 +7,7 @@ import { SearchResultsPage } from "./components/SearchResultsPage.tsx";
 import { SettingsPage } from "./components/SettingsPage.tsx";
 import { HistoryPage } from "./components/HistoryPage.tsx"
 import { searchAndCompareProducts } from "./services/products.ts";
+import type { CompareSort } from "./services/products.ts";
 import { onAuthChange, logOut } from "./services/auth.ts";
 import { HomePage } from "./components/HomePage.tsx";
 
@@ -93,6 +94,7 @@ export default function App() {
   const [location, setLocation] = useState("Amherst, MA 01003");
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [comparisonCriteria, setComparisonCriteria] = useState<CompareSort>("price");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [accountName, setAccountName] = useState("");
@@ -204,13 +206,14 @@ export default function App() {
 
   // SEARCH
   // CHANGING THIS RIGHT NOW TO TEST SEARCH WITH BACKEND line 217 to 238
-  const handleSearch = async (query: string) => {
+  const handleSearch = async (query: string, criteria: CompareSort = comparisonCriteria) => {
     setSearchQuery(query);
+    setComparisonCriteria(criteria);
     setView("search");
 
     try {
       console.log("Calling backend...");
-      const backendResults = await searchAndCompareProducts(query,"price", 20);
+      const backendResults = await searchAndCompareProducts(query, criteria, 20);
       console.log("Backend results:", backendResults);
 
       setSearchResults(backendResults);
@@ -226,6 +229,15 @@ export default function App() {
       const filtered = prev.filter((q) => q !== query);
       return [query, ...filtered];
     });
+  };
+
+  const handleComparisonCriteriaChange = async (criteria: CompareSort) => {
+    if (criteria === comparisonCriteria) return;
+
+    setComparisonCriteria(criteria);
+    if (searchQuery.trim()) {
+      await handleSearch(searchQuery, criteria);
+    }
   };
 
   // HEADER props — shared across pages
@@ -293,6 +305,8 @@ export default function App() {
       <SearchResultsPage
         searchQuery={searchQuery}
         results={searchResults}
+        comparisonCriteria={comparisonCriteria}
+        onComparisonCriteriaChange={handleComparisonCriteriaChange}
         onProductClick={handleProductClick}
         onBack={goHome}
         {...headerProps}
