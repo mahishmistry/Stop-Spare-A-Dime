@@ -21,11 +21,13 @@ interface BestChoice {
   isOnSale: boolean;
   promotions?: Promotion[];         // sale info if on sale
   snapEligible: boolean;
-  distance: string;                 //  "3.5 Miles away"
-  address: string;
+  distance?: string | null;                 //  "3.5 Miles away"
+  address?: string | null;
+  comparisonMessage?: string | null;
   mapUrl?: string;                  // if omitted, falls back to Google Maps search
   loyaltyProgramIndicator?: string; // "Price with membership", can change to boolean later.
   isOutOfStock?: boolean;
+  comparisonType?: "positive" | "negative" | null;
 }
 
 interface Retailer {
@@ -174,15 +176,18 @@ export function ItemDetailPage({
   const bestPrice = effectivePrice(item.bestChoice.price, activePromo?.salePrice);
   const activePricePerUnit = activePromo?.pricePerUnitItem ?? item.bestChoice.pricePerUnitItem;
 
-  const sortedRetailers = [...item.otherRetailers].sort((a, b) => a.price - b.price);
+  const sortedRetailers = [...(item.otherRetailers ?? [])].sort((a, b) => a.price - b.price);
 
   // Save at least X = difference between cheapest other retailer and best price
   const cheapestOther = sortedRetailers[0]?.price ?? bestPrice;
   const savings = Math.max(0, cheapestOther - bestPrice);
 
   // Map link for best choice
-  const mapUrl = item.bestChoice.mapUrl
-    ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.bestChoice.address)}`;
+  const mapQuery = item.bestChoice.address ?? item.bestChoice.store;
+
+  const mapUrl =
+    item.bestChoice.mapUrl ??
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
 
   // Build retailer cards for Carousel
   const retailerCards = sortedRetailers.map((retailer, i) => (
@@ -291,10 +296,22 @@ export function ItemDetailPage({
                 )}
 
                 {/* Savings box — vs cheapest other retailer */}
-                {savings > 0 && (
-                  <div className="bg-green-50 border border-green-100 rounded-lg px-4 py-3">
-                    <p className="text-sm font-medium text-[#6FBD7A]">
-                      Save at least <span className="text-base font-semibold">${savings.toFixed(2)}</span> vs other nearby stores
+                {item.bestChoice.comparisonMessage && (
+                  <div
+                    className={`rounded-lg px-4 py-3 border ${
+                      item.bestChoice.comparisonType === "positive"
+                        ? "bg-green-50 border-green-100"
+                        : "bg-red-50 border-red-100"
+                    }`}
+                  >
+                    <p
+                      className={`text-sm font-medium ${
+                        item.bestChoice.comparisonType === "positive"
+                          ? "text-[#6FBD7A]"
+                          : "text-red-500"
+                      }`}
+                    >
+                      {item.bestChoice.comparisonMessage}
                     </p>
                   </div>
                 )}
@@ -339,14 +356,6 @@ export function ItemDetailPage({
           </div>
 
           {/* Other Retailers — using shared Carousel */}
-          <div>
-            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Compared to Other Retailers</h2>
-            {retailerCards.length > 0 ? (
-              <Carousel items={retailerCards} responsive gapPx={12} />
-            ) : (
-              <p className="text-sm text-gray-500">No other retailers available for comparison.</p>
-            )}
-          </div>
 
         </div>
       </main>
