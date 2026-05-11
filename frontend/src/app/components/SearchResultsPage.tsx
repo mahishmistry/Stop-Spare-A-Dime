@@ -1,8 +1,8 @@
 import { ArrowLeft } from "lucide-react"; // https://lucide.dev/icons/
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "./Header.tsx";
 import type { CompareSort } from "../services/products.ts";
-import React from "react";
+import {apiFetchBlacklist, isBlockedStore } from "../services/blacklist.ts";
 
 interface SearchResult {
   id: string;
@@ -61,7 +61,8 @@ export function SearchResultsPage({
   accountEmail,
 }: SearchResultsPageProps) {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+  const [blockedStores, setBlockedStores] = useState<string[]>([]);
+
   const comparisonOptions: Array<{ value: CompareSort; label: string }> = [
     { value: "price", label: "Lowest Price" },
     { value: "rating", label: "Best Rating" },
@@ -69,16 +70,38 @@ export function SearchResultsPage({
     { value: "unit price", label: "Unit Price" },
   ];
 
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadBlockedStores() {
+      try {
+        const stores = await apiFetchBlacklist();
+        if (!cancelled) setBlockedStores(stores);
+      } catch (err) {
+        console.error("Failed to load blocked stores for search results:", err);
+        if (!cancelled) setBlockedStores([]);
+      }
+    }
+
+    loadBlockedStores();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isAuthenticated]);
+
   const toggleFilter = (filter: string) => {
     setActiveFilters((prev) =>
       prev.includes(filter)
         ? prev.filter((f) => f !== filter)
-        : [...prev, filter],
+        : [...prev, filter]
     );
   };
 
-  // Apply filters to results
+  // Apply blacklist and selected filters to results
   const filteredResults = results.filter((result) => {
+    if (isBlockedStore(result.store ?? "", blockedStores)) return false;
+
     if (activeFilters.length === 0) return true;
 
     return activeFilters.every((filter) => {
@@ -239,3 +262,4 @@ export function SearchResultsPage({
     </div>
   );
 }
+

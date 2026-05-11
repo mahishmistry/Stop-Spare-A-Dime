@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Header } from "./Header.tsx";
 import { ProductCarousel } from "./ProductCarousel.tsx";
 import { searchAndCompareProducts } from "../services/products.ts";
-import { getToken } from "../services/auth.ts";
+import {apiFetchBlacklist, isBlockedStore} from "../services/blacklist.ts";
 
 // because serp api tokenizes searches
 const CATEGORIES = [
@@ -42,33 +42,10 @@ interface HomePageProps {
   searchHistory?: string[];
 }
 
-async function apiFetchBlacklist(): Promise<string[]> {
-  const token = await getToken(); // get logged in state
-  if (!token) return []; // if not logged in, no blacklisted stores.
-
-  const res = await fetch("http://localhost:3000/api/block", {
-    headers: { Authorization: `Bearer ${token}` },
-  }); // get fetched blacklist from backend for that user
-
-  if (!res.ok) throw new Error("Failed to load blocked stores");
-  const data = await res.json();
-  return data.blockedStores ?? [];
-}
-
-function normalizeStoreName(store: string): string {
-  return store.trim().toLowerCase();
-}
-
-function isBlockedStore(product: Product, blockedStores: string[]): boolean {
-  const productStore = normalizeStoreName(product.store ?? "");
-  return blockedStores.some((store) =>
-    productStore.includes(normalizeStoreName(store))
-  );
-}
 
 function filterBlockedStores(products: Product[], blockedStores: string[]): Product[] {
   return products
-    .filter((product) => !isBlockedStore(product, blockedStores))
+    .filter((product) => !isBlockedStore(product.store ?? "", blockedStores))
     .slice(0, PRODUCTS_PER_CAROUSEL);
 }
 

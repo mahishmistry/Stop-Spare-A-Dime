@@ -1,6 +1,7 @@
 import { ChevronLeft, X } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
-import { getAuth } from 'firebase/auth';
+import { getToken } from '../services/auth.ts';
+import { apiFetchBlacklist } from '../services/blacklist.ts';
 import { Header } from './Header.tsx';
 
 interface SettingsPageProps {
@@ -23,25 +24,8 @@ interface SettingsPageProps {
   onAccountZipChange: (val: string) => void;
 }
 
-
-async function getAuthToken(): Promise<string> {
-  const user = getAuth().currentUser;
-  if (!user) throw new Error('Not authenticated');
-  return user.getIdToken();
-}
-
-async function apiFetchBlacklist(): Promise<string[]> {
-  const token = await getAuthToken();
-  const res = await fetch("http://localhost:3000/api/block", {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  if (!res.ok) throw new Error('Failed to load blocked stores');
-  const data = await res.json();
-  return data.blockedStores ?? [];
-}
-
 async function apiAddToBlacklist(store: string): Promise<string[]> {
-  const token = await getAuthToken();
+  const token = await getToken();
   const res = await fetch("http://localhost:3000/api/block", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -53,7 +37,7 @@ async function apiAddToBlacklist(store: string): Promise<string[]> {
 }
 
 async function apiRemoveFromBlacklist(store: string): Promise<string[]> {
-  const token = await getAuthToken();
+  const token = await getToken();
   const res = await fetch("http://localhost:3000/api/block", {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -173,7 +157,7 @@ export function SettingsPage({
   ]);
   const [membershipSearch, setMembershipSearch] = useState('');
   const availableMemberships = ['Costco Membership', 'Stop & Shop Membership', 'Whole Foods Prime', "Sam's Club Membership", "BJ's Membership"];
-  const availableStores = ['Walmart', 'Target', 'Kroger', 'Whole Foods', 'Safeway', 'Trader Joes', 'Costco', 'Aldi'];
+  const availableStores = ['Walmart', 'Target', 'Kroger', 'Whole Foods', 'Safeway', 'Trader Joes', 'Costco', 'Aldi', 'Instacart', 'BJ’s Wholesale Club'];
 
   useEffect(() => {
     if (!initialSection) return;
