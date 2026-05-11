@@ -7,7 +7,7 @@ import { searchAndCompareProducts } from "../services/products.ts";
 const CATEGORIES = [
   { query: "vegetables", label: "Vegetables" },
   { query: "fruit", label: "Fruit" },
-  { query: "meat fish", label: "Protein" },
+  { query: "chicken beef pork fish", label: "Protein" },
   { query: "grains rice pasta", label: "Grains" },
   { query: "milk cheese yogurt", label: "Dairy" },
   { query: "beans lentils legumes", label: "Legumes" },
