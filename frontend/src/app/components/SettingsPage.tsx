@@ -1,4 +1,4 @@
-import { ChevronLeft, X } from 'lucide-react';
+import { ChevronLeft, X, Heart } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { getToken } from '../services/auth.ts';
 import { apiFetchBlacklist } from '../services/blacklist.ts';
@@ -231,7 +231,7 @@ export function SettingsPage({
   onAccountZipChange,
 }: SettingsPageProps) {
   // State for favorites and bookmarks
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<{ name: string, image_url: string | null }[]>([]);
   const [bookmarkedOffers, setBookmarkedOffers] = useState<any[]>([]);
   const [isLoadingFavorites, setIsLoadingFavorites] = useState(false);
   const [isLoadingBookmarks, setIsLoadingBookmarks] = useState(false);
@@ -316,7 +316,7 @@ export function SettingsPage({
   const handleRemoveFavorite = async (productName: string) => {
     try {
       await removeFavorite(productName);
-      setFavorites(favorites.filter((fav) => fav !== productName));
+      setFavorites(favorites.filter((fav) => fav.name !== productName));
     } catch (error) {
       console.error("Failed to remove favorite:", error);
       alert("Failed to remove favorite");
@@ -341,7 +341,35 @@ export function SettingsPage({
   const [memberships, setMemberships] = useState([]);
   const [membershipSearch, setMembershipSearch] = useState('');
   const availableMemberships = ['Costco Membership', 'Stop & Shop Membership', 'Whole Foods Prime', "Sam's Club Membership", "BJ's Membership"];
-  const availableStores = ['Walmart', 'Target', 'Kroger', 'Whole Foods', 'Safeway', 'Trader Joes', 'Costco', 'Aldi', 'Instacart', 'BJ’s Wholesale Club'];
+  const availableStores = ['Walmart', 'Target', 'Kroger', 'Whole Foods', 'Safeway', 'Trader Joes', 'Costco', 'Aldi', 'Instacart', 'BJ\'s Wholesale Club'];
+
+  const [activeSection, setActiveSection] = useState('account');
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [excludedStores, setExcludedStores] = useState<string[]>([]);
+  const [storeSearch, setStoreSearch] = useState('');
+  const [blacklistError, setBlacklistError] = useState('');
+  const [blacklistLoading, setBlacklistLoading] = useState(false);
+  const [removingStore, setRemovingStore] = useState<string | null>(null);
+
+  // Load blacklisted stores on mount
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    let cancelled = false;
+    async function loadBlacklist() {
+      setBlacklistLoading(true);
+      try {
+        const stores = await apiFetchBlacklist();
+        if (!cancelled) setExcludedStores(stores);
+      } catch (err) {
+        console.error('Failed to load blacklist:', err);
+        if (!cancelled) setBlacklistError('Failed to load blocked stores.');
+      } finally {
+        if (!cancelled) setBlacklistLoading(false);
+      }
+    }
+    loadBlacklist();
+    return () => { cancelled = true; };
+  }, [isAuthenticated]);
 
   useEffect(() => {
     if (!initialSection) return;
@@ -364,12 +392,28 @@ export function SettingsPage({
     setActiveSection(id);
   };
 
-  const removeStore = (store: string) =>
-    setExcludedStores(excludedStores.filter((s) => s !== store));
-  const addStore = (store: string) => {
-    if (!excludedStores.includes(store))
-      setExcludedStores([...excludedStores, store]);
+  const removeStore = async (store: string) => {
+    setRemovingStore(store);
+    try {
+      const updated = await apiRemoveFromBlacklist(store);
+      setExcludedStores(updated);
+    } catch (err) {
+      console.error('Failed to unblock store:', err);
+      setBlacklistError('Failed to unblock store.');
+    } finally {
+      setRemovingStore(null);
+    }
+  };
+  const addStore = async (store: string) => {
     setStoreSearch("");
+    if (excludedStores.includes(store)) return;
+    try {
+      const updated = await apiAddToBlacklist(store);
+      setExcludedStores(updated);
+    } catch (err) {
+      console.error('Failed to block store:', err);
+      setBlacklistError('Failed to block store.');
+    }
   };
   const addMembership = (name: string) => {
     if (!memberships.some((m) => m.name === name))
@@ -418,11 +462,10 @@ export function SettingsPage({
           <button
             key={id}
             onClick={() => scrollToSection(id)}
-            className={`flex-shrink-0 text-xs px-3 py-1.5 rounded-full border transition-colors ${
-              activeSection === id
+            className={`flex-shrink-0 text-xs px-3 py-1.5 rounded-full border transition-colors ${activeSection === id
                 ? "bg-[#6FBD7A] text-white border-[#6FBD7A]"
                 : "bg-white text-gray-600 border-gray-300"
-            }`}
+              }`}
           >
             {label}
           </button>
@@ -433,9 +476,9 @@ export function SettingsPage({
           <section id="account" className="mb-12">
             <h2 className="text-2xl mb-6 text-gray-800">Account</h2>
             <div className="divide-y divide-gray-100">
-              <EditRow label="Name"             value={accountName}  onSave={onAccountNameChange} />
-              <EditRow label="Email"            value={accountEmail} onSave={onAccountEmailChange} type="email" />
-              <EditRow label="Primary zip code" value={accountZip}   onSave={onAccountZipChange}  maxLength={10} />
+              <EditRow label="Name" value={accountName} onSave={onAccountNameChange} />
+              <EditRow label="Email" value={accountEmail} onSave={onAccountEmailChange} type="email" />
+              <EditRow label="Primary zip code" value={accountZip} onSave={onAccountZipChange} maxLength={10} />
               <PasswordRow />
             </div>
           </section>
@@ -539,16 +582,26 @@ export function SettingsPage({
               <p className="text-sm text-gray-500">No favorites yet</p>
             ) : (
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {favorites.map((productName) => (
+                {favorites.map((product) => (
                   <div
-                    key={productName}
-                    className="border border-gray-200 rounded-lg p-4 text-center"
+                    key={product.name}
+                    className="border border-gray-200 rounded-lg p-4 text-center hover:border-[#6FBD7A]/40 hover:shadow-sm transition-all duration-200 group"
                   >
-                    <div className="w-full h-32 bg-gray-100 rounded-lg mb-2"></div>
-                    <p className="text-sm text-gray-700 mb-3">{productName}</p>
+                    <div className="w-full h-24 bg-[#6FBD7A]/5 rounded-lg mb-3 flex items-center justify-center overflow-hidden relative">
+                      {product.image_url && product.image_url.trim() !== '' ? (
+                        <img
+                          src={product.image_url}
+                          alt={product.name}
+                          className="w-full h-full object-contain p-2 mix-blend-multiply group-hover:scale-105 transition-transform duration-200"
+                        />
+                      ) : (
+                        <Heart className="w-8 h-8 text-[#6FBD7A] fill-[#6FBD7A]/20 group-hover:scale-110 transition-transform duration-200" />
+                      )}
+                    </div>
+                    <p className="text-sm font-medium text-gray-800 mb-3 line-clamp-2" title={product.name}>{product.name}</p>
                     <button
-                      onClick={() => handleRemoveFavorite(productName)}
-                      className="text-xs bg-red-100 hover:bg-red-200 text-red-700 px-3 py-1 rounded-md transition-colors"
+                      onClick={() => handleRemoveFavorite(product.name)}
+                      className="text-xs bg-red-100 hover:bg-red-200 text-red-700 px-3 py-1.5 rounded-md transition-colors"
                     >
                       Remove
                     </button>

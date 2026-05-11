@@ -234,6 +234,20 @@ async function saveSearchResultsToDb(allResults) {
 
       if (!product?.product_id) continue;
 
+      // 3b. Store thumbnail image if available
+      const thumbnail = item.thumbnail || item.image;
+      if (thumbnail && product.product_id) {
+        try {
+          const { pool } = require('../database/pool.ts');
+          await pool.query(
+            'UPDATE products SET image_url = $1 WHERE product_id = $2 AND image_url IS NULL',
+            [thumbnail, product.product_id]
+          );
+        } catch (e) {
+          // non-critical, ignore
+        }
+      }
+
       // 4. Save item
       // add_item currently requires store_item_id to be a positive integer
       const storeItemId = String(item.product_id || `${title}-${source}`);
@@ -469,6 +483,127 @@ app.post("/api/user/register", verifyToken, async (req, res) => {
     res.status(500).json({ error: "Failed to create user" });
   }
 });
+
+// ── Favorites ──────────────────────────────────────────────────────
+app.get("/api/favorites", verifyToken, async (req, res) => {
+  try {
+    const userContext = await create_user_context(req.user.email);
+    if (!userContext) return res.status(404).json({ error: "User not found." });
+    const favoriteIds = await userContext.get_favorite_products(100);
+    // Resolve product IDs to names and images
+    const favorites = [];
+    for (const id of favoriteIds) {
+      try {
+        const product = await get_product_by_id(id);
+        if (product) {
+          favorites.push({
+            name: product.name,
+            image_url: product.image_url || null
+          });
+        }
+      } catch (e) {
+        // skip products that can't be found
+      }
+    }
+    res.json({ favorites });
+  } catch (err) {
+    console.error("Favorites fetch error:", err);
+    res.status(500).json({ error: "Failed to fetch favorites." });
+  }
+});
+
+async function resolveFavorites(favoriteIds) {
+  const favorites = [];
+  for (const id of favoriteIds) {
+    try {
+      const product = await get_product_by_id(id);
+      if (product) {
+        favorites.push({
+          name: product.name,
+          image_url: product.image_url || null
+        });
+      }
+    } catch (e) {
+      // skip products that can't be found
+    }
+  }
+  return favorites;
+}
+
+app.post("/api/favorites", verifyToken, async (req, res) => {
+  try {
+    const { product } = req.body;
+    if (!product) return res.status(400).json({ error: "Product is required." });
+    const userContext = await create_user_context(req.user.email);
+    if (!userContext) return res.status(404).json({ error: "User not found." });
+    await userContext.favorite_product(product);
+    const favoriteIds = await userContext.get_favorite_products(100);
+    const favorites = await resolveFavorites(favoriteIds);
+    res.json({ favorites });
+  } catch (err) {
+    console.error("Add favorite error:", err);
+    res.status(500).json({ error: "Failed to add favorite." });
+  }
+});
+
+app.delete("/api/favorites/:product", verifyToken, async (req, res) => {
+  try {
+    const product = decodeURIComponent(req.params.product);
+    const userContext = await create_user_context(req.user.email);
+    if (!userContext) return res.status(404).json({ error: "User not found." });
+    await userContext.unfavorite_product(product);
+    const favoriteIds = await userContext.get_favorite_products(100);
+    const favorites = await resolveFavorites(favoriteIds);
+    res.json({ favorites });
+  } catch (err) {
+    console.error("Remove favorite error:", err);
+    res.status(500).json({ error: "Failed to remove favorite." });
+  }
+});
+
+// ── Bookmarks (Saved Deals) ────────────────────────────────────────
+app.get("/api/bookmarks", verifyToken, async (req, res) => {
+  try {
+    const userContext = await create_user_context(req.user.email);
+    if (!userContext) return res.status(404).json({ error: "User not found." });
+    const bookmarks = await userContext.get_saved_deals(100);
+    res.json({ bookmarks });
+  } catch (err) {
+    console.error("Bookmarks fetch error:", err);
+    res.status(500).json({ error: "Failed to fetch bookmarks." });
+  }
+});
+
+app.post("/api/bookmarks", verifyToken, async (req, res) => {
+  try {
+    const { deal_id } = req.body;
+    if (!deal_id) return res.status(400).json({ error: "deal_id is required." });
+    const userContext = await create_user_context(req.user.email);
+    if (!userContext) return res.status(404).json({ error: "User not found." });
+    await userContext.save_deal(deal_id);
+    const bookmarks = await userContext.get_saved_deals(100);
+    res.json({ bookmarks });
+  } catch (err) {
+    console.error("Save bookmark error:", err);
+    res.status(500).json({ error: "Failed to save bookmark." });
+  }
+});
+
+app.delete("/api/bookmarks/:deal_id", verifyToken, async (req, res) => {
+  try {
+    const deal_id = parseInt(req.params.deal_id, 10);
+    if (isNaN(deal_id)) return res.status(400).json({ error: "Invalid deal_id." });
+    const userContext = await create_user_context(req.user.email);
+    if (!userContext) return res.status(404).json({ error: "User not found." });
+    await userContext.unsave_deal(deal_id);
+    const bookmarks = await userContext.get_saved_deals(100);
+    res.json({ bookmarks });
+  } catch (err) {
+    console.error("Remove bookmark error:", err);
+    res.status(500).json({ error: "Failed to remove bookmark." });
+  }
+});
+
 // replaced old app.listen to initialize pool (database connect)
 initialize_pool(true)
   .then(() => {
