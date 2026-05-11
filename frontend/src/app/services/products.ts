@@ -193,3 +193,137 @@ export async function getSearchHistory() {
     return [];
   }
 }
+
+/**
+ * Adds a product to the user's favorites list.
+ * @param product - The product ID or product name.
+ * @returns Promise that resolves when the favorite is added.
+ */
+export async function addFavorite(product: string | number) {
+  const headers = await getAuthHeaders();
+
+  const res = await fetch(`${API_BASE_URL}/api/favorites`, {
+    method: "POST",
+    headers: {
+      ...headers,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ product }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Failed to add favorite: ${res.status} ${text}`);
+  }
+
+  return await res.json();
+}
+
+/**
+ * Removes a product from the user's favorites list.
+ * @param product - The product ID or product name.
+ * @returns Promise that resolves when the favorite is removed.
+ */
+export async function removeFavorite(product: string | number) {
+  const headers = await getAuthHeaders();
+
+  const res = await fetch(`${API_BASE_URL}/api/favorites/${encodeURIComponent(String(product))}`, {
+    method: "DELETE",
+    headers,
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Failed to remove favorite: ${res.status} ${text}`);
+  }
+
+  return await res.json();
+}
+
+/**
+ * Retrieves all favorited products for the user.
+ * @returns Promise that resolves to an array of favorite product IDs.
+ */
+export async function getFavorites() {
+  const headers = await getAuthHeaders();
+
+  const res = await fetch(`${API_BASE_URL}/api/favorites`, {
+    method: "GET",
+    headers,
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Failed to get favorites: ${res.status} ${text}`);
+  }
+
+  const data = await res.json();
+  return data.favorites || [];
+}
+
+/**
+ * Saves a deal (bookmark) for the user.
+ * @param deal_id - The deal ID to save.
+ * @returns Promise that resolves when the deal is saved.
+ */
+export async function saveBookmark(deal_id: number) {
+  const headers = await getAuthHeaders();
+
+  const res = await fetch(`${API_BASE_URL}/api/bookmarks`, {
+    method: "POST",
+    headers: {
+      ...headers,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ deal_id }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Failed to save bookmark: ${res.status} ${text}`);
+  }
+
+  return await res.json();
+}
+
+/**
+ * Removes a saved deal (bookmark) for the user.
+ * @param deal_id - The deal ID to remove.
+ * @returns Promise that resolves when the bookmark is removed.
+ */
+export async function removeBookmark(deal_id: number) {
+  const headers = await getAuthHeaders();
+
+  const res = await fetch(`${API_BASE_URL}/api/bookmarks/${deal_id}`, {
+    method: "DELETE",
+    headers,
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Failed to remove bookmark: ${res.status} ${text}`);
+  }
+
+  return await res.json();
+}
+
+/**
+ * Retrieves all saved deals (bookmarks) for the user.
+ * @returns Promise that resolves to an array of saved deal IDs.
+ */
+export async function getBookmarks() {
+  const headers = await getAuthHeaders();
+
+  const res = await fetch(`${API_BASE_URL}/api/bookmarks`, {
+    method: "GET",
+    headers,
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Failed to get bookmarks: ${res.status} ${text}`);
+  }
+
+  const data = await res.json();
+  return data.bookmarks || [];
+}
