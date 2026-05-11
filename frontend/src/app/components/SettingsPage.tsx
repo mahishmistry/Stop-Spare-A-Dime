@@ -1,5 +1,4 @@
 import { ChevronLeft, X } from 'lucide-react';
-import React from "react";
 import { useState, useEffect, useRef } from 'react';
 import { getAuth } from 'firebase/auth';
 import { Header } from './Header.tsx';
@@ -33,7 +32,7 @@ async function getAuthToken(): Promise<string> {
 
 async function apiFetchBlacklist(): Promise<string[]> {
   const token = await getAuthToken();
-  const res = await fetch('/api/block', {
+  const res = await fetch("http://localhost:3000/api/block", {
     headers: { Authorization: `Bearer ${token}` },
   });
   if (!res.ok) throw new Error('Failed to load blocked stores');
@@ -43,7 +42,7 @@ async function apiFetchBlacklist(): Promise<string[]> {
 
 async function apiAddToBlacklist(store: string): Promise<string[]> {
   const token = await getAuthToken();
-  const res = await fetch('/api/block', {
+  const res = await fetch("http://localhost:3000/api/block", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify({ store }),
@@ -55,7 +54,7 @@ async function apiAddToBlacklist(store: string): Promise<string[]> {
 
 async function apiRemoveFromBlacklist(store: string): Promise<string[]> {
   const token = await getAuthToken();
-  const res = await fetch('/api/block', {
+  const res = await fetch("http://localhost:3000/api/block", {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify({ store }),
