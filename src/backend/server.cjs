@@ -29,6 +29,44 @@ app.use(cors({
 const searchHistory = [];
 
 const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+const DEFAULT_SEARCH_ZIP = '01003';
+const DEFAULT_SEARCH_LOCATION = 'Amherst, MA, United States';
+
+function normalizeSearchLocation(zipCode, requestedLocation) {
+  const rawLocation = String(requestedLocation || zipCode || '').trim();
+
+  if (!rawLocation) {
+    return {
+      cacheLocation: `${DEFAULT_SEARCH_ZIP}:${DEFAULT_SEARCH_LOCATION}`,
+      serpLocation: DEFAULT_SEARCH_LOCATION,
+      zipCode: DEFAULT_SEARCH_ZIP,
+    };
+  }
+
+  const zipMatch = rawLocation.match(/\b\d{5}(?:-\d{4})?\b/);
+  const zip = zipMatch?.[0] || (zipCode ? String(zipCode) : undefined);
+  const cityState = rawLocation
+    .replace(/\b\d{5}(?:-\d{4})?\b/g, '')
+    .trim()
+    .replace(/\s*,\s*$/, '')
+    .replace(/\s+/g, ' ');
+
+  if (cityState && /,\s*[A-Za-z]{2}$/.test(cityState)) {
+    const [city, state] = cityState.split(',').map((part) => part.trim());
+    const serpLocation = `${city}, ${state.toUpperCase()}, United States`;
+    return {
+      cacheLocation: zip ? `${zip}:${serpLocation}` : serpLocation,
+      serpLocation,
+      zipCode: zip,
+    };
+  }
+
+  return {
+    cacheLocation: rawLocation,
+    serpLocation: rawLocation,
+    zipCode: zip,
+  };
+}
 
 // this route is adding user to database if they do not exist 
 app.post('/api/user/register', verifyToken, async (req, res) => {
@@ -86,16 +124,17 @@ app.get('/api/user/profile', verifyToken, async (req, res) => {
 app.get('/api/prices', optionalVerifyToken,
   query('product').isString().trim().escape().notEmpty(),
   query('zipCode').optional().isPostalCode('US'),
+  query('location').optional().isString().trim().isLength({ min: 1, max: 100 }),
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { product, zipCode } = req.query;
+    const { product, zipCode, location: requestedLocation } = req.query;
     
     // Construct cache key
-    const location = zipCode || "United States";
-    const cacheKey = `${product.toLowerCase().trim()}-${location}`;
+    const searchLocation = normalizeSearchLocation(zipCode, requestedLocation);
+    const cacheKey = `${product.toLowerCase().trim()}-${searchLocation.cacheLocation}`;
     
     let userBlockedStores = [];
     let favoriteIdentifiers = [];
@@ -124,7 +163,7 @@ app.get('/api/prices', optionalVerifyToken,
         
         if (cachedEntry && (Date.now() - new Date(cachedEntry.last_fetched).getTime() < CACHE_DURATION_MS)) {
             // Return cached results
-            searchHistory.push({ product, zipCode, timestamp: new Date(), cached: true });
+            searchHistory.push({ product, zipCode: searchLocation.zipCode, location: searchLocation.serpLocation, timestamp: new Date(), cached: true });
             
             // Filter cached results for blocked stores
             const filteredCache = cachedEntry.results.filter(item => !userBlockedStores.some(store => 
@@ -153,7 +192,7 @@ app.get('/api/prices', optionalVerifyToken,
         const response = await getJson({
             engine: "google_shopping",
             q: `Grocery ${product}`,
-            location: location, 
+            location: searchLocation.serpLocation, 
             hl: "en",
             gl: "us",
             api_key: process.env.SERPAPI_KEY
@@ -181,7 +220,7 @@ app.get('/api/prices', optionalVerifyToken,
             return bFav - aFav;
         });
       
-      searchHistory.push({ product, zipCode, timestamp: new Date(), cached: false });
+      searchHistory.push({ product, zipCode: searchLocation.zipCode, location: searchLocation.serpLocation, timestamp: new Date(), cached: false });
       res.json({
         count: results.length,
         data: results
@@ -618,14 +657,15 @@ app.get('/api/stores', async (req, res) => {
 app.get('/api/compare', optionalVerifyToken, 
  query('product').isString().trim().escape().notEmpty(),
  query('zipCode').optional().isPostalCode('US'),
+ query('location').optional().isString().trim().isLength({ min: 1, max: 100 }),
   async (req, res) => {
   const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-  const { product, zipCode } = req.query;
-  const location = zipCode || "United States";
-  const cacheKey = `${product.toLowerCase().trim()}-${location}`;
+  const { product, zipCode, location: requestedLocation } = req.query;
+  const searchLocation = normalizeSearchLocation(zipCode, requestedLocation);
+  const cacheKey = `${product.toLowerCase().trim()}-${searchLocation.cacheLocation}`;
   try {
     const cachedEntry = await get_cached_search(cacheKey);
     if (!cachedEntry) {
@@ -660,15 +700,16 @@ app.get('/api/compare', optionalVerifyToken,
 app.get('/api/item/:item_id',
   query('product').isString().trim().escape().notEmpty(),
   query('zipCode').optional().isPostalCode('US'),
+  query('location').optional().isString().trim().isLength({ min: 1, max: 100 }),
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { product, zipCode } = req.query;
-    const location = zipCode || "United States";
-    const cacheKey = `${product.toLowerCase().trim()}-${location}`;
+    const { product, zipCode, location: requestedLocation } = req.query;
+    const searchLocation = normalizeSearchLocation(zipCode, requestedLocation);
+    const cacheKey = `${product.toLowerCase().trim()}-${searchLocation.cacheLocation}`;
 
     try {
         const cachedEntry = await get_cached_search(cacheKey);

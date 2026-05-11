@@ -38,10 +38,6 @@ interface HomePageProps {
   searchHistory?: string[];
 }
 
-function extractZip(location: string): string | undefined {
-  return location.match(/\b\d{5}\b/)?.[0];
-}
-
 export function HomePage({
   onProductClick,
   onSearch,
@@ -58,7 +54,6 @@ export function HomePage({
     let cancelled = false;
     async function loadCategories() {
       setLoading(true);
-      const zipCode = extractZip(location);
       const results = await Promise.all(
         CATEGORIES.map(async (category) => ({
           label: category.label,
@@ -66,7 +61,7 @@ export function HomePage({
             category.query,
             "unit price",
             10,
-            zipCode
+            location
           ),
         }))
       );
