@@ -6,7 +6,7 @@ const { getJson } = require('serpapi');
 const { getBestItems, getItemById } = require('./comparison.cjs');
 const { get_cached_search, set_cached_search } = require('../database/queries.ts');
 const { create_user_context, create_new_user } = require('../database/user.ts');
-
+const { initialize_pool } = require('../database/pool.ts');
 
 const verifyToken = require("../../middleware/verifyToken.cjs");
 const app = express();
@@ -187,6 +187,26 @@ app.get('/api/block', verifyToken, async (req, res) => {
     res.status(500).json({ error: "Failed to get blocked stores." });
   }
 });
+app.delete('/api/block', verifyToken,
+  body('store').isString().trim().escape().notEmpty(),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+    const { store } = req.body;
+    try {
+      const userContext = await create_user_context(req.user.email);
+      if (userContext) {
+        await userContext.unblacklist_store(store);
+        const blockedStores = await userContext.get_blacklisted_stores();
+        res.json({ blockedStores });
+      } else {
+        res.status(404).json({ error: 'User not found.' });
+      }
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to remove store.' });
+    }
+  }
+);
 
 /**
  * Reroutes comparison processing logic out of server instance and into algorithmic `getBestItems` structure.
@@ -240,6 +260,11 @@ app.post('/api/user/register', verifyToken, async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+initialize_pool(true).then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+}).catch((err) => {
+  console.error("Failed to connect to database:", err);
+  process.exit(1);
 });

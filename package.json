@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "build": "tsc",
     "start": "tsx src/backend/server.cjs",
     "supabase:start": "npx supabase start",

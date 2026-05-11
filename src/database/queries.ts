@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import { pool } from './pool.js';
+import { pool } from './pool.ts';
 dotenv.config();
 
 interface Address {

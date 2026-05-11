@@ -22,37 +22,37 @@ export function LoginPage({ onLogin, onBack }: LoginPageProps) {
     e.preventDefault();
     setError('');
     if (isSignUp) {
-      if (password !== confirmPassword) {
-        setError('Passwords do not match.');
-        return;
-      }
-      if (password.length < 8) {
-        setError('Password must be at least 8 characters.');
-        return;
-      }
+      if (password !== confirmPassword) { setError('Passwords do not match.'); return; }
+      if (password.length < 8) { setError('Password must be at least 8 characters.'); return; }
       try {
-        await signUpWithEmail(email, password);
+        const cred = await signUpWithEmail(email, password);
+        const token = await cred.user.getIdToken();
+        await fetch('/api/user/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+          body: JSON.stringify({ email, name }),
+        });
         onLogin();
-      } catch (err: any) {
-        setError(err.message);
-      }
+      } catch (err: any) { setError(err.message); }
     } else {
       try {
         await loginWithEmail(email, password);
         onLogin();
-      } catch (err: any) {
-        setError(err.message);
-      }
+      } catch (err: any) { setError(err.message); }
     }
   };
-
+  
   const handleGoogleLogin = async () => {
     try {
-      await loginWithGoogle();
+      const cred = await loginWithGoogle();
+      const token = await cred.user.getIdToken();
+      await fetch('/api/user/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ email: cred.user.email, name: cred.user.displayName ?? '' }),
+      });
       onLogin();
-    } catch (err: any) {
-      setError(err.message);
-    }
+    } catch (err: any) { setError(err.message); }
   };
 
   // switch and clear info for switching between login/signup
