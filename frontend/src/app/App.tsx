@@ -219,7 +219,7 @@ export default function App() {
 
     try {
       console.log("Calling backend...");
-      const backendResults = await searchAndCompareProducts(query, criteria, 20);
+      const backendResults = await searchAndCompareProducts(query, criteria, 20, location);
       console.log("Backend results:", backendResults);
 
       setSearchResults(backendResults);

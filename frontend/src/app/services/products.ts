@@ -63,7 +63,7 @@ export async function searchAndCompareProducts(
   product: string,
   criteria: CompareSort = "price",
   k: number = 20,
-  zipCode?: string
+  userLocation?: string
 ) {
   if (!product.trim()) return [];
 
@@ -71,7 +71,7 @@ export async function searchAndCompareProducts(
 
   const pricesUrl = new URL(`${API_BASE_URL}/api/prices`);
   pricesUrl.searchParams.set("product", product);
-  if (zipCode) pricesUrl.searchParams.set("zipCode", zipCode);
+  if (userLocation) pricesUrl.searchParams.set("location", userLocation);
 
   const pricesRes = await fetch(pricesUrl.toString(), {
     method: "GET",
@@ -86,7 +86,7 @@ export async function searchAndCompareProducts(
   compareUrl.searchParams.set("product", product);
   compareUrl.searchParams.set("criteria", criteria);
   compareUrl.searchParams.set("k", String(k));
-  if (zipCode) compareUrl.searchParams.set("zipCode", zipCode);
+  if (userLocation) compareUrl.searchParams.set("location", userLocation);
 
   const compareRes = await fetch(compareUrl.toString(), {
     method: "GET",
