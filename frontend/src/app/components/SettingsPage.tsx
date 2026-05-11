@@ -1,12 +1,8 @@
 import { ChevronLeft, X } from 'lucide-react';
-import React, { use } from "react";
 import { useState, useEffect, useRef } from 'react';
+import { getToken } from '../services/auth.ts';
+import { apiFetchBlacklist } from '../services/blacklist.ts';
 import { Header } from './Header.tsx';
-
-//to implement connect store autocomplete task and connecting account settings- ava
-import { getStores, updateUserProfile, updateUserNotifications } from '../services/products';
-import { updateUserPassword } from '../services/auth.ts';
-
 
 interface SettingsPageProps {
   location: string;
@@ -27,6 +23,31 @@ interface SettingsPageProps {
   onAccountEmailChange: (val: string) => void;
   onAccountZipChange: (val: string) => void;
 }
+
+async function apiAddToBlacklist(store: string): Promise<string[]> {
+  const token = await getToken();
+  const res = await fetch("http://localhost:3000/api/block", {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ store }),
+  });
+  if (!res.ok) throw new Error('Failed to block store');
+  const data = await res.json();
+  return data.blockedStores ?? [];
+}
+
+async function apiRemoveFromBlacklist(store: string): Promise<string[]> {
+  const token = await getToken();
+  const res = await fetch("http://localhost:3000/api/block", {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ store }),
+  });
+  if (!res.ok) throw new Error('Failed to unblock store');
+  const data = await res.json();
+  return data.blockedStores ?? [];
+}
+
 
 function EditRow({ label, value, onSave, type = 'text', maxLength }: {
   label: string; value: string; onSave: (val: string) => void; type?: string; maxLength?: number;
@@ -108,81 +129,35 @@ function PasswordRow() {
   );
 }
 
+
 export function SettingsPage({
   location, onLocationChange, onBack, onLogout, onSearch, isAuthenticated,
   onLoginClick, onHomeClick, onSettingsClick, onHistoryClick, initialSection,
   accountName, accountEmail, accountZip,
   onAccountNameChange, onAccountEmailChange, onAccountZipChange,
 }: SettingsPageProps) {
-
-  //handlers to help with updating user profile, email, password save, and notifications if these fail
-  const handleNameSave = async (newName: string) => {
-    try {
-      await updateUserProfile({ name: newName });
-      onAccountNameChange(newName);
-    } catch (error) {
-      console.error("Failed to update name:", error);
-    }
-  };
-
-  const handleEmailSave = async (newEmail: string) => {
-    try {
-      await updateUserProfile({ email: newEmail });
-      onAccountEmailChange(newEmail);
-    } catch (error) {
-      console.error("Failed to update email:", error);
-    }
-  };
-
-  const handleZipSave = async (newZip: string) => {
-    try {
-      await updateUserProfile({ zipCode: newZip });
-      onAccountZipChange(newZip);
-    } catch (error) {
-      console.error("Failed to update zip code:", error);
-    }
-  };
-
-  const handlePasswordSave = async (newPassword: string) => {
-    try {
-      await updateUserPassword(newPassword);
-      alert("Password updated successfully!");
-    } catch (error) {
-      console.error("Failed to update password:", error);
-    }
-  };
-
-  const handleNotificationToggle = async (enabled: boolean) => {
-    try {
-      await updateUserNotifications(enabled);
-    } catch (error) {
-      console.error("Failed to toggle notifications:", error);
-    }
-  };
-
   const [activeSection, setActiveSection] = useState<string>(initialSection ?? 'account');
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const [excludedStores, setExcludedStores] = useState<string[]>(['Target']);
+  const [excludedStores, setExcludedStores] = useState<string[]>([]);
+  const [blacklistLoading, setBlacklistLoading] = useState(true);
+  const [blacklistError, setBlacklistError] = useState<string | null>(null);
+  const [removingStore, setRemovingStore] = useState<string | null>(null);
+
+  useEffect(() => {
+    apiFetchBlacklist()
+      .then((stores) => { setExcludedStores(stores); setBlacklistLoading(false); })
+      .catch((err) => { setBlacklistError(err.message); setBlacklistLoading(false); });
+  }, []);
+
   const [storeSearch, setStoreSearch] = useState('');
   const [memberships, setMemberships] = useState([
     { name: 'Costco Membership', detail: 'Expires: 12/31/2026', status: 'Active' },
     { name: 'Whole Foods Prime', detail: 'Monthly subscription', status: 'Active' },
   ]);
   const [membershipSearch, setMembershipSearch] = useState('');
-
   const availableMemberships = ['Costco Membership', 'Stop & Shop Membership', 'Whole Foods Prime', "Sam's Club Membership", "BJ's Membership"];
-  
-  // connecting the auto stores with real ones. (instead of fakes) - ava
-  const [availableStores, setAvailableStores] = useState<string[]>([]);
-  useEffect(()=> {
-    const fetchStores = async () => {
-      const stores = await getStores();
-      setAvailableStores(stores);
-    };
-    fetchStores();
-  }, []);
-
+  const availableStores = ['Walmart', 'Target', 'Kroger', 'Whole Foods', 'Safeway', 'Trader Joes', 'Costco', 'Aldi', 'Instacart', 'BJ’s Wholesale Club'];
 
   useEffect(() => {
     if (!initialSection) return;
@@ -198,8 +173,30 @@ export function SettingsPage({
     setActiveSection(id);
   };
 
-  const removeStore = (store: string) => setExcludedStores(excludedStores.filter(s => s !== store));
-  const addStore = (store: string) => { if (!excludedStores.includes(store)) setExcludedStores([...excludedStores, store]); setStoreSearch(''); };
+  const addStore = async (store: string) => {
+    if (excludedStores.includes(store)) { setStoreSearch(''); return; }
+    setBlacklistError(null);
+    try {
+      const updated = await apiAddToBlacklist(store);
+      setExcludedStores(updated);
+    } catch (err: any) {
+      setBlacklistError(err.message ?? 'Failed to block store');
+    }
+    setStoreSearch('');
+  };
+
+  const removeStore = async (store: string) => {
+    setRemovingStore(store);
+    setBlacklistError(null);
+    try {
+      const updated = await apiRemoveFromBlacklist(store);
+      setExcludedStores(updated);
+    } catch (err: any) {
+      setBlacklistError(err.message ?? 'Failed to unblock store');
+    }
+    setRemovingStore(null);
+  };
+
   const addMembership = (name: string) => { if (!memberships.some(m => m.name === name)) setMemberships([...memberships, { name, detail: 'New membership', status: 'Active' }]); setMembershipSearch(''); };
   const removeMembership = (name: string) => setMemberships(memberships.filter(m => m.name !== name));
 
@@ -211,15 +208,12 @@ export function SettingsPage({
         onHomeClick={onHomeClick} onSettingsClick={onSettingsClick} onHistoryClick={onHistoryClick}
         accountName={accountName} accountEmail={accountEmail}
       />
-
       <div className="max-w-7xl mx-auto px-3 md:px-6 pt-4 md:pt-6">
         <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-800">
           <ChevronLeft className="w-5 h-5" />
           <span className="text-sm">Back</span>
         </button>
       </div>
-
-      {/* Mobile-only pill nav */}
       <div className="md:hidden max-w-7xl mx-auto px-3 pt-3 pb-1 flex gap-2 overflow-x-auto">
         {[
           { id: 'account',            label: 'Account' },
@@ -237,33 +231,14 @@ export function SettingsPage({
           </button>
         ))}
       </div>
-
       <div className="max-w-7xl mx-auto px-3 md:px-6 py-4 flex gap-8">
         <div ref={scrollRef} className="flex-1 bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-8 overflow-y-auto max-h-[calc(100vh-160px)]">
-
           <section id="account" className="mb-12">
             <h2 className="text-2xl mb-6 text-gray-800">Account</h2>
             <div className="divide-y divide-gray-100">
-              
-              <EditRow 
-                label="Name" 
-                value={accountName} 
-                onSave={handleNameSave} 
-              />
-              <EditRow 
-                label="Email" 
-                value={accountEmail} 
-                onSave={handleEmailSave} 
-                type="email" 
-              />
-              <EditRow 
-                label="Primary zip code" 
-                value={accountZip} 
-                onSave={handleZipSave} 
-                maxLength={10} 
-
-
-              />
+              <EditRow label="Name"             value={accountName}  onSave={onAccountNameChange} />
+              <EditRow label="Email"            value={accountEmail} onSave={onAccountEmailChange} type="email" />
+              <EditRow label="Primary zip code" value={accountZip}   onSave={onAccountZipChange}  maxLength={10} />
               <PasswordRow />
             </div>
           </section>
@@ -271,6 +246,11 @@ export function SettingsPage({
           <section id="preferences" className="mb-12">
             <h2 className="text-2xl mb-6 text-gray-800">Preferences</h2>
             <p className="text-sm text-gray-600 mb-4">Select which stores you do not wish to shop at to better tailor recommendations.</p>
+            {blacklistError && (
+              <div className="mb-3 rounded-lg bg-red-50 border border-red-200 px-3 py-2 text-sm text-red-600">
+                {blacklistError}
+              </div>
+            )}
             <div className="relative mb-4">
               <input type="text" placeholder="Search stores..." value={storeSearch}
                 onChange={(e) => setStoreSearch(e.target.value)}
@@ -284,14 +264,24 @@ export function SettingsPage({
                 </div>
               )}
             </div>
-            <div className="flex flex-wrap gap-2">
-              {excludedStores.map(store => (
-                <div key={store} className="flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full">
-                  <span className="text-sm text-gray-700">{store}</span>
-                  <button onClick={() => removeStore(store)} className="text-gray-500 hover:text-gray-700"><X className="w-4 h-4" /></button>
-                </div>
-              ))}
-            </div>
+            {blacklistLoading ? (
+              <p className="text-sm text-gray-400">Loading blocked stores…</p>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {excludedStores.map(store => (
+                  <div key={store} className="flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full">
+                    <span className="text-sm text-gray-700">{store}</span>
+                    <button
+                      onClick={() => removeStore(store)}
+                      disabled={removingStore === store}
+                      className="text-gray-500 hover:text-gray-700 disabled:opacity-40"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
 
           <section id="notifications" className="mb-12">
@@ -314,7 +304,6 @@ export function SettingsPage({
               ))}
             </div>
           </section>
-
           <section id="favorites" className="mb-12">
             <h2 className="text-2xl mb-6 text-gray-800">Favorites</h2>
             <p className="text-sm text-gray-600 mb-4">Your favorite products will appear here</p>
@@ -327,7 +316,6 @@ export function SettingsPage({
               ))}
             </div>
           </section>
-
           <section id="bookmarked-offers" className="mb-12">
             <h2 className="text-2xl mb-6 text-gray-800">Bookmarked Offers</h2>
             <p className="text-sm text-gray-600 mb-4">Your saved deals and promotions</p>
@@ -346,7 +334,6 @@ export function SettingsPage({
               ))}
             </div>
           </section>
-
           <section id="manage-memberships" className="mb-12">
             <h2 className="text-2xl mb-6 text-gray-800">Manage Memberships</h2>
             <div className="relative mb-4">
@@ -377,15 +364,12 @@ export function SettingsPage({
               ))}
             </div>
           </section>
-
           <section id="logout" className="mb-8">
             <button onClick={() => { onLogout(); onHomeClick(); }} className="text-red-600 hover:text-red-700 flex items-center gap-2">
               <span className="text-sm">&gt; Logout</span>
             </button>
           </section>
         </div>
-
-        {/* Right Navigation Sidebar — desktop only */}
         <div className="hidden md:block w-64 bg-white rounded-lg shadow-sm border border-gray-200 p-6 sticky top-8 h-fit">
           <h3 className="text-lg mb-4 text-gray-800">Settings</h3>
           <nav className="space-y-2">
@@ -400,7 +384,7 @@ export function SettingsPage({
             ].map(({ id, label }) => (
               <a key={id} href={`#${id}`}
                 onClick={(e) => { e.preventDefault(); scrollToSection(id); }}
-                className={`block text-sm py-2 ${activeSection === id ? 'text-[#6FBD7A]' : 'text-gray-700 hover:text-gray-900'}`}>
+                className={`block text-sm py-2 ${activeSection === id ? 'text-[#6FBD7A]' : 'text-gray-700 hover:text-gray:900'}`}>
                 {label}
               </a>
             ))}
