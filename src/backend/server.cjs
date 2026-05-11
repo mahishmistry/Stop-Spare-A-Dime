@@ -1,14 +1,12 @@
-require("dotenv").config();
-const express = require("express");
-const helmet = require("helmet");
-const { query, body, validationResult } = require("express-validator");
-const { getJson } = require("serpapi");
-const { getBestItems, getItemById } = require("./comparison.cjs");
-const {
-  get_cached_search,
-  set_cached_search,
-} = require("../database/queries.ts");
-const { create_user_context } = require("../database/user.ts");
+require('dotenv').config();
+const express = require('express');
+const helmet = require('helmet');
+const { query, body, validationResult } = require('express-validator');
+const { getJson } = require('serpapi');
+const { getBestItems, getItemById } = require('./comparison.cjs');
+const { get_cached_search, set_cached_search, add_store, add_product, get_product_by_id, get_all_stores, _add_brand,add_item, add_deal} = require('../database/queries.ts');
+const { create_user_context, create_new_user } = require('../database/user.ts');
+const { initialize_pool } = require('../database/pool.ts');
 
 const verifyToken = require("../../middleware/verifyToken.cjs");
 const app = express();
@@ -20,6 +18,44 @@ app.use(express.json());
 const searchHistory = [];
 
 const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+const DEFAULT_SEARCH_ZIP = '01003';
+const DEFAULT_SEARCH_LOCATION = 'Amherst, MA, United States';
+
+function normalizeSearchLocation(zipCode, requestedLocation) {
+  const rawLocation = String(requestedLocation || zipCode || '').trim();
+
+  if (!rawLocation) {
+    return {
+      cacheLocation: `${DEFAULT_SEARCH_ZIP}:${DEFAULT_SEARCH_LOCATION}`,
+      serpLocation: DEFAULT_SEARCH_LOCATION,
+      zipCode: DEFAULT_SEARCH_ZIP,
+    };
+  }
+
+  const zipMatch = rawLocation.match(/\b\d{5}(?:-\d{4})?\b/);
+  const zip = zipMatch?.[0] || (zipCode ? String(zipCode) : undefined);
+  const cityState = rawLocation
+    .replace(/\b\d{5}(?:-\d{4})?\b/g, '')
+    .trim()
+    .replace(/\s*,\s*$/, '')
+    .replace(/\s+/g, ' ');
+
+  if (cityState && /,\s*[A-Za-z]{2}$/.test(cityState)) {
+    const [city, state] = cityState.split(',').map((part) => part.trim());
+    const serpLocation = `${city}, ${state.toUpperCase()}, United States`;
+    return {
+      cacheLocation: zip ? `${zip}:${serpLocation}` : serpLocation,
+      serpLocation,
+      zipCode: zip,
+    };
+  }
+
+  return {
+    cacheLocation: rawLocation,
+    serpLocation: rawLocation,
+    zipCode: zip,
+  };
+}
 
 /**
  * Main endpoint for fetching grocery prices.
@@ -32,28 +68,54 @@ const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
  * @param {string} [req.query.zipCode] - Optional ZIP Code to bind geo-location data for prices.
  * @returns {Object} JSON payload holding total active item counts and raw filtered item results.
  */
-app.get(
-  "/api/prices",
-  verifyToken,
-  query("product").isString().trim().escape().notEmpty(),
-  query("zipCode").optional().isPostalCode("US"),
+app.get('/api/prices', optionalVerifyToken,
+  query('product').isString().trim().escape().notEmpty(),
+  query('zipCode').optional().isPostalCode('US'),
+  query('location').optional().isString().trim().isLength({ min: 1, max: 100 }),
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { product, zipCode } = req.query;
-
+    const { product, zipCode, location: requestedLocation } = req.query;
+    
     // Construct cache key
-    const location = zipCode || "United States";
-    const cacheKey = `${product.toLowerCase().trim()}-${location}`;
+    const searchLocation = normalizeSearchLocation(zipCode, requestedLocation);
+    const cacheKey = `${product.toLowerCase().trim()}-${searchLocation.cacheLocation}`;
+    
+    let userBlockedStores = [];
+    let favoriteIdentifiers = [];
 
     try {
-      let userBlockedStores = [];
-      const userContext = await create_user_context(req.user.email);
-      if (userContext) {
-        userBlockedStores = await userContext.get_blacklisted_stores();
-      }
+      if(req.user?.email){
+        const userContext = await create_user_context(req.user.email);
+          if (userContext) {
+            userBlockedStores = await userContext.get_blacklisted_stores();
+            const favIds = await userContext.get_favorite_products(100);
+            for (const fid of favIds) {
+                const prod = await get_product_by_id(fid);
+                if (prod) favoriteIdentifiers.push(prod.name);
+            }
+            // Trigger addition to the user's database search history
+            await userContext.add_search_history(product, new Date());
+        }
+      } 
+    } catch (e) {
+      console.error("Error fetching user context for filters/favorites:", e);
+    }
+
+    try {
+        // Check if valid cache exists in the database
+        const cachedEntry = await get_cached_search(cacheKey);
+        
+        if (cachedEntry && (Date.now() - new Date(cachedEntry.last_fetched).getTime() < CACHE_DURATION_MS)) {
+            // Return cached results
+            searchHistory.push({ product, zipCode: searchLocation.zipCode, location: searchLocation.serpLocation, timestamp: new Date(), cached: true });
+            
+            // Filter cached results for blocked stores
+            const filteredCache = cachedEntry.results.filter(item => !userBlockedStores.some(store => 
+                item.source?.toLowerCase().includes(store.toLowerCase())
+            ));
 
       // Check if valid cache exists in the database
       const cachedEntry = await get_cached_search(cacheKey);
@@ -90,48 +152,39 @@ app.get(
     }
 
     try {
-      // Fetch data from SerpApi's Google Shopping engine
-      const response = await getJson({
-        engine: "google_shopping",
-        q: `Grocery ${product}`,
-        location: location,
-        hl: "en",
-        gl: "us",
-        api_key: process.env.SERPAPI_KEY,
-      });
+        // Fetch data from SerpApi's Google Shopping engine
+        const response = await getJson({
+            engine: "google_shopping",
+            q: `Grocery ${product}`,
+            location: searchLocation.serpLocation, 
+            hl: "en",
+            gl: "us",
+            api_key: process.env.SERPAPI_KEY
+        });
 
       const allResults = response.shopping_results || [];
 
-      // Store un-filtered results in cache
-      try {
-        await set_cached_search(cacheKey, allResults);
-      } catch (error) {
-        console.error("Cache Write Error:", error);
-      }
-
-      let userBlockedStores = [];
-      try {
-        const userContext = await create_user_context(req.user.email);
-        if (userContext)
-          userBlockedStores = await userContext.get_blacklisted_stores();
-      } catch (e) {
-        console.error("Error fetching user context for filter:", e);
-      }
-
-      //Filter for blocked stores
-      const results = allResults.filter(
-        (item) =>
-          !userBlockedStores.some((store) =>
-            item.source?.toLowerCase().includes(store.toLowerCase()),
-          ),
-      );
-
-      searchHistory.push({
-        product,
-        zipCode,
-        timestamp: new Date(),
-        cached: false,
-      });
+        // Store un-filtered results in cache
+        try {
+            await set_cached_search(cacheKey, allResults);
+            await saveSearchResultsToDb(allResults);
+        } catch (error) {
+            console.error("Cache/Product DB Write Error:", error);
+        }
+        
+        //Filter for blocked stores
+        const results = allResults.filter(item => !userBlockedStores.some(store => 
+            item.source?.toLowerCase().includes(store.toLowerCase())
+        ));
+        
+        // Highlight favorites (show first)
+        results.sort((a, b) => {
+            const aFav = (favoriteIdentifiers.includes(a.product_id) || favoriteIdentifiers.includes(a.title)) ? 1 : 0;
+            const bFav = (favoriteIdentifiers.includes(b.product_id) || favoriteIdentifiers.includes(b.title)) ? 1 : 0;
+            return bFav - aFav;
+        });
+      
+      searchHistory.push({ product, zipCode: searchLocation.zipCode, location: searchLocation.serpLocation, timestamp: new Date(), cached: false });
       res.json({
         count: results.length,
         data: results,
@@ -142,7 +195,87 @@ app.get(
     }
   },
 );
+async function saveSearchResultsToDb(allResults) {
+  console.log("Saving search results to DB:", allResults.length);
 
+  for (const item of allResults) {
+    try {
+      const title = item.title || item.name;
+      const source = item.source;
+      const link = item.link || "http://placeholder.com";
+      const price = item.extracted_price || parseFloat(String(item.price || "").replace(/[^0-9.]/g, ""));
+      const serpProductId = item.product_id;
+
+      if (!title || !source) continue;
+
+      // 1. Save store
+      try {
+        await add_store(source, link);
+      } catch (e) {
+        // probably duplicate store, ignore
+      }
+
+      // 2. Save brand
+      let brandId = null;
+      const brandName = title.split(" ")[0];
+
+      if (brandName) {
+        try {
+          const brand = await _add_brand(brandName);
+          brandId = brand.brand_id;
+        } catch (e) {
+          // duplicate brand or insert issue — ignore for now
+        }
+      }
+
+      // 3. Save product
+      let product = null;
+
+      try {
+        product = await add_product(title, brandId ?? undefined);
+      } catch (e) {
+        // duplicate product or insert issue — ignore for now
+      }
+
+      if (!product?.product_id) continue;
+
+      // 4. Save item
+      // add_item currently requires store_item_id to be a positive integer
+      const storeItemId = String(item.product_id || `${title}-${source}`);
+
+      let dbItem = null;
+
+      try {
+          dbItem = await add_item(
+            product.product_id,
+            source,
+            storeItemId,
+            item.rating ?? null,
+            item.reviews ?? null
+          );
+      } catch (e) {
+          // duplicate item or schema issue — ignore for now
+        }
+
+        // 5. Save deal/price
+        if (dbItem?.item_id && Number.isFinite(price)) {
+          try {
+            await add_deal(
+              dbItem.item_id,
+              price,
+              false,
+              new Date()
+            );
+          } catch (e) {
+            // duplicate deal or insert issue — ignore for now
+          }
+        }
+      
+    } catch (err) {
+      console.error("Error saving search result to DB:", err);
+    }
+  }
+}
 /**
  * Protected endpoint returning local API hit history.
  * Pushes historical items array directly tied to the active server session runtime.
@@ -224,7 +357,18 @@ app.get("/api/block", verifyToken, async (req, res) => {
  * @param {number} [req.query.k] - An optional limiting parameters dictating returned items maximum map array length limit.
  * @returns {Array<Object>} Sorted payload map array of items strictly passing through the algorithm.
  */
-app.get("/api/compare", verifyToken, async (req, res) => {
+app.get('/api/compare', optionalVerifyToken, 
+ query('product').isString().trim().escape().notEmpty(),
+ query('zipCode').optional().isPostalCode('US'),
+ query('location').optional().isString().trim().isLength({ min: 1, max: 100 }),
+  async (req, res) => {
+  const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+  const { product, zipCode, location: requestedLocation } = req.query;
+  const searchLocation = normalizeSearchLocation(zipCode, requestedLocation);
+  const cacheKey = `${product.toLowerCase().trim()}-${searchLocation.cacheLocation}`;
   try {
     let userBlockedStores = [];
     const userContext = await create_user_context(req.user.email);
@@ -247,10 +391,42 @@ app.get("/api/compare", verifyToken, async (req, res) => {
  * @param {string} req.params.item_id - The strict alphanumeric URL route parameter literal mapping to an item identifier tag.
  * @returns {Object} JSON payload directly mimicking the exact raw `shopping_results` property map structure object for given item tag.
  */
-app.get("/api/item/:item_id", (req, res) => {
-  getItemById(req, res);
+app.get('/api/item/:item_id',
+  query('product').isString().trim().escape().notEmpty(),
+  query('zipCode').optional().isPostalCode('US'),
+  query('location').optional().isString().trim().isLength({ min: 1, max: 100 }),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { product, zipCode, location: requestedLocation } = req.query;
+    const searchLocation = normalizeSearchLocation(zipCode, requestedLocation);
+    const cacheKey = `${product.toLowerCase().trim()}-${searchLocation.cacheLocation}`;
+
+    try {
+        const cachedEntry = await get_cached_search(cacheKey);
+        if (!cachedEntry) {
+            return res.status(404).json({ error: "Product search results not found in cache." });
+        }
+        const items = cachedEntry.results;
+        
+        getItemById(items, req, res);
+    } catch (err) {
+        console.error("Item Fetch Error:", err);
+        res.status(500).json({ error: "Failed to fetch item." });
+    }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// replaced old app.listen to initialize pool (database connect)
+initialize_pool(true)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to initialize database pool:", err);
+    process.exit(1);
+  });

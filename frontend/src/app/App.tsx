@@ -7,6 +7,7 @@ import { SearchResultsPage } from "./components/SearchResultsPage.tsx";
 import { SettingsPage } from "./components/SettingsPage.tsx";
 import { HistoryPage } from "./components/HistoryPage.tsx";
 import { searchAndCompareProducts } from "./services/products.ts";
+import type { CompareSort } from "./services/products.ts";
 import { onAuthChange, logOut } from "./services/auth.ts";
 import { HomePage } from "./components/HomePage.tsx";
 
@@ -31,7 +32,31 @@ function buildItemDetails(product: any) {
           },
         ]
       : undefined;
+  const savingsAmount =
+    product.secondBestPrice && product.price
+      ? (product.secondBestPrice - product.price).toFixed(2)
+      : null;
+  const priceDifference =
+    product.secondBestPrice && product.price
+      ? product.secondBestPrice - product.price
+      : null;
 
+  let comparisonMessage = null;
+  let comparisonType: "positive" | "negative" | null = null;
+
+  if (priceDifference !== null) {
+    if (priceDifference > 0) {
+      comparisonMessage =
+        `At least $${priceDifference.toFixed(2)} cheaper than the next lowest price`;
+
+      comparisonType = "positive";
+    } else if (priceDifference < 0) {
+      comparisonMessage =
+        `$${Math.abs(priceDifference).toFixed(2)} more expensive than the best option`;
+
+      comparisonType = "negative";
+    }
+  }
   return {
     name: product.name,
     image: product.image,
@@ -39,48 +64,21 @@ function buildItemDetails(product: any) {
       store: product.store,
       price: product.price,
       unit: product.unit ?? "each",
+      comparisonMessage,
+      comparisonType,
       pricePerUnitItem:
         product.pricePerUnitItem ??
         `$${product.price.toFixed(2)}/${product.unit || "each"}`,
       isOnSale: product.isOnSale ?? false,
       promotions: promotion,
       snapEligible: product.snapEligible ?? true,
-      distance: product.distance ?? "3.5 Miles away",
-      address: product.address ?? "233 Russell St. Amherst MA",
-      mapUrl: product.mapUrl,
+      distance: undefined,
+      address: undefined,
+      mapUrl: undefined,
       loyaltyProgramIndicator: product.loyaltyProgramIndicator,
       isOutOfStock: product.isOutOfStock ?? false,
     },
-    otherRetailers: product.otherRetailers ?? [
-      {
-        store: "Target",
-        price: product.price + 0.5,
-        pricePerUnitItem: `$${(product.price + 0.5).toFixed(2)}/${product.unit || "each"}`,
-        snapEligible: true,
-        image: product.image,
-      },
-      {
-        store: "Kroger",
-        price: product.price + 0.75,
-        pricePerUnitItem: `$${(product.price + 0.75).toFixed(2)}/${product.unit || "each"}`,
-        snapEligible: false,
-        image: product.image,
-      },
-      {
-        store: "Whole Foods",
-        price: product.price + 1.0,
-        pricePerUnitItem: `$${(product.price + 1.0).toFixed(2)}/${product.unit || "each"}`,
-        snapEligible: true,
-        image: product.image,
-      },
-      {
-        store: "Safeway",
-        price: product.price + 0.3,
-        pricePerUnitItem: `$${(product.price + 0.3).toFixed(2)}/${product.unit || "each"}`,
-        snapEligible: true,
-        image: product.image,
-      },
-    ],
+    otherRetailers: [],
   };
 }
 
@@ -93,6 +91,7 @@ export default function App() {
   const [location, setLocation] = useState("Amherst, MA 01003");
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [comparisonCriteria, setComparisonCriteria] = useState<CompareSort>("price");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [accountName, setAccountName] = useState("");
@@ -196,7 +195,16 @@ export default function App() {
 
   const handleProductClick = (product: any) => {
     setPreviousView(view);
-    setSelectedProduct(product);
+    const sortedByPrice = [...searchResults]
+      .filter((item) => Number.isFinite(Number(item.price)))
+      .sort((a, b) => Number(a.price) - Number(b.price));
+
+    const secondBest = sortedByPrice.find((item) => item.id !== product.id);
+
+    setSelectedProduct({
+      ...product,
+      secondBestPrice: secondBest?.price ?? null,
+    });
     setView("item");
   };
 
@@ -211,13 +219,14 @@ export default function App() {
 
   // SEARCH
   // CHANGING THIS RIGHT NOW TO TEST SEARCH WITH BACKEND line 217 to 238
-  const handleSearch = async (query: string) => {
+  const handleSearch = async (query: string, criteria: CompareSort = comparisonCriteria) => {
     setSearchQuery(query);
+    setComparisonCriteria(criteria);
     setView("search");
 
     try {
       console.log("Calling backend...");
-      const backendResults = await searchAndCompareProducts(query, "price", 20);
+      const backendResults = await searchAndCompareProducts(query, criteria, 20, location);
       console.log("Backend results:", backendResults);
 
       setSearchResults(backendResults);
@@ -233,6 +242,15 @@ export default function App() {
       const filtered = prev.filter((q) => q !== query);
       return [query, ...filtered];
     });
+  };
+
+  const handleComparisonCriteriaChange = async (criteria: CompareSort) => {
+    if (criteria === comparisonCriteria) return;
+
+    setComparisonCriteria(criteria);
+    if (searchQuery.trim()) {
+      await handleSearch(searchQuery, criteria);
+    }
   };
 
   // HEADER props — shared across pages
@@ -306,6 +324,8 @@ export default function App() {
       <SearchResultsPage
         searchQuery={searchQuery}
         results={searchResults}
+        comparisonCriteria={comparisonCriteria}
+        onComparisonCriteriaChange={handleComparisonCriteriaChange}
         onProductClick={handleProductClick}
         onBack={goHome}
         {...headerProps}
@@ -333,5 +353,5 @@ export default function App() {
   }
 
   // home page!
-  return <HomePage {...headerProps} onProductClick={handleProductClick} />;
+return <HomePage {...headerProps} onProductClick={handleProductClick} />;
 }

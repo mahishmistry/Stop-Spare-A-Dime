@@ -285,10 +285,18 @@ export async function get_product_by_name(name: string) {
  * @param unit_id Optional unit ID.
  * @returns A Promise that resolves to the inserted item object with item_id, product_id, store_item_id, avg_rating, rating_count, package_quantity, unit_id, and store_source.
  */
-export async function add_item(product_id: number, store_source: string, store_item_id: number, avg_rating?: number, rating_count?: number, package_quantity?: number, unit_id?: number) {
+export async function add_item(
+  product_id: number,
+  store_source: string,
+  store_item_id: string,
+  avg_rating?: number,
+  rating_count?: number,
+  package_quantity?: number,
+  unit_id?: number
+) {
     _assert_positive_integer(product_id, "product_id");
     _assert_non_empty_string(store_source, "store_source");
-    _assert_positive_integer(store_item_id, "store_item_id");
+    _assert_non_empty_string(store_item_id, "store_item_id");
     if (avg_rating != null) {
         _assert_non_negative_number(avg_rating, "avg_rating");
     }

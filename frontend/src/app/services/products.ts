@@ -3,7 +3,7 @@ import { auth } from "./auth";
 const API_BASE_URL =
   (import.meta as any).env?.VITE_API_BASE_URL || "http://localhost:3000";
 
-export type CompareSort = "price" | "rating" | "bang for buck";
+export type CompareSort = "price" | "rating" | "bang for buck" | "unit price";
 
 export async function registerCurrentUser() {
   const token = await auth.currentUser?.getIdToken();
@@ -34,13 +34,19 @@ export async function registerCurrentUser() {
 }
 
 function normalizeProduct(item: any, index: number) {
+  const price = item.extracted_price || item.price || 0;
+  const pricePerUnit =
+    typeof item.price_per_unit === "number" && item.unit_type
+      ? `$${item.price_per_unit.toFixed(2)}/${item.unit_type}`
+      : undefined;
+
   return {
     id: item.product_id || item.id || String(index),
     name: item.title || item.name || "Unknown item",
-    price: item.extracted_price || item.price || 0,
+    price,
     store: item.source || item.store || "Unknown store",
     image: item.thumbnail || item.image || "",
-    unitPrice: item.price || "",
+    unitPrice: pricePerUnit || item.price || (price ? `$${Number(price).toFixed(2)}` : ""),
     snapEligible: item.snapEligible ?? true,
   };
 }
@@ -57,7 +63,7 @@ export async function searchAndCompareProducts(
   product: string,
   criteria: CompareSort = "price",
   k: number = 20,
-  zipCode?: string
+  userLocation?: string
 ) {
   if (!product.trim()) return [];
 
@@ -65,7 +71,7 @@ export async function searchAndCompareProducts(
 
   const pricesUrl = new URL(`${API_BASE_URL}/api/prices`);
   pricesUrl.searchParams.set("product", product);
-  if (zipCode) pricesUrl.searchParams.set("zipCode", zipCode);
+  if (userLocation) pricesUrl.searchParams.set("location", userLocation);
 
   const pricesRes = await fetch(pricesUrl.toString(), {
     method: "GET",
@@ -80,7 +86,7 @@ export async function searchAndCompareProducts(
   compareUrl.searchParams.set("product", product);
   compareUrl.searchParams.set("criteria", criteria);
   compareUrl.searchParams.set("k", String(k));
-  if (zipCode) compareUrl.searchParams.set("zipCode", zipCode);
+  if (userLocation) compareUrl.searchParams.set("location", userLocation);
 
   const compareRes = await fetch(compareUrl.toString(), {
     method: "GET",

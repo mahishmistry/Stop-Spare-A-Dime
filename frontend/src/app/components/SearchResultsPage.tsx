@@ -1,7 +1,8 @@
 import { ArrowLeft } from "lucide-react"; // https://lucide.dev/icons/
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "./Header.tsx";
-import React from "react";
+import type { CompareSort } from "../services/products.ts";
+import {apiFetchBlacklist, isBlockedStore } from "../services/blacklist.ts";
 
 interface SearchResult {
   id: string;
@@ -21,6 +22,8 @@ interface SearchResult {
 interface SearchResultsPageProps {
   searchQuery: string;
   results: SearchResult[];
+  comparisonCriteria: CompareSort;
+  onComparisonCriteriaChange: (criteria: CompareSort) => void;
   location: string;
   onProductClick: (result: SearchResult) => void;
   onBack: () => void;
@@ -40,6 +43,8 @@ interface SearchResultsPageProps {
 export function SearchResultsPage({
   searchQuery,
   results,
+  comparisonCriteria,
+  onComparisonCriteriaChange,
   location,
   onProductClick,
   onBack,
@@ -56,18 +61,47 @@ export function SearchResultsPage({
   accountEmail,
 }: SearchResultsPageProps) {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+  const [blockedStores, setBlockedStores] = useState<string[]>([]);
+
+  const comparisonOptions: Array<{ value: CompareSort; label: string }> = [
+    { value: "price", label: "Lowest Price" },
+    { value: "rating", label: "Best Rating" },
+    { value: "bang for buck", label: "Best Value" },
+    { value: "unit price", label: "Unit Price" },
+  ];
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadBlockedStores() {
+      try {
+        const stores = await apiFetchBlacklist();
+        if (!cancelled) setBlockedStores(stores);
+      } catch (err) {
+        console.error("Failed to load blocked stores for search results:", err);
+        if (!cancelled) setBlockedStores([]);
+      }
+    }
+
+    loadBlockedStores();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isAuthenticated]);
 
   const toggleFilter = (filter: string) => {
     setActiveFilters((prev) =>
       prev.includes(filter)
         ? prev.filter((f) => f !== filter)
-        : [...prev, filter],
+        : [...prev, filter]
     );
   };
 
-  // Apply filters to results
+  // Apply blacklist and selected filters to results
   const filteredResults = results.filter((result) => {
+    if (isBlockedStore(result.store ?? "", blockedStores)) return false;
+
     if (activeFilters.length === 0) return true;
 
     return activeFilters.every((filter) => {
@@ -103,38 +137,59 @@ export function SearchResultsPage({
 
       {/* Filters bar */}
       <div className="bg-white border-b border-gray-200 px-6 py-3">
-        <div className="max-w-7xl mx-auto flex items-center gap-2 text-sm">
-          <span className="text-gray-700">(Filters)</span>
-          <button
-            onClick={() => toggleFilter("sale")}
-            className={`px-3 py-1 rounded-full border transition-colors ${
-              activeFilters.includes("sale")
-                ? "bg-[#6FBD7A] text-white border-[#6FBD7A]"
-                : "bg-white text-gray-600 border-gray-300"
-            }`}
-          >
-            Sale Promotions?
-          </button>
-          <button
-            onClick={() => toggleFilter("memberships")}
-            className={`px-3 py-1 rounded-full border transition-colors ${
-              activeFilters.includes("memberships")
-                ? "bg-[#6FBD7A] text-white border-[#6FBD7A]"
-                : "bg-white text-gray-600 border-gray-300"
-            }`}
-          >
-            Memberships?
-          </button>
-          <button
-            onClick={() => toggleFilter("snap")}
-            className={`px-3 py-1 rounded-full border transition-colors ${
-              activeFilters.includes("snap")
-                ? "bg-[#6FBD7A] text-white border-[#6FBD7A]"
-                : "bg-white text-gray-600 border-gray-300"
-            }`}
-          >
-            Snap Eligible?
-          </button>
+        <div className="max-w-7xl mx-auto flex flex-col gap-3 text-sm lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-gray-700">Compare by</span>
+            <div className="flex flex-wrap rounded-lg border border-gray-300 overflow-hidden">
+              {comparisonOptions.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => onComparisonCriteriaChange(option.value)}
+                  className={`px-3 py-1.5 border-r border-gray-300 last:border-r-0 transition-colors ${
+                    comparisonCriteria === option.value
+                      ? "bg-[#6FBD7A] text-white"
+                      : "bg-white text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-gray-700">Filters</span>
+            <button
+              onClick={() => toggleFilter("sale")}
+              className={`px-3 py-1 rounded-full border transition-colors ${
+                activeFilters.includes("sale")
+                  ? "bg-[#6FBD7A] text-white border-[#6FBD7A]"
+                  : "bg-white text-gray-600 border-gray-300"
+              }`}
+            >
+              Sale Promotions?
+            </button>
+            <button
+              onClick={() => toggleFilter("memberships")}
+              className={`px-3 py-1 rounded-full border transition-colors ${
+                activeFilters.includes("memberships")
+                  ? "bg-[#6FBD7A] text-white border-[#6FBD7A]"
+                  : "bg-white text-gray-600 border-gray-300"
+              }`}
+            >
+              Memberships?
+            </button>
+            <button
+              onClick={() => toggleFilter("snap")}
+              className={`px-3 py-1 rounded-full border transition-colors ${
+                activeFilters.includes("snap")
+                  ? "bg-[#6FBD7A] text-white border-[#6FBD7A]"
+                  : "bg-white text-gray-600 border-gray-300"
+              }`}
+            >
+              Snap Eligible?
+            </button>
+          </div>
         </div>
       </div>
 
@@ -207,3 +262,4 @@ export function SearchResultsPage({
     </div>
   );
 }
+
