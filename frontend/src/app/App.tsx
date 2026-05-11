@@ -97,7 +97,7 @@ export default function App() {
   const [accountName, setAccountName] = useState("");
   const [accountEmail, setAccountEmail] = useState("");
   const [accountZip, setAccountZip] = useState("01003");
-
+  const [authToken, setAuthToken] = useState<string | null>(null);
   // AUTH
   useEffect(() => {
     // runs on first render to subscribe once to firebase through onauthchange
@@ -105,6 +105,17 @@ export default function App() {
       // listening to changes to auth state! subscribed to take action
       if (user) {
         setIsAuthenticated(true);
+        const token = await user.getIdToken();
+        setAuthToken(token);
+        try {
+          const token = await user.getIdToken();
+          await fetch("http://localhost:3000/api/register", {
+            method: "POST",
+            headers: { Authorization: `Bearer ${token}` },
+          });
+        } catch (err) {
+        console.warn("Register call failed:", err);
+      }
         // Retry profile fetch up to 5 times if it failed the first time in case something didnt work the first time.
         let data: { name?: string; email?: string } | null = null; // want data to survive loops of retries
         for (let attempt = 1; attempt <= 5; attempt++) {

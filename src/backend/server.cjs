@@ -9,7 +9,14 @@ const { create_user_context, create_new_user } = require('../database/user.ts');
 const { initialize_pool } = require('../database/pool.ts');
 
 const verifyToken = require("../../middleware/verifyToken.cjs");
+const optionalVerifyToken = require("../../middleware/optionalVerifyToken.cjs");
 const app = express();
+const cors = require('cors');
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 const PORT = process.env.PORT || 3000;
 
 app.use(helmet());
@@ -19,7 +26,7 @@ const searchHistory = [];
 
 const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 const DEFAULT_SEARCH_ZIP = '01003';
-const DEFAULT_SEARCH_LOCATION = 'Amherst, MA, United States';
+const DEFAULT_SEARCH_LOCATION = '01003';
 
 function normalizeSearchLocation(zipCode, requestedLocation) {
   const rawLocation = String(requestedLocation || zipCode || '').trim();
@@ -42,7 +49,7 @@ function normalizeSearchLocation(zipCode, requestedLocation) {
 
   if (cityState && /,\s*[A-Za-z]{2}$/.test(cityState)) {
     const [city, state] = cityState.split(',').map((part) => part.trim());
-    const serpLocation = `${city}, ${state.toUpperCase()}, United States`;
+    const serpLocation = zip || `${city}, ${state.toUpperCase()}, United States`;
     return {
       cacheLocation: zip ? `${zip}:${serpLocation}` : serpLocation,
       serpLocation,
@@ -88,7 +95,7 @@ app.get('/api/prices', optionalVerifyToken,
 
     try {
       if(req.user?.email){
-        const userContext = await create_user_context(req.user.email);
+        const userContext = req.user?.email ? await create_user_context(req.user.email) : null;
           if (userContext) {
             userBlockedStores = await userContext.get_blacklisted_stores();
             const favIds = await userContext.get_favorite_products(100);
@@ -105,18 +112,6 @@ app.get('/api/prices', optionalVerifyToken,
     }
 
     try {
-        // Check if valid cache exists in the database
-        const cachedEntry = await get_cached_search(cacheKey);
-        
-        if (cachedEntry && (Date.now() - new Date(cachedEntry.last_fetched).getTime() < CACHE_DURATION_MS)) {
-            // Return cached results
-            searchHistory.push({ product, zipCode: searchLocation.zipCode, location: searchLocation.serpLocation, timestamp: new Date(), cached: true });
-            
-            // Filter cached results for blocked stores
-            const filteredCache = cachedEntry.results.filter(item => !userBlockedStores.some(store => 
-                item.source?.toLowerCase().includes(store.toLowerCase())
-            ));
-
       // Check if valid cache exists in the database
       const cachedEntry = await get_cached_search(cacheKey);
 
@@ -284,8 +279,19 @@ async function saveSearchResultsToDb(allResults) {
  * @function
  * @returns {Object} JSON array comprising all searches made prior in this server's session lifecycle.
  */
-app.get("/api/history", verifyToken, (req, res) => {
-  res.json({ history: searchHistory });
+app.get("/api/history", verifyToken, async (req, res) => {
+  console.log("History request from:", req.user.email);
+  try {
+    const userContext = await create_user_context(req.user.email);
+    if (!userContext) {
+      return res.status(404).json({ error: "User not found." });
+    }
+    const history = await userContext.get_search_history(50);
+    res.json({ history });
+  } catch (err) {
+    console.error("History fetch error:", err);
+    res.status(500).json({ error: "Failed to fetch history." });
+  }
 });
 
 /**
@@ -369,16 +375,21 @@ app.get('/api/compare', optionalVerifyToken,
   const { product, zipCode, location: requestedLocation } = req.query;
   const searchLocation = normalizeSearchLocation(zipCode, requestedLocation);
   const cacheKey = `${product.toLowerCase().trim()}-${searchLocation.cacheLocation}`;
+  if (!req.query.k) req.query.k = '10';
   try {
     let userBlockedStores = [];
-    const userContext = await create_user_context(req.user.email);
+    const userContext = req.user?.email ? await create_user_context(req.user.email) : null;
     if (userContext) {
       userBlockedStores = await userContext.get_blacklisted_stores();
     }
-    getBestItems(req, res, userBlockedStores);
+    const cachedEntry = await get_cached_search(cacheKey);
+    const items = cachedEntry?.results || [];
+    getBestItems(items, req, res, userBlockedStores);
   } catch (err) {
     console.error("Comparison Error:", err);
-    getBestItems(req, res, []);
+    const cachedEntry = await get_cached_search(cacheKey).catch(() => null);
+    const items = cachedEntry?.results || [];
+    getBestItems(items, req, res, []);
   }
 });
 
@@ -419,6 +430,45 @@ app.get('/api/item/:item_id',
     }
 });
 
+app.post("/api/register", verifyToken, async (req, res) => {
+  try {
+    const { email, name } = req.user;
+    const user = await create_new_user(email, name || "User");
+    res.json({ user });
+  } catch (err) {
+    if (err.message?.includes("ALREADY EXISTS")) {
+      return res.status(200).json({ message: "User already exists" });
+    }
+    console.error("Registration error:", err);
+    res.status(500).json({ error: "Failed to create user" });
+  }
+});
+app.get("/api/user/profile", verifyToken, async (req, res) => {
+  try {
+    const userContext = await create_user_context(req.user.email);
+    if (!userContext) {
+      return res.status(404).json({ error: "User not found." });
+    }
+    res.json({ name: userContext.name, email: userContext.email });
+  } catch (err) {
+    console.error("Profile fetch error:", err);
+    res.status(500).json({ error: "Failed to fetch profile." });
+  }
+});
+
+app.post("/api/user/register", verifyToken, async (req, res) => {
+  try {
+    const { email, name } = req.user;
+    const user = await create_new_user(email, name || "User");
+    res.json({ user });
+  } catch (err) {
+    if (err.message?.includes("ALREADY EXISTS")) {
+      return res.status(200).json({ message: "User already exists" });
+    }
+    console.error("Registration error:", err);
+    res.status(500).json({ error: "Failed to create user" });
+  }
+});
 // replaced old app.listen to initialize pool (database connect)
 initialize_pool(true)
   .then(() => {

@@ -52,11 +52,10 @@ function normalizeProduct(item: any, index: number) {
 }
 
 async function getAuthHeaders(): Promise<HeadersInit> {
-  const token = await auth.currentUser?.getIdToken();
-
-  return token
-    ? { Authorization: `Bearer ${token}` }
-    : {};
+  const user = auth.currentUser;
+  if (!user) return {};
+  const token = await user.getIdToken(true); // force refresh
+  return { Authorization: `Bearer ${token}` };
 }
 
 export async function searchAndCompareProducts(
@@ -82,6 +81,9 @@ export async function searchAndCompareProducts(
     throw new Error(`Failed to search products: ${pricesRes.status}`);
   }
 
+  // Read the prices response body (also populates server-side cache for /api/compare)
+  const pricesData = await pricesRes.json();
+
   const compareUrl = new URL(`${API_BASE_URL}/api/compare`);
   compareUrl.searchParams.set("product", product);
   compareUrl.searchParams.set("criteria", criteria);
@@ -97,11 +99,20 @@ export async function searchAndCompareProducts(
     throw new Error(`Failed to compare products: ${compareRes.status}`);
   }
 
-  const data = await compareRes.json();
+  const compareData = await compareRes.json();
 
-  return Array.isArray(data)
-    ? data.map(normalizeProduct)
-    : [];
+  // Use compare results if available, otherwise fall back to raw prices data
+  if (Array.isArray(compareData) && compareData.length > 0) {
+    return compareData.map(normalizeProduct);
+  }
+
+  // Fallback: use the prices endpoint data directly
+  const rawItems = pricesData?.data || (Array.isArray(pricesData) ? pricesData : []);
+  if (rawItems.length > 0) {
+    return rawItems.slice(0, k).map(normalizeProduct);
+  }
+
+  return [];
 }
 
 
@@ -125,7 +136,7 @@ export async function getStores(): Promise<string[]> {
     const data = await res.json();
     
     // to make sure it returns an array, even if the backend acts up
-    return Array.isArray(data) ? data : [];
+    return Array.isArray(data) ? data : (data.stores || data.history || []);
     
   } catch (error) {
     console.error("Error fetching stores:", error);
@@ -176,18 +187,15 @@ export async function updateUserNotifications(enabled: boolean) {
 export async function getSearchHistory() {
   try {
     const headers = await getAuthHeaders();
+    // If no auth headers (user not logged in), return empty
+    if (!headers || !('Authorization' in headers)) return [];
     const res = await fetch(`${API_BASE_URL}/api/history`, {
       method: "GET",
       headers,
     });
-
-    if (!res.ok) {
-      console.warn(`Failed to fetch history: ${res.status}`);
-      return []; 
-    }
-
+    if (!res.ok) return [];
     const data = await res.json();
-    return Array.isArray(data) ? data : [];
+    return data.history || [];
   } catch (error) {
     console.error("Error fetching search history:", error);
     return [];
