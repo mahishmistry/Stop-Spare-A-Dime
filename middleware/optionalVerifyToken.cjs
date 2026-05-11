@@ -1,3 +1,4 @@
+const admin = require("../firebase.cjs");
 const optionalVerifyToken = async function optionalVerifyToken(req, res, next) {
  const authHeader = req.headers.authorization;
 
