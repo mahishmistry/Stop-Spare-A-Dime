@@ -5,13 +5,13 @@ import { LoginPage } from "./components/LoginPage.tsx";
 import { ItemDetailPage } from "./components/ItemDetailPage.tsx";
 import { SearchResultsPage } from "./components/SearchResultsPage.tsx";
 import { SettingsPage } from "./components/SettingsPage.tsx";
-import { HistoryPage } from "./components/HistoryPage.tsx"
+import { HistoryPage } from "./components/HistoryPage.tsx";
 import { searchAndCompareProducts } from "./services/products.ts";
 import { onAuthChange, logOut } from "./services/auth.ts";
 import { HomePage } from "./components/HomePage.tsx";
 
 // all possible pages to access: home , search results, item comparison details,
-type View = 'home' | 'search' | 'item' | 'settings' | 'login' | 'history';
+type View = "home" | "search" | "item" | "settings" | "login" | "history";
 
 // product details func: replace with real API item details and functions to find this data!
 function buildItemDetails(product: any) {
@@ -100,20 +100,27 @@ export default function App() {
   const [accountZip, setAccountZip] = useState("01003");
 
   // AUTH
-  useEffect(() => { // runs on first render to subscribe once to firebase through onauthchange
-    const unsubscribe = onAuthChange(async (user) => { // listening to changes to auth state! subscribed to take action
+  useEffect(() => {
+    // runs on first render to subscribe once to firebase through onauthchange
+    const unsubscribe = onAuthChange(async (user) => {
+      // listening to changes to auth state! subscribed to take action
       if (user) {
         setIsAuthenticated(true);
         // Retry profile fetch up to 5 times if it failed the first time in case something didnt work the first time.
         let data: { name?: string; email?: string } | null = null; // want data to survive loops of retries
-        for (let attempt = 1; attempt <= 5; attempt++) { // try 5 times then give up
+        for (let attempt = 1; attempt <= 5; attempt++) {
+          // try 5 times then give up
           try {
             const token = await user.getIdToken(); // firebase token
-            const response = await fetch("http://localhost:3000/api/user/profile", {
-              headers: { Authorization: `Bearer ${token}` },}); //supabase request for the users data
-            if (!response.ok) throw new Error(`HTTP ${response.status}`); 
+            const response = await fetch(
+              "http://localhost:3000/api/user/profile",
+              {
+                headers: { Authorization: `Bearer ${token}` },
+              },
+            ); //supabase request for the users data
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
             data = await response.json();
-            break; // success, end retries 
+            break; // success, end retries
           } catch (err) {
             console.warn(`Profile fetch attempt ${attempt}/5 failed:`, err);
             if (attempt < 5) {
@@ -178,13 +185,13 @@ export default function App() {
   const goToHistory = () => {
     if (!isAuthenticated) {
       setLoginReturnView(view);
-      setView('login');
+      setView("login");
       return;
     }
-    if (view !== 'history') {
+    if (view !== "history") {
       setPreviousView(view);
     }
-    setView('history');
+    setView("history");
   };
 
   const handleProductClick = (product: any) => {
@@ -210,17 +217,17 @@ export default function App() {
 
     try {
       console.log("Calling backend...");
-      const backendResults = await searchAndCompareProducts(query,"price", 20);
+      const backendResults = await searchAndCompareProducts(query, "price", 20);
       console.log("Backend results:", backendResults);
 
       setSearchResults(backendResults);
     } catch (error) {
-      // debugging code remove alert 
-      alert("search failed: "  + error);
+      // debugging code remove alert
+      alert("search failed: " + error);
       console.error("Backend search failed:", error);
       setSearchResults([]);
     }
-    // CHANGED DOWN TO HERE 
+    // CHANGED DOWN TO HERE
 
     setSearchHistory((prev: any[]) => {
       const filtered = prev.filter((q) => q !== query);
@@ -265,7 +272,10 @@ export default function App() {
     return (
       <SettingsPage
         {...headerProps}
-        onBack={() => {setPreviousView(view); setView(previousView);}}
+        onBack={() => {
+          setPreviousView(view);
+          setView(previousView);
+        }}
         accountName={accountName}
         accountEmail={accountEmail}
         accountZip={accountZip}
@@ -276,14 +286,17 @@ export default function App() {
     );
   }
 
-  if (view === 'history') {
+  if (view === "history") {
     return (
-    <HistoryPage
-      {...headerProps}
-      location={location}
-      onBack={() => {setPreviousView(view); setView(previousView);}}
-      onLogout={handleLogout}
-    />
+      <HistoryPage
+        {...headerProps}
+        location={location}
+        onBack={() => {
+          setPreviousView(view);
+          setView(previousView);
+        }}
+        onLogout={handleLogout}
+      />
     );
   }
 
@@ -320,5 +333,5 @@ export default function App() {
   }
 
   // home page!
-return <HomePage {...headerProps} onProductClick={handleProductClick} />;
+  return <HomePage {...headerProps} onProductClick={handleProductClick} />;
 }
