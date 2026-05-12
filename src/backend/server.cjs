@@ -368,6 +368,42 @@ app.get("/api/block", verifyToken, async (req, res) => {
 });
 
 /**
+ * Removes a specific "store" name identifier from a user's persistent Database blocklist.
+ * Filters via the verifyToken session email embedded into Req.
+ *
+ * @name DELETE /api/block (protected)
+ * @function
+ * @param {string} req.body.store - The literal store source parameter identifying the merchant to unblock.
+ * @returns {Object} JSON payload explicitly detailing the user's updated blocklist arrays upon successful removal.
+ */
+app.delete(
+  "/api/block",
+  verifyToken,
+  body("store").isString().trim().escape().notEmpty(),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const { store } = req.body;
+
+    try {
+      const userContext = await create_user_context(req.user.email);
+      if (userContext) {
+        await userContext.unblacklist_store(store);
+        const blockedStores = await userContext.get_blacklisted_stores();
+        res.json({ blockedStores });
+      } else {
+        res.status(404).json({ error: "User not found in database." });
+      }
+    } catch (err) {
+      console.error("Error unblacklisting store:", err);
+      res.status(500).json({ error: "Failed to unblock store." });
+    }
+  },
+);
+
+/**
  * Reroutes comparison processing logic out of server instance and into algorithmic `getBestItems` structure.
  * Automatically bundles in the authenticated user's merchant blocklist for algorithmic filtering logic.
  *

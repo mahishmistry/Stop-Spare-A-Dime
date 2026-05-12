@@ -34,6 +34,12 @@ interface SettingsPageProps {
   onAccountZipChange: (val: string) => void;
 }
 
+interface Membership {
+  name: string;
+  detail: string;
+  status: string;
+}
+
 async function apiAddToBlacklist(store: string): Promise<string[]> {
   const token = await getToken();
   const res = await fetch("http://localhost:3000/api/block", {
@@ -338,7 +344,8 @@ export function SettingsPage({
     }
   };
 
-  const [memberships, setMemberships] = useState([]);
+  // Fix: typed useState so TypeScript knows the shape of each membership
+  const [memberships, setMemberships] = useState<Membership[]>([]);
   const [membershipSearch, setMembershipSearch] = useState('');
   const availableMemberships = ['Costco Membership', 'Stop & Shop Membership', 'Whole Foods Prime', "Sam's Club Membership", "BJ's Membership"];
   const availableStores = ['Walmart', 'Target', 'Kroger', 'Whole Foods', 'Safeway', 'Trader Joes', 'Costco', 'Aldi', 'Instacart', 'BJ\'s Wholesale Club'];
@@ -476,9 +483,9 @@ export function SettingsPage({
           <section id="account" className="mb-12">
             <h2 className="text-2xl mb-6 text-gray-800">Account</h2>
             <div className="divide-y divide-gray-100">
-              <EditRow label="Name" value={accountName} onSave={onAccountNameChange} />
-              <EditRow label="Email" value={accountEmail} onSave={onAccountEmailChange} type="email" />
-              <EditRow label="Primary zip code" value={accountZip} onSave={onAccountZipChange} maxLength={10} />
+              <EditRow label="Name" value={accountName} onSave={handleNameSave} />
+              <EditRow label="Email" value={accountEmail} onSave={handleEmailSave} type="email" />
+              <EditRow label="Primary zip code" value={accountZip} onSave={handleZipSave} maxLength={10} />
               <PasswordRow />
             </div>
           </section>
